@@ -30,13 +30,16 @@ Which databases to use has to be considered. The reason to use databases is beca
 and genes form a network based on how they interact with eachother. The initial database candidates in Ranklust are
 iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}. These databases all have in common that it exists
 Cytoscape apps made to use these databases. STRING however, does not have any repository available through the Cytoscape
-app store, so interacting with the database through Cytoscape without making new plugins may be difficult. On the other
-hand, both iRefIndex and GeneMania have their repositories easily available to the public together with decent
-documentation. However, the difference between them is what they contain information about. iRefIndex contains data about
-protein-protein interaction (PPI), while GeneMania contains data about genes. 
+app store, so interacting with the database through a new app in Cytoscape without making new plugins may be difficult. 
+On the other hand, both iRefIndex and GeneMania have their repositories easily available to the public together with 
+decent documentation. However, the difference between them is what they contain information about. iRefIndex contains 
+data about protein-protein interaction (PPI), while GeneMania contains data about genes. 
 % Check this next one out! Link from source!
 Since proteins come from genes, GeneMania can also give us some information about proteins. Differences between the
 two databases will be discussed in greater depth at a later stage.
+
+The plugins in Cytoscape to communicate with the databases are iRefScape \cite{iridb} for iRefIndex and GeneMANIA 
+\cite{gmdb} for GeneMania.
 \part{Background}
 \section*{Introduction}
 We have our body, and inside our body we have our organs. These organs are made up of tissue, and tissue is made up of

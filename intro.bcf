@@ -1968,7 +1968,9 @@
     <bcf:citekey order="1">iri</bcf:citekey>
     <bcf:citekey order="2">gm</bcf:citekey>
     <bcf:citekey order="3">str</bcf:citekey>
-    <bcf:citekey order="4">tester</bcf:citekey>
+    <bcf:citekey order="4">iridb</bcf:citekey>
+    <bcf:citekey order="5">gmdb</bcf:citekey>
+    <bcf:citekey order="6">tester</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" type="entry" label="nyt">
   <bcf:sorting>
