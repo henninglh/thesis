@@ -1,0 +1,67 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 2.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \sortlist{entry}{nyt}
+    \entry{iri}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://irefindex.org/wiki/index.php?title=iRefIndex
+      \endverb
+    \endentry
+    \entry{gm}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://www.genemania.org/
+      \endverb
+    \endentry
+    \entry{str}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://string-db.org/
+      \endverb
+    \endentry
+    \entry{tester}{article}{}
+      \name{labelname}{1}{}{%
+        {{hash=ab86a1e1ef70dff97959067b723c5c24}{me}{m\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=ab86a1e1ef70dff97959067b723c5c24}{me}{m\bibinitperiod}{}{}{}{}{}{}}%
+      }
+      \strng{namehash}{ab86a1e1ef70dff97959067b723c5c24}
+      \strng{fullhash}{ab86a1e1ef70dff97959067b723c5c24}
+      \field{sortinit}{m}
+      \field{labeltitle}{ifi}
+      \field{journaltitle}{uio}
+      \field{title}{ifi}
+      \field{year}{2015}
+    \endentry
+  \endsortlist
+\endrefsection
+\endinput
+
