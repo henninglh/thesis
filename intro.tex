@@ -20,6 +20,7 @@ identifying network biomarkers in cancer.
 \chapter{Clustering}
 \chapter{Cytoscape}
 % Rename the Cytoscape section to Software/Architecture/Development
+% General description of development
 Cytoscape is the open-source software platform the Ranklust app will be developed on. Its main purpose is to visualize
 molecular interaction networks and biological pathways. It has an easy way to integrate \textbf{\textit{Apps}}, which may
 be combined by other apps again to build big and complex applications which may solve problems in a bigger picture. The
@@ -27,6 +28,7 @@ goal of Ranklust is to cluster the networks we get from single gene prioritizati
 network biomarkers. Apps taking care of making the networks already exists, but there still has to be made a decision
 about whether or not they could be modified in order to better support the clustering.
 
+% Databases
 Which databases to use has to be considered. The reason to use databases is because they have information on how protein 
 and genes form a network based on how they interact with eachother. The initial database candidates in Ranklust are
 iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}. These databases all have in common that it exists
@@ -42,12 +44,14 @@ two databases will be discussed in greater depth at a later stage.
 The open-source plugins in Cytoscape to communicate with the databases are iRefScape \cite{iridb} for iRefIndex and 
 GeneMANIA \cite{gmdb} for GeneMania.
 
+% Cytoscape
 Cytoscape is based on the Java programming language, which is a little bit untraditional for a software platform used to
 develop bioinformatics tools. % cite needed!!!
 The reason to choose Java above Python, Perl or other popular programming languages is simply because I am more
 versed in Java programming than any other language. The Cytoscape community also promotes the idea of developing apps
 that follow the \emph{OSGi} standard \cite{cytoscape-osgi}.
 
+% OSGi and design patterns
 Developing OSGi software should promote modularization % cite needed!!!
 of the code and increase the probability of the app being launched as an official Cytoscape app, in addition to provide
 other developers with the possibility of reusing my modules in their own apps. There exists several design patterns that
@@ -55,12 +59,15 @@ could prove to be useful in the development of Ranklust. Another strategy to fol
 but more of a collection of them, is the clean code principles. More thorough examination of these strategies will
 follow. % Cite needed for design pattern definition and clean code principles
 
+% Prototyp section
 Prototyping of different parts of the app will be done in Python and the Galaxy environment \cite{galaxy}. Python is an 
 easy language to prototype with, and Galaxy is an easy environment to test small scripts with. Galaxy also has great 
 logging of previous experiments combined with settings, so recreating simulations and comparing results is easy to do and
 reliable. However, in my experience, Java comes up to par with Python in development speed once all of the boilerplate
 code is written and a good deployment tool is used. Therefore the Cytoscape platform is used for the final deployment of
 Ranklust.
+
+% Maven section
 
 \part{Background}
 \section*{Introduction}
