@@ -83,7 +83,7 @@
     </requires>
     <requires type="editable">
       <file>macros.bib</file>
-      <file>test.bib</file>
+      <file>references.bib</file>
     </requires>
   </external>
 </requests>

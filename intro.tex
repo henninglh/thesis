@@ -4,7 +4,7 @@
 \usepackage{graphicx,babel,csquotes}
 \usepackage[backend=biber,style=numeric-comp,sorting=nyt]{biblatex}
 \addbibresource{macros.bib}
-\addbibresource{test.bib}
+\addbibresource{references.bib}
 \title{Ranklust - A bioinformatics solution to identify network biomarkers in cancer}
 \begin{document}
 \maketitle
@@ -38,8 +38,20 @@ data about protein-protein interaction (PPI), while GeneMania contains data abou
 Since proteins come from genes, GeneMania can also give us some information about proteins. Differences between the
 two databases will be discussed in greater depth at a later stage.
 
-The plugins in Cytoscape to communicate with the databases are iRefScape \cite{iridb} for iRefIndex and GeneMANIA 
-\cite{gmdb} for GeneMania.
+The open-source plugins in Cytoscape to communicate with the databases are iRefScape \cite{iridb} for iRefIndex and 
+GeneMANIA \cite{gmdb} for GeneMania.
+
+Cytoscape is based on the Java programming language, which is a little bit untraditional for a software platform used to
+develop bioinformatics tools. % cite needed!!!
+The reason to choose Java above Python, Perl or other popular programming languages is simply because I am more
+versed in Java programming than any other language. The Cytoscape community also promotes the idea of developing apps 
+that follow the \emph{OSGi} standard \cite{cytoscape-osgi}.
+
+Developing OSGi software should promote modularization % cite needed!!!
+of the code and increase the probability of the app being launched as an official Cytoscape app, in addition to provide
+other developers with the possibility of reusing my modules in their own apps. There exists several design patterns that
+could prove to be useful in the development of Ranklust. Another strategy to follow may not be a direct design patter,
+but more of a collection of them, is the clean code principles.
 \part{Background}
 \section*{Introduction}
 We have our body, and inside our body we have our organs. These organs are made up of tissue, and tissue is made up of
