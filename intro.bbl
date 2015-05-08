@@ -73,6 +73,15 @@
       \verb http://wiki.cytoscape.org/Cytoscape_3/AppDeveloper
       \endverb
     \endentry
+    \entry{galaxy}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{08}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb https://usegalaxy.org/
+      \endverb
+    \endentry
     \entry{tester}{article}{}
       \name{labelname}{1}{}{%
         {{hash=ab86a1e1ef70dff97959067b723c5c24}{me}{m\bibinitperiod}{}{}{}{}{}{}}%

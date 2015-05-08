@@ -19,6 +19,7 @@ identifying network biomarkers in cancer.
 \chapter{Network generation}
 \chapter{Clustering}
 \chapter{Cytoscape}
+% Rename the Cytoscape section to Software/Architecture/Development
 Cytoscape is the open-source software platform the Ranklust app will be developed on. Its main purpose is to visualize
 molecular interaction networks and biological pathways. It has an easy way to integrate \textbf{\textit{Apps}}, which may
 be combined by other apps again to build big and complex applications which may solve problems in a bigger picture. The
@@ -30,10 +31,10 @@ Which databases to use has to be considered. The reason to use databases is beca
 and genes form a network based on how they interact with eachother. The initial database candidates in Ranklust are
 iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}. These databases all have in common that it exists
 Cytoscape apps made to use these databases. STRING however, does not have any repository available through the Cytoscape
-app store, so interacting with the database through a new app in Cytoscape without making new plugins may be difficult. 
-On the other hand, both iRefIndex and GeneMania have their repositories easily available to the public together with 
-decent documentation. However, the difference between them is what they contain information about. iRefIndex contains 
-data about protein-protein interaction (PPI), while GeneMania contains data about genes. 
+app store, so interacting with the database through a new app in Cytoscape without making new plugins may be difficult.
+On the other hand, both iRefIndex and GeneMania have their repositories easily available to the public together with
+decent documentation. However, the difference between them is what they contain information about. iRefIndex contains
+data about protein-protein interaction (PPI), while GeneMania contains data about genes.
 % Check this next one out! Link from source!
 Since proteins come from genes, GeneMania can also give us some information about proteins. Differences between the
 two databases will be discussed in greater depth at a later stage.
@@ -44,14 +45,23 @@ GeneMANIA \cite{gmdb} for GeneMania.
 Cytoscape is based on the Java programming language, which is a little bit untraditional for a software platform used to
 develop bioinformatics tools. % cite needed!!!
 The reason to choose Java above Python, Perl or other popular programming languages is simply because I am more
-versed in Java programming than any other language. The Cytoscape community also promotes the idea of developing apps 
+versed in Java programming than any other language. The Cytoscape community also promotes the idea of developing apps
 that follow the \emph{OSGi} standard \cite{cytoscape-osgi}.
 
 Developing OSGi software should promote modularization % cite needed!!!
 of the code and increase the probability of the app being launched as an official Cytoscape app, in addition to provide
 other developers with the possibility of reusing my modules in their own apps. There exists several design patterns that
 could prove to be useful in the development of Ranklust. Another strategy to follow may not be a direct design patter,
-but more of a collection of them, is the clean code principles.
+but more of a collection of them, is the clean code principles. More thorough examination of these strategies will
+follow. % Cite needed for design pattern definition and clean code principles
+
+Prototyping of different parts of the app will be done in Python and the Galaxy environment \cite{galaxy}. Python is an 
+easy language to prototype with, and Galaxy is an easy environment to test small scripts with. Galaxy also has great 
+logging of previous experiments combined with settings, so recreating simulations and comparing results is easy to do and
+reliable. However, in my experience, Java comes up to par with Python in development speed once all of the boilerplate
+code is written and a good deployment tool is used. Therefore the Cytoscape platform is used for the final deployment of
+Ranklust.
+
 \part{Background}
 \section*{Introduction}
 We have our body, and inside our body we have our organs. These organs are made up of tissue, and tissue is made up of

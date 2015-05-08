@@ -1,17 +1,17 @@
-[2] Config.pm:318> INFO - This is Biber 1.8
-[3] Config.pm:321> INFO - Logfile is 'intro.blg'
-[74] biber:275> INFO - === fr. mai  8, 2015, 16:32:30
-[75] Biber.pm:333> INFO - Reading 'intro.bcf'
-[145] Biber.pm:630> INFO - Found 7 citekeys in bib section 0
-[174] Biber.pm:3053> INFO - Processing section 0
-[200] Biber.pm:3190> INFO - Looking for bibtex format file 'macros.bib' for section 0
-[202] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
-[202] bibtex.pm:808> INFO - Found BibTeX data source 'macros.bib'
-[204] Biber.pm:3190> INFO - Looking for bibtex format file 'references.bib' for section 0
-[206] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
-[207] bibtex.pm:808> INFO - Found BibTeX data source 'references.bib'
-[305] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
-[305] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
-[306] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
-[326] bbl.pm:482> INFO - Writing 'intro.bbl' with encoding 'UTF-8'
-[326] bbl.pm:555> INFO - Output to intro.bbl
+[1] Config.pm:318> INFO - This is Biber 1.8
+[1] Config.pm:321> INFO - Logfile is 'intro.blg'
+[76] biber:275> INFO - === fr. mai  8, 2015, 16:52:20
+[76] Biber.pm:333> INFO - Reading 'intro.bcf'
+[173] Biber.pm:630> INFO - Found 8 citekeys in bib section 0
+[196] Biber.pm:3053> INFO - Processing section 0
+[222] Biber.pm:3190> INFO - Looking for bibtex format file 'macros.bib' for section 0
+[223] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
+[224] bibtex.pm:808> INFO - Found BibTeX data source 'macros.bib'
+[225] Biber.pm:3190> INFO - Looking for bibtex format file 'references.bib' for section 0
+[226] bibtex.pm:933> INFO - Decoding LaTeX character macros into UTF-8
+[226] bibtex.pm:808> INFO - Found BibTeX data source 'references.bib'
+[319] Biber.pm:2939> INFO - Overriding locale 'en_US.UTF-8' default tailoring 'variable = shifted' with 'variable = non-ignorable'
+[319] Biber.pm:2945> INFO - Sorting 'entry' list 'nyt' keys
+[319] Biber.pm:2949> INFO - No sort tailoring available for locale 'en_US.UTF-8'
+[338] bbl.pm:482> INFO - Writing 'intro.bbl' with encoding 'UTF-8'
+[339] bbl.pm:555> INFO - Output to intro.bbl

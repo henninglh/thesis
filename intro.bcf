@@ -1971,7 +1971,8 @@
     <bcf:citekey order="4">iridb</bcf:citekey>
     <bcf:citekey order="5">gmdb</bcf:citekey>
     <bcf:citekey order="6">cytoscape-osgi</bcf:citekey>
-    <bcf:citekey order="7">tester</bcf:citekey>
+    <bcf:citekey order="7">galaxy</bcf:citekey>
+    <bcf:citekey order="8">tester</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" type="entry" label="nyt">
   <bcf:sorting>
