@@ -82,21 +82,6 @@
       \verb https://usegalaxy.org/
       \endverb
     \endentry
-    \entry{tester}{article}{}
-      \name{labelname}{1}{}{%
-        {{hash=ab86a1e1ef70dff97959067b723c5c24}{me}{m\bibinitperiod}{}{}{}{}{}{}}%
-      }
-      \name{author}{1}{}{%
-        {{hash=ab86a1e1ef70dff97959067b723c5c24}{me}{m\bibinitperiod}{}{}{}{}{}{}}%
-      }
-      \strng{namehash}{ab86a1e1ef70dff97959067b723c5c24}
-      \strng{fullhash}{ab86a1e1ef70dff97959067b723c5c24}
-      \field{sortinit}{m}
-      \field{labeltitle}{ifi}
-      \field{journaltitle}{uio}
-      \field{title}{ifi}
-      \field{year}{2015}
-    \endentry
   \endsortlist
 \endrefsection
 \endinput
