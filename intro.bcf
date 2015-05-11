@@ -1965,13 +1965,15 @@
     <bcf:datasource type="file" datatype="bibtex">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">iri</bcf:citekey>
-    <bcf:citekey order="2">gm</bcf:citekey>
-    <bcf:citekey order="3">str</bcf:citekey>
-    <bcf:citekey order="4">iridb</bcf:citekey>
-    <bcf:citekey order="5">gmdb</bcf:citekey>
-    <bcf:citekey order="6">cytoscape-osgi</bcf:citekey>
-    <bcf:citekey order="7">galaxy</bcf:citekey>
+    <bcf:citekey order="1">cancerfacts</bcf:citekey>
+    <bcf:citekey order="2">cancerfacts</bcf:citekey>
+    <bcf:citekey order="3">iri</bcf:citekey>
+    <bcf:citekey order="4">gm</bcf:citekey>
+    <bcf:citekey order="5">str</bcf:citekey>
+    <bcf:citekey order="6">iridb</bcf:citekey>
+    <bcf:citekey order="7">gmdb</bcf:citekey>
+    <bcf:citekey order="8">cytoscape-osgi</bcf:citekey>
+    <bcf:citekey order="9">galaxy</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" type="entry" label="nyt">
   <bcf:sorting>
