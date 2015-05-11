@@ -1,4 +1,4 @@
-\documentclass[UKenglish,11pt,twoside,a4paper]{report}
+\documentclass[UKenglish,11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc, url}
 \usepackage{graphicx,babel,csquotes}
@@ -6,19 +6,33 @@
 \addbibresource{macros.bib}
 \addbibresource{references.bib}
 \title{Ranklust - A bioinformatics solution to identify network biomarkers in cancer}
+\author{Henning Lund-Hanssen}
 \begin{document}
 \maketitle
 \tableofcontents{}
-%\listoffigures{} - no figures atm
-%\listoftables{} - no figures atm
 \part{Introduction}
 To this day we still struggle with cancer. Even with all our modern equipment and knowledge we have still not been able
-to tame this horrible disease. My thesis is about making a tool which provides cancer researchers with an easier way of
+to tame this horrible disease. My thesis is about making a tool which gives cancer researchers an easier way of
 identifying network biomarkers in cancer. 
-\chapter{Single gene prioritization}
-\chapter{Network generation}
-\chapter{Clustering}
-\chapter{Cytoscape}
+\section{State of today}
+\subsection{Biomarkers}
+Biomarkers are at the centre of this thesis. They are what Ranklust should be able to detect and rank in order to
+identify network biomarkers, and not just single molecules of them. 
+\subsection{Prostate specific antigen}
+An example of a single molecule biomarker is the prostate specific antigen. This is 
+
+
+Today it is used for both identifying and
+evaluating the current stage of prostate cancer. This biomarker can be found by analyzing blood examples from patients,
+thus fulfilling some of the demands for a good biomarker, %citation needed!!
+but not all of them. It is easy to measure and easy to acquire, but not reliable enough to be used as the only tool 
+% find a better word, "tool" sucks!
+to identify and determine the stage or remission of prostate cancer.
+\subsection{Next-generation sequencing}
+\section{Single gene prioritization}
+\section{Network generation}
+\section{Clustering}
+\section{Cytoscape}
 % Rename the Cytoscape section to Software/Architecture/Development
 % General description of development
 Cytoscape is the open-source software platform the Ranklust app will be developed on. Its main purpose is to visualize
@@ -77,7 +91,7 @@ information for maintaining life onto the next generation.
 \section*{Background}
 \subsection*{DNA, RNA and protein in general}
 The name of the process when DNA goes from DNA to RNA to protein is called the \textbf{Central Dogma}. I will focus on
-the cell and how we perceive it and the interaction inside it. The cell can be seen as a network community of
+the cell, how we perceive it and the interaction inside it. The cell can be seen as a network community of
 interacting protein molecules. The protein comes from our DNA.
 
 In our DNA, there are areas that contain codes for making protein. These areas are called genes. Also, all of the
@@ -87,9 +101,8 @@ cells. It is our protein that performs chemical reactions in our body. DNA on th
 information about how our body is built up. RNA is the intermediate stage between DNA and protein.
 
 \subsection*{Protein}
-\subsubsection*{Amino acids}
 The protein in our body is made up from amino acids. The amount of amino acids in a protein may vary from 20 to 5000. But
-on average there is about 350 amino acids in a protein in our body. The way we identify amino acids is through using the
+on average there is about 350 amino acids in a protein in our body. The way we identify amino acids is through the
 alphabet. We use almost every letter in the alphabet, and it is organized in a chronological order when we show
 them in a list, but we miss some characters. They can also be identified by three letters, or the whole name of the
 amino acid.
@@ -105,7 +118,6 @@ ones are acidic. The four types just mentioned are not totally exclusively to ea
 both basic and acidic at the same time. At the same time an amino acid cannot be both polar and non-polar. But any
 combination of acidity/basicity together with polarity can occur.
 \subsection*{Genome}
-\subsubsection*{Mutation}
 When the genome changes suddenly and unexpected, we have a mutation. A mutation may happen when several things occur:
 \begin{itemize}
     \item Insertion

@@ -2,14 +2,22 @@
 \defcounter {refsection}{0}\relax 
 \select@language {UKenglish}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{I\hspace {1em}Introduction}{3}
+\contentsline {part}{I\hspace {1em}Introduction}{1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Single gene prioritization}{5}
+\contentsline {section}{\numberline {1}State of today}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Network generation}{6}
+\contentsline {subsection}{\numberline {1.1}Biomarkers}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Clustering}{7}
+\contentsline {subsection}{\numberline {1.2}Prostate specific antigen}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Cytoscape}{8}
+\contentsline {subsection}{\numberline {1.3}Next-generation sequencing}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{II\hspace {1em}Background}{10}
+\contentsline {section}{\numberline {2}Single gene prioritization}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}Network generation}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Clustering}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Cytoscape}{2}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{II\hspace {1em}Background}{3}
