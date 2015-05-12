@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.3 $
+% $ biblatex bbl format version 2.4 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,9 +18,10 @@
 
 
 \refsection{0}
-  \sortlist{entry}{nyt}
+  \sortlist{nyt}{nyt}
     \entry{cancerfacts}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{11}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -30,6 +31,7 @@
     \endentry
     \entry{iri}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -39,6 +41,7 @@
     \endentry
     \entry{gm}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -48,6 +51,7 @@
     \endentry
     \entry{str}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -57,6 +61,7 @@
     \endentry
     \entry{iridb}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -66,6 +71,7 @@
     \endentry
     \entry{gmdb}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -75,6 +81,7 @@
     \endentry
     \entry{cytoscape-osgi}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{08}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -84,6 +91,7 @@
     \endentry
     \entry{galaxy}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{a08a9549c5c2429f8cec5d1a581b26ca}
       \field{urlday}{08}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
