@@ -117,6 +117,28 @@
       \verb http://www.news-medical.net/health/What-is-a-Biomarker.aspx
       \endverb
     \endentry
+    \entry{beyondpsa}{article}{}
+      \name{labelname}{4}{}{%
+        {{hash=f7b3439256ee92b6627e3236c722fa79}{Prensner}{P\bibinitperiod}{John\bibnamedelima R.}{J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=149221dabc05c89ef34ed444e6082be5}{Ruin}{R\bibinitperiod}{Mark\bibnamedelima A.}{M\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{hash=e588f715aaf07131d388f8433c28b4b5}{Wei}{W\bibinitperiod}{John\bibnamedelima T.}{J\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{hash=2cf1427aefb9a2b129ffcc9830f34017}{Chinnayiyan}{C\bibinitperiod}{Arul\bibnamedelima M.}{A\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{4}{}{%
+        {{hash=f7b3439256ee92b6627e3236c722fa79}{Prensner}{P\bibinitperiod}{John\bibnamedelima R.}{J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
+        {{hash=149221dabc05c89ef34ed444e6082be5}{Ruin}{R\bibinitperiod}{Mark\bibnamedelima A.}{M\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+        {{hash=e588f715aaf07131d388f8433c28b4b5}{Wei}{W\bibinitperiod}{John\bibnamedelima T.}{J\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
+        {{hash=2cf1427aefb9a2b129ffcc9830f34017}{Chinnayiyan}{C\bibinitperiod}{Arul\bibnamedelima M.}{A\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{0d9e78cb45f49932e6bd00c424e55bac}
+      \strng{fullhash}{fd5d7326fed602f6b79758e78c9d0e45}
+      \field{sortinit}{P}
+      \field{labeltitle}{Beyond PSA: The next generation of prostate cancer biomarkers}
+      \field{journaltitle}{Sci Transl Med}
+      \field{title}{Beyond PSA: The next generation of prostate cancer biomarkers}
+      \field{volume}{1}
+      \field{year}{2012}
+    \endentry
   \endsortlist
 \endrefsection
 \endinput
