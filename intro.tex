@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc, url}
 \usepackage{graphicx,babel,csquotes}
-\usepackage[backend=biber,style=numeric-comp,sorting=nyt]{biblatex}
+\usepackage[backend=biber,style=numeric-comp,sorting=nyt,maxbibnames=20,maxcitenames=20]{biblatex}
 \addbibresource{macros.bib}
 \addbibresource{references.bib}
 \title{Ranklust - A bioinformatics solution to identify network biomarkers in cancer}
@@ -68,10 +68,9 @@ An example of a single molecule biomarker is the prostate specific antigen (PSA)
 prostate gland in male humans. The identification of cancer with PSA is simple, the higher the level of PSA, measured in
 ng/mL (nanograms per milliliter), the higher is the chance of the patient having prostate cancer \cite{cancerfacts}.
 
-Today it is used for both identifying and
-evaluating the current stage of prostate cancer. This biomarker can be found by analyzing blood examples from patients,
-thus fulfilling some of the demands for a good biomarker, %citation needed!!
-but not all of them. It is easy to measure and easy to acquire, but not reliable enough to be used as the only tool
+Today PSA is used for both identifying and evaluating the current stage of prostate cancer. This biomarker can be found 
+by analyzing blood examples from patients, thus fulfilling some of the demands for a good biomarker,
+but not all of them. It is easy to measure and easy to acquire, but not reliable enough to be used as the only marker
 % find a better word, "tool" sucks!
 to identify and determine the stage or remission of prostate cancer. The low grade of reliability comes from the fact
 that even though higher levels of PSA shows higher chance of having prostate cancer, prostate cancer is not the only
@@ -80,7 +79,14 @@ reason to have elevated levels of PSA \cite{cancerfacts}.
 Namely inflammation and enlargement of the prostate. Though, a man with both these cases may or may not develop prostate
 cancer.
 
-The conclusion for the PSA biomarker is that it is not reliable enough and are causing faulty treatment of prostate
+% Beyond PSA part
+
+
+% PSA conclusion
+% Part 1 of conclusion
+
+% Part 2 of conclusion
+So the conclusion for the PSA biomarker is that it is not reliable enough and are causing faulty treatment of prostate
 cancer that may not even exist. Because even if a patient has prostate cancer, it may not be developing any further, 
 promoting the case of not taking any action against it at all. So there is need for a new biomarker, or at least a 
 better way of identifying them.
@@ -94,9 +100,15 @@ for building huge networks of proteins and genes, allowing for more extensively 
 example, what if something that is classified as a prostate cancer biomarker only is viable, when proteins that has not
 been classified as a biomarker, also is present? Together they could represent a more appropriate
 \emph{network biomarker}.
-\section{Beyond PSA}
-\section{Single gene prioritization}
-\section{Network generation}
+\section{Next generation of biomarkers}
+The PSA biomarker is over 20 years old \cite{psa-age}. Through those years, there have been discovered other and better
+biomarkers for prostate cancer than PSA. Among those, PCA3, which is detectable through urine samples from patients. It
+also has the benefit of not being affected by the size of the prostate gland \cite{pca3-size}. But still the results
+could be better. Therefore, there has been tried to combine these two biomarkers in order to see if it is beneficial to
+see the results from each biomarker in light of each other \cite{beyondpsa}. The results from these tests is that they
+complement each other to a level of significance that makes it compelling to analyze them both to diagnose prostate
+cancer.
+\section{Network}
 \section{Clustering}
 \section{Cytoscape}
 % Rename the Cytoscape section to Software/Architecture/Development
