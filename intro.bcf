@@ -1974,14 +1974,17 @@
     <bcf:citekey order="3">cancerfacts</bcf:citekey>
     <bcf:citekey order="4">cancerfacts</bcf:citekey>
     <bcf:citekey order="5">ngs1</bcf:citekey>
-    <bcf:citekey order="6">psa-age</bcf:citekey>
-    <bcf:citekey order="7">iri</bcf:citekey>
-    <bcf:citekey order="8">gm</bcf:citekey>
-    <bcf:citekey order="9">str</bcf:citekey>
-    <bcf:citekey order="10">iridb</bcf:citekey>
-    <bcf:citekey order="11">gmdb</bcf:citekey>
-    <bcf:citekey order="12">cytoscape-osgi</bcf:citekey>
-    <bcf:citekey order="13">galaxy</bcf:citekey>
+    <bcf:citekey order="6">personalized</bcf:citekey>
+    <bcf:citekey order="7">psa-age</bcf:citekey>
+    <bcf:citekey order="8">pca3-size</bcf:citekey>
+    <bcf:citekey order="9">beyondpsa</bcf:citekey>
+    <bcf:citekey order="10">iri</bcf:citekey>
+    <bcf:citekey order="11">gm</bcf:citekey>
+    <bcf:citekey order="12">str</bcf:citekey>
+    <bcf:citekey order="13">iridb</bcf:citekey>
+    <bcf:citekey order="14">gmdb</bcf:citekey>
+    <bcf:citekey order="15">cytoscape-osgi</bcf:citekey>
+    <bcf:citekey order="16">galaxy</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>

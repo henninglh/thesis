@@ -214,6 +214,92 @@
       \field{volume}{1}
       \field{year}{2011}
     \endentry
+    \entry{pca3-size}{article}{}
+      \name{labelname}{14}{}{%
+        {{hash=e6e55162f564d1e45eaae4290cd2e051}{Haesea}{H\bibinitperiod}{Alexander}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=170de037da1ae22da27b68589e18d3fe}{Tailleb}{T\bibinitperiod}{Alexandre}{A\bibinitperiod}{de\bibnamedelima la}{d\bibinitperiod\bibinitdelim l\bibinitperiod}{}{}}%
+        {{hash=a5224a587276cf89559894163e6af116}{Poppelc}{P\bibinitperiod}{Hendrik}{H\bibinitperiod}{van}{v\bibinitperiod}{}{}}%
+        {{hash=921713477361f678862fd704fa2b1faf}{Marbergerd}{M\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=b6779be47c24c6ba0c842a852349fce1}{Stenzle}{S\bibinitperiod}{Arnulf}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=5f66c829ebc30faac098a7906bb494b5}{Muldersf}{M\bibinitperiod}{Peter\bibnamedelima F.A.}{P\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=ef3455d1797ba28bba1a40a182754ccc}{Hulandg}{H\bibinitperiod}{Hartwig}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=6f29d59f53f64c32504574e38a870814}{Abboub}{A\bibinitperiod}{Clément-Claude}{C\bibinithyphendelim C\bibinitperiod}{}{}{}{}}%
+        {{hash=9bb9db6d07cd25e980df5417790e56e6}{Remzid}{R\bibinitperiod}{Mesut}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=7e91941c3363a9d42805552c2c311592}{Tinzld}{T\bibinitperiod}{Martina}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=f7dc2cc05da091c0188757f290b3f4b8}{Feyerabende}{F\bibinitperiod}{Susan}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=3e66b417af5cc862df1820281ca495f9}{Stillebroerf}{S\bibinitperiod}{Alexander\bibnamedelima B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{hash=d3481d3dfe32f53010550e1e9cb9bdfc}{Gilsf}{G\bibinitperiod}{Martijn\bibnamedelima P.M.Q.}{M\bibinitperiod\bibinitdelim P\bibinitperiod}{van}{v\bibinitperiod}{}{}}%
+        {{hash=a151b4209b53e642f99371be5eaa3ac7}{Schalkenf}{S\bibinitperiod}{Jack\bibnamedelima A.}{J\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{14}{}{%
+        {{hash=e6e55162f564d1e45eaae4290cd2e051}{Haesea}{H\bibinitperiod}{Alexander}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=170de037da1ae22da27b68589e18d3fe}{Tailleb}{T\bibinitperiod}{Alexandre}{A\bibinitperiod}{de\bibnamedelima la}{d\bibinitperiod\bibinitdelim l\bibinitperiod}{}{}}%
+        {{hash=a5224a587276cf89559894163e6af116}{Poppelc}{P\bibinitperiod}{Hendrik}{H\bibinitperiod}{van}{v\bibinitperiod}{}{}}%
+        {{hash=921713477361f678862fd704fa2b1faf}{Marbergerd}{M\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=b6779be47c24c6ba0c842a852349fce1}{Stenzle}{S\bibinitperiod}{Arnulf}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=5f66c829ebc30faac098a7906bb494b5}{Muldersf}{M\bibinitperiod}{Peter\bibnamedelima F.A.}{P\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
+        {{hash=ef3455d1797ba28bba1a40a182754ccc}{Hulandg}{H\bibinitperiod}{Hartwig}{H\bibinitperiod}{}{}{}{}}%
+        {{hash=6f29d59f53f64c32504574e38a870814}{Abboub}{A\bibinitperiod}{Clément-Claude}{C\bibinithyphendelim C\bibinitperiod}{}{}{}{}}%
+        {{hash=9bb9db6d07cd25e980df5417790e56e6}{Remzid}{R\bibinitperiod}{Mesut}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=7e91941c3363a9d42805552c2c311592}{Tinzld}{T\bibinitperiod}{Martina}{M\bibinitperiod}{}{}{}{}}%
+        {{hash=f7dc2cc05da091c0188757f290b3f4b8}{Feyerabende}{F\bibinitperiod}{Susan}{S\bibinitperiod}{}{}{}{}}%
+        {{hash=3e66b417af5cc862df1820281ca495f9}{Stillebroerf}{S\bibinitperiod}{Alexander\bibnamedelima B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
+        {{hash=d3481d3dfe32f53010550e1e9cb9bdfc}{Gilsf}{G\bibinitperiod}{Martijn\bibnamedelima P.M.Q.}{M\bibinitperiod\bibinitdelim P\bibinitperiod}{van}{v\bibinitperiod}{}{}}%
+        {{hash=a151b4209b53e642f99371be5eaa3ac7}{Schalkenf}{S\bibinitperiod}{Jack\bibnamedelima A.}{J\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{016b57dbe24c75e71e5139ff35525043}
+      \strng{fullhash}{016b57dbe24c75e71e5139ff35525043}
+      \field{sortinit}{H}
+      \field{sortinithash}{95b2cb08933fe649b7e9f8beee2132b4}
+      \field{labeltitle}{Clinical Utility of the PCA3 Urine Assay in European Men Scheduled for Repeat Biopsy}
+      \field{journaltitle}{European Urology}
+      \field{title}{Clinical Utility of the PCA3 Urine Assay in European Men Scheduled for Repeat Biopsy}
+      \field{volume}{54}
+      \field{year}{2008}
+    \endentry
+    \entry{personalized}{article}{}
+      \name{labelname}{14}{}{%
+        {{hash=4325ba881ff1769a6c71beb31879d110}{Leary}{L\bibinitperiod}{Rebecca\bibnamedelima J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=0c0a931926b4473f3c377ab7da3b36ed}{Kinde}{K\bibinitperiod}{Isaac}{I\bibinitperiod}{}{}{}{}}%
+        {{hash=baaa1152e0d98bb498be5330e76bed35}{Diehl}{D\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=2d50a18175e6611be07735f1c4b4d60c}{Schmidt}{S\bibinitperiod}{Kerstin}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=490168363d08cec0725fc154f4082a6b}{Clouser}{C\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=a9bd66798c0d6d61085bfcc96b327322}{Duncan}{D\bibinitperiod}{Cisilya}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=393fd0649e95cb90995f1a64ca11485e}{Antipova}{A\bibinitperiod}{Alena}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=014193a00f1a41a768be0886fcc7fb25}{Lee}{L\bibinitperiod}{Clarence}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=c3ed4a3cd727ee25a6af4f7105f2a63e}{McKernan}{M\bibinitperiod}{Kevin}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=2cd3d1178b57cfff596020f956a9d693}{Vega}{V\bibinitperiod}{Francisco\bibnamedelimb M.\bibnamedelimi De\bibnamedelima La}{F\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=c93e60b0d523771b85c73e95b2ebbc5b}{Kinzler}{K\bibinitperiod}{Kenneth\bibnamedelima W.}{K\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=bbb27aa05dcd963d1c27727276613af6}{Vogelstein}{V\bibinitperiod}{Bert}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=1a308c6ad5846c0e8baecee21c8c8691}{Jr.}{J\bibinitperiod}{Luis\bibnamedelimb A.\bibnamedelimi Diaz}{L\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=7f2767d15e4c247d0b72be876bf5623f}{Velculesc}{V\bibinitperiod}{Victor\bibnamedelima E.}{V\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{14}{}{%
+        {{hash=4325ba881ff1769a6c71beb31879d110}{Leary}{L\bibinitperiod}{Rebecca\bibnamedelima J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+        {{hash=0c0a931926b4473f3c377ab7da3b36ed}{Kinde}{K\bibinitperiod}{Isaac}{I\bibinitperiod}{}{}{}{}}%
+        {{hash=baaa1152e0d98bb498be5330e76bed35}{Diehl}{D\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
+        {{hash=2d50a18175e6611be07735f1c4b4d60c}{Schmidt}{S\bibinitperiod}{Kerstin}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=490168363d08cec0725fc154f4082a6b}{Clouser}{C\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=a9bd66798c0d6d61085bfcc96b327322}{Duncan}{D\bibinitperiod}{Cisilya}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=393fd0649e95cb90995f1a64ca11485e}{Antipova}{A\bibinitperiod}{Alena}{A\bibinitperiod}{}{}{}{}}%
+        {{hash=014193a00f1a41a768be0886fcc7fb25}{Lee}{L\bibinitperiod}{Clarence}{C\bibinitperiod}{}{}{}{}}%
+        {{hash=c3ed4a3cd727ee25a6af4f7105f2a63e}{McKernan}{M\bibinitperiod}{Kevin}{K\bibinitperiod}{}{}{}{}}%
+        {{hash=2cd3d1178b57cfff596020f956a9d693}{Vega}{V\bibinitperiod}{Francisco\bibnamedelimb M.\bibnamedelimi De\bibnamedelima La}{F\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
+        {{hash=c93e60b0d523771b85c73e95b2ebbc5b}{Kinzler}{K\bibinitperiod}{Kenneth\bibnamedelima W.}{K\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
+        {{hash=bbb27aa05dcd963d1c27727276613af6}{Vogelstein}{V\bibinitperiod}{Bert}{B\bibinitperiod}{}{}{}{}}%
+        {{hash=1a308c6ad5846c0e8baecee21c8c8691}{Jr.}{J\bibinitperiod}{Luis\bibnamedelimb A.\bibnamedelimi Diaz}{L\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
+        {{hash=7f2767d15e4c247d0b72be876bf5623f}{Velculesc}{V\bibinitperiod}{Victor\bibnamedelima E.}{V\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{02fb68305733583b5449294083126587}
+      \strng{fullhash}{02fb68305733583b5449294083126587}
+      \field{sortinit}{L}
+      \field{sortinithash}{c41a2b5886eeae464e75d1a9df4cd13e}
+      \field{labeltitle}{Development of Personalized Tumor Biomarkers Using Massively Parallel Sequencing}
+      \field{journaltitle}{Science Translational Medicine}
+      \field{title}{Development of Personalized Tumor Biomarkers Using Massively Parallel Sequencing}
+      \field{volume}{2}
+      \field{year}{2010}
+    \endentry
     \entry{beyondpsa}{article}{}
       \name{labelname}{4}{}{%
         {{hash=f7b3439256ee92b6627e3236c722fa79}{Prensner}{P\bibinitperiod}{John\bibnamedelima R.}{J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
