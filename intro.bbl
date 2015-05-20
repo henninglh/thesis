@@ -82,6 +82,15 @@
       \verb http://apps.cytoscape.org/apps/genemania
       \endverb
     \endentry
+    \entry{biopython}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{20}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://biopython.org/wiki/Main_Page
+      \endverb
+    \endentry
     \entry{cytoscape-osgi}{online}{}
       \field{sortinit}{0}
       \field{urlday}{08}
@@ -89,6 +98,33 @@
       \field{urlyear}{2015}
       \verb{url}
       \verb http://wiki.cytoscape.org/Cytoscape_3/AppDeveloper
+      \endverb
+    \endentry
+    \entry{modularization}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{20}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://www.javaworld.com/article/2878952/java-platform/modularity-in-java-9.html
+      \endverb
+    \endentry
+    \entry{designpattern}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{20}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://www.techopedia.com/definition/18822/design-pattern
+      \endverb
+    \endentry
+    \entry{cleancode}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{20}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882
       \endverb
     \endentry
     \entry{galaxy}{online}{}

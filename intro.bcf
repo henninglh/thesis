@@ -1979,8 +1979,12 @@
     <bcf:citekey order="12">str</bcf:citekey>
     <bcf:citekey order="13">iridb</bcf:citekey>
     <bcf:citekey order="14">gmdb</bcf:citekey>
-    <bcf:citekey order="15">cytoscape-osgi</bcf:citekey>
-    <bcf:citekey order="16">galaxy</bcf:citekey>
+    <bcf:citekey order="15">biopython</bcf:citekey>
+    <bcf:citekey order="16">cytoscape-osgi</bcf:citekey>
+    <bcf:citekey order="17">modularization</bcf:citekey>
+    <bcf:citekey order="18">designpattern</bcf:citekey>
+    <bcf:citekey order="19">cleancode</bcf:citekey>
+    <bcf:citekey order="20">galaxy</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" type="entry" label="nyt">
   <bcf:sorting>
