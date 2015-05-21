@@ -109,8 +109,8 @@ also has the benefit of not being affected by the size of the prostate gland \ci
 could be better. Therefore, it has been tried to combine these two biomarkers in order to see if it is beneficial to
 see the results from each biomarker in light of each other \cite{beyondpsa}. The results from these tests is that they
 complement each other to a level of significance that makes it compelling to analyze them both to diagnose prostate
-cancer. It is important to point out that even if these biomarkers are not the best at indicating if a patient as cancer
-or not. Combined, these biomarkers are good at indicating progression and recurrence of prostate cancer.
+cancer. It is important to point out that even if these biomarkers are not the best at indicating if a patient has 
+cancer or not, these biomarkers are good at indicating progression and recurrence of prostate cancer.
 
 But all of this is based on single genes or proteins. What if we looked at whole networks as biomarkers?
 \section{Network}
@@ -128,6 +128,21 @@ Shit goes dooown \cite{networkmodels}.
         they often give better results, even when the underlying model is nonlinear
     \item Networks are not fixed: The role of context and dynamics
 \end{itemize}
+Viewing the cell as a network of proteins and genes presents us with several assumptions to make. Firstly, there is no
+physical connection between the proteins and genes, which represents the nodes in the network. So a way of defining
+edges between nodes has to be established. It exists several ways of doing this, but there has yet to be discovered a
+silver bullet of defining the edges. % cite?
+
+Bayesian probability networks are one way of defining edges \cite{bayesiannetworks}. It is based on the probability that
+if a node A exists, then node B exists. That way it is possible to create networks based on the assumption that if node
+A exists, then node B is 80\% likely to exist. Maybe node C and D have a 100\% chance of existing if node B exists.
+These percentages represents how strong the edges between the nodes are, and makes it able to construct a directed
+acyclic graph, DAG for short.
+
+The way of defining edges in a network also determines what kind of information that is possible to get from it. The
+different bio-databases has different ways of calculating edges. Should the database alone define the edges? If the
+database supply weights in the edges and/or nodes, should it be used, changed or ignored? The final decision of how and
+in what way the edges should be defined has yet to come. 
 \section{Clustering}
 \section{Cytoscape}
 % Rename the Cytoscape section to Software/Architecture/Development

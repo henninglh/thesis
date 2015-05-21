@@ -281,6 +281,30 @@
       \field{volume}{54}
       \field{year}{2008}
     \endentry
+    \entry{bayesiannetworks}{report}{}
+      \name{labelname}{1}{}{%
+        {{hash=4f11d780a2e78d72d5be3019b52bec26}{Heckerman}{H\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{1}{}{%
+        {{hash=4f11d780a2e78d72d5be3019b52bec26}{Heckerman}{H\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
+      }
+      \list{institution}{1}{%
+        {Microsoft Research}%
+      }
+      \strng{namehash}{4f11d780a2e78d72d5be3019b52bec26}
+      \strng{fullhash}{4f11d780a2e78d72d5be3019b52bec26}
+      \field{sortinit}{H}
+      \field{labeltitle}{A Tutorial on Learning With Bayesian Networks}
+      \field{abstract}{<p>A Bayesian network is a graphical model that encodes probabilistic relationships among variables of interest. When used in conjunction with statistical techniques, the graphical model has several advantages for data analysis. One, because the model encodes dependencies among all variables, it readily handles situations where some data entries are missing. Two, a Bayesian network can be used to learn causal relationships, and hence can be used to gain understanding about a problem domain and to predict the consequences of intervention. Three, because the model has both a causal and probabilistic semantics, it is an ideal representation for combining prior knowledge (which often comes in causal form) and data. Four, Bayesian statistical methods in conjunction with bayesian networks offer an efficient and principled approach for avoiding the overfitting of data. In this paper, we discuss methods for constructing Bayesian networks from prior knowledge and summarize Bayesian statistical methods for using data to improve these models. With regard to the latter task, we describe methods for learning both the parameters and structure of a Bayesian network, including techniques for learning with incomplete data. In addition, we relate Bayesian-network methods for learning to techniques for supervised and unsupervised learning. We illustrate the graphical-modeling approach using a real-world case study.</p>}
+      \field{month}{03}
+      \field{number}{{MSR}-{TR}-95-06}
+      \field{title}{A Tutorial on Learning With Bayesian Networks}
+      \field{year}{1995}
+      \field{pages}{57}
+      \verb{url}
+      \verb http://research.microsoft.com/apps/pubs/default.aspx?id=69588
+      \endverb
+    \endentry
     \entry{personalized}{article}{}
       \name{labelname}{14}{}{%
         {{hash=4325ba881ff1769a6c71beb31879d110}{Leary}{L\bibinitperiod}{Rebecca\bibnamedelima J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
@@ -336,7 +360,7 @@
       \strng{fullhash}{407ae9e1a151afb407c4e7b6d7c3c370}
       \field{sortinit}{P}
       \field{labeltitle}{Principles and Strategies for Developing Network Models in Cancer}
-      \field{journaltitle}{Cell}
+      \field{journaltitle}{CellPress}
       \field{month}{03}
       \field{title}{Principles and Strategies for Developing Network Models in Cancer}
       \field{volume}{144}
