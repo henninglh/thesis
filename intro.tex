@@ -137,7 +137,9 @@ Bayesian probability networks are one way of defining edges \cite{bayesiannetwor
 if a node A exists, then node B exists. That way it is possible to create networks based on the assumption that if node
 A exists, then node B is 80\% likely to exist. Maybe node C and D have a 100\% chance of existing if node B exists.
 These percentages represents how strong the edges between the nodes are, and makes it able to construct a directed
-acyclic graph, DAG for short.
+acyclic graph, DAG for short. It is important to note that a true bayesian network can not be achieved through random 
+observations. Rather should some constant value(s) be introduced to be able to really measure the effect of the other
+variables.
 
 The way of defining edges in a network also determines what kind of information that is possible to get from it. The
 different bio-databases has different ways of calculating edges. Should the database alone define the edges? If the
