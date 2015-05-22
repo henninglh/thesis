@@ -2,20 +2,18 @@
 \defcounter {refsection}{0}\relax 
 \select@language {UKenglish}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{I\hspace {1em}Introduction}{1}
+\contentsline {section}{\numberline {1}Introduction}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {1}State of today}{1}
+\contentsline {section}{\numberline {2}Biomarkers}{2}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.1}Biomarkers}{1}
+\contentsline {section}{\numberline {3}Prostate specific antigen}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2}Prostate specific antigen}{3}
+\contentsline {section}{\numberline {4}Next-generation sequencing}{3}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3}Next-generation sequencing}{3}
+\contentsline {section}{\numberline {5}Next generation of biomarkers}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}Next generation of biomarkers}{3}
+\contentsline {section}{\numberline {6}Network}{4}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}Network}{4}
+\contentsline {section}{\numberline {7}Clustering}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Clustering}{5}
-\defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Cytoscape}{5}
+\contentsline {section}{\numberline {8}Cytoscape}{5}
