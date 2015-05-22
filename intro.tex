@@ -143,17 +143,18 @@ Networks is the pre-processing of single gene prioritization that is necessary i
 clustering of the network. Clustering is about making a hierarchical view of a network to be able to look at the bigger
 picture of the cell. The reason to group a network into clusters and rank them is that the edges we create represents
 different connections. They can represent function, probability of existence, interactions or contents of the cell
-\cite{siri}. % Rewrite this last sentence! Unsupported statement and too high detailed description
-The function of the cell is what Ranklust is after. There is several algorithms to create clusters, and all need to be
-heavily researched in order to find the best suiting one. The major differences on how these algorithms work is centered
-around how they handle vertices and edges. For example how the cluster is expanded, what density level it is aiming
-for, how robust the algorithm is towards incomplete networks. It is feasible if the cluster-making algorithm is easily,
-or even already implemented as an app in Cytoscape. ClusterMaker2 is such an app and will be considered \cite{cm2}. But
-there is faster cluster-creating algorithms than those implemented in ClusterMaker2, namely the SPICi \cite{spici}
-algorithm. So a possible solution for Ranklust could be to implement the SPICi algorithm into the ClusterMaker2 app, in
-order to reuse most of the code that represents the GUI, single gene prioritization and network creation.
+\cite{siri}. The function of the cell is what Ranklust is after. There is several algorithms to create clusters, and all
+need to be heavily researched in order to find the best suiting one. The major differences on how these algorithms work
+is centered around how they handle vertices and edges. For example how the cluster is expanded, what density level it is
+aiming for, how robust the algorithm is towards incomplete networks. It is feasible if the cluster-making algorithm is
+easily, or even already implemented as an app in Cytoscape. ClusterMaker2 is such an app and will be considered
+\cite{cm2}. But there is faster cluster-creating algorithms than those implemented in ClusterMaker2, namely the SPICi
+\cite{spici} algorithm. So a possible solution for Ranklust could be to implement the SPICi algorithm into the
+ClusterMaker2 app, in order to reuse most of the code that represents the GUI, single gene prioritization and network
+creation.
 
-In addition to the cluster-creating algorithms, there is a need for cluster-ranking algorithms.
+In addition to the cluster-creating algorithms, there is a need for cluster-ranking algorithms. They should be ranked in
+the order of being a biomarker for cancer.
 \section{Cytoscape}
 % Rename the Cytoscape section to Software/Architecture/Development
 % General description of development
