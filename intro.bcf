@@ -1976,17 +1976,19 @@
     <bcf:citekey order="9">beyondpsa</bcf:citekey>
     <bcf:citekey order="10">bayesiannetworks</bcf:citekey>
     <bcf:citekey order="11">siri</bcf:citekey>
-    <bcf:citekey order="12">iri</bcf:citekey>
-    <bcf:citekey order="13">gm</bcf:citekey>
-    <bcf:citekey order="14">str</bcf:citekey>
-    <bcf:citekey order="15">iridb</bcf:citekey>
-    <bcf:citekey order="16">gmdb</bcf:citekey>
-    <bcf:citekey order="17">biopython</bcf:citekey>
-    <bcf:citekey order="18">cytoscape-osgi</bcf:citekey>
-    <bcf:citekey order="19">modularization</bcf:citekey>
-    <bcf:citekey order="20">designpattern</bcf:citekey>
-    <bcf:citekey order="21">cleancode</bcf:citekey>
-    <bcf:citekey order="22">galaxy</bcf:citekey>
+    <bcf:citekey order="12">cm2</bcf:citekey>
+    <bcf:citekey order="13">spici</bcf:citekey>
+    <bcf:citekey order="14">iri</bcf:citekey>
+    <bcf:citekey order="15">gm</bcf:citekey>
+    <bcf:citekey order="16">str</bcf:citekey>
+    <bcf:citekey order="17">iridb</bcf:citekey>
+    <bcf:citekey order="18">gmdb</bcf:citekey>
+    <bcf:citekey order="19">biopython</bcf:citekey>
+    <bcf:citekey order="20">cytoscape-osgi</bcf:citekey>
+    <bcf:citekey order="21">modularization</bcf:citekey>
+    <bcf:citekey order="22">designpattern</bcf:citekey>
+    <bcf:citekey order="23">cleancode</bcf:citekey>
+    <bcf:citekey order="24">galaxy</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" type="entry" label="nyt">
   <bcf:sorting>

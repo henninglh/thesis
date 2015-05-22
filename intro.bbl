@@ -37,6 +37,15 @@
       \verb http://www.illumina.com/technology/next-generation-sequencing.html
       \endverb
     \endentry
+    \entry{cm2}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{22}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://apps.cytoscape.org/apps/clustermaker2
+      \endverb
+    \endentry
     \entry{iri}{online}{}
       \field{sortinit}{0}
       \field{urlday}{07}
@@ -322,6 +331,40 @@
       \field{pages}{57}
       \verb{url}
       \verb http://research.microsoft.com/apps/pubs/default.aspx?id=69588
+      \endverb
+    \endentry
+    \entry{spici}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=d715fbfe1b82c41e05651c2da1d99b72}{Jiang}{J\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=1ac4750bbda233baa09f1b246b3d7de4}{Singh}{S\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=d715fbfe1b82c41e05651c2da1d99b72}{Jiang}{J\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
+        {{hash=1ac4750bbda233baa09f1b246b3d7de4}{Singh}{S\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c58440ebbda8cb7a810fe0505ea05264}
+      \strng{fullhash}{c58440ebbda8cb7a810fe0505ea05264}
+      \field{sortinit}{J}
+      \field{labeltitle}{{SPICi}}
+      \field{day}{15}
+      \field{issn}{1367-4803, 1460-2059}
+      \field{journaltitle}{Bioinformatics}
+      \field{langid}{english}
+      \field{month}{04}
+      \field{number}{8}
+      \field{shorttitle}{{SPICi}}
+      \field{title}{{SPICi}: a fast clustering algorithm for large biological networks}
+      \field{urlday}{22}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \field{volume}{26}
+      \field{year}{2010}
+      \field{pages}{1105\bibrangedash 1111}
+      \verb{doi}
+      \verb 10.1093/bioinformatics/btq078
+      \endverb
+      \verb{url}
+      \verb http://bioinformatics.oxfordjournals.org/cgi/doi/10.1093/bioinformatics/btq078
       \endverb
     \endentry
     \entry{personalized}{article}{}
