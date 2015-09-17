@@ -1,8 +1,9 @@
 \documentclass[UKenglish,11pt,a4paper]{ifimaster}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc, url}
-\usepackage{graphicx,babel,csquotes,textcomp,ifimasterforside,varioref}
+\usepackage{graphicx,babel,csquotes,textcomp,ifimasterforside,varioref,float}
 \usepackage[backend=biber,style=numeric-comp,sorting=nyt,maxbibnames=20,maxcitenames=20]{biblatex}
+\graphicspath{{images/}}
 \addbibresource{macros.bib}
 \addbibresource{references.bib}
 \title{Ranklust}
@@ -28,8 +29,6 @@ to tame this horrible disease. My thesis is about making a tool, named Ranklust,
 easier way of identifying network biomarkers in cancer. 
 
 \chapter{Motivation}
-
-\chapter{Biomarkers}
 Biomarkers are at the centre of this thesis. They are what Ranklust should be able to detect and rank in order to
 identify network biomarkers, and not just single molecules of them. A biomarker is a "biological measure of a biological
 state" \cite{biomarker1}. It can be represented by the levels of a specific protein in our blood, a specific gene, or a
@@ -78,7 +77,6 @@ disease. Here is a list of what biomarkers currently are being used for:
     \item Consistent across gender and ethnic groups
 \end{itemize}
 
-\chapter{Prostate specific antigen}
 An example of a single molecule biomarker is the prostate specific antigen (PSA). This is a protein produced by the 
 prostate gland in male humans. The identification of cancer with PSA is simple, the higher the level of PSA, measured in
 ng/mL (nanograms per milliliter), the higher is the chance of the patient having prostate cancer \cite{cancerfacts}.
@@ -121,7 +119,7 @@ cancer or not, these biomarkers are good at indicating progression and recurrenc
 
 But all of this is based on single genes or proteins. What if we looked at whole networks as biomarkers?
 
-\chapter{Network}
+\chapter{Networks as a tool in cancer research}
 %Shit goes dooown \cite{networkmodels}.
 %\begin{itemize}
 %    \item Cells contain a vast array of molecular structures that come together to form complex, dynamic, and plastic
@@ -154,7 +152,7 @@ different bio-databases has different ways of calculating edges. Should the data
 database supply weights in the edges and/or nodes, should it be used, changed or ignored? The final decision of how and
 in what way the edges should be defined has yet to come. 
 
-\chapter{Clustering}
+\chapter{Network clustering: Toward network based biomarker discovery}
 Networks is the pre-processing of single gene prioritization that is necessary in order to come to the next step,
 clustering of the network. Clustering is about making a hierarchical view of a network to be able to look at the bigger
 picture of the cell. The reason to group a network into clusters and rank them is that the edges we create represents
@@ -171,7 +169,7 @@ creation.
 
 In addition to the cluster-creating algorithms, there is a need for cluster-ranking algorithms. They should be ranked in
 the order of being a biomarker for cancer.
-\chapter{Cytoscape}
+\chapter{Cytoscape: An implementation to rank clusters}
 % Rename the Cytoscape section to Software/Architecture/Development
 % General description of development
 Cytoscape is the open-source software platform the Ranklust app will be developed on. Its main purpose is to visualize
@@ -230,6 +228,12 @@ code is written and a good deployment tool is used. Therefore the Cytoscape plat
 Ranklust.
 
 % Maven section?? Other devtools? Cy3 Performance Reporter to measure the performance of SPICi inside clusterMaker2?
+
+\part{Images testing...}
+\begin{figure}[h]
+    \caption{Cancers Ranked by Number of Incident Cases in Both Sexes, Globally, by Development Status, and in the 50 Most Populous Countries, 2013}
+    \includegraphics{cancer_incidents}
+\end{figure}
 
 \part{The project}
 

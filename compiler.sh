@@ -1,2 +1,2 @@
 #!/bin/bash
-pdflatex intro.tex && biber intro && pdflatex intro.tex && pdflatex intro.tex
+pdflatex thesis && biber thesis && pdflatex thesis && pdflatex thesis.tex
