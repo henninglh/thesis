@@ -4,24 +4,24 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{I\hspace {1em}Introduction}{1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Biomarkers}{5}
+\contentsline {chapter}{\numberline {1}Motivation}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Prostate specific antigen}{7}
+\contentsline {chapter}{\numberline {2}Next-generation sequencing}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Next-generation sequencing}{9}
+\contentsline {chapter}{\numberline {3}Next generation of biomarkers}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Next generation of biomarkers}{11}
+\contentsline {chapter}{\numberline {4}Networks as a tool in cancer research}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Network}{13}
+\contentsline {chapter}{\numberline {5}Network clustering: Toward network based biomarker discovery}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Clustering}{15}
+\contentsline {chapter}{\numberline {6}Cytoscape: An implementation to rank clusters}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Cytoscape}{17}
+\contentsline {part}{II\hspace {1em}Images testing...}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{II\hspace {1em}The project}{19}
+\contentsline {part}{III\hspace {1em}The project}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{III\hspace {1em}Results}{21}
+\contentsline {part}{IV\hspace {1em}Results}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{IV\hspace {1em}Analysis}{23}
+\contentsline {part}{V\hspace {1em}Analysis}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Conclusion}{25}
+\contentsline {part}{VI\hspace {1em}Conclusion}{27}

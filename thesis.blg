@@ -1,18 +1,18 @@
 [0] Config.pm:320> INFO - This is Biber 1.9
-[1] Config.pm:323> INFO - Logfile is 'intro.blg'
-[50] biber:277> INFO - === fr. sep. 11, 2015, 15:58:48
-[51] Biber.pm:333> INFO - Reading 'intro.bcf'
-[203] Biber.pm:635> INFO - Found 22 citekeys in bib section 0
-[276] Biber.pm:3051> INFO - Processing section 0
-[333] Biber.pm:3189> INFO - Looking for bibtex format file 'macros.bib' for section 0
-[345] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
-[345] bibtex.pm:864> INFO - Found BibTeX data source 'macros.bib'
-[348] Biber.pm:3189> INFO - Looking for bibtex format file 'references.bib' for section 0
-[362] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
-[364] bibtex.pm:864> INFO - Found BibTeX data source 'references.bib'
-[1125] UCollate.pm:66> INFO - Overriding locale 'en-GB' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1125] UCollate.pm:66> INFO - Overriding locale 'en-GB' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1125] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-GB'
-[1125] Biber.pm:2932> INFO - No sort tailoring available for locale 'en-GB'
-[1227] bbl.pm:517> INFO - Writing 'intro.bbl' with encoding 'UTF-8'
-[1232] bbl.pm:606> INFO - Output to intro.bbl
+[1] Config.pm:323> INFO - Logfile is 'thesis.blg'
+[54] biber:277> INFO - === to. sep. 17, 2015, 14:58:38
+[54] Biber.pm:333> INFO - Reading 'thesis.bcf'
+[159] Biber.pm:635> INFO - Found 22 citekeys in bib section 0
+[227] Biber.pm:3051> INFO - Processing section 0
+[296] Biber.pm:3189> INFO - Looking for bibtex format file 'macros.bib' for section 0
+[299] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
+[300] bibtex.pm:864> INFO - Found BibTeX data source 'macros.bib'
+[303] Biber.pm:3189> INFO - Looking for bibtex format file 'references.bib' for section 0
+[310] bibtex.pm:990> INFO - Decoding LaTeX character macros into UTF-8
+[314] bibtex.pm:864> INFO - Found BibTeX data source 'references.bib'
+[1240] UCollate.pm:66> INFO - Overriding locale 'en-GB' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[1241] UCollate.pm:66> INFO - Overriding locale 'en-GB' defaults 'variable = shifted' with 'variable = non-ignorable'
+[1241] Biber.pm:2928> INFO - Sorting list 'nyt' of type 'entry' with scheme 'nyt' and locale 'en-GB'
+[1241] Biber.pm:2932> INFO - No sort tailoring available for locale 'en-GB'
+[1347] bbl.pm:517> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[1351] bbl.pm:606> INFO - Output to thesis.bbl
