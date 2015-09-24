@@ -25,7 +25,27 @@
 
 \part{Introduction}
 To this day we still struggle with cancer. Even with all our modern equipment and knowledge we have still not been able
-to tame this horrible disease. My thesis is about making a tool, named Ranklust, which gives cancer researchers an
+to tame this horrible disease. 
+
+% Rewrite this and use sources! It should explain incidence, pure and simple.
+Incidence is the increase in the rate of new occurrences. So if we were to
+analyze the amount of new HIV incidents over 10 years and we start with 20 incidents, then after
+5 years we get 20 new incidents and then after 10 years, we get 30 new
+incidents. We now have a total of 75 new incidents since the start (25 + 20 + 30).
+Because we do not know when the 20 first incidents in the first 5 years
+happened, we assume they happened after 2,5 years (halfway to 5 years). So we
+will get 20 * 2,5 and end up with 50 possible new cases. Do the same with the
+next 5 years and the next 30 new occurrences! The only exception to the previous
+calculation is that we know they happened somewhere between 5 and 10 years, so
+we go halfway, to 7,5 ((5+10)/2 = 7,5) and do the same calculation:
+7,5 * 30 = 225. Then combine them, 225 + 50 = 275. We ignore the first change,
+since they are what we started with. Let us also define the sample size of the
+population to be 225. We then know that 150 people did not get HIV during the
+10-year period. So if we were to add these 150 people over the 10 years that did
+not receive HIV, we get 150 * 10 = 1500. We add the increase of HIV, which is
+275 and get 275 + 1500 = 1775. 
+
+My thesis is about making a tool, named Ranklust, which gives cancer researchers an
 easier way of identifying network biomarkers in cancer. 
 
 \chapter{Motivation}
@@ -99,11 +119,12 @@ and predict the right treatment.
 \chapter{Next-generation sequencing}
 Today, rapid analyzing of genes and proteins are made available through Next-Generation Sequencing (NGS)\cite{ngs1}.
 % Find a better source for this!
-This opens up the possibility of looking at a bigger picture when trying to diagnose cancer patients. Through acquiring
-more data, faster than before, there now exists databases with much information that is easy to access. This makes room
-for building huge networks of proteins and genes, allowing for more extensively and thorough assays to be done. For
-example, what if something that is classified as a prostate cancer biomarker only is viable when proteins that has not
-been classified as a biomarker, also is present? Together they could represent a more appropriate
+Networks offers us an informatics, algorithmic, visual and mathematical tool to study this bigger picture. This
+project will integrate the opportunity networks offer to discover new biomarkers in cancer.
+Through acquiring more data, faster than before, there now exists databases with much information that is easy to 
+access. This makes room for building huge networks of proteins and genes, allowing for more extensively and thorough 
+assays to be done. For example, what if something that is classified as a prostate cancer biomarker only is viable when 
+proteins that has not been classified as a biomarker, also is present? Together they could represent a more appropriate
 \emph{network biomarker}.
 The amount of data that can be analyzed also opens up for another more personalized approach to each cancer patient.
 Finding patient-specific biomarkers could make a huge impact on the quality of treatment \cite{personalized}.
@@ -214,14 +235,14 @@ other developers with the possibility of reusing my modules in their own apps. A
 at making it easier to modularize apps along the lines of the OSGi standard, so it might be easier to refactor an
 application in the future from Java 8 to Java 9 when the architecture already is in place. There exists several design 
 patterns that could prove to be useful in the development of Ranklust. Another strategy to follow may not be a direct 
-design pattern \cite{designpattern}, but more of a collection of them, is the clean code principles by Robert C. Martin 
-\cite{cleancode}. More thorough examination of these strategies will follow. 
-% find a better cleancode reference. Free edition of online book maybe? 
+design pattern \cite{designpattern}, but more of a collection of them, is the clean code principles by Robert C. Martin
+\cite{cleancode}. More thorough examination of these strategies will follow.
+% find a better cleancode reference. Free edition of online book maybe?
 % Or summary of clean code's abstract/introduction?
 
 % Prototype section
-Prototyping of different parts of the app will be done in Python and the Galaxy environment \cite{galaxy}. Python is an 
-easy language to prototype with, and Galaxy is an easy environment to test small scripts in. Galaxy also has great 
+Prototyping of different parts of the app will be done in Python and the Galaxy environment \cite{galaxy}. Python is an
+easy language to prototype with, and Galaxy is an easy environment to test small scripts in. Galaxy also has great
 logging of previous experiments combined with settings, so recreating simulations and comparing results is easy to do and
 reliable. However, in my experience, Java comes up to par with Python in development speed once all of the boilerplate
 code is written and a good deployment tool is used. Therefore the Cytoscape platform is used for the final deployment of
@@ -231,12 +252,14 @@ Ranklust.
 
 \part{Images testing...}
 \begin{figure}[h]
-    \caption{Cancers Ranked by Number of Incident Cases in Both Sexes, Globally, by Development Status, and in the 50 Most Populous Countries, 2013}
+    \caption{Cancers Ranked by Number of Incident Cases in Both Sexes, Globally, by Development Status, and in the 50
+            Most Populous Countries, 2013}
     \includegraphics{cancer_incidents}
 \end{figure}
 
 \begin{figure}[h]
-    \caption{Cancers Ranked by Number of Deaths in Both Sexes, Globally, by Development Status, and in the 50 Most Populous Countries, 2013}
+    \caption{Cancers Ranked by Number of Deaths in Both Sexes, Globally, by Development Status, and in the 50 Most
+            Populous Countries, 2013}
     \includegraphics{cancer_deaths}
 \end{figure}
 
