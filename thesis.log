@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  24 SEP 2015 14:19
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  24 SEP 2015 17:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -6,19 +6,23 @@ entering extended mode
 (./thesis.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 2 languages loaded.
-
-! LaTeX Error: File `ifimaster.cls' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: cls)
-
-Enter file name: 
-! Interruption.
-<to be read again> 
-                   }
-l.2 \usepackage
-               [utf8]{inputenc}^^M
-? 
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
@@ -274,10 +278,10 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count79
+\Gread@gobject=\count87
 ))
-\Gin@req@height=\dimen102
-\Gin@req@width=\dimen103
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2013/12/03 3.9h The Babel package
@@ -287,8 +291,8 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2013/12/03 3.9h Babel common definitions
-\babel@savecnt=\count80
-\U@D=\dimen104
+\babel@savecnt=\count88
+\U@D=\dimen105
 )
 \l@british = a dialect from \language\l@english 
 \l@UKenglish = a dialect from \language\l@english 
@@ -304,19 +308,17 @@ Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count81
+\et@xins=\count89
 )
-\etb@tempcnta=\count82
+\etb@tempcnta=\count90
 )
-\csq@reset=\count83
-\csq@gtype=\count84
-\csq@glevel=\count85
-\csq@qlevel=\count86
-\csq@maxlvl=\count87
-\csq@tshold=\count88
+\csq@reset=\count91
+\csq@gtype=\count92
+\csq@glevel=\count93
+\csq@qlevel=\count94
+\csq@maxlvl=\count95
+\csq@tshold=\count96
 \csq@ltx@everypar=\toks17
-Package csquotes Info: The 'quote' environment appears to be undefined.
-(csquotes)             I'm defining a typical 'quote' environment now.
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
 File: csquotes.def 2011/10/22 v5.1d csquotes generic definitions
@@ -498,11 +500,11 @@ End of file on the terminal!
 
  
 Here is how much of TeX's memory you used:
- 2857 strings out of 495028
- 36722 string characters out of 6181497
- 98271 words of memory out of 5000000
- 6074 multiletter control sequences out of 15000+600000
- 4403 words of font info for 15 fonts, out of 8000000 for 9000
+ 3023 strings out of 495028
+ 38467 string characters out of 6181497
+ 100874 words of memory out of 5000000
+ 6234 multiletter control sequences out of 15000+600000
+ 4709 words of font info for 16 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  30i,0n,23p,889b,38s stack positions out of 5000i,500n,10000p,200000b,80000s
 !  ==> Fatal error occurred, no output PDF file produced!

@@ -7,7 +7,7 @@ Todo's for my thesis
 1. Single gene prioritization or driver gene methods
     - Particularly network based ones
 2. Network biology in medicine and the application of network clustering or
-  network community algorithms
+   network community algorithms
 3. Current state-of-the-art with respect to biomarker identification in cancer
     - Familiarize as to what a biomarker is and the current drawbacks
 4. Cytoscape!
