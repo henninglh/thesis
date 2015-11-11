@@ -304,6 +304,28 @@ Ranklust.
 \end{figure}
 
 \part{The project}
+\part{CytoScape} % Make this a subsection in "The project" part
+The structure of the code in CytoScape follows the already established structure in the ClusterMaker2 plugin. This is to
+make it easy to maintain for the other contributors of ClusterMaker2. At the same time, the code is modularized enough
+to make it easy to extract the code, in order to make a separate plugin. The motivation for having a separate plugin to
+rank clusters in CytoScape gets bigger if ranking clusters provides useful information, in regards of discovering
+cancer.
+
+Adding new ranking algorithms should be easy both to implement and unit test. Where the algorithms should be placed and
+how to connect it to the rest of the GUI in order to choose it, should be a no-brainer. Unit testing of the algorithms
+should be possible without using the GUI. So all of the logic in the algorithms should be excluded from the GUI. If it
+is not excluded from the GUI, testing the algorithms would require menu interaction and automatization of testing goes
+out the window. Every test should be able to just run in the terminal without launching CytoScape. Mockup data % explain mockup data
+should not be provided in source-files, but instead from files that can be read through the CytoScape API. % Why??
+
+The "Factory" design pattern % reference
+is used in a original way in ClusterMaker2, and for the ranking cluster algorithms it is done a little bit different.
+The GUI will not be responsible for knowing every available algorithm, it will be the algorithm factory's. The GUI's way
+of knowing which algorithms the user should be able to choose from, will be to ask the factory for a list of all of the
+available algorithms. This is an example that shows by separating the amount of components that have knowledge about a
+specific piece of information, it becomes easier adding new features. If the GUI also would have to construct a list by
+itself about the available algorithms, in addition to the factory, we would end up making changes in two places instead
+of just one. Twice the work for just one change - adding a new algorithm.
 
 \part{Results}
 
