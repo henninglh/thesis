@@ -327,6 +327,34 @@ specific piece of information, it becomes easier adding new features. If the GUI
 itself about the available algorithms, in addition to the factory, we would end up making changes in two places instead
 of just one. Twice the work for just one change - adding a new algorithm.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% IMPLEMENTATION START %%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Intro
+The \it{clusterMaker2} documentation for implementing new parts that is not directly connected with clustering
+algorithms is non-existing (cite documentation!). So I will make a walkthrough of how to do it and how I did it.
+
+
+% Preparations
+The POM-file has to be updated (\today) because libraries connected to the pdf exporting functionality is
+outdated. Updating the libraries, imports and the usage of these libraries in the source code is enough to make the
+whole project compile at the mentioned date.
+
+% Registering a service
+In order to make it easy to implement new cluster ranking algorithms, a new task factory for the ranking of clusters is
+required. It has to be registered as a service to make it visible to the GUI menu, aswell as maintain the \it{OSGi}
+standard of components added to the \it{clusterMaker2} project. Also, creating a standalone plugin at a later stage will be
+easier if Ranklust is properly compartmentalized.
+
+Registering a new service listener is a way of keeping the Ranklust part out of clusterMaker2. Though, it is still
+packaged within clusterMaker2's API, so that it does not become a mess, if extra functionality is to be implemented
+while the plugin resides within clusterMaker2.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% IMPLEMENTATION END %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \part{Results}
 
 \part{Analysis}
