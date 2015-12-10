@@ -351,6 +351,23 @@ Registering a new service listener is a way of keeping the Ranklust part out of 
 packaged within clusterMaker2's API, so that it does not become a mess, if extra functionality is to be implemented
 while the plugin resides within clusterMaker2.
 
+% GetNetworkClusterTask
+ClusterMaker2 already has some REST (insert: reference to REST services + explanation). It is used in Ranklust as a way
+of getting the clustering results without changin the previous code. Though, there is a flaw in the REST service. If the
+clustering algorithm you want the results from is not the last clustering algorithm that was run on the network, it will
+not be able to get the results. For now, this will stay as it is, but it should be brought up for discussion to rather
+look up the table of the nodes instead of the table of the network, in order to get the clustering results. This is
+because the table of the network can only hold a single value for clustering algorithms, which will either be nothing,
+or the last algorithm run on the network. The drawbacks of looking up the table of nodes instead is the time it
+consumes. But the time consumed to get all of the nodes with a specific clustering result attribute will take a shorter
+time than to rerun the algorithm you want to have the results from. A third solution can be to just ignore the algorithm
+used to cluster the network, as it should not have anything to say for the ranking of the clusters. This may end up
+being the final solution, as it easily can be viewed as a more "sane" (formulate this in a different way). This option
+requires a new REST function to be added to clusterMaker2. As a whole, it is highly possible that this new REST
+functionality should replace the existing one. The argument to replace the already existing algorithm is that REST
+functionality should hide state and implementation from the services using the REST service to get data. The way it is
+now, this is not true and it should be changed anyway.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION END %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
