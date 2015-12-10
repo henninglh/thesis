@@ -368,6 +368,27 @@ functionality should replace the existing one. The argument to replace the alrea
 functionality should hide state and implementation from the services using the REST service to get data. The way it is
 now, this is not true and it should be changed anyway.
 
+% Tables vs pure OO
+One thing in particular that deserves to be mentioned is the way networks are handled. The \textit{CyNode} objects
+themselves does not contain much. This is because all of the information is saved in the form of plain cells in a
+spreadsheet. This may at first seem like a way to make it easy to show information to the user, but it is also a way of
+working more efficient with network data (insert: reference to working with tables on networks is efficient). Creating
+objects with attributes for each node in a huge network will increase the amount of overhead by a pretty noticable
+amount. Working with all of the information in the way of a spreadsheet with rows and columns includes a decrease in
+overhead. A new node is a new row, so in relation to build the network structure, it is not a difference to speak of.
+The difference comes in when the nodes have several attributes. 
+
+In a table or spreadsheet, attributes can be represented as a single column and be created once for the whole network,
+instead of once for each node object created. This assumes that getting the objects out of the table is possible by
+either indexing on a number for arrays, or a unique string for map structures. The result is both a lookup, insertion
+and deletion time of O(1) (insert: reference to Big-O notation).  These times is as law as the Big-O notation goes in
+terms of speed related to the size of a collection inside a data structure. So both the creation of objects goes down,
+and the retrieval of attribute information is as low as it is possible to get, when we choose to represent the time by
+Big-O notation. The only drawback with this implementation is that there is no current type of wrapper around the row
+and column system. So the retrieval of information is not done the most intuitive way. But this is the way CytoScape
+works as a whole, so changing the way this works is either done through changing the CytoScape source code, or
+implementing the wrapper as a standalone function inside clusterMaker2 or a standalone plugin.
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION END %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
