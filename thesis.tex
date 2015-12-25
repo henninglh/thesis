@@ -226,10 +226,14 @@ easily, or even already implemented as an app in Cytoscape. ClusterMaker2 is suc
 \cite{cm2}. But there is faster cluster-creating algorithms than those implemented in ClusterMaker2, namely the SPICi
 \cite{spici} algorithm. So a possible solution for Ranklust could be to implement the SPICi algorithm into the
 ClusterMaker2 app, in order to reuse most of the code that represents the GUI, single gene prioritization and network
-creation.
+creation. In addition to the cluster-creating algorithms, there is a need for cluster-ranking algorithms. They should be
+ranked in the order of being a biomarker for cancer.
 
-In addition to the cluster-creating algorithms, there is a need for cluster-ranking algorithms. They should be ranked in
-the order of being a biomarker for cancer.
+% Find a way to prove that, by severing the interaction bond between genes/proteines, you can stop cancer biomarkers
+% from "communicating
+
+The secretome of certain genes can be interpreted as biomarkers (source). CONTINUE HERE!
+
 \chapter{Cytoscape: An implementation to rank clusters}
 % Rename the Cytoscape section to Software/Architecture/Development
 % General description of development
@@ -393,6 +397,25 @@ implementing the wrapper as a standalone function inside clusterMaker2 or a stan
 %%%% IMPLEMENTATION END %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\part{Procedure}
+The secretome values of genes can be expressed by a single integer value. The clustered network can be constructed with
+an AP algorithm, short for affinity propagation, clustering algorithm (source AP). Affinity propagation clustering
+concentrates on the nodes in the network that are binding the rest of them together, so called "hubs". Using affinity
+propagation for clustering will produce results that represent a grouping of nodes that are coupled by seemingly
+unimportant nodes to most clustering algorithms. But the AP algorithm is good at expressing nodes that are not highly
+connected to many nodes, but rather the nodes that are binding other highly connected nodes together. This results in
+bigger clusters that can be a target for methods that cure cancer by severing the interaction between biomarker genes.
+
+It is also discussed how AP performs versus Markov clustering (source, both markov algorithm and the "vs" paper). And
+since Markov algorithm performs better on protein interaction, it will also be used to cluster the networks. An analysis
+between the rankings that come from the Markov and AP clusterings will be performed, which hopefully will give concrete
+results as to the pro's and con's of each algorithm. Some questions should be raised as the analysis is done. For
+example, is both of the algorithms good, but have different uses, even if they are not directly involved with the
+ranking done after the clustering? Are either AP or Markov useless for a particular type of ranking afterwards?
+
+The information provided through the whole process from what type of nodes (protein or gene), interaction between the
+nodes and what kind of biomarker we want to identify are all factors that will have a great impact on how all of this
+should be combined.
 \part{Results}
 
 \part{Analysis}
