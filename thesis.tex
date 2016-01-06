@@ -1,25 +1,27 @@
-\documentclass[UKenglish,11pt,a4paper]{article}
+\documentclass[UKenglish,ifimaster]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc, url}
 \usepackage{graphicx,babel,csquotes,textcomp,ifimasterforside,varioref,float}
 \usepackage[backend=biber,style=numeric-comp,sorting=nyt,maxbibnames=20,maxcitenames=20]{biblatex}
+\urlstyle{sf}
 \graphicspath{{images/}}
 \addbibresource{macros.bib}
 \addbibresource{references.bib}
 \title{Ranklust}
 \subtitle{A bioinformatics solution to identify network biomarkers in cancer}
-
 \author{Henning Lund-Hanssen}
 
 \begin{document}
 \ififorside{}
 \frontmatter{}
+\maketitle{}
+
+\chapter*{Abstract}
+This is where the abstract goes...
 
 \tableofcontents{}
 \listoffigures{}
 \listoftables{}
-
-\chapter*{Abstract}
 
 \mainmatter{}
 
@@ -32,25 +34,20 @@ And even if we have all of this new equipment, most molecular biologists does no
 to use the newfound equipment or interpret the results. This is where bioinformaticians come in. 
 
 % Rewrite this and use sources! It should explain incidence, pure and simple.
-Incidence is the increase in the rate of new occurrences. So if we were to
-analyze the amount of new HIV incidents over 10 years and we start with 20 incidents, then after
-5 years we get 20 new incidents and then after 10 years, we get 30 new
-incidents. We now have a total of 75 new incidents since the start (25 + 20 + 30).
-Because we do not know when the 20 first incidents in the first 5 years
-happened, we assume they happened after 2,5 years (halfway to 5 years). So we
-will get 20 * 2,5 and end up with 50 possible new cases. Do the same with the
-next 5 years and the next 30 new occurrences! The only exception to the previous
-calculation is that we know they happened somewhere between 5 and 10 years, so
-we go halfway, to 7,5 ((5+10)/2 = 7,5) and do the same calculation:
-7,5 * 30 = 225. Then combine them, 225 + 50 = 275. We ignore the first change,
-since they are what we started with. Let us also define the sample size of the
-population to be 225. We then know that 150 people did not get HIV during the
-10-year period. So if we were to add these 150 people over the 10 years that did
-not receive HIV, we get 150 * 10 = 1500. We add the increase of HIV, which is
-275 and get 275 + 1500 = 1775. 
+Incidence is the increase in the rate of new occurrences. So if we were to analyze the amount of new HIV incidents over
+10 years and we start with 20 incidents, then after 5 years we get 20 new incidents and then after 10 years, we get 30
+new incidents. We now have a total of 75 new incidents since the start (25 + 20 + 30).  Because we do not know when the
+20 first incidents in the first 5 years happened, we assume they happened after 2,5 years (halfway to 5 years). So we
+will get 20 * 2,5 and end up with 50 possible new cases. Do the same with the next 5 years and the next 30 new
+occurrences! The only exception to the previous calculation is that we know they happened somewhere between 5 and 10
+years, so we go halfway, to 7,5 ((5+10)/2 = 7,5) and do the same calculation: 7,5 * 30 = 225. Then combine them, 225 +
+50 = 275. We ignore the first change, since they are what we started with. Let us also define the sample size of the
+population to be 225. We then know that 150 people did not get HIV during the 10-year period. So if we were to add these
+150 people over the 10 years that did not receive HIV, we get 150 * 10 = 1500. We add the increase of HIV, which is 275
+and get 275 + 1500 = 1775. 
 
-My thesis is about making a tool, named Ranklust, which gives cancer researchers an
-easier way of identifying network biomarkers in cancer. 
+My thesis is about making a tool, named Ranklust, which gives cancer researchers an easier way of identifying network
+biomarkers in cancer. 
 
 \chapter{Motivation}
 Biomarkers are at the centre of this thesis. They are what Ranklust should be able to detect and rank in order to
@@ -59,8 +56,8 @@ state" \cite{biomarker1}. It can be represented by the levels of a specific prot
 combination the two.
 
 Biomarkers can be used for different purposes. They can be used to measure the effect of cancer drug treatment. That the
-drug does what it is supposed to do. It can be used to predict disease development or the current stage of the
-disease. Here is a list of what biomarkers currently are being used for:
+drug does what it is supposed to do. It can be used to predict disease development or the current stage of the disease.
+Here is a list of what biomarkers currently are being used for:
 \\\\
 \textbf{Usages for biomarkers:} \cite{beyondpsa}
 \begin{itemize}
@@ -102,52 +99,44 @@ disease. Here is a list of what biomarkers currently are being used for:
 \end{itemize}
 
 %% CITE GLOBAL CANCER START ---
-In 1990, cancer was the third leading cause of death. By 2013, it has taken
-second place and the amount of deaths related to cancer is considered to be
-doubled by 2030. For men in particular, the highest incidents of cancer came
-from prostate cancer, with a count of 1.4 million incidents. For women, breast
-cancer tops the statistics at 1.8 million incidents. For both sexes, tracheal,
-bronchus and lung cancer tops the list at 1.6 *deaths*, not incidents.
+In 1990, cancer was the third leading cause of death. By 2013, it has taken second place and the amount of deaths
+related to cancer is considered to be doubled by 2030. For men in particular, the highest incidents of cancer came from
+prostate cancer, with a count of 1.4 million incidents. For women, breast cancer tops the statistics at 1.8 million
+incidents. For both sexes, tracheal, bronchus and lung cancer tops the list at 1.6 *deaths*, not incidents.
 
-The increasing number of cancer-related incidents is a big threat in countries
-that are not adequate equipped to deal with complex and expensive cancer
-treatments.
+The increasing number of cancer-related incidents is a big threat in countries that are not adequate equipped to deal
+with complex and expensive cancer treatments.
 
-With a stable population growth and age structure, we would have seen a 13%
-decrease in incident cases between 1990 and 2013. Instead, incident cases has
-increased by 67%
+With a stable population growth and age structure, we would have seen a 13\% decrease in incident cases between 1990 and
+2013. Instead, incident cases has increased by 67\%
 
 Incidence cases for women has risen slowly whereas for men, it has decreased.
 
-Breast cancer is the most lethal cancer for women. Only 1% of breast cancer
-cases occur in men. Between 1990 and 2013, incidence cases of breast cancer has
-increased by 99%. With stable population and age structure, it falls to about
-26%, which still is a significant increase in incidents.
+Breast cancer is the most lethal cancer for women. Only 1\% of breast cancer cases occur in men. Between 1990 and 2013,
+incidence cases of breast cancer has increased by 99\%. With stable population and age structure, it falls to about
+26\%, which still is a significant increase in incidents.
 
-Prostate cancer incident cases increased by 217% in period 1990 to 2013.
-Increased life expectancy is expected to contribute somewhere between 20% and
-43% to the increase in this occasion.
+Prostate cancer incident cases increased by 217\% in period 1990 to 2013.  Increased life expectancy is expected to
+contribute somewhere between 20\% and 43\% to the increase in this occasion.
 
-217% on a global scale, 167% in developed countries and 367% in developing
-countries. Age alone cannot explain the HUGE increase in developing countries.
-But it may show a bigger need for prostate screening in low-/middle-income
+217\% on a global scale, 167\% in developed countries and 367\% in developing countries. Age alone cannot explain the
+HUGE increase in developing countries.  But it may show a bigger need for prostate screening in low-/middle-income
 countries.
 
-Even though developed countries has 70% higher ASIR, the ASDR is only 20% higher
-in developed countries, showing that the cancer is detected, patients in
-developed countries has a higher chance of survival (not very surprising...).
+Even though developed countries has 70\% higher ASIR, the ASDR is only 20\% higher in developed countries, showing that
+the cancer is detected, patients in developed countries has a higher chance of survival (not very surprising...).
 
-An example of a single molecule biomarker is the prostate specific antigen (PSA). This is a protein produced by the 
+An example of a single molecule biomarker is the prostate specific antigen (PSA). This is a protein produced by the
 prostate gland in male humans. The identification of cancer with PSA is simple, the higher the level of PSA, measured in
 ng/mL (nanograms per milliliter), the higher is the chance of the patient having prostate cancer \cite{cancerfacts}.
 
-Today PSA is used for both identifying and evaluating the current stage of prostate cancer. This biomarker can be found 
-by analyzing blood examples from patients, thus fulfilling some of the demands for a good biomarker,
-but not all of them. It is easy to measure and easy to acquire, but not reliable enough to be used as the only marker
-to identify and determine the stage or remission of prostate cancer. The low grade of reliability comes from the fact
-that even though higher levels of PSA shows higher chance of having prostate cancer, prostate cancer is not the only
-reason to have elevated levels of PSA \cite{cancerfacts}. Namely inflammation and enlargement of the prostate. Though, a
-man with both of these cases may or may not develop prostate cancer.
+Today PSA is used for both identifying and evaluating the current stage of prostate cancer. This biomarker can be found
+by analyzing blood examples from patients, thus fulfilling some of the demands for a good biomarker, but not all of
+them. It is easy to measure and easy to acquire, but not reliable enough to be used as the only marker to identify and
+determine the stage or remission of prostate cancer. The low grade of reliability comes from the fact that even though
+higher levels of PSA shows higher chance of having prostate cancer, prostate cancer is not the only reason to have
+elevated levels of PSA \cite{cancerfacts}. Namely inflammation and enlargement of the prostate. Though, a man with both
+of these cases may or may not develop prostate cancer.
 %% CITE GLOBAL CANCER END ---
 
 % Conclusion about PSA
@@ -159,12 +148,12 @@ and predict the right treatment.
 \chapter{Next-generation sequencing}
 Today, rapid analyzing of genes and proteins are made available through Next-Generation Sequencing (NGS)\cite{ngs1}.
 % Find a better source for this!
-Networks offers us an informatics, algorithmic, visual and mathematical tool to study this bigger picture. This
-project will integrate the opportunity networks offer to discover new biomarkers in cancer.
-Through acquiring more data, faster than before, there now exists databases with much information that is easy to 
-access. This makes room for building huge networks of proteins and genes, allowing for more extensively and thorough 
-assays to be done. For example, what if something that is classified as a prostate cancer biomarker only is viable when 
-proteins that has not been classified as a biomarker, also is present? Together they could represent a more appropriate
+Networks offers us an informatics, algorithmic, visual and mathematical tool to study this bigger picture. This project
+will integrate the opportunity networks offer to discover new biomarkers in cancer.  Through acquiring more data, faster
+than before, there now exists databases with much information that is easy to access. This makes room for building huge
+networks of proteins and genes, allowing for more extensively and thorough assays to be done. For example, what if
+something that is classified as a prostate cancer biomarker only is viable when proteins that has not been classified as
+a biomarker, also is present? Together they could represent a more appropriate
 \emph{network biomarker}.
 The amount of data that can be analyzed also opens up for another more personalized approach to each cancer patient.
 Finding patient-specific biomarkers could make a huge impact on the quality of treatment \cite{personalized}.
@@ -172,10 +161,10 @@ Finding patient-specific biomarkers could make a huge impact on the quality of t
 The PSA biomarker is over 20 years old \cite{psa-age}. Through those years, it has been discovered other and better
 biomarkers for prostate cancer than PSA. Among those, PCA3, which is detectable through urine samples from patients. It
 also has the benefit of not being affected by the size of the prostate gland \cite{pca3-size}. But still the results
-could be better. Therefore, it has been tried to combine these two biomarkers in order to see if it is beneficial to
-see the results from each biomarker in light of each other \cite{beyondpsa}. The results from these tests is that they
+could be better. Therefore, it has been tried to combine these two biomarkers in order to see if it is beneficial to see
+the results from each biomarker in light of each other \cite{beyondpsa}. The results from these tests is that they
 complement each other to a level of significance that makes it compelling to analyze them both to diagnose prostate
-cancer. It is important to point out that even if these biomarkers are not the best at indicating if a patient has 
+cancer. It is important to point out that even if these biomarkers are not the best at indicating if a patient has
 cancer or not, these biomarkers are good at indicating progression and recurrence of prostate cancer.
 
 But all of this is based on single genes or proteins. What if we looked at whole networks as biomarkers?
@@ -341,15 +330,15 @@ algorithms is non-existing (cite documentation!). So I will make a walkthrough o
 
 
 % Preparations
-The POM-file has to be updated (\today) because libraries connected to the pdf exporting functionality is
-outdated. Updating the libraries, imports and the usage of these libraries in the source code is enough to make the
-whole project compile at the mentioned date.
+The POM-file has to be updated because libraries connected to the pdf exporting functionality is outdated. Updating the
+libraries, imports and the usage of these libraries in the source code is enough to make the whole project compile at
+the mentioned date.
 
 % Registering a service
 In order to make it easy to implement new cluster ranking algorithms, a new task factory for the ranking of clusters is
 required. It has to be registered as a service to make it visible to the GUI menu, aswell as maintain the \it{OSGi}
-standard of components added to the \it{clusterMaker2} project. Also, creating a standalone plugin at a later stage will be
-easier if Ranklust is properly compartmentalized.
+standard of components added to the \it{clusterMaker2} project. Also, creating a standalone plugin at a later stage will
+be easier if Ranklust is properly compartmentalized.
 
 Registering a new service listener is a way of keeping the Ranklust part out of clusterMaker2. Though, it is still
 packaged within clusterMaker2's API, so that it does not become a mess, if extra functionality is to be implemented
@@ -417,11 +406,11 @@ The information provided through the whole process from what type of nodes (prot
 nodes and what kind of biomarker we want to identify are all factors that will have a great impact on how all of this
 should be combined.
 \part{Results}
-
+Results...
 \part{Analysis}
-
+Analysis...
 \part{Conclusion}
-
+Conclusion...
 \backmatter{}
 \printbibliography
 \end{document}
