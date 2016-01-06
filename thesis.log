@@ -1,28 +1,35 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  6 JAN 2016 18:10
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  6 JAN 2016 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**thesis
+**thesis.tex
 (./thesis.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 2 languages loaded.
-(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
-Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
-File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
+(./ifimaster.cls
+Document Class: ifimaster 2013/11/25 v1.01 Ifi/UiO document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
+Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
-\c@section=\count80
-\c@subsection=\count81
-\c@subsubsection=\count82
-\c@paragraph=\count83
-\c@subparagraph=\count84
-\c@figure=\count85
-\c@table=\count86
+\c@chapter=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
 \abovecaptionskip=\skip41
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/mathpazo.sty
+Package: mathpazo 2005/04/12 PSNFSS-v9.2a Palatino w/ Pazo Math (D.Puga, WaS) 
+\symupright=\mathgroup4
+))
 (/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks14
@@ -278,7 +285,7 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
-\Gread@gobject=\count87
+\Gread@gobject=\count88
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
@@ -291,7 +298,7 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/share/texlive/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2013/12/03 3.9h Babel common definitions
-\babel@savecnt=\count88
+\babel@savecnt=\count89
 \U@D=\dimen105
 )
 \l@british = a dialect from \language\l@english 
@@ -308,16 +315,16 @@ Package: etoolbox 2011/01/03 v2.1 e-TeX tools for LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/etex-pkg/etex.sty
 Package: etex 1998/03/26 v2.0 eTeX basic definition package (PEB)
-\et@xins=\count89
+\et@xins=\count90
 )
-\etb@tempcnta=\count90
+\etb@tempcnta=\count91
 )
-\csq@reset=\count91
-\csq@gtype=\count92
-\csq@glevel=\count93
-\csq@qlevel=\count94
-\csq@maxlvl=\count95
-\csq@tshold=\count96
+\csq@reset=\count92
+\csq@gtype=\count93
+\csq@glevel=\count94
+\csq@qlevel=\count95
+\csq@maxlvl=\count96
+\csq@tshold=\count97
 \csq@ltx@everypar=\toks17
 
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.def
@@ -484,24 +491,9 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 )
-
-! LaTeX Error: File `ifimasterforside.sty' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name: lib/ifimasterforside.sty
-(./lib/ifimasterforside.sty
+(./ifimasterforside.sty
 Package: ifimasterforside 2015/05/28 v1.2d Ifi document class
-
-
-! LaTeX Error: File `ifikompendium.tex' not found.
-
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: tex)
-
-Enter file name: lib/ifikompendium.tex
-(./lib/ifikompendium.tex
+ (./ifikompendium.tex
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
@@ -541,15 +533,15 @@ Package: xifthen 2009/04/17 v1.3 Extended ifthen features
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count97
-\calc@Bcount=\count98
+\calc@Acount=\count98
+\calc@Bcount=\count99
 \calc@Adimen=\dimen106
 \calc@Bdimen=\dimen107
 \calc@Askip=\skip43
 \calc@Bskip=\skip44
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count99
+\calc@Ccount=\count100
 \calc@Cskip=\skip45
 )
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
@@ -562,16 +554,16 @@ Package: ifmtarg 2009/09/02 v1.2a check for an empty argument
 Package: type1cm 2002/09/05 v0.04 BlueSky/Y&Y Type1 CM font definitions (DPC, p
 atched RF)
 )
-\c@IfiF@cur@year=\count100
-\c@IfiF@cur@month=\count101
+\c@IfiF@cur@year=\count101
+\c@IfiF@cur@month=\count102
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/tools/varioref.sty
 Package: varioref 2011/10/02 v1.4z package for extended references (FMi)
-\c@vrcnt=\count102
+\c@vrcnt=\count103
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count103
+\c@float@type=\count104
 \float@exts=\toks18
 \float@box=\box26
 \@float@everytoks=\toks19
@@ -604,49 +596,49 @@ Package etexcmds Info: Could not find \expanded.
 )))
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.sty
 Package: logreq 2010/08/04 v1.0 xml request logger
-\lrq@indent=\count104
+\lrq@indent=\count105
 
 (/usr/share/texlive/texmf-dist/tex/latex/logreq/logreq.def
 File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 ))
-\c@tabx@nest=\count105
-\c@listtotal=\count106
-\c@listcount=\count107
-\c@liststart=\count108
-\c@liststop=\count109
-\c@citecount=\count110
-\c@citetotal=\count111
-\c@multicitecount=\count112
-\c@multicitetotal=\count113
-\c@instcount=\count114
-\c@maxnames=\count115
-\c@minnames=\count116
-\c@maxitems=\count117
-\c@minitems=\count118
-\c@citecounter=\count119
-\c@savedcitecounter=\count120
-\c@uniquelist=\count121
-\c@uniquename=\count122
-\c@refsection=\count123
-\c@refsegment=\count124
-\c@maxextratitle=\count125
-\c@maxextratitleyear=\count126
-\c@maxextrayear=\count127
-\c@maxextraalpha=\count128
-\c@abbrvpenalty=\count129
-\c@highnamepenalty=\count130
-\c@lownamepenalty=\count131
-\c@maxparens=\count132
-\c@parenlevel=\count133
-\blx@tempcnta=\count134
-\blx@tempcntb=\count135
-\blx@tempcntc=\count136
-\blx@maxsection=\count137
-\blx@maxsegment@0=\count138
-\blx@notetype=\count139
-\blx@parenlevel@text=\count140
-\blx@parenlevel@foot=\count141
-\blx@sectionciteorder@0=\count142
+\c@tabx@nest=\count106
+\c@listtotal=\count107
+\c@listcount=\count108
+\c@liststart=\count109
+\c@liststop=\count110
+\c@citecount=\count111
+\c@citetotal=\count112
+\c@multicitecount=\count113
+\c@multicitetotal=\count114
+\c@instcount=\count115
+\c@maxnames=\count116
+\c@minnames=\count117
+\c@maxitems=\count118
+\c@minitems=\count119
+\c@citecounter=\count120
+\c@savedcitecounter=\count121
+\c@uniquelist=\count122
+\c@uniquename=\count123
+\c@refsection=\count124
+\c@refsegment=\count125
+\c@maxextratitle=\count126
+\c@maxextratitleyear=\count127
+\c@maxextrayear=\count128
+\c@maxextraalpha=\count129
+\c@abbrvpenalty=\count130
+\c@highnamepenalty=\count131
+\c@lownamepenalty=\count132
+\c@maxparens=\count133
+\c@parenlevel=\count134
+\blx@tempcnta=\count135
+\blx@tempcntb=\count136
+\blx@tempcntc=\count137
+\blx@maxsection=\count138
+\blx@maxsegment@0=\count139
+\blx@notetype=\count140
+\blx@parenlevel@text=\count141
+\blx@parenlevel@foot=\count142
+\blx@sectionciteorder@0=\count143
 \labelnumberwidth=\skip46
 \labelalphawidth=\skip47
 \shorthandwidth=\skip48
@@ -658,9 +650,9 @@ File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
 \bibhang=\skip54
 \blx@bcfin=\read1
 \blx@bcfout=\write3
-\c@mincomprange=\count143
-\c@maxcomprange=\count144
-\c@mincompwidth=\count145
+\c@mincomprange=\count144
+\c@maxcomprange=\count145
+\c@mincompwidth=\count146
 Package biblatex Info: Trying to load biblatex default data model...
 Package biblatex Info: ... file 'blx-dm.def' found.
 
@@ -669,72 +661,72 @@ Package biblatex Info: Trying to load biblatex style data model...
 Package biblatex Info: ... file 'numeric-comp.dbx' not found.
 Package biblatex Info: Trying to load biblatex custom data model...
 Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
-\c@afterword=\count146
-\c@savedafterword=\count147
-\c@annotator=\count148
-\c@savedannotator=\count149
-\c@author=\count150
-\c@savedauthor=\count151
-\c@bookauthor=\count152
-\c@savedbookauthor=\count153
-\c@commentator=\count154
-\c@savedcommentator=\count155
-\c@editor=\count156
-\c@savededitor=\count157
-\c@editora=\count158
-\c@savededitora=\count159
-\c@editorb=\count160
-\c@savededitorb=\count161
-\c@editorc=\count162
-\c@savededitorc=\count163
-\c@foreword=\count164
-\c@savedforeword=\count165
-\c@holder=\count166
-\c@savedholder=\count167
-\c@introduction=\count168
-\c@savedintroduction=\count169
-\c@namea=\count170
-\c@savednamea=\count171
-\c@nameb=\count172
-\c@savednameb=\count173
-\c@namec=\count174
-\c@savednamec=\count175
-\c@shortauthor=\count176
-\c@savedshortauthor=\count177
-\c@shorteditor=\count178
-\c@savedshorteditor=\count179
-\c@translator=\count180
-\c@savedtranslator=\count181
-\c@labelname=\count182
-\c@savedlabelname=\count183
-\c@institution=\count184
-\c@savedinstitution=\count185
-\c@lista=\count186
-\c@savedlista=\count187
-\c@listb=\count188
-\c@savedlistb=\count189
-\c@listc=\count190
-\c@savedlistc=\count191
-\c@listd=\count192
-\c@savedlistd=\count193
-\c@liste=\count194
-\c@savedliste=\count195
-\c@listf=\count196
-\c@savedlistf=\count197
-\c@location=\count198
-\c@savedlocation=\count199
-\c@organization=\count200
-\c@savedorganization=\count201
-\c@origlocation=\count202
-\c@savedoriglocation=\count203
-\c@origpublisher=\count204
-\c@savedorigpublisher=\count205
-\c@publisher=\count206
-\c@savedpublisher=\count207
-\c@language=\count208
-\c@savedlanguage=\count209
-\c@pageref=\count210
-\c@savedpageref=\count211
+\c@afterword=\count147
+\c@savedafterword=\count148
+\c@annotator=\count149
+\c@savedannotator=\count150
+\c@author=\count151
+\c@savedauthor=\count152
+\c@bookauthor=\count153
+\c@savedbookauthor=\count154
+\c@commentator=\count155
+\c@savedcommentator=\count156
+\c@editor=\count157
+\c@savededitor=\count158
+\c@editora=\count159
+\c@savededitora=\count160
+\c@editorb=\count161
+\c@savededitorb=\count162
+\c@editorc=\count163
+\c@savededitorc=\count164
+\c@foreword=\count165
+\c@savedforeword=\count166
+\c@holder=\count167
+\c@savedholder=\count168
+\c@introduction=\count169
+\c@savedintroduction=\count170
+\c@namea=\count171
+\c@savednamea=\count172
+\c@nameb=\count173
+\c@savednameb=\count174
+\c@namec=\count175
+\c@savednamec=\count176
+\c@shortauthor=\count177
+\c@savedshortauthor=\count178
+\c@shorteditor=\count179
+\c@savedshorteditor=\count180
+\c@translator=\count181
+\c@savedtranslator=\count182
+\c@labelname=\count183
+\c@savedlabelname=\count184
+\c@institution=\count185
+\c@savedinstitution=\count186
+\c@lista=\count187
+\c@savedlista=\count188
+\c@listb=\count189
+\c@savedlistb=\count190
+\c@listc=\count191
+\c@savedlistc=\count192
+\c@listd=\count193
+\c@savedlistd=\count194
+\c@liste=\count195
+\c@savedliste=\count196
+\c@listf=\count197
+\c@savedlistf=\count198
+\c@location=\count199
+\c@savedlocation=\count200
+\c@organization=\count201
+\c@savedorganization=\count202
+\c@origlocation=\count203
+\c@savedoriglocation=\count204
+\c@origpublisher=\count205
+\c@savedorigpublisher=\count206
+\c@publisher=\count207
+\c@savedpublisher=\count208
+\c@language=\count209
+\c@savedlanguage=\count210
+\c@pageref=\count211
+\c@savedpageref=\count212
 Package biblatex Info: Trying to load compatibility code...
 Package biblatex Info: ... file 'blx-compat.def' found.
 
@@ -746,13 +738,13 @@ Package biblatex Info: ... file 'biblatex.def' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/biblatex.def
 File: biblatex.def 
-\c@textcitecount=\count212
-\c@textcitetotal=\count213
-\c@textcitemaxnames=\count214
-\c@biburlnumpenalty=\count215
-\c@biburlucpenalty=\count216
-\c@biburllcpenalty=\count217
-\c@smartand=\count218
+\c@textcitecount=\count213
+\c@textcitetotal=\count214
+\c@textcitemaxnames=\count215
+\c@biburlnumpenalty=\count216
+\c@biburlucpenalty=\count217
+\c@biburllcpenalty=\count218
+\c@smartand=\count219
 )
 Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.bbx' found.
@@ -769,16 +761,16 @@ Package biblatex Info: ... file 'standard.bbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
 File: standard.bbx 2013/11/25 v2.8a biblatex bibliography style (PK/JW/AB)
-\c@bbx:relatedcount=\count219
-\c@bbx:relatedtotal=\count220
+\c@bbx:relatedcount=\count220
+\c@bbx:relatedtotal=\count221
 )))
 Package biblatex Info: Trying to load citation style 'numeric-comp'...
 Package biblatex Info: ... file 'numeric-comp.cbx' found.
 
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
 File: numeric-comp.cbx 2013/11/25 v2.8a biblatex citation style (PK/JW/AB)
-\c@cbx@tempcnta=\count221
-\c@cbx@tempcntb=\count222
+\c@cbx@tempcnta=\count222
+\c@cbx@tempcntb=\count223
 Package biblatex Info: Redefining '\cite'.
 Package biblatex Info: Redefining '\parencite'.
 Package biblatex Info: Redefining '\footcite'.
@@ -817,10 +809,6 @@ Package biblatex Info: ... file 'english.lbx' found.
 (/usr/share/texlive/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
 )))
-
-LaTeX Warning: Unused global option(s):
-    [ifimaster].
-
 (./thesis.aux)
 \openout1 = `thesis.aux'.
 
@@ -842,19 +830,25 @@ LaTeX Font Info:    Try loading font information for TS1+cmr on input line 14.
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 14.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
+File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
+)
+\big@size=\dimen108
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count223
-\scratchdimen=\dimen108
+\scratchcounter=\count224
+\scratchdimen=\dimen109
 \scratchbox=\box28
-\nofMPsegments=\count224
-\nofMParguments=\count225
+\nofMPsegments=\count225
+\nofMParguments=\count226
 \everyMPshowfont=\toks20
-\MPscratchCnt=\count226
-\MPscratchDim=\dimen109
-\MPnumerator=\count227
-\makeMPintoPDFobject=\count228
+\MPscratchCnt=\count227
+\MPscratchDim=\dimen110
+\MPnumerator=\count228
+\makeMPintoPDFobject=\count229
 \everyMPtoPDFconversion=\toks21
 ) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
@@ -889,212 +883,206 @@ Package biblatex Info: Automatic encoding selection.
 \openout3 = `thesis.bcf'.
 
 Package biblatex Info: Trying to load bibliographic data...
-
-
-Package biblatex Warning: File 'thesis.bbl' is wrong format version - expected 
-2.3.
-
 Package biblatex Info: ... file 'thesis.bbl' found.
+
 (./thesis.bbl)
 Package biblatex Info: Reference section=0 on input line 14.
 Package biblatex Info: Reference segment=0 on input line 14.
 
+<ifi-kompendium-forside-eng.pdf, id=1, 639.66579pt x 887.2046pt>
+File: ifi-kompendium-forside-eng.pdf Graphic file (type pdf)
 
-! LaTeX Error: File `ifi-kompendium-forside-eng' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.15 \ififorside{
-                 }
-? 
+<use ifi-kompendium-forside-eng.pdf>
+Package pdftex.def Info: ifi-kompendium-forside-eng.pdf used on input line 15.
+(pdftex.def)             Requested size: 639.66422pt x 887.20244pt.
 LaTeX Font Info:    Try loading font information for T1+phv on input line 15.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-! Undefined control sequence.
-l.16 \frontmatter
-                 {}
-? 
-! Undefined control sequence.
-l.19 \chapter
-             *{Abstract}
-? 
-(./thesis.toc)
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ifi-kompendium-forside-e
+ng.pdf>] [2]
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 17.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
+File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
+)
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 17.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
+File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 17.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
+File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
+)
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 17.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
+File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
+)
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 17.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
+) [1
+
+] [2
+
+]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 19.
+ [3]
+[4
+
+] (./thesis.toc
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <12> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 5.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 7.
+)
 \tf@toc=\write4
 \openout4 = `thesis.toc'.
 
- (./thesis.lof)
+ [5] [6
+
+] (./thesis.lof)
 \tf@lof=\write5
 \openout5 = `thesis.lof'.
 
- [1] (./thesis.lot)
+ [7] [8
+
+] (./thesis.lot)
 \tf@lot=\write6
 \openout6 = `thesis.lot'.
 
+ [9] [10
 
-! Undefined control sequence.
-l.26 \mainmatter
-                {}
-? 
-! Undefined control sequence.
-l.52 \chapter
-             {Motivation}
-? 
+]
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <20.74> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 28.
+
+[1
+
+] [2] [3] [4
+
+]
+Chapter 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 58--63
 
  []
 
-[2] [3]
-! Undefined control sequence.
-l.148 \chapter
-              {Next-generation sequencing}
-? 
-! Undefined control sequence.
-l.160 \chapter
-              {Next generation of biomarkers}
-? 
-[4]
-! Undefined control sequence.
-l.172 \chapter
-              {Networks as a tool in cancer research}
-? 
-! Undefined control sequence.
-l.205 \chapter
-              {Network clustering: Toward network based biomarker discovery}
-? 
-[5]
-! Undefined control sequence.
-l.226 \chapter
-              {Cytoscape: An implementation to rank clusters}
-? 
-[6] <images/cancer_incidents.jpg, id=36, 468.90675pt x 565.94536pt>
+LaTeX Font Info:    Try loading font information for TS1+ppl on input line 64.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
+File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+) [5] [6] [7] [8
+
+]
+Chapter 2.
+[9] [10
+
+]
+Chapter 3.
+[11] [12
+
+]
+Chapter 4.
+[13] [14
+
+]
+Chapter 5.
+[15] [16
+
+]
+Chapter 6.
+LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
+(Font)              Font shape `T1/ppl/b/it' tried instead on input line 230.
+[17] [18] [19
+
+] [20]
+<images/cancer_incidents.jpg, id=143, 468.90675pt x 565.94536pt>
 File: images/cancer_incidents.jpg Graphic file (type jpg)
 
 <use images/cancer_incidents.jpg>
 Package pdftex.def Info: images/cancer_incidents.jpg used on input line 290.
 (pdftex.def)             Requested size: 468.9056pt x 565.94397pt.
 
-Overfull \hbox (123.9056pt too wide) in paragraph at lines 290--291
+Overfull \hbox (108.9056pt too wide) in paragraph at lines 290--291
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 47.77515pt on input line 291.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/cancer_deaths.jpg, id=37, 469.0108pt x 566.2528pt>
+<images/cancer_deaths.jpg, id=144, 469.0108pt x 566.2528pt>
 File: images/cancer_deaths.jpg Graphic file (type jpg)
 
 <use images/cancer_deaths.jpg>
 Package pdftex.def Info: images/cancer_deaths.jpg used on input line 296.
 (pdftex.def)             Requested size: 469.00966pt x 566.25143pt.
 
-Overfull \hbox (124.00966pt too wide) in paragraph at lines 296--297
+Overfull \hbox (109.00966pt too wide) in paragraph at lines 296--297
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 48.08261pt on input line 297.
-
-
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7] [8] [9]
-! Undefined control sequence.
-l.414 \backmatter
-                 {}
-? 
-[10]
+[21 <./images/cancer_incidents.jpg>] [22 <./images/cancer_deaths.jpg>] [23
+
+]
+[24] [25
+
+] [26] [27] [28] [29
+
+] [30] [31] [32
+
+] [33] [34] [35] [36
+
+] [37] [38]
+[39] [40
+
+] [41] [42] [43] [44
+
+]
 LaTeX Font Info:    Try loading font information for T1+cmss on input line 415.
 
- (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-Overfull \hbox (4.35045pt too wide) in paragraph at lines 416--416
-[]\T1/cmr/m/sc/10 url\T1/cmr/m/n/10 : $\T1/cmss/m/n/10 http : / / apps . cytosc
-ape . org / apps / clustermaker2$ \T1/cmr/m/n/10 (vis-ited on 22/05/2015). 
- []
+) [45
 
-
-Overfull \hbox (16.72292pt too wide) in paragraph at lines 416--416
-[]\T1/cmr/m/sc/10 url\T1/cmr/m/n/10 : $\T1/cmss/m/n/10 http : / / www . amazon 
-. com / Clean -[] Code -[] Handbook -[] Software -[] Craftsmanship /
- []
-
-
-Overfull \hbox (4.84032pt too wide) in paragraph at lines 416--416
-[]\T1/cmr/m/n/10 Michael F.Berger et al. `  The ge-nomic com-plex-ity of pri-ma
-ry hu-man prostate
- []
-
-
-Overfull \hbox (12.68063pt too wide) in paragraph at lines 416--416
-\T1/cmr/m/n/10 Mar-berg-erd, Ar-nulf Sten-zle, Pe-ter F.A. Mul-dersf, Hartwig H
-u-landg, Clément-
- []
-
-
-Overfull \hbox (12.31738pt too wide) in paragraph at lines 416--416
-\T1/cmr/m/n/10 Claude Ab-boub, Mesut Remzid, Mar-tina Tin-zld, Su-san Fey-er-ab
-ende, Alexan-
- []
-
-
-Overfull \hbox (0.1867pt too wide) in paragraph at lines 416--416
-[]\T1/cmr/m/n/10 David Heck-er-man. \T1/cmr/m/it/10 A Tu-to-rial on Learn-ing W
-ith Bayesian Net-works\T1/cmr/m/n/10 . MSR-
- []
-
-[11]
-Overfull \hbox (6.54324pt too wide) in paragraph at lines 416--416
-[]\T1/cmr/m/n/10 Rebecca J. Leary, Isaac Kinde, Frank Diehl, Ker-stin Schmidt, 
-Chris Clouser,
- []
-
-
-Overfull \hbox (6.37306pt too wide) in paragraph at lines 416--416
-\T1/cmr/m/n/10 ers Us-ing Mas-sively Par-al-lel Se-quenc-ing'. In: \T1/cmr/m/it
-/10 Sci-ence Trans-la-tional Medicine
- []
-
-[12] [13 <./images/cancer_incidents.jpg>] [14 <./images/cancer_deaths.jpg>]
+] [46]
 (./thesis.aux)
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 9776 strings out of 495028
- 154446 string characters out of 6181497
- 556377 words of memory out of 5000000
- 12780 multiletter control sequences out of 15000+600000
- 22600 words of font info for 45 fonts, out of 8000000 for 9000
+ 9994 strings out of 495028
+ 157860 string characters out of 6181497
+ 555610 words of memory out of 5000000
+ 12980 multiletter control sequences out of 15000+600000
+ 41031 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,9n,49p,889b,1454s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/hennilu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1000.600pk> </home
-/hennilu/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1000.600pk> </home/hennilu/
-.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbi1000.600pk> </home/hennilu/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk> </home/hennilu/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/tcrm1000.600pk> </home/hennilu/.texmf-var/fonts/pk/ljfour/
-jknappen/ec/ecbx1000.600pk> </home/hennilu/.texmf-var/fonts/pk/ljfour/jknappen/
-ec/ecbx2074.600pk> </home/hennilu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx12
-00.600pk> </home/hennilu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk>
- </home/hennilu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/h
-ennilu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/hennilu/.t
-exmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk>{/usr/share/texlive/texmf-d
-ist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/urw/
-helvetic/uhvr8a.pfb>
-Output written on thesis.pdf (15 pages, 9856172 bytes).
+ 44i,11n,49p,893b,1464s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/hennilu/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.600pk>{/usr/s
+hare/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-d
+ist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
+tino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on thesis.pdf (58 pages, 14823734 bytes).
 PDF statistics:
- 444 PDF objects out of 1000 (max. 8388607)
- 87 compressed objects within 1 object stream
+ 307 PDF objects out of 1000 (max. 8388607)
+ 163 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

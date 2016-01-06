@@ -2,18 +2,30 @@
 \defcounter {refsection}{0}\relax 
 \select@language {UKenglish}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{I\hspace {1em}Introduction}{2}
+\contentsline {part}{I\hspace {1em}Introduction}{1}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{II\hspace {1em}Images testing...}{7}
+\contentsline {chapter}{\numberline {1}Motivation}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{III\hspace {1em}The project}{7}
+\contentsline {chapter}{\numberline {2}Next-generation sequencing}{9}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{IV\hspace {1em}CytoScape}{7}
+\contentsline {chapter}{\numberline {3}Next generation of biomarkers}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Procedure}{9}
+\contentsline {chapter}{\numberline {4}Networks as a tool in cancer research}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VI\hspace {1em}Results}{10}
+\contentsline {chapter}{\numberline {5}Network clustering: Toward network based biomarker discovery}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VII\hspace {1em}Analysis}{10}
+\contentsline {chapter}{\numberline {6}Cytoscape: An implementation to rank clusters}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VIII\hspace {1em}Conclusion}{10}
+\contentsline {part}{II\hspace {1em}Images testing...}{19}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{III\hspace {1em}The project}{23}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{IV\hspace {1em}CytoScape}{25}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{V\hspace {1em}Procedure}{29}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{VI\hspace {1em}Results}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{VII\hspace {1em}Analysis}{37}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{VIII\hspace {1em}Conclusion}{41}
