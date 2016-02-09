@@ -363,7 +363,7 @@ of just one. Twice the work for just one change - adding a new algorithm.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Intro
-The \it{clusterMaker2} documentation for implementing new parts that is not directly connected with clustering
+The \textit{clusterMaker2} documentation for implementing new parts that is not directly connected with clustering
 algorithms is non-existing (cite documentation!). So I will make a walkthrough of how to do it and how I did it.
 
 
@@ -374,8 +374,8 @@ the mentioned date.
 
 % Registering a service
 In order to make it easy to implement new cluster ranking algorithms, a new task factory for the ranking of clusters is
-required. It has to be registered as a service to make it visible to the GUI menu, aswell as maintain the \it{OSGi}
-standard of components added to the \it{clusterMaker2} project. Also, creating a standalone plugin at a later stage will
+required. It has to be registered as a service to make it visible to the GUI menu, aswell as maintain the \textit{OSGi}
+standard of components added to the \textit{clusterMaker2} project. Also, creating a standalone plugin at a later stage will
 be easier if Ranklust is properly compartmentalized.
 
 Registering a new service listener is a way of keeping the Ranklust part out of clusterMaker2. Though, it is still
@@ -418,20 +418,40 @@ and the retrieval of attribute information is as low as it is possible to get, w
 Big-O notation. The only drawback with this implementation is that there is no current type of wrapper around the row
 and column system. So the retrieval of information is not done the most intuitive way. But this is the way CytoScape
 works as a whole, so changing the way this works is either done through changing the CytoScape source code, or
-implementing the wrapper as a standalone function inside clusterMaker2 or a standalone plugin.
+implementing a wrapper as a standalone function inside clusterMaker2 or as a standalone plugin.
+
+% Single value ranklust
+A simple, but effective way of ranking clusters, is just to add together the biomarkers values and sum them up in each
+respective cluster. This will tell us which cluster will have the most cancerous genes and proteines. It is not very
+advanced, but an analysis show how effective it is. An alternative is also to add scaling to the values. Should clusters
+with a large amount of biomarkers receive a bonus because of the sheer amount? Should values alone be scaled exponential
+in order to magnify the differences between more and lesser cancerous biomarkers? This will be tested in the final
+stages of single value ranking in Ranklust. But as a beginning, the results will come from a pure additive algorithm.
+The more advanced ones will be implemented only if the additive algorithm show promising results.
+
+% Multivalue Ranklust
+Multivalue ranking of clusters creates a larger context. More data can help making more fine tuned results and get the
+validation of ranking clusters to find biomakers, hit the significance ceiling of 95\% certainity. % Fix this sentence!
+The question here is how should several values be combined in order to create a single value score to rank the clusters
+by? The best way should be to list every attribute to the user, and present them with options as to how the values
+should be scaled. An extra option could be how to scale the values in relation each other. The first way is the simplest
+way to implement so it will be tested first. And as with the single value ranking, if the first scaling of each
+individual value shows promising results for multivalue ranking, the values in relation to each other will be
+considered as a way of producing more accurate results.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION END %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \part{Procedure}
-The secretome values of genes can be expressed by a single integer value. The clustered network can be constructed with
-an AP algorithm, short for affinity propagation, clustering algorithm (source AP). Affinity propagation clustering
-concentrates on the nodes in the network that are binding the rest of them together, so called "hubs". Using affinity
-propagation for clustering will produce results that represent a grouping of nodes that are coupled by seemingly
-unimportant nodes to most clustering algorithms. But the AP algorithm is good at expressing nodes that are not highly
-connected to many nodes, but rather the nodes that are binding other highly connected nodes together. This results in
-bigger clusters that can be a target for methods that cure cancer by severing the interaction between biomarker genes.
+The secretome values of genes can be expressed by a single integer value, though, for compatibility reasons Ranklust
+will require double values. The clustered network can be constructed with an AP, short for Affinity Propagation,
+clustering algorithm (source AP). Affinity propagation clustering concentrates on the nodes in the network that are
+binding the rest of them together. Using affinity propagation for clustering will produce results that represent a
+grouping of nodes that are coupled by seemingly unimportant nodes to most clustering algorithms. But the AP algorithm is
+good at expressing nodes that are not highly connected to many nodes, but rather the nodes that are binding other highly
+connected nodes together. This results in bigger clusters that can be a target for methods that cure cancer by severing
+the interaction between biomarker genes.
 
 It is also discussed how AP performs versus Markov clustering (source, both markov algorithm and the "vs" paper). And
 since Markov algorithm performs better on protein interaction, it will also be used to cluster the networks. An analysis
@@ -442,7 +462,21 @@ ranking done after the clustering? Are either AP or Markov useless for a particu
 
 The information provided through the whole process from what type of nodes (protein or gene), interaction between the
 nodes and what kind of biomarker we want to identify are all factors that will have a great impact on how all of this
-should be combined.
+should be combined. The order of operations on the network will also effect the result. For example, AP clustering may
+create a few big clusters and many small ones. At this stage, the results will consist of the biggest clusters
+constructed from AP clustering that has focus on pure connection between nodes and not their attributes. At this point,
+the cluster ranking algorithm of Ranklust will be run in order to produce a picture of potential biomarkers. This
+picture is the first and simplest step that will be used as a result for an analysis. The analysis in this thesis will
+focus on validating the cluster ranking scores as ways of indicating potential biomarkers. 
+
+In order to validate the scores, I will need to know the state of the patient that the data to create the network came
+from. As there is no use to just generate results without knowing what they show. They might show connections between
+them, but without some sort of context the results are useless. The context needed is not very high, but the results
+from the ranking should be tested for several purposes. For example, is biomarkers from ranking of clusters best for
+disease disposition, screening, diagnostic, prognostic, prediction or monitoring cancer. I will aim for screening,
+diagnostic and most of all prognostic usages. As mentioned earlier, the prognostics of prostate cancer often results in
+50\% of patients receiving treatment that was not needed.
+
 \part{Results}
 Results...
 \part{Analysis}
