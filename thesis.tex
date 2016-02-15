@@ -240,6 +240,37 @@ different bio-databases has different ways of calculating edges. Should the data
 database supply weights in the edges and/or nodes, should it be used, changed or ignored? The final decision of how and
 in what way the edges should be defined has yet to come. 
 
+% Abstract 
+They have studied 50 cancer types that have been cataloged by the International Cancer Genome Consortium (IGCC). They
+found that only a few well-studied driver genes are frequently mutated, in contrast to many infrequently mutated genes
+that may also contribute to tumor biology.
+
+% Introduction
+There is only a few altered genes that have a mutation frequency higher than 10\%, and a shitload of genes that have a
+mutation frequency of 5\% and lower.  Prostate cancer is a type of cancer that has relatively few Single Nucleotide
+Polymorphisms (SNPs) and Copy-Number Alterations (CNAs). This indicates that prostate cancer is probably driven by some
+other type of somatic variation. The way driver genes are found is by identifying positive-selection signals.
+
+%EXPLAIN positive-selection signals here!!!
+
+
+%CONTINUE: 
+With this approach the genes that are less frequently mutated, but are functionally important genes, will not be
+detected by statistical analysis.  Another way detecting driver genes is by grouping the genetic alterations we can find
+through knowledge about cellular mechanisms. This way will provide information about the affected oncogenic pathways.
+
+% Pathways and networks
+%% Difference between pathways and networks
+Pathways are small networks of well studied processes where many areas are well documented. Networks on the other hand
+are bigger and less explored, but when properly analyzed, it might provide new information unknown to pathway systems.
+
+%% Pathways and networks vs. individual genes
+Analyzing pathways and networks have an advantage over individual genes. They may reveal information that comes from
+molecular events that covers multiple genes or pathways. Aggregating this data increases the chances of detecting driver
+genes through statistical analysis (source 15). Also, information gathered through pathways and networks may be enriched
+through genomic, transcriptomic and proteomic data and create a more unified view of the tumor biology.
+
+
 \chapter{Network clustering: Toward network based biomarker discovery}
 Networks is the pre-processing of single gene prioritization that is necessary in order to come to the next step,
 clustering of the network. Clustering is about making a hierarchical view of a network to be able to look at the bigger
