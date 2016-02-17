@@ -151,8 +151,8 @@ With a stable population growth and age structure, we would have seen a 13\% dec
 Incidence cases for women has risen slowly whereas for men, it has decreased.
 
 Breast cancer is the most lethal cancer for women. Only 1\% of breast cancer cases occur in men. Between 1990 and 2013,
-incidence cases of breast cancer has increased by 99\%. With stable population and age structure, it falls to about
-26\%, which still is a significant increase in incidents.
+incidence cases of breast cancer has increased by 99\%. Taking into account a stable population and age structure, it
+falls to about 26\%, which still is a significant increase in incidents.
 
 Prostate cancer incident cases increased by 217\% in period 1990 to 2013.  Increased life expectancy is expected to
 contribute somewhere between 20\% and 43\% to the increase in this occasion.
@@ -273,21 +273,6 @@ The goal of Ranklust is to cluster the networks we get from single gene prioriti
 identify network biomarkers. Apps taking care of making the networks already exists, but there still has to be made a 
 decision about whether or not they could be modified in order to better support the clustering.
 
-% Databases
-Which databases to use has to be considered. The reason to use databases is because they have information about how 
-protein and genes form a network based on how they interact with eachother. The initial database candidates in Ranklust 
-are iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}. These databases all have in common that it exists
-Cytoscape apps made to use these databases. STRING however, does not have any repository available through the Cytoscape
-app store, so interacting with the database through a new app in Cytoscape without making new plugins may be difficult.
-On the other hand, both iRefIndex and GeneMania have their repositories easily available to the public together with
-decent documentation. However, the difference between them is what they contain information about. iRefIndex contains
-data about protein-protein interaction (PPI), while GeneMania contains data about genes.
-% Check this next one out! Link from source!
-Since proteins come from genes, GeneMania can also give us some information about proteins. Differences between the
-two databases will be discussed in greater depth at a later stage.
-The open-source plugins in Cytoscape to communicate with the databases are iRefScape \cite{iridb} for iRefIndex and 
-GeneMANIA \cite{gmdb} for GeneMania.
-
 % Cytoscape
 Cytoscape is based on the Java programming language, which is a little bit untraditional for a software platform used to
 develop bioinformatics tools. % cite needed!!!
@@ -320,6 +305,28 @@ code is written and a good deployment tool is used. Therefore the Cytoscape plat
 Ranklust.
 
 % Maven section?? Other devtools? Cy3 Performance Reporter to measure the performance of SPICi inside clusterMaker2?
+
+\chapter{Methods}
+
+\chapter{Databases}
+Using databases helps with several things. CONTINUE!!!
+
+Which databases to use has to be considered. The reason to use databases is because they have information about how 
+protein and genes form a network based on how they interact with each other. The initial database candidates in Ranklust 
+are iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}. These databases all have in common that it exists
+Cytoscape apps made to use these databases. STRING however, does not have any repository available through the Cytoscape
+app store, so interacting with the database through a new app in Cytoscape without making new plugins may be difficult.
+On the other hand, both iRefIndex and GeneMania have their repositories easily available to the public together with
+decent documentation. However, the difference between them is what they contain information about. iRefIndex contains
+data about protein-protein interaction (PPI), while GeneMania contains data about genes.
+% Check this next one out! Link from source!
+Since proteins come from genes, GeneMania can also give us some information about proteins. Differences between the
+two databases will be discussed in greater depth at a later stage.
+The open-source plugins in Cytoscape to communicate with the databases are iRefScape \cite{iridb} for iRefIndex and 
+GeneMANIA \cite{gmdb} for GeneMania.
+
+\chapter{Clustering algorithms}
+
 
 \part{Images testing...}
 \begin{figure}[h]
