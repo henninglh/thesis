@@ -46,51 +46,6 @@
       \verb http://apps.cytoscape.org/apps/clustermaker2
       \endverb
     \endentry
-    \entry{iri}{online}{}
-      \field{sortinit}{0}
-      \field{urlday}{07}
-      \field{urlmonth}{05}
-      \field{urlyear}{2015}
-      \verb{url}
-      \verb http://irefindex.org/wiki/index.php?title=iRefIndex
-      \endverb
-    \endentry
-    \entry{gm}{online}{}
-      \field{sortinit}{0}
-      \field{urlday}{07}
-      \field{urlmonth}{05}
-      \field{urlyear}{2015}
-      \verb{url}
-      \verb http://www.genemania.org/
-      \endverb
-    \endentry
-    \entry{str}{online}{}
-      \field{sortinit}{0}
-      \field{urlday}{07}
-      \field{urlmonth}{05}
-      \field{urlyear}{2015}
-      \verb{url}
-      \verb http://string-db.org/
-      \endverb
-    \endentry
-    \entry{iridb}{online}{}
-      \field{sortinit}{0}
-      \field{urlday}{07}
-      \field{urlmonth}{05}
-      \field{urlyear}{2015}
-      \verb{url}
-      \verb http://apps.cytoscape.org/apps/irefscape
-      \endverb
-    \endentry
-    \entry{gmdb}{online}{}
-      \field{sortinit}{0}
-      \field{urlday}{07}
-      \field{urlmonth}{05}
-      \field{urlyear}{2015}
-      \verb{url}
-      \verb http://apps.cytoscape.org/apps/genemania
-      \endverb
-    \endentry
     \entry{biopython}{online}{}
       \field{sortinit}{0}
       \field{urlday}{20}
@@ -143,6 +98,51 @@
       \field{urlyear}{2015}
       \verb{url}
       \verb https://usegalaxy.org/
+      \endverb
+    \endentry
+    \entry{iri}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://irefindex.org/wiki/index.php?title=iRefIndex
+      \endverb
+    \endentry
+    \entry{gm}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://www.genemania.org/
+      \endverb
+    \endentry
+    \entry{str}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://string-db.org/
+      \endverb
+    \endentry
+    \entry{iridb}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://apps.cytoscape.org/apps/irefscape
+      \endverb
+    \endentry
+    \entry{gmdb}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{07}
+      \field{urlmonth}{05}
+      \field{urlyear}{2015}
+      \verb{url}
+      \verb http://apps.cytoscape.org/apps/genemania
       \endverb
     \endentry
     \entry{siri}{article}{}

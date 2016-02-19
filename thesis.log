@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  15 FEB 2016 18:58
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  19 FEB 2016 15:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1004,62 +1004,78 @@ Chapter 5.
 Chapter 6.
 LaTeX Font Info:    Font shape `T1/ppl/bx/it' in size <10.95> not available
 (Font)              Font shape `T1/ppl/b/it' tried instead on input line 299.
-[17] [18] [19
+[17] [18]
+Chapter 7.
+[19
 
-] [20]
-<images/cancer_incidents.jpg, id=143, 468.90675pt x 565.94536pt>
+] [20
+
+]
+Chapter 8.
+
+Underfull \vbox (badness 1308) has occurred while \output is active []
+
+ [21]
+[22]
+Chapter 9.
+[23
+
+] [24
+
+] [25] [26]
+<images/cancer_incidents.jpg, id=162, 468.90675pt x 565.94536pt>
 File: images/cancer_incidents.jpg Graphic file (type jpg)
 
 <use images/cancer_incidents.jpg>
-Package pdftex.def Info: images/cancer_incidents.jpg used on input line 359.
+Package pdftex.def Info: images/cancer_incidents.jpg used on input line 401.
 (pdftex.def)             Requested size: 468.9056pt x 565.94397pt.
 
-Overfull \hbox (108.9056pt too wide) in paragraph at lines 359--360
+Overfull \hbox (108.9056pt too wide) in paragraph at lines 401--402
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<images/cancer_deaths.jpg, id=144, 469.0108pt x 566.2528pt>
+<images/cancer_deaths.jpg, id=163, 469.0108pt x 566.2528pt>
 File: images/cancer_deaths.jpg Graphic file (type jpg)
 
 <use images/cancer_deaths.jpg>
-Package pdftex.def Info: images/cancer_deaths.jpg used on input line 365.
+Package pdftex.def Info: images/cancer_deaths.jpg used on input line 407.
 (pdftex.def)             Requested size: 469.00966pt x 566.25143pt.
 
-Overfull \hbox (109.00966pt too wide) in paragraph at lines 365--366
+Overfull \hbox (109.00966pt too wide) in paragraph at lines 407--408
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[21 <./images/cancer_incidents.jpg>] [22 <./images/cancer_deaths.jpg>] [23
+[27 <./images/cancer_incidents.jpg>] [28 <./images/cancer_deaths.jpg>] [29
 
 ]
-[24] [25
+[30] [31
 
-] [26] [27] [28] [29] [30
+] [32] [33] [34] [35] [36
 
-] [31] [32] [33] [34
+] [37] [38] [39] [40
 
-] [35] [36] [37] [38
-
-]
-[39] [40] [41] [42
-
-] [43] [44] [45] [46
+] [41] [42] [43] [44
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 518.
+[45] [46] [47] [48
+
+] [49] [50] [51] [52
+
+]
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 560.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-) [47
+) [53
 
-] [48]
+] [54]
 (./thesis.aux)
 Package logreq Info: Writing requests to 'thesis.run.xml'.
 \openout1 = `thesis.run.xml'.
@@ -1079,10 +1095,10 @@ ist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/pala
 tino/uplbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (60 pages, 14827451 bytes).
+Output written on thesis.pdf (66 pages, 14832497 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 167 compressed objects within 2 object streams
+ 332 PDF objects out of 1000 (max. 8388607)
+ 180 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
