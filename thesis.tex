@@ -277,7 +277,7 @@ clustering of the network. Clustering is about making a hierarchical view of a n
 picture of the cell. The reason to group a network into clusters and rank them is that the edges we create represents
 different connections. They can represent function, probability of existence, interactions or contents of the cell
 \cite{siri}. The function of the cell is what Ranklust is after. There is several algorithms to create clusters, and all
-need to be heavily researched in order to find the best suiting one. The major differences on how these algorithms work
+need to be heavily researched in order to find the best suited one. The major differences on how these algorithms work
 is centered around how they handle vertices and edges. For example how the cluster is expanded, what density level it is
 aiming for, how robust the algorithm is towards incomplete networks. It is feasible if the cluster-making algorithm is
 easily, or even already implemented as an app in Cytoscape. ClusterMaker2 is such an app and will be considered
@@ -551,7 +551,28 @@ diagnostic and most of all prognostic usages. As mentioned earlier, the prognost
 50\% of patients receiving treatment that was not needed.
 
 \part{Results}
-Results...
+\chapter{Neo4J}
+Neo4J was chosen as the database I used to interact with the data from \textit{CytoScape}.
+
+% Neo4J refactor script
+I ended up with implementing a python script to refactor the Neo4J database dump. When run with the command:
+\begin{verbatim}
+time python relations_refactoring.py movember.cql refactored_movember.cql
+\end{verbatim}
+The inputs here are time, which benchmarks the time and CPU power used by the program, python which runs the script, the
+name of the script, inputfile that we want to refactor and the name of the file, which the refactored output resides
+within.
+The runtime resulted in:
+\begin{verbatim}
+python relations_refactoring.py movember.cql refactored_movember.cql  0,04s user 0,00s system 42% cpu 0,092 total
+\end{verbatim}
+The size of the refactored file was 4500 lines, where about half of them were queries that created relationships between
+two nodes. The size of the database that was dumped was 2,11 megabytes according to the Neo4J browser interface. Also,
+the program used 500 megabytes of memory when run on my personal computer with Python 3.4. The queries that created the
+nodes was bundled into several commits, which ended up being approximately 500 queries per commit. The relationship
+queries was singled out and can be seen as a single commit for each relationship created between two nodes. This can be
+improved further, but at the time it was not necessary, as a runtime of below 1 second does not introduce any
+difficulties or problems at the time.
 \part{Analysis}
 Analysis...
 \part{Conclusion}
