@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  21 FEB 2016 02:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  21 FEB 2016 02:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1073,7 +1073,7 @@ ed_movember.cql[]
  []
 
 
-Overfull \hbox (279.39592pt too wide) in paragraph at lines 568--568
+Overfull \hbox (279.39592pt too wide) in paragraph at lines 567--567
 []\T1/cmtt/m/n/10.95 python relations_refactoring.py movember.cql refactored_mo
 vember.cql  0,04s user 0,00s system 42% cpu 0,092 total[] 
  []
@@ -1087,7 +1087,7 @@ vember.cql  0,04s user 0,00s system 42% cpu 0,092 total[]
 ] [49] [50] [51] [52
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 581.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 580.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
