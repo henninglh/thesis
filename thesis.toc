@@ -4,36 +4,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{I\hspace {1em}Introduction}{1}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {1}Motivation}{5}
+\contentsline {chapter}{\numberline {1}Pathway and network analysis of cancer genomes}{5}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Next-generation sequencing}{9}
+\contentsline {chapter}{\numberline {2}Motivation}{7}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Next generation of biomarkers}{11}
+\contentsline {chapter}{\numberline {3}Next-generation sequencing}{11}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Networks as a tool in cancer research}{13}
+\contentsline {chapter}{\numberline {4}Next generation of biomarkers}{13}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Network clustering: Toward network based biomarker discovery}{15}
+\contentsline {chapter}{\numberline {5}Networks as a tool in cancer research}{15}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Cytoscape: An implementation to rank clusters}{17}
+\contentsline {chapter}{\numberline {6}Network clustering: Toward network based biomarker discovery}{17}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Methods}{19}
+\contentsline {chapter}{\numberline {7}Cytoscape: An implementation to rank clusters}{19}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Databases}{21}
+\contentsline {chapter}{\numberline {8}Methods}{21}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {9}Clustering algorithms}{23}
+\contentsline {chapter}{\numberline {9}Databases}{23}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{II\hspace {1em}Images testing...}{25}
+\contentsline {chapter}{\numberline {10}Clustering algorithms}{25}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{III\hspace {1em}The project}{29}
+\contentsline {part}{II\hspace {1em}Images testing...}{27}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{IV\hspace {1em}CytoScape}{31}
+\contentsline {part}{III\hspace {1em}The project}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Procedure}{37}
+\contentsline {part}{IV\hspace {1em}CytoScape}{33}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VI\hspace {1em}Results}{41}
+\contentsline {part}{V\hspace {1em}Procedure}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {10}Neo4J}{43}
+\contentsline {part}{VI\hspace {1em}Results}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VII\hspace {1em}Analysis}{45}
+\contentsline {chapter}{\numberline {11}Neo4J}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VIII\hspace {1em}Conclusion}{49}
+\contentsline {part}{VII\hspace {1em}Analysis}{47}
+\defcounter {refsection}{0}\relax 
+\contentsline {part}{VIII\hspace {1em}Conclusion}{51}
