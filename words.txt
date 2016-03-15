@@ -1,0 +1,9 @@
+Data communication between the Neo4J database server and the CytoScape instance
+is done through the CyNeo4J app to CytoScape \cite{cyneo4j}. CyNeo4J is a
+CytoScape app that was developed during the Goole Summer Code 2014 arrangement.
+It supports connecting to a Neo4J instance, as well as syncing data up and down,
+from and to the database server. One thing it did not support was authentication
+on Neo4J servers. Not having authentication is a serious problem, so I
+implemented a simple way of getting access to the database server by providing a
+possibility to insert username and password at the same time the user has to
+provide a URL to the Neo4J database server instance.
