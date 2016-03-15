@@ -7,3 +7,20 @@ on Neo4J servers. Not having authentication is a serious problem, so I
 implemented a simple way of getting access to the database server by providing a
 possibility to insert username and password at the same time the user has to
 provide a URL to the Neo4J database server instance.
+
+Synchronization time between Neo4J and CytoScape through the CyNeo4J app is a
+huge timesink. As of now, the time it takes to populate an empty CytoScape
+network with the gene information from STRING is about 2 hours. This could be
+shortened by exporting the Neo4J data with GraphML and into CytoScape. Because
+after the initial data is inside CytoScape, updates to the Neo4J instance goes
+much faster.
+
+A future improvement to the CyNeo4J app could be to change the communication
+between Neo4J and CytoScape to be done in GraphML and not Cypher. This is
+because through this whole process of importing and exporting data from and to
+Neo4J, GraphML has shown itself to be a superior format over Cypher. Though, to
+this day, direct queries to a running Neo4J instance has to be done in Cypher,
+and is not possible in GraphML. So until the Cypher query language gets faster,
+a convertion method using GraphML as way of exchange data between CytoScape and
+Neo4J, could be a candidate for a much better solution than the current one,
+which is 100\% Cypher query based.

@@ -36,6 +36,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {11}Neo4J}{45}
 \defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11.1}Data communication}{45}
+\defcounter {refsection}{0}\relax 
 \contentsline {part}{VII\hspace {1em}Analysis}{47}
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{VIII\hspace {1em}Conclusion}{51}
