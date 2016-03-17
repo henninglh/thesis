@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc, url}
 \usepackage{graphicx,babel,csquotes,textcomp,ifimasterforside,varioref,float}
 \usepackage[backend=biber,style=numeric-comp,sorting=nyt,maxbibnames=20,maxcitenames=20]{biblatex}
+\usepackage{minted}
 \urlstyle{sf}
 \graphicspath{{images/}}
 \addbibresource{macros.bib}
@@ -244,9 +245,9 @@ access. This makes room for building huge networks of proteins and genes,
 allowing for more extensively and thorough assays to be done. For example, what
 if something that is classified as a prostate cancer biomarker only is viable
 when proteins that has not been classified as a biomarker, also is present?
-Together they could represent a more appropriate \emph{network biomarker}.  The
+Together they could represent a more appropriate \emph{network biomarker}. The
 amount of data that can be analyzed also opens up for another more personalized
-approach to each cancer patient.  Finding patient-specific biomarkers could make
+approach to each cancer patient. Finding patient-specific biomarkers could make
 a huge impact on the quality of treatment \cite{personalized}.
 \chapter{Next generation of biomarkers}
 The PSA biomarker is over 20 years old \cite{psa-age}. Through those years, it
@@ -753,7 +754,25 @@ from and to the database server. One thing it did not support was authentication
 on Neo4J servers. Not having authentication is a serious problem, so I
 implemented a simple way of getting access to the database server by providing a
 possibility to insert username and password at the same time the user has to
-provide a URL to the Neo4J database server instance.
+provide a URL to the Neo4J database server instance. Implementation-wise, this
+only required an extra header to be included in each http request going to the
+password protected Neo4J database server instance. Every request used the static
+\textbf{Request} class to Get/Post/Put HTTP requests to the Neo4J database
+server instance. The refactor looked something along these lines in all of the
+files.
+
+Before:
+\begin{minted}{Java}
+Request req = Request.Post(url)
+        .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
+\end{minted}
+
+After:
+\begin{minted}{Java}
+Request req = Request.Post(url)
+        .addHeader("Authorization", auth64EncodedInfo)
+        .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
+\end{minted}
 
 Synchronization time between Neo4J and CytoScape through the CyNeo4J app is a
 huge timesink. As of now, the time it takes to populate an empty CytoScape
@@ -761,6 +780,12 @@ network with the gene information from STRING is about 2 hours. This could be
 shortened by exporting the Neo4J data with GraphML and into CytoScape. Because
 after the initial data is inside CytoScape, updates to the Neo4J instance goes
 much faster.
+
+The CyNeo4J also uses a legacy HTTP library to get information from the Neo4J
+database \cite{legacy-neo4j}. It is possible that the performance increases with
+the new library \cite{transactional-neo4j}. The new library supports creating
+transactions, which implicit gives support for rollbacks in case something goes
+wrong with the query.
 
 A future improvement to the CyNeo4J app could be to change the communication
 between Neo4J and CytoScape to be done in GraphML and not Cypher. This is

@@ -1992,6 +1992,8 @@
     <bcf:citekey order="25">iridb</bcf:citekey>
     <bcf:citekey order="26">gmdb</bcf:citekey>
     <bcf:citekey order="27">cyneo4j</bcf:citekey>
+    <bcf:citekey order="28">legacy-neo4j</bcf:citekey>
+    <bcf:citekey order="29">transactional-neo4j</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" type="entry" label="nyt">
   <bcf:sorting>

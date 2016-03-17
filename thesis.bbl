@@ -154,6 +154,33 @@
       \verb http://apps.cytoscape.org/apps/genemania
       \endverb
     \endentry
+    \entry{cyneo4j}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{17}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb https://github.com/gsummer/cyNeo4j
+      \endverb
+    \endentry
+    \entry{legacy-neo4j}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{17}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://neo4j.com/docs/stable/rest-api-cypher.html
+      \endverb
+    \endentry
+    \entry{transactional-neo4j}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{17}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://neo4j.com/docs/stable/rest-api-transactional.html
+      \endverb
+    \endentry
     \entry{siri}{article}{}
       \name{labelname}{2}{}{%
         {{hash=e0cf0019f7148498b7bce5f1783c44ec}{Carvunis}{C\bibinitperiod}{Anne-Ruxandra}{A\bibinithyphendelim R\bibinitperiod}{}{}{}{}}%
@@ -499,7 +526,6 @@
       \field{year}{2012}
     \endentry
   \endsortlist
-  \missing{cyneo4j}
 \endrefsection
 \endinput
 
