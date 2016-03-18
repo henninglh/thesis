@@ -663,6 +663,47 @@ individual value shows promising results for multivalue ranking, the values in
 relation to each other will be considered as a way of producing more accurate
 results.
 
+% How to get the clusters
+As of now, the SimpleRanking algorithm for ranking the clusters has to have
+access to the cluster results inside the clusterMaker2 source code. The
+alternative is to work directly on the CytoScape tables containing the same
+information. The drawback working on the CytoScape tables is the need for going
+through every single node in the table in order to add it to a cluster, which is
+something the source code in clusterMaker2 can serve with a single
+\textit{getter} method. The drawback using the clusterMaker2 code and not the
+CytoScape tables is that the getter method to clusterMaker2 demands knowledge in
+the SimpleRanking algorithm of the cluster algorithm that was used. Coupling
+these two object classes together is not necessary, because of the two mentioned
+ways of completing this, and the getter method used is actually implemented with
+the intention of creating a REST API \cite{rest-api} for applications outside
+CytoScape. A third way could be to implement a way for all of the clustering
+algorithms to save their results as a \textit{List<NodeCluster>} list. Once
+again this just moves the problem a bit around and we will end up with a good
+amount of duplication code to the REST API method of getting the clusters. Then
+again, having the REST API getter rely on the \textit{List<NodeCluster>} getter
+could make for a cleaner solution. This is definetively more work and requires
+every new clustering algorithm to implement a way of creating these node
+clusters.
+
+Creating the list of node clusters every time a ranking algorithm should run is
+maybe not such a bad idea. Atleast when we consider that having every clustering
+algorithm saving its results could result in massive memory constraints. Every
+node in the node cluster list should only be a java object reference to a node
+in the CytoScape table. A Java object reference consists of 8 bytes
+\cite{java-reference-size}. So we will end up having 8 bytes for every node in
+the list to a single cluster. Also, to organize it properly, a list of the
+clusters also has to wrap round all of the clusters, adding another 8 bytes per
+cluster entry. One simplification can be made, which is using the indexes in the
+list as a cluster score attribute from the cluster algorithms. That could
+exclude clustering algorithms that produce more than a single score as a result
+of the clustering. A sample clustering with the affinity propagation algorithm
+produces 839 clusters. That is 6,7 megabytes for only the cluster entries in the
+outer list. From the same results, the biggest cluster consists of over 700
+nodes. That is 5,6 megabytes of memory on a single cluster. Total amount of
+nodes in the network is ends up using extra memory of 89,7 megabytes. And that
+is just per clustering algorithm.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION END %%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

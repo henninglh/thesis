@@ -154,6 +154,24 @@
       \verb http://apps.cytoscape.org/apps/genemania
       \endverb
     \endentry
+    \entry{rest-api}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{18}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://www.restapitutorial.com/lessons/whatisrest.html
+      \endverb
+    \endentry
+    \entry{java-reference-size}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{18}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
+      \endverb
+    \endentry
     \entry{cyneo4j}{online}{}
       \field{sortinit}{0}
       \field{urlday}{17}
