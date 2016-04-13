@@ -703,6 +703,31 @@ nodes. That is 5,6 megabytes of memory on a single cluster. Total amount of
 nodes in the network is ends up using extra memory of 89,7 megabytes. And that
 is just per clustering algorithm.
 
+% Edge attribute information
+In order to work with attributes in the edges, an additional datastructure like
+a simple \textbf{Map} or a class which inherits attributes form the Java
+\textbf{Set}-class\cite{java-set} is preferrable. This is because in order to
+match nodes in the edge table to the nodes in the node table to get the cluster
+information, we have to perform a \begin{equation} O(n^2) \end{equation}
+operation. I have been told that a reasonable size for a network that will
+be using this plugin is about 200 nodes. And 200 times 200 will result in 40
+000 lookups in the worst cases. However, with a Java \textbf{Set}-class like
+structure and enough memory, a lookup will take O(1) time in both the best and
+the worst cases regarding the Big-O notation\cite{big-o}.
+
+% Edge cont.
+Recipe for working the nodes and edges. Only the edges require step one, nodes
+can start at step 2.
+\begin{enumerate}
+    \item Find common or best ranked cluster between two nodes (one edge).
+    \item Add score to the cluster
+    \item Repeat step 1-2 for every edge
+    \item Sort clusters based on rank and create a column to represent the score
+\end{enumerate}
+
+Step 1 is the thing that will take extra time for the ranking algorithms
+including the edges.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION END %%%%%%

@@ -172,6 +172,24 @@
       \verb http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
       \endverb
     \endentry
+    \entry{java-set}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{13}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb https://docs.oracle.com/javase/7/docs/api/java/util/Set.html
+      \endverb
+    \endentry
+    \entry{big-o}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{13}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Big_O_notation
+      \endverb
+    \endentry
     \entry{cyneo4j}{online}{}
       \field{sortinit}{0}
       \field{urlday}{17}
