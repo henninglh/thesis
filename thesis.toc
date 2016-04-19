@@ -28,38 +28,38 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{III\hspace {1em}The project}{31}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{IV\hspace {1em}CytoScape}{33}
+\contentsline {part}{IV\hspace {1em}CytoScape}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Implementation}{37}
+\contentsline {chapter}{\numberline {11}Implementation}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Intro}{37}
+\contentsline {section}{\numberline {11.1}Intro}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Preparations}{37}
+\contentsline {section}{\numberline {11.2}Preparations}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Registering a service}{37}
+\contentsline {section}{\numberline {11.3}Registering a service}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.4}GetNetworkClusterTask}{37}
+\contentsline {section}{\numberline {11.4}GetNetworkClusterTask}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.5}Tables vs pure OO}{38}
+\contentsline {section}{\numberline {11.5}Tables vs pure OO}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.6}Single value ranklust}{39}
+\contentsline {section}{\numberline {11.6}Single value ranklust}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.7}Multivalue Ranklust}{39}
+\contentsline {section}{\numberline {11.7}Multivalue Ranklust}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.8}How to get the clusters}{39}
+\contentsline {section}{\numberline {11.8}How to get the clusters}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.9}Edge attribute information}{40}
+\contentsline {section}{\numberline {11.9}Edge attribute information}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.9.1}The way I chose}{41}
+\contentsline {subsection}{\numberline {11.9.1}The way I chose}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{V\hspace {1em}Procedure}{43}
+\contentsline {part}{V\hspace {1em}Procedure}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VI\hspace {1em}Results}{47}
+\contentsline {part}{VI\hspace {1em}Results}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Neo4J}{49}
+\contentsline {chapter}{\numberline {12}Neo4J}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.1}Data communication}{49}
+\contentsline {section}{\numberline {12.1}Data communication}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VII\hspace {1em}Analysis}{51}
+\contentsline {part}{VII\hspace {1em}Analysis}{53}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VIII\hspace {1em}Conclusion}{55}
+\contentsline {part}{VIII\hspace {1em}Conclusion}{57}
