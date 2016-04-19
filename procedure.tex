@@ -1,0 +1,48 @@
+\part{Procedure}
+The secretome values of genes can be expressed by a single integer value,
+though, for compatibility reasons Ranklust will require double values. The
+clustered network can be constructed with an AP, short for Affinity Propagation,
+clustering algorithm \cite{affinity-propagation}. Affinity propagation
+clustering concentrates on the nodes in the network that are binding the rest of
+them together. Using affinity propagation for clustering will produce results
+that represent a grouping of nodes that are coupled by seemingly unimportant
+nodes to most clustering algorithms. But the AP algorithm is good at expressing
+nodes that are not highly connected to many nodes, but rather the nodes that are
+binding other highly connected nodes together. This results in bigger clusters
+that can be a target for methods that cure cancer by severing the interaction
+between biomarker genes.
+
+It is also discussed how AP performs versus Markov clustering (source, both
+markov algorithm and the "vs" paper). And since Markov algorithm performs better
+on protein interaction, it will also be used to cluster the networks. An
+analysis between the rankings that come from the Markov and AP clusterings will
+be performed, which hopefully will give concrete results as to the pro's and
+con's of each algorithm. Some questions should be raised as the analysis is
+done. For example, is both of the algorithms good, but have different uses, even
+if they are not directly involved with the ranking done after the clustering?
+Are either AP or Markov useless for a particular type of ranking afterwards?
+
+The information provided through the whole process from what type of nodes
+(protein or gene), interaction between the nodes and what kind of biomarker we
+want to identify are all factors that will have a great impact on how all of
+this should be combined. The order of operations on the network will also effect
+the result. For example, AP clustering may create a few big clusters and many
+small ones. At this stage, the results will consist of the biggest clusters
+constructed from AP clustering that has focus on pure connection between nodes
+and not their attributes. At this point, the cluster ranking algorithm of
+Ranklust will be run in order to produce a picture of potential biomarkers. This
+picture is the first and simplest step that will be used as a result for an
+analysis. The analysis in this thesis will focus on validating the cluster
+ranking scores as ways of indicating potential biomarkers. 
+
+In order to validate the scores, I will need to know the state of the patient
+that the data to create the network came from. As there is no use to just
+generate results without knowing what they show. They might show connections
+between them, but without some sort of context the results are useless. The
+context needed is not very high, but the results from the ranking should be
+tested for several purposes. For example, is biomarkers from ranking of clusters
+best for disease disposition, screening, diagnostic, prognostic, prediction or
+monitoring cancer. I will aim for screening, diagnostic and most of all
+prognostic usages. As mentioned earlier, the prognostics of prostate cancer
+often results in 50\% of patients receiving treatment that was not needed.
+

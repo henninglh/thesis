@@ -1,0 +1,3 @@
+Request req = Request.Post(url)
+        .addHeader("Authorization", auth64EncodedInfo)
+        .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
