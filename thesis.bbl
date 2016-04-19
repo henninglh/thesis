@@ -1,5 +1,5 @@
 % $ biblatex auxiliary file $
-% $ biblatex bbl format version 2.3 $
+% $ biblatex bbl format version 2.5 $
 % Do not modify the above lines!
 %
 % This is an auxiliary file used by the 'biblatex' package.
@@ -18,9 +18,10 @@
 
 
 \refsection{0}
-  \sortlist{entry}{nyt}
+  \sortlist{nyt}{nyt}
     \entry{dna-methyl}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{22}
       \field{urlmonth}{02}
       \field{urlyear}{2016}
@@ -30,6 +31,7 @@
     \endentry
     \entry{cancerfacts}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{11}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -39,6 +41,7 @@
     \endentry
     \entry{ngs1}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{11}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -48,6 +51,7 @@
     \endentry
     \entry{cm2}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{22}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -57,6 +61,7 @@
     \endentry
     \entry{biopython}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{20}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -66,6 +71,7 @@
     \endentry
     \entry{cytoscape-osgi}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{08}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -75,6 +81,7 @@
     \endentry
     \entry{modularization}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{20}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -84,6 +91,7 @@
     \endentry
     \entry{designpattern}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{20}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -93,6 +101,7 @@
     \endentry
     \entry{cleancode}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{20}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -102,6 +111,7 @@
     \endentry
     \entry{galaxy}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{08}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -111,6 +121,7 @@
     \endentry
     \entry{iri}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -120,6 +131,7 @@
     \endentry
     \entry{gm}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -129,6 +141,7 @@
     \endentry
     \entry{str}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -138,6 +151,7 @@
     \endentry
     \entry{iridb}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -147,6 +161,7 @@
     \endentry
     \entry{gmdb}{online}{}
       \field{sortinit}{0}
+      \field{sortinithash}{990108227b3316c02842d895999a0165}
       \field{urlday}{07}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -154,11 +169,70 @@
       \verb http://apps.cytoscape.org/apps/genemania
       \endverb
     \endentry
+    \entry{rest-api}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{18}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://www.restapitutorial.com/lessons/whatisrest.html
+      \endverb
+    \endentry
+    \entry{java-reference-size}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{18}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://www.oracle.com/technetwork/java/javase/tech/vmoptions-jsp-140102.html
+      \endverb
+    \endentry
+    \entry{java-set}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{13}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb https://docs.oracle.com/javase/7/docs/api/java/util/Set.html
+      \endverb
+    \endentry
+    \entry{big-o}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{13}
+      \field{urlmonth}{04}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb https://en.wikipedia.org/wiki/Big_O_notation
+      \endverb
+    \endentry
+    \entry{cyneo4j}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{17}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb https://github.com/gsummer/cyNeo4j
+      \endverb
+    \endentry
+    \entry{legacy-neo4j}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{17}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://neo4j.com/docs/stable/rest-api-cypher.html
+      \endverb
+    \endentry
+    \entry{transactional-neo4j}{online}{}
+      \field{sortinit}{0}
+      \field{urlday}{17}
+      \field{urlmonth}{03}
+      \field{urlyear}{2016}
+      \verb{url}
+      \verb http://neo4j.com/docs/stable/rest-api-transactional.html
+      \endverb
+    \endentry
     \entry{siri}{article}{}
-      \name{labelname}{2}{}{%
-        {{hash=e0cf0019f7148498b7bce5f1783c44ec}{Carvunis}{C\bibinitperiod}{Anne-Ruxandra}{A\bibinithyphendelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=a254a95c2343f55d44f87bb01073e5fa}{Ideker}{I\bibinitperiod}{Trey}{T\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{2}{}{%
         {{hash=e0cf0019f7148498b7bce5f1783c44ec}{Carvunis}{C\bibinitperiod}{Anne-Ruxandra}{A\bibinithyphendelim R\bibinitperiod}{}{}{}{}}%
         {{hash=a254a95c2343f55d44f87bb01073e5fa}{Ideker}{I\bibinitperiod}{Trey}{T\bibinitperiod}{}{}{}{}}%
@@ -166,7 +240,9 @@
       \strng{namehash}{3285aa68aab4f505b07e6e93146181b5}
       \strng{fullhash}{3285aa68aab4f505b07e6e93146181b5}
       \field{sortinit}{C}
-      \field{labeltitle}{Siri of the Cell: What biology Could Learn from the iPhone}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{CellPress}
       \field{month}{04}
       \field{title}{Siri of the Cell: What biology Could Learn from the iPhone}
@@ -174,28 +250,6 @@
       \field{year}{2014}
     \endentry
     \entry{pathway-network}{article}{}
-      \name{labelname}{20}{}{%
-        {{hash=08917093e0d2bb0abafb485fce99f3d8}{Creixell}{C\bibinitperiod}{Pau}{P\bibinitperiod}{}{}{}{}}%
-        {{hash=ed94c1ddcb26faccf27fbb678beb6063}{Reimand}{R\bibinitperiod}{Jüri}{J\bibinitperiod}{}{}{}{}}%
-        {{hash=03a2baf5e4ada20ce880f4fff3ea2da1}{Haider}{H\bibinitperiod}{Syed}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=a45826f1fe27f74e0d35c74be101fec0}{Wu}{W\bibinitperiod}{Guanming}{G\bibinitperiod}{}{}{}{}}%
-        {{hash=cbad3eede0ad3fc8437424cd73aa5986}{Shibata}{S\bibinitperiod}{Tatsuhiro}{T\bibinitperiod}{}{}{}{}}%
-        {{hash=62300b085bc959a5a5ed85639622d6f3}{Vazquez}{V\bibinitperiod}{Miguel}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=9ad9e55e911c55e03a73c664d5fa3a48}{Mustonen}{M\bibinitperiod}{Ville}{V\bibinitperiod}{}{}{}{}}%
-        {{hash=03eb0c570f5c8ad826a8efa66f08e609}{Gonzalez-Perez}{G\bibinithyphendelim P\bibinitperiod}{Abel}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=06f58a9641d0a447fd2301bc8483592e}{Pearson}{P\bibinitperiod}{John}{J\bibinitperiod}{}{}{}{}}%
-        {{hash=f99a580afe584be129acd1f9193dc0cd}{Sander}{S\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=a6d592025b03ceacbc873406d421c274}{Raphael}{R\bibinitperiod}{Benjamin\bibnamedelima J}{B\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{hash=59e6b90808c01242e22c571579a87d87}{Marks}{M\bibinitperiod}{Debora\bibnamedelima S}{D\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
-        {{hash=c755a1b5636ef185c8f268641f66bc35}{Oulette}{O\bibinitperiod}{B\bibnamedelima F\bibnamedelima Francis}{B\bibinitperiod\bibinitdelim F\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-        {{hash=fe9d891995eb21aa72bc9563c2d70575}{Valencia}{V\bibinitperiod}{Alfonso}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=2c9ae7a94f5e571797167f7686bf61b1}{Bader}{B\bibinitperiod}{Gary\bibnamedelima D}{G\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{hash=e1ebba3032b9666cce9b57332b364431}{Boutros}{B\bibinitperiod}{Paul\bibnamedelima C}{P\bibinitperiod\bibinitdelim C\bibinitperiod}{}{}{}{}}%
-        {{hash=0a8509cadd833f793af01ec06d318de2}{Stuart}{S\bibinitperiod}{Joshua\bibnamedelima M}{J\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-        {{hash=aff562589e02053e8833313e80327572}{Linding}{L\bibinitperiod}{Rune}{R\bibinitperiod}{}{}{}{}}%
-        {{hash=3f2465419ceb543543fd65edcff2771d}{Lopez-Bigas}{L\bibinithyphendelim B\bibinitperiod}{Nuria}{N\bibinitperiod}{}{}{}{}}%
-        {{hash=5c1e87160a1f5f9995f099fe14021af2}{Stein}{S\bibinitperiod}{Lincoln\bibnamedelima D}{L\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{20}{}{%
         {{hash=08917093e0d2bb0abafb485fce99f3d8}{Creixell}{C\bibinitperiod}{Pau}{P\bibinitperiod}{}{}{}{}}%
         {{hash=ed94c1ddcb26faccf27fbb678beb6063}{Reimand}{R\bibinitperiod}{Jüri}{J\bibinitperiod}{}{}{}{}}%
@@ -224,7 +278,9 @@
       \strng{namehash}{d515fcd9f0eeb4d549c7086371f8fd35}
       \strng{fullhash}{d515fcd9f0eeb4d549c7086371f8fd35}
       \field{sortinit}{C}
-      \field{labeltitle}{Pathway and network analysis of cancer genomes}
+      \field{sortinithash}{59f25d509f3381b07695554a9f35ecb2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Nature Methods}
       \field{month}{07}
       \field{number}{7}
@@ -233,15 +289,14 @@
       \field{year}{2015}
     \endentry
     \entry{biomarker1}{online}{}
-      \name{labelname}{1}{}{%
-        {{hash=1d6002f85c6e27711e7ed23f4103a10b}{Dr\bibnamedelima Ananya\bibnamedelima Mandal}{D\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}{MD}{M\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{1}{}{%
         {{hash=1d6002f85c6e27711e7ed23f4103a10b}{Dr\bibnamedelima Ananya\bibnamedelima Mandal}{D\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim M\bibinitperiod}{MD}{M\bibinitperiod}{}{}{}{}}%
       }
       \strng{namehash}{1d6002f85c6e27711e7ed23f4103a10b}
       \strng{fullhash}{1d6002f85c6e27711e7ed23f4103a10b}
       \field{sortinit}{D}
+      \field{sortinithash}{78f7c4753a2004675f316a80bdb31742}
+      \field{labelnamesource}{author}
       \field{urlday}{12}
       \field{urlmonth}{05}
       \field{urlyear}{2015}
@@ -250,44 +305,6 @@
       \endverb
     \endentry
     \entry{psa-age}{article}{}
-      \name{labelname}{36}{}{%
-        {{hash=08df868c2f964d15a5bdd3cb7d00cff8}{F.Berger}{F\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=86b32c39b41a7a7a1d3b56320e79eccf}{Lawrence}{L\bibinitperiod}{Michael\bibnamedelima S.}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
-        {{hash=a97d859bef0f5536c71e1f9ff9a826fb}{Demichelis}{D\bibinitperiod}{Francesca}{F\bibinitperiod}{}{}{}{}}%
-        {{hash=8baed9c149090bad27f45cd30d173b88}{Drier}{D\bibinitperiod}{Yotam}{Y\bibinitperiod}{}{}{}{}}%
-        {{hash=bf81d3b9c8193ad744ca083b0b92c875}{Cibulskis}{C\bibinitperiod}{Kristian}{K\bibinitperiod}{}{}{}{}}%
-        {{hash=d7778e1628d1d88d29b8823c42e14789}{Sivachenko}{S\bibinitperiod}{Andrey\bibnamedelima Y.}{A\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
-        {{hash=a3060e2e65f466b252bccecd00a7558a}{Sboner}{S\bibinitperiod}{Andrea}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=bf4564d5d98da17e0f6d748d16f79715}{Esgueva}{E\bibinitperiod}{Raquel}{R\bibinitperiod}{}{}{}{}}%
-        {{hash=a24cd3a285bb4e36faeccdf3a7f958f3}{Habegger}{H\bibinitperiod}{Lukas}{L\bibinitperiod}{}{}{}{}}%
-        {{hash=06f8de90ef8288724a7fbebb44a6384b}{Ambrogio}{A\bibinitperiod}{Lauren}{L\bibinitperiod}{}{}{}{}}%
-        {{hash=f56b9f43d628793b011837821c29132f}{Fennell}{F\bibinitperiod}{Timothy}{T\bibinitperiod}{}{}{}{}}%
-        {{hash=b5a3473ce8d64cf252baa11e144309bd}{Parkin}{P\bibinitperiod}{Melissa}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=3b001ca429c264de6bad24437293f5a6}{Saksena}{S\bibinitperiod}{Gordon}{G\bibinitperiod}{}{}{}{}}%
-        {{hash=bdeffa59a144423b47199408251feb21}{Voet}{V\bibinitperiod}{Douglas}{D\bibinitperiod}{}{}{}{}}%
-        {{hash=d1a958192fd2998ae4450639bcc8027c}{Ramos}{R\bibinitperiod}{Alex\bibnamedelima H.}{A\bibinitperiod\bibinitdelim H\bibinitperiod}{}{}{}{}}%
-        {{hash=a0d75df9edeff7503589afa63465413b}{Pugh}{P\bibinitperiod}{Trevor\bibnamedelima J.}{T\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{hash=abcc369619c1fe67b163a3826a91d752}{Wilkinson}{W\bibinitperiod}{Jane}{J\bibinitperiod}{}{}{}{}}%
-        {{hash=84163768c36b36c2dabb0d4c6a54322d}{Fisher}{F\bibinitperiod}{Sheila}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=d3eae80a70a95ac70ccc50b6502da847}{Winckler}{W\bibinitperiod}{Wendy}{W\bibinitperiod}{}{}{}{}}%
-        {{hash=0f99c667fae829c99fd341ad20508349}{Mahan}{M\bibinitperiod}{Scott}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=da7ce77d147e65c02c57790be88cf9ba}{Ardlie}{A\bibinitperiod}{Kristin}{K\bibinitperiod}{}{}{}{}}%
-        {{hash=3b261087300e067f64a0d7d352c7f0b0}{Baldwin}{B\bibinitperiod}{Jennifer}{J\bibinitperiod}{}{}{}{}}%
-        {{hash=387eec8436257e4e652e6de4239efa71}{Simons}{S\bibinitperiod}{Jonathan\bibnamedelima W.}{J\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
-        {{hash=c138853a3563575b4dbee4e49ae46171}{Kitabayashi}{K\bibinitperiod}{Naoki}{N\bibinitperiod}{}{}{}{}}%
-        {{hash=13a533a7cfc91168bf0deb0eaf829370}{MacDonald}{M\bibinitperiod}{Theresa\bibnamedelima Y.}{T\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
-        {{hash=f2e6f2a2f9320ec814d6710f49561a0c}{Kantoff}{K\bibinitperiod}{Philip\bibnamedelima W.}{P\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
-        {{hash=39082783d180ae24ccd5c38780047ff3}{Chin}{C\bibinitperiod}{Lynda}{L\bibinitperiod}{}{}{}{}}%
-        {{hash=853354c23e93a8b9e961f6b4eb63b6aa}{Gabriel}{G\bibinitperiod}{Stacey\bibnamedelima B.}{S\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-        {{hash=e212d5f16d7dfc3637ab99427444adec}{Gerstein}{G\bibinitperiod}{Mark\bibnamedelima B.}{M\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-        {{hash=d02bcff657c7051ee8d076a1c877fd5a}{Golub}{G\bibinitperiod}{Todd\bibnamedelima R.}{T\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=45e665646d558e99a21be7d41d05c275}{Meyerson}{M\bibinitperiod}{Matthew}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=c73189a26a4639a57e4151fe4cb3c185}{Tewari}{T\bibinitperiod}{Ashutosh}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=b59f757bbe7fe1d73139d3960737d98a}{Lander}{L\bibinitperiod}{Eric\bibnamedelima S.}{E\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
-        {{hash=6aa396b9c7916e3eec93b398e26b1bbf}{Getz}{G\bibinitperiod}{Gad}{G\bibinitperiod}{}{}{}{}}%
-        {{hash=9de0dd6279c3d18ca16e7e966b5d0e43}{Rubin}{R\bibinitperiod}{Mark\bibnamedelima A.}{M\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
-        {{hash=bf6c1ef62305135a7f73d455bfce6022}{Garraway}{G\bibinitperiod}{Levi\bibnamedelima A.}{L\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{36}{}{%
         {{hash=08df868c2f964d15a5bdd3cb7d00cff8}{F.Berger}{F\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
         {{hash=86b32c39b41a7a7a1d3b56320e79eccf}{Lawrence}{L\bibinitperiod}{Michael\bibnamedelima S.}{M\bibinitperiod\bibinitdelim S\bibinitperiod}{}{}{}{}}%
@@ -329,29 +346,15 @@
       \strng{namehash}{1dc7f2960c209a90f99a92b58a214842}
       \strng{fullhash}{e7ff2568a6ce7a84a9d82a2ff8269c7b}
       \field{sortinit}{F}
-      \field{labeltitle}{The genomic complexity of primary human prostate cancer}
+      \field{sortinithash}{c6a7d9913bbd7b20ea954441c0460b78}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Nature}
       \field{title}{The genomic complexity of primary human prostate cancer}
       \field{volume}{1}
       \field{year}{2011}
     \endentry
     \entry{pca3-size}{article}{}
-      \name{labelname}{14}{}{%
-        {{hash=e6e55162f564d1e45eaae4290cd2e051}{Haesea}{H\bibinitperiod}{Alexander}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=170de037da1ae22da27b68589e18d3fe}{Tailleb}{T\bibinitperiod}{Alexandre}{A\bibinitperiod}{de\bibnamedelima la}{d\bibinitperiod\bibinitdelim l\bibinitperiod}{}{}}%
-        {{hash=a5224a587276cf89559894163e6af116}{Poppelc}{P\bibinitperiod}{Hendrik}{H\bibinitperiod}{van}{v\bibinitperiod}{}{}}%
-        {{hash=921713477361f678862fd704fa2b1faf}{Marbergerd}{M\bibinitperiod}{Michael}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=b6779be47c24c6ba0c842a852349fce1}{Stenzle}{S\bibinitperiod}{Arnulf}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=5f66c829ebc30faac098a7906bb494b5}{Muldersf}{M\bibinitperiod}{Peter\bibnamedelima F.A.}{P\bibinitperiod\bibinitdelim F\bibinitperiod}{}{}{}{}}%
-        {{hash=ef3455d1797ba28bba1a40a182754ccc}{Hulandg}{H\bibinitperiod}{Hartwig}{H\bibinitperiod}{}{}{}{}}%
-        {{hash=6f29d59f53f64c32504574e38a870814}{Abboub}{A\bibinitperiod}{Clément-Claude}{C\bibinithyphendelim C\bibinitperiod}{}{}{}{}}%
-        {{hash=9bb9db6d07cd25e980df5417790e56e6}{Remzid}{R\bibinitperiod}{Mesut}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=7e91941c3363a9d42805552c2c311592}{Tinzld}{T\bibinitperiod}{Martina}{M\bibinitperiod}{}{}{}{}}%
-        {{hash=f7dc2cc05da091c0188757f290b3f4b8}{Feyerabende}{F\bibinitperiod}{Susan}{S\bibinitperiod}{}{}{}{}}%
-        {{hash=3e66b417af5cc862df1820281ca495f9}{Stillebroerf}{S\bibinitperiod}{Alexander\bibnamedelima B.}{A\bibinitperiod\bibinitdelim B\bibinitperiod}{}{}{}{}}%
-        {{hash=d3481d3dfe32f53010550e1e9cb9bdfc}{Gilsf}{G\bibinitperiod}{Martijn\bibnamedelima P.M.Q.}{M\bibinitperiod\bibinitdelim P\bibinitperiod}{van}{v\bibinitperiod}{}{}}%
-        {{hash=a151b4209b53e642f99371be5eaa3ac7}{Schalkenf}{S\bibinitperiod}{Jack\bibnamedelima A.}{J\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{14}{}{%
         {{hash=e6e55162f564d1e45eaae4290cd2e051}{Haesea}{H\bibinitperiod}{Alexander}{A\bibinitperiod}{}{}{}{}}%
         {{hash=170de037da1ae22da27b68589e18d3fe}{Tailleb}{T\bibinitperiod}{Alexandre}{A\bibinitperiod}{de\bibnamedelima la}{d\bibinitperiod\bibinitdelim l\bibinitperiod}{}{}}%
@@ -371,16 +374,15 @@
       \strng{namehash}{016b57dbe24c75e71e5139ff35525043}
       \strng{fullhash}{016b57dbe24c75e71e5139ff35525043}
       \field{sortinit}{H}
-      \field{labeltitle}{Clinical Utility of the PCA3 Urine Assay in European Men Scheduled for Repeat Biopsy}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{European Urology}
       \field{title}{Clinical Utility of the PCA3 Urine Assay in European Men Scheduled for Repeat Biopsy}
       \field{volume}{54}
       \field{year}{2008}
     \endentry
     \entry{bayesiannetworks}{report}{}
-      \name{labelname}{1}{}{%
-        {{hash=4f11d780a2e78d72d5be3019b52bec26}{Heckerman}{H\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{1}{}{%
         {{hash=4f11d780a2e78d72d5be3019b52bec26}{Heckerman}{H\bibinitperiod}{David}{D\bibinitperiod}{}{}{}{}}%
       }
@@ -390,21 +392,20 @@
       \strng{namehash}{4f11d780a2e78d72d5be3019b52bec26}
       \strng{fullhash}{4f11d780a2e78d72d5be3019b52bec26}
       \field{sortinit}{H}
-      \field{labeltitle}{A Tutorial on Learning With Bayesian Networks}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{month}{03}
       \field{number}{{MSR}-{TR}-95-06}
       \field{title}{A Tutorial on Learning With Bayesian Networks}
       \field{year}{1995}
       \field{pages}{57}
+      \range{pages}{1}
       \verb{url}
       \verb http://research.microsoft.com/apps/pubs/default.aspx?id=69588
       \endverb
     \endentry
     \entry{spici}{article}{}
-      \name{labelname}{2}{}{%
-        {{hash=d715fbfe1b82c41e05651c2da1d99b72}{Jiang}{J\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
-        {{hash=1ac4750bbda233baa09f1b246b3d7de4}{Singh}{S\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{2}{}{%
         {{hash=d715fbfe1b82c41e05651c2da1d99b72}{Jiang}{J\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%
         {{hash=1ac4750bbda233baa09f1b246b3d7de4}{Singh}{S\bibinitperiod}{M.}{M\bibinitperiod}{}{}{}{}}%
@@ -412,7 +413,9 @@
       \strng{namehash}{c58440ebbda8cb7a810fe0505ea05264}
       \strng{fullhash}{c58440ebbda8cb7a810fe0505ea05264}
       \field{sortinit}{J}
-      \field{labeltitle}{{SPICi}}
+      \field{sortinithash}{ec3950a647c092421b9fcca6d819504a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{shorttitle}
       \field{day}{15}
       \field{issn}{1367-4803, 1460-2059}
       \field{journaltitle}{Bioinformatics}
@@ -427,6 +430,7 @@
       \field{volume}{26}
       \field{year}{2010}
       \field{pages}{1105\bibrangedash 1111}
+      \range{pages}{7}
       \verb{doi}
       \verb 10.1093/bioinformatics/btq078
       \endverb
@@ -435,22 +439,6 @@
       \endverb
     \endentry
     \entry{personalized}{article}{}
-      \name{labelname}{14}{}{%
-        {{hash=4325ba881ff1769a6c71beb31879d110}{Leary}{L\bibinitperiod}{Rebecca\bibnamedelima J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
-        {{hash=0c0a931926b4473f3c377ab7da3b36ed}{Kinde}{K\bibinitperiod}{Isaac}{I\bibinitperiod}{}{}{}{}}%
-        {{hash=baaa1152e0d98bb498be5330e76bed35}{Diehl}{D\bibinitperiod}{Frank}{F\bibinitperiod}{}{}{}{}}%
-        {{hash=2d50a18175e6611be07735f1c4b4d60c}{Schmidt}{S\bibinitperiod}{Kerstin}{K\bibinitperiod}{}{}{}{}}%
-        {{hash=490168363d08cec0725fc154f4082a6b}{Clouser}{C\bibinitperiod}{Chris}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=a9bd66798c0d6d61085bfcc96b327322}{Duncan}{D\bibinitperiod}{Cisilya}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=393fd0649e95cb90995f1a64ca11485e}{Antipova}{A\bibinitperiod}{Alena}{A\bibinitperiod}{}{}{}{}}%
-        {{hash=014193a00f1a41a768be0886fcc7fb25}{Lee}{L\bibinitperiod}{Clarence}{C\bibinitperiod}{}{}{}{}}%
-        {{hash=c3ed4a3cd727ee25a6af4f7105f2a63e}{McKernan}{M\bibinitperiod}{Kevin}{K\bibinitperiod}{}{}{}{}}%
-        {{hash=2cd3d1178b57cfff596020f956a9d693}{Vega}{V\bibinitperiod}{Francisco\bibnamedelimb M.\bibnamedelimi De\bibnamedelima La}{F\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim D\bibinitperiod\bibinitdelim L\bibinitperiod}{}{}{}{}}%
-        {{hash=c93e60b0d523771b85c73e95b2ebbc5b}{Kinzler}{K\bibinitperiod}{Kenneth\bibnamedelima W.}{K\bibinitperiod\bibinitdelim W\bibinitperiod}{}{}{}{}}%
-        {{hash=bbb27aa05dcd963d1c27727276613af6}{Vogelstein}{V\bibinitperiod}{Bert}{B\bibinitperiod}{}{}{}{}}%
-        {{hash=1a308c6ad5846c0e8baecee21c8c8691}{Jr.}{J\bibinitperiod}{Luis\bibnamedelimb A.\bibnamedelimi Diaz}{L\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim D\bibinitperiod}{}{}{}{}}%
-        {{hash=7f2767d15e4c247d0b72be876bf5623f}{Velculesc}{V\bibinitperiod}{Victor\bibnamedelima E.}{V\bibinitperiod\bibinitdelim E\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{14}{}{%
         {{hash=4325ba881ff1769a6c71beb31879d110}{Leary}{L\bibinitperiod}{Rebecca\bibnamedelima J.}{R\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
         {{hash=0c0a931926b4473f3c377ab7da3b36ed}{Kinde}{K\bibinitperiod}{Isaac}{I\bibinitperiod}{}{}{}{}}%
@@ -470,19 +458,15 @@
       \strng{namehash}{02fb68305733583b5449294083126587}
       \strng{fullhash}{02fb68305733583b5449294083126587}
       \field{sortinit}{L}
-      \field{labeltitle}{Development of Personalized Tumor Biomarkers Using Massively Parallel Sequencing}
+      \field{sortinithash}{872351f18d0f736066eda0bf18bfa4f7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Science Translational Medicine}
       \field{title}{Development of Personalized Tumor Biomarkers Using Massively Parallel Sequencing}
       \field{volume}{2}
       \field{year}{2010}
     \endentry
     \entry{beyondpsa}{article}{}
-      \name{labelname}{4}{}{%
-        {{hash=f7b3439256ee92b6627e3236c722fa79}{Prensner}{P\bibinitperiod}{John\bibnamedelima R.}{J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
-        {{hash=149221dabc05c89ef34ed444e6082be5}{Ruin}{R\bibinitperiod}{Mark\bibnamedelima A.}{M\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
-        {{hash=e588f715aaf07131d388f8433c28b4b5}{Wei}{W\bibinitperiod}{John\bibnamedelima T.}{J\bibinitperiod\bibinitdelim T\bibinitperiod}{}{}{}{}}%
-        {{hash=2cf1427aefb9a2b129ffcc9830f34017}{Chinnayiyan}{C\bibinitperiod}{Arul\bibnamedelima M.}{A\bibinitperiod\bibinitdelim M\bibinitperiod}{}{}{}{}}%
-      }
       \name{author}{4}{}{%
         {{hash=f7b3439256ee92b6627e3236c722fa79}{Prensner}{P\bibinitperiod}{John\bibnamedelima R.}{J\bibinitperiod\bibinitdelim R\bibinitperiod}{}{}{}{}}%
         {{hash=149221dabc05c89ef34ed444e6082be5}{Ruin}{R\bibinitperiod}{Mark\bibnamedelima A.}{M\bibinitperiod\bibinitdelim A\bibinitperiod}{}{}{}{}}%
@@ -492,14 +476,15 @@
       \strng{namehash}{fd5d7326fed602f6b79758e78c9d0e45}
       \strng{fullhash}{fd5d7326fed602f6b79758e78c9d0e45}
       \field{sortinit}{P}
-      \field{labeltitle}{Beyond PSA: The next generation of prostate cancer biomarkers}
+      \field{sortinithash}{c0a4896d0e424f9ca4d7f14f2b3428e7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
       \field{journaltitle}{Sci Transl Med}
       \field{title}{Beyond PSA: The next generation of prostate cancer biomarkers}
       \field{volume}{1}
       \field{year}{2012}
     \endentry
   \endsortlist
-  \missing{cyneo4j}
 \endrefsection
 \endinput
 

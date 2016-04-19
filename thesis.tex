@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc, url}
 \usepackage{graphicx,babel,csquotes,textcomp,ifimasterforside,varioref,float}
 \usepackage[backend=biber,style=numeric-comp,sorting=nyt,maxbibnames=20,maxcitenames=20]{biblatex}
+\usepackage{minted}
 \urlstyle{sf}
 \graphicspath{{images/}}
 \addbibresource{macros.bib}
@@ -29,7 +30,7 @@ This is where the abstract goes...
 To this day we still struggle with cancer. Even with all our modern equipment
 and knowledge we have still not been able to tame this horrible disease. 
 
-% Cite "modeling genomic regulatiry networks with big data"
+% Cite "modeling genomic regularity networks with big data"
 And even if we have all of this new equipment, most molecular biologists does
 not have the experience nor the competence to use the newfound equipment, or
 interpret the results. This is where bioinformaticians come in. 
@@ -56,8 +57,8 @@ My thesis is about making a tool, named Ranklust, which gives cancer researchers
 an easier way of identifying network biomarkers in cancer. 
 
 \chapter{Pathway and network analysis of cancer genomes}
-In the cases of pancreatic, lung, breast, brain and overian cance, the somatic
-distribution of SNP'shas a few altered genes that occur with a frequency higher
+In the cases of pancreatic, lung, breast, brain and overian cancer, the somatic
+distribution of SNP's has a few altered genes that occur with a frequency higher
 than 10\% and many other genes that are mutated occur with a frequency of 5\% or
 lower\cite{pathway-network}. On the other hand, prostate cancer have relatively
 few SNPs and CNAs, so that kind of cancer is more likely to be driven by
@@ -119,7 +120,7 @@ disease.  Here is a list of what biomarkers currently are being used for:
 \end{itemize}
 
 %% New part in Motivation - should it stay or be rewritten?
-The National Institues of Health Biomarkers Definitions Working Group has
+The National Institutes of Health Biomarkers Definitions Working Group has
 defined biomarkers as "a characteristic that is objectively measured and
 evaluated as an indicator of normal biological processes, pathogenic process, or
 pharmacologic responses to a therapeutic intervention.". The World Health
@@ -127,7 +128,7 @@ Organization (WHO) has created a guideline for defining biomarkers: "almost any
 measurement reflecting an interaction between a biological system and a
 potential hazard, which may be chemical, physical or biological. The measured
 response may be functional and physiological, biochemical at the cellular level,
-or a molecular interaction". So a biomarker kan be anything from the pulse of
+or a molecular interaction". So a biomarker can be anything from the pulse of
 the heart or blood pressure. In this thesis, I will see if we can get better and
 more information from ranking gene and protein clusters based on biomarker
 information. The result could in the best case be a new biomarker in itself, and
@@ -145,7 +146,7 @@ Biomarkers can be an indicator of how far cancer has progressed in the human
 body. But the human subject may feel no difference at all. It can also be the
 opposite, that the human subject feels huge differences during several weeks
 that the cancer might have developed at a grand scale, but the biomarkers show
-no objective change. This proves that the human subject's experience and sence
+no objective change. This proves that the human subject's experience and sense
 of state that it is in does not necessarily have to correlate.
 
 Clinical endpoints is the opposite. They describe how the subjects feel or
@@ -164,11 +165,11 @@ people's feelings are subjective, and different ways of interpreting their own
 body's state might skew statistical results with erronous feedback. Erronous
 feedback in this case can be examplified as two persons who are at the exact
 same state of cancer, with the same prerequisites, but they report how they feel
-differently. One person might be ignoring certain pains or lose hair aftern
+differently. One person might be ignoring certain pains or lose hair after
 radiation treatment, but not the other. This can be mitigated to some degree
 with careful and accurate screening of patients admitted to treatment, but a
 totally unified group in terms of how they describe pain and other attributes
-that are interesting might be seen as borderline impossible. We are afterall
+that are interesting might be seen as borderline impossible. We are after all
 humans and very much fallible.
 
 %% CITE GLOBAL CANCER START ---
@@ -244,9 +245,9 @@ access. This makes room for building huge networks of proteins and genes,
 allowing for more extensively and thorough assays to be done. For example, what
 if something that is classified as a prostate cancer biomarker only is viable
 when proteins that has not been classified as a biomarker, also is present?
-Together they could represent a more appropriate \emph{network biomarker}.  The
+Together they could represent a more appropriate \emph{network biomarker}. The
 amount of data that can be analyzed also opens up for another more personalized
-approach to each cancer patient.  Finding patient-specific biomarkers could make
+approach to each cancer patient. Finding patient-specific biomarkers could make
 a huge impact on the quality of treatment \cite{personalized}.
 \chapter{Next generation of biomarkers}
 The PSA biomarker is over 20 years old \cite{psa-age}. Through those years, it
@@ -273,7 +274,7 @@ networks as biomarkers?
 %    \item For example, where in the molecular network of a tumor should we perturb with drug to reduce tumor
 %        proliferation or metastasis
 %    \item mTOR having poor results in clinical trials and even having subsequently increased cell proliferation
-%    \item For example, if protein A induces expression of protein B, then we expect to see high leveles of protein B
+%    \item For example, if protein A induces expression of protein B, then we expect to see high levels of protein B
 %        whenever levels or specific molecular states of its activator A are high. The reverse of this logic is that
 %        statistical correlation between protein states indicates a potential interaction between them
 %    \item Although nonlinear relations frequently occur in biology, linear regression models are more robust, and thus
@@ -559,7 +560,7 @@ new algorithm.
 % Intro
 The \textit{clusterMaker2} documentation for implementing new parts that is not
 directly connected with clustering algorithms is non-existing (cite
-documentation!). So I will make a walkthrough of how to do it and how I did it.
+documentation!). So I will make a "walk through" of how to do it and how I did it.
 
 % Preparations
 The POM-file has to be updated because libraries connected to the pdf exporting
@@ -612,7 +613,7 @@ spreadsheet. This may at first seem like a way to make it easy to show
 information to the user, but it is also a way of working more efficient with
 network data (insert: reference to working with tables on networks is
 efficient). Creating objects with attributes for each node in a huge network
-will increase the amount of overhead by a pretty noticable amount. Working with
+will increase the amount of overhead by a pretty noticeable amount. Working with
 all of the information in the way of a spreadsheet with rows and columns
 includes a decrease in overhead. A new node is a new row, so in relation to
 build the network structure, it is not a difference to speak of.  The difference
@@ -637,7 +638,7 @@ inside clusterMaker2 or as a standalone plugin.
 % Single value ranklust
 A simple, but effective way of ranking clusters, is just to add together the
 biomarkers values and sum them up in each respective cluster. This will tell us
-which cluster will have the most cancerous genes and proteines. It is not very
+which cluster will have the most cancerous genes and proteins. It is not very
 advanced, but an analysis show how effective it is. An alternative is also to
 add scaling to the values. Should clusters with a large amount of biomarkers
 receive a bonus because of the sheer amount? Should values alone be scaled
@@ -661,6 +662,72 @@ first. And as with the single value ranking, if the first scaling of each
 individual value shows promising results for multivalue ranking, the values in
 relation to each other will be considered as a way of producing more accurate
 results.
+
+% How to get the clusters
+As of now, the SimpleRanking algorithm for ranking the clusters has to have
+access to the cluster results inside the clusterMaker2 source code. The
+alternative is to work directly on the CytoScape tables containing the same
+information. The drawback working on the CytoScape tables is the need for going
+through every single node in the table in order to add it to a cluster, which is
+something the source code in clusterMaker2 can serve with a single
+\textit{getter} method. The drawback using the clusterMaker2 code and not the
+CytoScape tables is that the getter method to clusterMaker2 demands knowledge in
+the SimpleRanking algorithm of the cluster algorithm that was used. Coupling
+these two object classes together is not necessary, because of the two mentioned
+ways of completing this, and the getter method used is actually implemented with
+the intention of creating a REST API \cite{rest-api} for applications outside
+CytoScape. A third way could be to implement a way for all of the clustering
+algorithms to save their results as a \textit{List<NodeCluster>} list. Once
+again this just moves the problem a bit around and we will end up with a good
+amount of duplication code to the REST API method of getting the clusters. Then
+again, having the REST API getter rely on the \textit{List<NodeCluster>} getter
+could make for a cleaner solution. This is definetively more work and requires
+every new clustering algorithm to implement a way of creating these node
+clusters.
+
+Creating the list of node clusters every time a ranking algorithm should run is
+maybe not such a bad idea. Atleast when we consider that having every clustering
+algorithm saving its results could result in massive memory constraints. Every
+node in the node cluster list should only be a java object reference to a node
+in the CytoScape table. A Java object reference consists of 8 bytes
+\cite{java-reference-size}. So we will end up having 8 bytes for every node in
+the list to a single cluster. Also, to organize it properly, a list of the
+clusters also has to wrap round all of the clusters, adding another 8 bytes per
+cluster entry. One simplification can be made, which is using the indexes in the
+list as a cluster score attribute from the cluster algorithms. That could
+exclude clustering algorithms that produce more than a single score as a result
+of the clustering. A sample clustering with the affinity propagation algorithm
+produces 839 clusters. That is 6,7 megabytes for only the cluster entries in the
+outer list. From the same results, the biggest cluster consists of over 700
+nodes. That is 5,6 megabytes of memory on a single cluster. Total amount of
+nodes in the network is ends up using extra memory of 89,7 megabytes. And that
+is just per clustering algorithm.
+
+% Edge attribute information
+In order to work with attributes in the edges, an additional datastructure like
+a simple \textbf{Map} or a class which inherits attributes form the Java
+\textbf{Set}-class\cite{java-set} is preferrable. This is because in order to
+match nodes in the edge table to the nodes in the node table to get the cluster
+information, we have to perform a \begin{equation} O(n^2) \end{equation}
+operation. I have been told that a reasonable size for a network that will
+be using this plugin is about 200 nodes. And 200 times 200 will result in 40
+000 lookups in the worst cases. However, with a Java \textbf{Set}-class like
+structure and enough memory, a lookup will take O(1) time in both the best and
+the worst cases regarding the Big-O notation\cite{big-o}.
+
+% Edge cont.
+Recipe for working the nodes and edges. Only the edges require step one, nodes
+can start at step 2.
+\begin{enumerate}
+    \item Find common or best ranked cluster between two nodes (one edge).
+    \item Add score to the cluster
+    \item Repeat step 1-2 for every edge
+    \item Sort clusters based on rank and create a column to represent the score
+\end{enumerate}
+
+Step 1 is the thing that will take extra time for the ranking algorithms
+including the edges.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION END %%%%%%
@@ -747,13 +814,31 @@ difficulties or problems at the time.
 \section{Data communication}
 Data communication between the Neo4J database server and the CytoScape instance
 is done through the CyNeo4J app to CytoScape \cite{cyneo4j}. CyNeo4J is a
-CytoScape app that was developed during the Goole Summer Code 2014 arrangement.
+CytoScape app that was developed during the Google Summer Code 2014 arrangement.
 It supports connecting to a Neo4J instance, as well as syncing data up and down,
 from and to the database server. One thing it did not support was authentication
 on Neo4J servers. Not having authentication is a serious problem, so I
 implemented a simple way of getting access to the database server by providing a
 possibility to insert username and password at the same time the user has to
-provide a URL to the Neo4J database server instance.
+provide a URL to the Neo4J database server instance. Implementation-wise, this
+only required an extra header to be included in each http request going to the
+password protected Neo4J database server instance. Every request used the static
+\textbf{Request} class to Get/Post/Put HTTP requests to the Neo4J database
+server instance. The refactor looked something along these lines in all of the
+files.
+
+Before:
+\begin{minted}{Java}
+Request req = Request.Post(url)
+        .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
+\end{minted}
+
+After:
+\begin{minted}{Java}
+Request req = Request.Post(url)
+        .addHeader("Authorization", auth64EncodedInfo)
+        .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
+\end{minted}
 
 Synchronization time between Neo4J and CytoScape through the CyNeo4J app is a
 huge timesink. As of now, the time it takes to populate an empty CytoScape
@@ -761,6 +846,12 @@ network with the gene information from STRING is about 2 hours. This could be
 shortened by exporting the Neo4J data with GraphML and into CytoScape. Because
 after the initial data is inside CytoScape, updates to the Neo4J instance goes
 much faster.
+
+The CyNeo4J also uses a legacy HTTP library to get information from the Neo4J
+database \cite{legacy-neo4j}. It is possible that the performance increases with
+the new library \cite{transactional-neo4j}. The new library supports creating
+transactions, which implicit gives support for rollbacks in case something goes
+wrong with the query.
 
 A future improvement to the CyNeo4J app could be to change the communication
 between Neo4J and CytoScape to be done in GraphML and not Cypher. This is
