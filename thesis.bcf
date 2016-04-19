@@ -2268,10 +2268,9 @@
     <bcf:citekey order="27">rest-api</bcf:citekey>
     <bcf:citekey order="28">java-reference-size</bcf:citekey>
     <bcf:citekey order="29">java-set</bcf:citekey>
-    <bcf:citekey order="30">big-o</bcf:citekey>
-    <bcf:citekey order="31">cyneo4j</bcf:citekey>
-    <bcf:citekey order="32">legacy-neo4j</bcf:citekey>
-    <bcf:citekey order="33">transactional-neo4j</bcf:citekey>
+    <bcf:citekey order="30">cyneo4j</bcf:citekey>
+    <bcf:citekey order="31">legacy-neo4j</bcf:citekey>
+    <bcf:citekey order="32">transactional-neo4j</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>

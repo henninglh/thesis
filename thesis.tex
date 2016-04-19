@@ -556,19 +556,20 @@ new algorithm.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION START %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Implementation}
 
-% Intro
+\section{Intro}
 The \textit{clusterMaker2} documentation for implementing new parts that is not
 directly connected with clustering algorithms is non-existing (cite
 documentation!). So I will make a "walk through" of how to do it and how I did it.
 
-% Preparations
+\section{Preparations}
 The POM-file has to be updated because libraries connected to the pdf exporting
 functionality is outdated. Updating the libraries, imports and the usage of
 these libraries in the source code is enough to make the whole project compile
 at the mentioned date.
 
-% Registering a service
+\section{Registering a service}
 In order to make it easy to implement new cluster ranking algorithms, a new task
 factory for the ranking of clusters is required. It has to be registered as a
 service to make it visible to the GUI menu, aswell as maintain the \textit{OSGi}
@@ -581,7 +582,7 @@ clusterMaker2. Though, it is still packaged within clusterMaker2's API, so that
 it does not become a mess, if extra functionality is to be implemented while the
 plugin resides within clusterMaker2.
 
-% GetNetworkClusterTask
+\section{GetNetworkClusterTask}
 ClusterMaker2 already has some REST (insert: reference to REST services +
 explanation). It is used in Ranklust as a way of getting the clustering results
 without changin the previous code. Though, there is a flaw in the REST service.
@@ -605,7 +606,7 @@ already existing algorithm is that REST functionality should hide state and
 implementation from the services using the REST service to get data. The way it
 is now, this is not true and it should be changed anyway.
 
-% Tables vs pure OO
+\section{Tables vs pure OO}
 One thing in particular that deserves to be mentioned is the way networks are
 handled. The \textit{CyNode} objects themselves does not contain much. This is
 because all of the information is saved in the form of plain cells in a
@@ -635,7 +636,7 @@ works as a whole, so changing the way this works is either done through changing
 the CytoScape source code, or implementing a wrapper as a standalone function
 inside clusterMaker2 or as a standalone plugin.
 
-% Single value ranklust
+\section{Single value ranklust}
 A simple, but effective way of ranking clusters, is just to add together the
 biomarkers values and sum them up in each respective cluster. This will tell us
 which cluster will have the most cancerous genes and proteins. It is not very
@@ -648,7 +649,7 @@ ranking in Ranklust. But as a beginning, the results will come from a pure
 additive algorithm.  The more advanced ones will be implemented only if the
 additive algorithm show promising results.
 
-% Multivalue Ranklust
+\section{Multivalue Ranklust}
 Multivalue ranking of clusters creates a larger context. More data can help
 making more fine tuned results and get the validation of ranking clusters to
 find biomakers, hit the significance ceiling of 95\% certainity. 
@@ -663,7 +664,7 @@ individual value shows promising results for multivalue ranking, the values in
 relation to each other will be considered as a way of producing more accurate
 results.
 
-% How to get the clusters
+\section{How to get the clusters}
 As of now, the SimpleRanking algorithm for ranking the clusters has to have
 access to the cluster results inside the clusterMaker2 source code. The
 alternative is to work directly on the CytoScape tables containing the same
@@ -703,21 +704,18 @@ nodes. That is 5,6 megabytes of memory on a single cluster. Total amount of
 nodes in the network is ends up using extra memory of 89,7 megabytes. And that
 is just per clustering algorithm.
 
-% Edge attribute information
-In order to work with attributes in the edges, an additional datastructure like
-a simple \textbf{Map} or a class which inherits attributes form the Java
-\textbf{Set}-class\cite{java-set} is preferrable. This is because in order to
-match nodes in the edge table to the nodes in the node table to get the cluster
-information, we have to perform a \begin{equation} O(n^2) \end{equation}
-operation. I have been told that a reasonable size for a network that will
-be using this plugin is about 200 nodes. And 200 times 200 will result in 40
-000 lookups in the worst cases. However, with a Java \textbf{Set}-class like
-structure and enough memory, a lookup will take O(1) time in both the best and
-the worst cases regarding the Big-O notation\cite{big-o}.
+\section{Edge attribute information}
+In order to work with attributes in the edges, you would think that an
+additional datastructure like a simple java class like \textbf{Map} or a class
+which inherits attributes from the Java \textbf{Set}-class\cite{java-set} would
+be preferrable. However, this is not necessary, as CytoScape provides both the
+source and target node in an edge, together with methods to get the primary key
+from both of them. This allows us to index the node table and get the cluster
+information in O(1) time.
 
-% Edge cont.
 Recipe for working the nodes and edges. Only the edges require step one, nodes
 can start at step 2.
+
 \begin{enumerate}
     \item Find common or best ranked cluster between two nodes (one edge).
     \item Add score to the cluster
@@ -728,6 +726,25 @@ can start at step 2.
 Step 1 is the thing that will take extra time for the ranking algorithms
 including the edges.
 
+There is also a question on how we should add the edge scores to the cluster.
+Should we add the score of the edge when we visit both the source and the target
+of the edge? Only from when we visit the source, or only the target? Should the
+user be prompted about this? Should the algorithm take into account if the edge
+are directional. Or maybe the user should always provide edges in a specified
+form. A form that says always specify the source node first, then the target
+node. Maybe it should be specific to the attribute we are working with. The ways
+to go here are so many. So many that I will just specify one way, and stick to
+it. 
+
+\subsection{The way I chose}
+When iterating over the list of edges in the network, check first the source
+node for a match, then, if it does not have a match in the node table, look
+after the target node. Then add the score to the cluster. I assume that the
+direction, if any, is from the source node to the target node. That way, the
+score only gets added once to the cluster per edge and it does not have anything
+to say if it is the source or target node. The user should have responsibility
+for having the edges directed as from the source node, to the target node, if
+a direction exists at all.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% IMPLEMENTATION END %%%%%%
@@ -737,15 +754,15 @@ including the edges.
 The secretome values of genes can be expressed by a single integer value,
 though, for compatibility reasons Ranklust will require double values. The
 clustered network can be constructed with an AP, short for Affinity Propagation,
-clustering algorithm (source AP). Affinity propagation clustering concentrates
-on the nodes in the network that are binding the rest of them together. Using
-affinity propagation for clustering will produce results that represent a
-grouping of nodes that are coupled by seemingly unimportant nodes to most
-clustering algorithms. But the AP algorithm is good at expressing nodes that are
-not highly connected to many nodes, but rather the nodes that are binding other
-highly connected nodes together. This results in bigger clusters that can be a
-target for methods that cure cancer by severing the interaction between
-biomarker genes.
+clustering algorithm \cite{affinity-propagation}. Affinity propagation
+clustering concentrates on the nodes in the network that are binding the rest of
+them together. Using affinity propagation for clustering will produce results
+that represent a grouping of nodes that are coupled by seemingly unimportant
+nodes to most clustering algorithms. But the AP algorithm is good at expressing
+nodes that are not highly connected to many nodes, but rather the nodes that are
+binding other highly connected nodes together. This results in bigger clusters
+that can be a target for methods that cure cancer by severing the interaction
+between biomarker genes.
 
 It is also discussed how AP performs versus Markov clustering (source, both
 markov algorithm and the "vs" paper). And since Markov algorithm performs better
