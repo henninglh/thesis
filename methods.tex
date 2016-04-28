@@ -1,0 +1,152 @@
+\part{Methods}
+\label{pa:methods}
+\chapter{Algorithms}
+\section{Single Attribute Additive Method}
+
+\section{Multiple Attribute Additive Method (MNEA)}
+
+\section{Multiple Attribute Multiplication Method (MNEM)}
+
+\section{Seed-weighted Random Walks Ranking Method (SW-RWR)}
+
+\chapter{Creation of Neo4J database} % Insert appendix links to the scripts!
+\section{Data preparation}
+I created a Neo4J database and used a slightly modified CytoScape app to
+communicate with it. Input to the database is a modified version of data. The
+data started as a PPI file from the StringDB. The file had a size of 3,9GB and
+consisted of interactions between two proteins. Each line had two Ensembl
+Protein IDs (ENSP), the type of interaction, what direction the interaction went
+in and a score for the interaction. 
+
+\begin{verbatim}
+item_id_a	item_id_b	mode	action	a_is_acting	score
+9606.ENSP00000000233	9606.ENSP00000000233	binding		0	800
+\end{verbatim}
+
+I strip this file in order to get a file with just the ENSP IDs. One line per
+ID.
+
+\begin{verbatim}
+ENSP00000000233
+ENSP00000005340
+\end{verbatim}
+
+Next up is the conversion from protein IDs to gene IDs coupled with Entrez ID.
+This information I got from UniProt through the stripped ENSP IDs. The file with
+the data is formatted like this:
+
+\begin{verbatim}
+Entry	EnsembleID	    Gene names
+P84085	ENSP00000000233	ARF5
+\end{verbatim}
+
+I match the \textit{EnsembleID} from UniProt, which is a ENSP ID, to the
+\textit{item\_id\_a} and \textit{item\_id\_b} data from StringDB (without the
+9606.  prefix). Then combine the Entrez id, which is the \textit{Entry} from
+UniProt with \textit{Gene names} with a square (\textit{\#}) between them as
+a separator to make it easier to split them when creating Cypher and GraphML
+import queries for Neo4J. This combination makes up a single gene, and each line
+in the file I write this information to consist of two genes and a type of
+binding between them. The type of binding is provided by the StringDB file
+mentioned first in this section. % label and refer instead of mentioning it!
+
+
+\section{Neo4J setup and data import}
+
+\subsection{Setup}
+Not much of a setup is needed to get the database up and running. Every setting
+that was changed in testing and using the database was set in the
+\textit{conf/neo4j-server.properties} file, located in the directory relative to
+the Neo4J database installation.
+
+The database
+location does not need to be set up, but knowing the location of the data that
+is saved in the Neo4J database is somewhat crucial when working with several
+database instances.
+
+\begin{verbatim}
+org.neo4j.server.database.location=data/string_mini.db
+org.neo4j.server.webserver.port=7474
+\end{verbatim}
+
+NB! That path is relative to the location the neo4j database is run from.
+
+Turning authentication on/off is also smart for testing purposes. Communicating
+with a Neo4J database instance that demands authentication also requires the
+usage of the modified CytoScape app \textit{CyNeo4J}. This is because the app
+does support everything we need except from authenticating with a database. For
+the database, this is just having a boolean value \textit{true}/\textit{false}.
+
+\begin{verbatim}
+dbms.security.auth_enabled=true
+\end{verbatim}
+
+\subsection{Import}
+Importing data into Neo4J is not very mature at this point. You have the
+possibility to just use Neo4J's query language, \textit{Cypher}. However,
+importing the whole gene data from StringDB and UniProt combined takes a long
+time in Cypher, even if the language is the native language to Neo4J. The
+alternative we used was \textit{neo4j-shell-tools} \cite{neo4j-tools}. It is
+easy to install and supports import with \textit{CSV}, \textit{Geoff} and
+\textit{GraphML} filetypes. A GraphML import took under 1 minute on my old and
+underperforming laptop with 4GB memory, 2GHz CPU and a 128GB SSD \cite{laptop}.
+In comparison, the Cypher import took several hours, with the same amount of
+data. I did not test importing with CSV, because CytoScape does not support
+exporting data to a CSV file. On the other hand, CytoScape has great support
+exporting data to a GraphML file.
+
+The Python scripts used to initialize the Neo4J database with data create either
+GraphML or Cypher. Importing any of them result in the same type of data in the
+database, but because of the heavily increased speed using GraphML over Cypher,
+we used GraphML exclusively to initialize the database. The nodes are created
+with the forementioned \textit{Entrez ID} as primary key and \textit{Gene name}
+as the displayed name in the Neo4J GUI.
+
+\chapter{CytoScape implementation}
+The secretome values of genes can be expressed by a single integer value,
+though, for compatibility reasons Ranklust will require double values. The
+clustered network can be constructed with an AP, short for Affinity Propagation,
+clustering algorithm \cite{affinity-propagation}. Affinity propagation
+clustering concentrates on the nodes in the network that are binding the rest of
+them together. Using affinity propagation for clustering will produce results
+that represent a grouping of nodes that are coupled by seemingly unimportant
+nodes to most clustering algorithms. But the AP algorithm is good at expressing
+nodes that are not highly connected to many nodes, but rather the nodes that are
+binding other highly connected nodes together. This results in bigger clusters
+that can be a target for methods that cure cancer by severing the interaction
+between biomarker genes.
+
+It is also discussed how AP performs versus Markov clustering (source, both
+markov algorithm and the "vs" paper). And since Markov algorithm performs better
+on protein interaction, it will also be used to cluster the networks. An
+analysis between the rankings that come from the Markov and AP clusterings will
+be performed, which hopefully will give concrete results as to the pro's and
+con's of each algorithm. Some questions should be raised as the analysis is
+done. For example, is both of the algorithms good, but have different uses, even
+if they are not directly involved with the ranking done after the clustering?
+Are either AP or Markov useless for a particular type of ranking afterwards?
+
+The information provided through the whole process from what type of nodes
+(protein or gene), interaction between the nodes and what kind of biomarker we
+want to identify are all factors that will have a great impact on how all of
+this should be combined. The order of operations on the network will also effect
+the result. For example, AP clustering may create a few big clusters and many
+small ones. At this stage, the results will consist of the biggest clusters
+constructed from AP clustering that has focus on pure connection between nodes
+and not their attributes. At this point, the cluster ranking algorithm of
+Ranklust will be run in order to produce a picture of potential biomarkers. This
+picture is the first and simplest step that will be used as a result for an
+analysis. The analysis in this thesis will focus on validating the cluster
+ranking scores as ways of indicating potential biomarkers. 
+
+In order to validate the scores, I will need to know the state of the patient
+that the data to create the network came from. As there is no use to just
+generate results without knowing what they show. They might show connections
+between them, but without some sort of context the results are useless. The
+context needed is not very high, but the results from the ranking should be
+tested for several purposes. For example, is biomarkers from ranking of clusters
+best for disease disposition, screening, diagnostic, prognostic, prediction or
+monitoring cancer. I will aim for screening, diagnostic and most of all
+prognostic usages. As mentioned earlier, the prognostics of prostate cancer
+often results in 50\% of patients receiving treatment that was not needed.
+

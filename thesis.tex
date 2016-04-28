@@ -4,6 +4,7 @@
 \usepackage{graphicx,babel,csquotes,textcomp,ifimasterforside,varioref,float}
 \usepackage[backend=biber,style=numeric-comp,sorting=nyt,maxbibnames=20,maxcitenames=20]{biblatex}
 \usepackage{minted}
+\usepackage{parskip}
 \urlstyle{sf}
 \graphicspath{{images/}}
 \addbibresource{macros.bib}
@@ -13,6 +14,10 @@
 \author{Henning Lund-Hanssen}
 
 \begin{document}
+
+\setlength{\parskip}{12pt}
+\setlength{\parindent}{12pt}
+
 \ififorside{}
 \frontmatter{}
 \maketitle{}
@@ -30,7 +35,7 @@ This is where the abstract goes...
 \include{images}
 \include{project}
 \include{cytoscape}
-\include{procedure}
+\include{methods}
 \include{results}
 \include{analysis}
 \include{conclusion}
