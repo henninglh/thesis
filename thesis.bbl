@@ -591,6 +591,26 @@
       \field{volume}{1}
       \field{year}{2012}
     \endentry
+    \entry{ap-vs-mcl}{article}{}
+      \name{labelname}{2}{}{%
+        {{hash=e96c596ca80f68f2c04455cfd69fc672}{Vlasblom}{V\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=c0ebb1c68891956220bf55d876e48ad5}{Wodak}{W\bibinitperiod}{Shoshana\bibnamedelima J}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \name{author}{2}{}{%
+        {{hash=e96c596ca80f68f2c04455cfd69fc672}{Vlasblom}{V\bibinitperiod}{James}{J\bibinitperiod}{}{}{}{}}%
+        {{hash=c0ebb1c68891956220bf55d876e48ad5}{Wodak}{W\bibinitperiod}{Shoshana\bibnamedelima J}{S\bibinitperiod\bibinitdelim J\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{c00e17864da3d34b41e8ead00a2b8f4c}
+      \strng{fullhash}{c00e17864da3d34b41e8ead00a2b8f4c}
+      \field{sortinit}{V}
+      \field{labeltitle}{Markov clustering versus affinity propagation for the partitioning of protein interaction graphs}
+      \field{day}{30}
+      \field{journaltitle}{BMC Bioinformatics}
+      \field{month}{03}
+      \field{title}{Markov clustering versus affinity propagation for the partitioning of protein interaction graphs}
+      \field{year}{2009}
+      \warn{\item Overwriting field 'year' with year value from field 'date' for entry 'ap-vs-mcl'}
+    \endentry
   \endsortlist
 \endrefsection
 \endinput

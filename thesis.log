@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  28 APR 2016 18:32
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.9.17)  9 MAY 2016 17:54
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -861,26 +861,26 @@ File: english.lbx 2013/11/25 v2.8a biblatex localization (PK/JW/AB)
 (./methods.aux) (./results.aux) (./analysis.aux) (./conclusion.aux))
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Try loading font information for T1+ppl on input line 16.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Try loading font information for T1+ppl on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
@@ -927,9 +927,16 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
 
-(./thesis.bbl)
-Package biblatex Info: Reference section=0 on input line 16.
-Package biblatex Info: Reference segment=0 on input line 16.
+(./thesis.bbl
+
+Package biblatex Warning: Biber reported the following issues
+(biblatex)                with 'ap-vs-mcl':
+(biblatex)                - Overwriting field 'year' with year value from field
+ 'date' for entry 'ap-vs-mcl'.
+
+)
+Package biblatex Info: Reference section=0 on input line 18.
+Package biblatex Info: Reference segment=0 on input line 18.
 runsystem(pygmentize -S default -f latex > thesis.pyg)...executed.
 
  (./thesis.pyg)
@@ -937,9 +944,9 @@ runsystem(pygmentize -S default -f latex > thesis.pyg)...executed.
 File: ifi-kompendium-forside-eng.pdf Graphic file (type pdf)
 
 <use ifi-kompendium-forside-eng.pdf>
-Package pdftex.def Info: ifi-kompendium-forside-eng.pdf used on input line 21.
+Package pdftex.def Info: ifi-kompendium-forside-eng.pdf used on input line 23.
 (pdftex.def)             Requested size: 639.66422pt x 887.20244pt.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 21.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 23.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
@@ -947,30 +954,30 @@ File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./ifi-kompendium-forside-e
 ng.pdf>] [2]
-LaTeX Font Info:    Try loading font information for OT1+ppl on input line 23.
+LaTeX Font Info:    Try loading font information for OT1+ppl on input line 25.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 23.
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 25.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 23.
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 25.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 23.
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 25.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 23.
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 25.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
@@ -981,7 +988,7 @@ File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 
 ]
 LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 25.
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 27.
  [3]
 [4
 
@@ -1128,7 +1135,13 @@ Overfull \hbox (109.00966pt too wide) in paragraph at lines 12--13
 
 
 
-] [32]) [33]
+] [32]
+Chapter 11.
+LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/ppl/b/n' tried instead on input line 4.
+) [33
+
+]
 \openout2 = `cytoscape.aux'.
 
  (./cytoscape.tex [34
@@ -1138,9 +1151,7 @@ Overfull \hbox (109.00966pt too wide) in paragraph at lines 12--13
 ] [35] [36] [37] [38
 
 ]
-Chapter 11.
-LaTeX Font Info:    Font shape `T1/ppl/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ppl/b/n' tried instead on input line 38.
+Chapter 12.
 [39] [40] [41]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1153,29 +1164,33 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ] [45] [46]
-Chapter 12.
+Chapter 13.
 
-Overfull \hbox (16.84592pt too wide) in paragraph at lines 8--8
+Overfull \hbox (16.84592pt too wide) in paragraph at lines 29--29
 []\T1/ppl/b/n/14.4 Multiple At-tribute Mul-ti-pli-ca-tion Method (MNEM) 
  []
 
-[47
 
-] [48
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [47
 
 ]
-Chapter 13.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 21.
+[48]
+Chapter 14.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 42.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49]
+ [49
+
+]
 [50] [51] [52
 
 ]
-Chapter 14.
+Chapter 15.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1188,7 +1203,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ] [56]
-Chapter 15.
+Chapter 16.
 
 Overfull \hbox (53.06108pt too wide) in paragraph at lines 12--12
 []\T1/cmtt/m/n/10.95 time python relations_refactoring.py movember.cql refactor
@@ -1310,7 +1325,7 @@ runsystem(rm thesis.out.pyg)...executed.
 
 
 ]
-LaTeX Font Info:    Try loading font information for T1+cmss on input line 43.
+LaTeX Font Info:    Try loading font information for T1+cmss on input line 45.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 ) [73
@@ -1324,10 +1339,10 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 10798 strings out of 495028
- 170425 string characters out of 6181497
- 588323 words of memory out of 5000000
- 13676 multiletter control sequences out of 15000+600000
+ 10799 strings out of 495028
+ 170445 string characters out of 6181497
+ 588337 words of memory out of 5000000
+ 13677 multiletter control sequences out of 15000+600000
  46890 words of font info for 84 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,11n,49p,893b,1527s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1340,7 +1355,7 @@ c/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplbi8a.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on thesis.pdf (87 pages, 14907654 bytes).
+Output written on thesis.pdf (87 pages, 14910739 bytes).
 PDF statistics:
  588 PDF objects out of 1000 (max. 8388607)
  239 compressed objects within 3 object streams

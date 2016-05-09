@@ -28,59 +28,65 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{III\hspace {1em}The project}{31}
 \defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {11}Workflow}{33}
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {11.1}For researchers}{33}
+\defcounter {refsection}{0}\relax 
 \contentsline {part}{IV\hspace {1em}CytoScape}{35}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {11}Implementation}{39}
+\contentsline {chapter}{\numberline {12}Implementation}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.1}Intro}{39}
+\contentsline {section}{\numberline {12.1}Intro}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.2}Preparations}{39}
+\contentsline {section}{\numberline {12.2}Preparations}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.3}Registering a service}{39}
+\contentsline {section}{\numberline {12.3}Registering a service}{39}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.4}GetNetworkClusterTask}{40}
+\contentsline {section}{\numberline {12.4}GetNetworkClusterTask}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.5}Tables vs pure OO}{40}
+\contentsline {section}{\numberline {12.5}Tables vs pure OO}{40}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.6}Single value ranklust}{41}
+\contentsline {section}{\numberline {12.6}Single value ranklust}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.7}Multivalue Ranklust}{41}
+\contentsline {section}{\numberline {12.7}Multivalue Ranklust}{41}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.8}How to get the clusters}{42}
+\contentsline {section}{\numberline {12.8}How to get the clusters}{42}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {11.9}Edge attribute information}{43}
+\contentsline {section}{\numberline {12.9}Edge attribute information}{43}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {11.9.1}The way I chose}{43}
+\contentsline {subsection}{\numberline {12.9.1}The way I chose}{43}
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{V\hspace {1em}Methods}{45}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {12}Algorithms}{47}
+\contentsline {chapter}{\numberline {13}Algorithms}{47}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.1}Single Attribute Additive Method}{47}
+\contentsline {section}{\numberline {13.1}Clustering}{47}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.2}Multiple Attribute Additive Method (MNEA)}{47}
+\contentsline {section}{\numberline {13.2}Single Attribute Additive Method}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.3}Multiple Attribute Multiplication Method (MNEM)}{47}
+\contentsline {section}{\numberline {13.3}Multiple Attribute Additive Method (MNEA)}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {12.4}Seed-weighted Random Walks Ranking Method (SW-RWR)}{47}
+\contentsline {section}{\numberline {13.4}Multiple Attribute Multiplication Method (MNEM)}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {13}Creation of Neo4J database}{49}
+\contentsline {section}{\numberline {13.5}Seed-weighted Random Walks Ranking Method (SW-RWR)}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.1}Data preparation}{49}
+\contentsline {chapter}{\numberline {14}Creation of Neo4J database}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.2}Neo4J setup and data import}{50}
+\contentsline {section}{\numberline {14.1}Data preparation}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {13.2.1}Setup}{50}
+\contentsline {section}{\numberline {14.2}Neo4J setup and data import}{50}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {13.2.2}Import}{50}
+\contentsline {subsection}{\numberline {14.2.1}Setup}{50}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {14}CytoScape implementation}{53}
+\contentsline {subsection}{\numberline {14.2.2}Import}{50}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {15}CytoScape implementation}{53}
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{VI\hspace {1em}Results}{55}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {15}Neo4J}{57}
+\contentsline {chapter}{\numberline {16}Neo4J}{57}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {15.1}Data communication}{58}
+\contentsline {section}{\numberline {16.1}Data communication}{58}
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{VII\hspace {1em}Analysis}{61}
 \defcounter {refsection}{0}\relax 

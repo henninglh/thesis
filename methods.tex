@@ -1,6 +1,27 @@
 \part{Methods}
 \label{pa:methods}
 \chapter{Algorithms}
+\section{Clustering}
+To cluster or not to cluster is the question here. PPI networks already have
+a great deal of edges and can be seen as clusters that we should not alter. On
+the other hand, using clustering algorithms to make clusters out of
+PPI-networks gives us the more control over the clusters. How big they should
+be, how many of them we want, should we cluster on a certain attribute, or even
+several? If we cluster the network, we have chosen to go with the \textit{MCL}
+clustering algorithm in \textit{clusterMaker2}. I prototyped Ranklust with
+\textit{Affinity Propagation}(AP), but a paper that performed a comparison
+between MCL and AP concluded with MCL having the best performance in many
+aspects when it came to PPI networks \cite{ap-vs-mcl}.
+
+A drawback with clustering in CytoScape is that it directly alters the network.
+However, MCL in clusterMaker2 does not create new edges between nodes. It is
+keeping the ones that it qualifies as worthy to be in the cluster it is
+currently creating. So it may disconnect, or delete, edges between nodes to
+separate them in the clustering. This may not be feasible when ranking the
+clusters afterwards, so the user should be able to choose between using
+clusterMaker2's clustering algorithms, or just have clusters that already exists
+through simple PPI connections between nodes.
+
 \section{Single Attribute Additive Method}
 
 \section{Multiple Attribute Additive Method (MNEA)}
@@ -116,15 +137,15 @@ binding other highly connected nodes together. This results in bigger clusters
 that can be a target for methods that cure cancer by severing the interaction
 between biomarker genes.
 
-It is also discussed how AP performs versus Markov clustering (source, both
-markov algorithm and the "vs" paper). And since Markov algorithm performs better
-on protein interaction, it will also be used to cluster the networks. An
-analysis between the rankings that come from the Markov and AP clusterings will
-be performed, which hopefully will give concrete results as to the pro's and
-con's of each algorithm. Some questions should be raised as the analysis is
-done. For example, is both of the algorithms good, but have different uses, even
-if they are not directly involved with the ranking done after the clustering?
-Are either AP or Markov useless for a particular type of ranking afterwards?
+It is also discussed how AP performs versus Markov clustering \cite{ap-vs-mcl}.
+And since Markov algorithm performs better on protein interaction, it will also
+be used to cluster the networks. An analysis between the rankings that come from
+the Markov and AP clusterings will be performed, which hopefully will give
+concrete results as to the pro's and con's of each algorithm. Some questions
+should be raised as the analysis is done. For example, is both of the algorithms
+good, but have different uses, even if they are not directly involved with the
+ranking done after the clustering?  Are either AP or Markov useless for
+a particular type of ranking afterwards?
 
 The information provided through the whole process from what type of nodes
 (protein or gene), interaction between the nodes and what kind of biomarker we
