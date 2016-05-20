@@ -62,31 +62,31 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {13.1}Clustering}{47}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.2}Single Attribute Additive Method}{48}
+\contentsline {section}{\numberline {13.2}Single Attribute Additive Method (SAA)}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.3}Multiple Attribute Additive Method (MNEA)}{48}
+\contentsline {section}{\numberline {13.3}Multiple Attribute Additive Method (MAA)}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.4}Multiple Attribute Multiplication Method (MNEM)}{48}
+\contentsline {section}{\numberline {13.4}Multiple Attribute Multiplication Method (MAM)}{48}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {13.5}Seed-weighted Random Walks Ranking Method (SW-RWR)}{48}
+\contentsline {section}{\numberline {13.5}Seed-weighted Random Walks Ranking Method (SW-RWR)}{49}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {14}Creation of Neo4J database}{49}
+\contentsline {chapter}{\numberline {14}Creation of Neo4J database}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.1}Data preparation}{49}
+\contentsline {section}{\numberline {14.1}Data preparation}{51}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {14.2}Neo4J setup and data import}{50}
+\contentsline {section}{\numberline {14.2}Neo4J setup and data import}{52}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.2.1}Setup}{50}
+\contentsline {subsection}{\numberline {14.2.1}Setup}{52}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {14.2.2}Import}{50}
+\contentsline {subsection}{\numberline {14.2.2}Import}{52}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {15}CytoScape implementation}{53}
+\contentsline {chapter}{\numberline {15}CytoScape implementation}{55}
 \defcounter {refsection}{0}\relax 
-\contentsline {part}{VI\hspace {1em}Results}{55}
+\contentsline {part}{VI\hspace {1em}Results}{57}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {16}Neo4J}{57}
+\contentsline {chapter}{\numberline {16}Neo4J}{59}
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {16.1}Data communication}{58}
+\contentsline {section}{\numberline {16.1}Data communication}{60}
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{VII\hspace {1em}Analysis}{61}
 \defcounter {refsection}{0}\relax 

@@ -22,13 +22,57 @@ clusters afterwards, so the user should be able to choose between using
 clusterMaker2's clustering algorithms, or just have clusters that already exists
 through simple PPI connections between nodes.
 
-\section{Single Attribute Additive Method}
+We have used four algorithms to rank the clusters, SAA, MAA, MAM and SW-RWR.
+The three first are our own simple methods, but SW-RWR is a proven ranking
+algorithm for PPI-networks in cancer. It will be the SW-RWR results that have
+the highest likeliness of giving successfull results, should ranking of clusters
+unveil new information on network biomarkers for prostate cancer.
 
-\section{Multiple Attribute Additive Method (MNEA)}
+\section{Single Attribute Additive Method (SAA)}
+Single attribute additive method is the simplest of the four algorithms. It
+gives the user the option to choose a single node attribute to score the
+clusters on. The attribute is required to be a number of some sort, but that is
+the only constraint.
 
-\section{Multiple Attribute Multiplication Method (MNEM)}
+It goes through all of the nodes in each cluster and sums up the number-
+attribute the user chose. Each cluster is then ranked based on the accumulated
+sum and ranked descending, with the highest ranking cluster as the most likely
+prostate cancer biomarker.
+
+\section{Multiple Attribute Additive Method (MAA)}
+Multiple attribute additive method is the next step. This opens up the
+opportunity for the user to use an unlimited number of number-attributes on both
+nodes and edges. The part after that is exactly the same as in the SAA
+algorithm. It goes through all of the nodes in each cluster and sums up the
+attributes for each cluster.
+
+There is a question as to how to rank the edges in the cluster. We chose to rank
+each edge as it is listed to the user in CytoScape. So if it is listed only once
+time in the edge table, it will only be scored additively once. This decision
+was based on simplicity. To not represent the edge as something the user did not
+define it as.
+
+\section{Multiple Attribute Multiplication Method (MAM)}
+Multiple attribute multiplication method is the final step, and it is to some
+degree redundant, considering what exists from before in Ranklust. The only
+difference is the scale the scores will be in. MAM adds the scores from each
+node and edge in the cluster through multiplication, MAA does it with addition. 
+
+Another detail to the MAM is that it will ensure that the scores either increase
+or stay the same, it will never decrease. So when values that are below one is
+combined in MAM, it will gain a plus one score. In other words, 0.23 times % format!
+0.5 will result in 1.23 times 1.5. The same is true for situations where only
+one of the numbers is below one. 0.23 times 1.5 becomes 1.23 times 1.5. Zero
+scores will get ignored.
 
 \section{Seed-weighted Random Walks Ranking Method (SW-RWR)}
+Seed-weighted random walks ranking is an addition to the Random Walks Ranking
+(RWR) algorithm. Random walks algorithm in graphs is a very basic way of
+traversing a graph. It requires some sort of score in either a node, or an edge.
+This score represents the probability that we might visit the node. Each node in
+the graph will receive a probability score equal to the sum of the probability
+that we might visit that node from all of the other nodes. Since this is random
+based, several runs through the graph can be done until the results stabilize.
 
 \chapter{Creation of Neo4J database} % Insert appendix links to the scripts!
 \section{Data preparation}
