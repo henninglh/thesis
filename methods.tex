@@ -66,13 +66,22 @@ one of the numbers is below one. 0.23 times 1.5 becomes 1.23 times 1.5. Zero
 scores will get ignored.
 
 \section{Seed-weighted Random Walks Ranking Method (SW-RWR)}
-Seed-weighted random walks ranking is an addition to the Random Walks Ranking
+Seed-weighted random walks ranking \cite{sw-rwr} is an addition to the Random Walks Ranking
 (RWR) algorithm. Random walks algorithm in graphs is a very basic way of
-traversing a graph. It requires some sort of score in either a node, or an edge.
-This score represents the probability that we might visit the node. Each node in
-the graph will receive a probability score equal to the sum of the probability
-that we might visit that node from all of the other nodes. Since this is random
+traversing a graph. It requires a score in either a node, or an edge.  This
+score represents the probability that we might visit the node. Each node in the
+graph will receive a probability score equal to the sum of the probability that
+we might visit that node from all of the other nodes. Since this is random
 based, several runs through the graph can be done until the results stabilize.
+
+This algorithm will be used on each individual cluster and evaluate it as if it
+was a single network. It will create a score for each node, and the scores in
+each cluster will be summarized and represent a single score for each cluster.
+The score for each cluster will be used as a cancer biomarker value.
+
+\chapter{Comparison to other biomarker identification methods}
+To compare the ranking of biomarker clusters versus ranking of single biomarker
+nodes, % continue here when you know the answer
 
 \chapter{Creation of Neo4J database} % Insert appendix links to the scripts!
 \section{Data preparation}
