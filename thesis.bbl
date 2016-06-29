@@ -440,6 +440,22 @@
       \verb http://research.microsoft.com/apps/pubs/default.aspx?id=69588
       \endverb
     \endentry
+    \entry{sw-rwr}{article}{}
+      \name{author}{4}{}{%
+        {{hash=b8acd2ae5cc9fa7d06a0471556442e66}{Huan}{H\bibinitperiod}{Tianxio}{T\bibinitperiod}{}{}{}{}}%
+        {{hash=bb613db3be8fc4f8a5d540dad0740214}{Wu}{W\bibinitperiod}{Xiaogang}{X\bibinitperiod}{}{}{}{}}%
+        {{hash=2d2bca6505f5a14d49c9fa9ff2499a2a}{Bai}{B\bibinitperiod}{Zengliang}{Z\bibinitperiod}{}{}{}{}}%
+        {{hash=e0eb7531d28ce9f8cfdbe81d20e8e827}{Chen}{C\bibinitperiod}{Jake\bibnamedelima Y.}{J\bibinitperiod\bibinitdelim Y\bibinitperiod}{}{}{}{}}%
+      }
+      \strng{namehash}{7cf7a2f2bd40d01b35bc1242e9883ca9}
+      \strng{fullhash}{7cf7a2f2bd40d01b35bc1242e9883ca9}
+      \field{sortinit}{H}
+      \field{sortinithash}{82012198d5dfa657b8c4a168793268a6}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Seed-weighted Random Walks Ranking Method and Its application to Leukemia Cancer Biomarker Prioritizations}
+      \field{year}{2009}
+    \endentry
     \entry{spici}{article}{}
       \name{author}{2}{}{%
         {{hash=d715fbfe1b82c41e05651c2da1d99b72}{Jiang}{J\bibinitperiod}{P.}{P\bibinitperiod}{}{}{}{}}%

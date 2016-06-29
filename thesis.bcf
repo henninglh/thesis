@@ -2269,13 +2269,14 @@
     <bcf:citekey order="28">java-reference-size</bcf:citekey>
     <bcf:citekey order="29">java-set</bcf:citekey>
     <bcf:citekey order="30">ap-vs-mcl</bcf:citekey>
-    <bcf:citekey order="31">neo4j-tools</bcf:citekey>
-    <bcf:citekey order="32">laptop</bcf:citekey>
-    <bcf:citekey order="33">affinity-propagation</bcf:citekey>
-    <bcf:citekey order="34">ap-vs-mcl</bcf:citekey>
-    <bcf:citekey order="35">cyneo4j</bcf:citekey>
-    <bcf:citekey order="36">legacy-neo4j</bcf:citekey>
-    <bcf:citekey order="37">transactional-neo4j</bcf:citekey>
+    <bcf:citekey order="31">sw-rwr</bcf:citekey>
+    <bcf:citekey order="32">neo4j-tools</bcf:citekey>
+    <bcf:citekey order="33">laptop</bcf:citekey>
+    <bcf:citekey order="34">affinity-propagation</bcf:citekey>
+    <bcf:citekey order="35">ap-vs-mcl</bcf:citekey>
+    <bcf:citekey order="36">cyneo4j</bcf:citekey>
+    <bcf:citekey order="37">legacy-neo4j</bcf:citekey>
+    <bcf:citekey order="38">transactional-neo4j</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="nyt" type="entry" sortscheme="nyt">
   <bcf:sorting>
