@@ -1,2 +1,11 @@
 *.pdf
+*.aux
+*.blg
+*.bib.blg
+*.log
+*.lof
+*.lot
+*.run.xml
+*.toc
+*.bcf
 _minted-thesis/
