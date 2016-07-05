@@ -8,7 +8,7 @@ the other hand, using clustering algorithms to make clusters out of
 PPI-networks gives us the more control over the clusters. How big they should
 be, how many of them we want, should we cluster on a certain attribute, or even
 several? If we cluster the network, we have chosen to go with the \textit{MCL}
-clustering algorithm in \textit{clusterMaker2}. I prototyped Ranklust with
+clustering algorithm in \textit{clusterMaker2}. We prototyped Ranklust with
 \textit{Affinity Propagation}(AP), but a paper that performed a comparison
 between MCL and AP concluded with MCL having the best performance in many
 aspects when it came to PPI networks \cite{ap-vs-mcl}.
@@ -22,13 +22,18 @@ clusters afterwards, so the user should be able to choose between using
 clusterMaker2's clustering algorithms, or just have clusters that already exists
 through simple PPI connections between nodes.
 
-We have used four algorithms to rank the clusters, SAA, MAA, MAM and SW-RWR.
-The three first are our own simple methods, but SW-RWR is a proven ranking
-algorithm for PPI-networks in cancer. It will be the SW-RWR results that have
-the highest likeliness of giving successfull results, should ranking of clusters
-unveil new information on network biomarkers for prostate cancer.
+\section{Ranking clusters}
+We have used five algorithms to rank the clusters, MAA, MAM, PR, PRWR and HITS.
+The two first are our own simple methods, used for prototyping, but PR is a
+proven ranking algorithm for PPI-networks in cancer. It is our belief that the
+PRWR results have the highest likeliness of giving successfull results, should
+ranking of clusters unveil new information on network biomarkers for prostate
+cancer.
 
-\section{Single Attribute Additive Method (SAA)}
+Every algorithm implemented in Ranklust for ranking clusters except one takes
+node and/or edge scores as input for calculating the scores for each node.
+
+\subsection{Single Attribute Additive Method (SAA)}
 Single attribute additive method is the simplest of the four algorithms. It
 gives the user the option to choose a single node attribute to score the
 clusters on. The attribute is required to be a number of some sort, but that is
@@ -39,7 +44,7 @@ attribute the user chose. Each cluster is then ranked based on the accumulated
 sum and ranked descending, with the highest ranking cluster as the most likely
 prostate cancer biomarker.
 
-\section{Multiple Attribute Additive Method (MAA)}
+\subsection{Multiple Attribute Additive Method (MAA)}
 Multiple attribute additive method is the next step. This opens up the
 opportunity for the user to use an unlimited number of number-attributes on both
 nodes and edges. The part after that is exactly the same as in the SAA
@@ -50,13 +55,13 @@ There is a question as to how to rank the edges in the cluster. We chose to rank
 each edge as it is listed to the user in CytoScape. So if it is listed only once
 time in the edge table, it will only be scored additively once. This decision
 was based on simplicity. To not represent the edge as something the user did not
-define it as.
+define it as, or is unable to understand.
 
-\section{Multiple Attribute Multiplication Method (MAM)}
-Multiple attribute multiplication method is the final step, and it is to some
-degree redundant, considering what exists from before in Ranklust. The only
-difference is the scale the scores will be in. MAM adds the scores from each
-node and edge in the cluster through multiplication, MAA does it with addition. 
+\subsection{Multiple Attribute Multiplication Method (MAM)}
+Multiple attribute multiplication method is to some degree redundant,
+considering what exists from before in Ranklust. The only difference from MAA is
+the scale the scores will be in. MAM adds the scores from each node and edge in
+the cluster through multiplication, MAA does it with addition. 
 
 Another detail to the MAM is that it will ensure that the scores either increase
 or stay the same, it will never decrease. So when values that are below one is
@@ -65,19 +70,43 @@ combined in MAM, it will gain a plus one score. In other words, 0.23 times % for
 one of the numbers is below one. 0.23 times 1.5 becomes 1.23 times 1.5. Zero
 scores will get ignored.
 
-\section{Seed-weighted Random Walks Ranking Method (SW-RWR)}
-Seed-weighted random walks ranking \cite{sw-rwr} is an addition to the Random Walks Ranking
-(RWR) algorithm. Random walks algorithm in graphs is a very basic way of
-traversing a graph. It requires a score in either a node, or an edge.  This
-score represents the probability that we might visit the node. Each node in the
-graph will receive a probability score equal to the sum of the probability that
-we might visit that node from all of the other nodes. Since this is random
-based, several runs through the graph can be done until the results stabilize.
+\subsection{Personalized PageRank}
+A Random Walks algorithm which used priors, called seed-weighted random walks
+ranking \cite{sw-rwr}, proved to be effective at prioritizing biomarker
+candidates. PageRank is a Random Walks based algorithm. PageRank was previously
+used by Google to rank webpages \cite{pagerank}. Personalized PageRank is a
+modified version of PageRank, where nodes and edges can be assigned a score
+prior to the PageRank's traversal of the network. 
 
-This algorithm will be used on each individual cluster and evaluate it as if it
-was a single network. It will create a score for each node, and the scores in
-each cluster will be summarized and represent a single score for each cluster.
-The score for each cluster will be used as a cancer biomarker value.
+The difference between MAA and MAM compared to PRWP is how the network is
+scored. MAA and MAM calculates the score for each cluster by summing up the
+attributesin edges and nodes. PRWP scores the current network, regardless of the
+clustering attribute. This enables the user to analyze the network as-is before
+clustering and let the clustering just stand for how the scores are grouped. The
+second option the user has is to let the clustering algorithm create a new
+network based on the clusters, and then rank the network. The last option gives
+the clustering algorithm a bigger impact on the score. Though, this is only true
+for PageRank related algorithms in Ranklust like PR, PRWP and HITS. Because they
+rely on an alpha variable controlling the probability of a reset in the
+traversal. This "traversal reset" is automatically instantiated if the algorithm
+hits a node with no outgoing edges. As the clustering algorithms might change
+the edges in the network, the outcome of performing ranking on a cluster-created
+network, or a network with only a cluster attribute to identify the clusters,
+can be potentially vastly different. % Insert pictures!
+
+\subsection{Hyperlink-Induced Topic Search}
+Hyperlink-Induced Topic Search, HITS, is an algorithm that is similar to
+PageRank and was developed around the same time \cite{hits}\cite{hits-origin}.
+HITS will not be used to calculate cluster scores and ranks, due to the fact
+that it does not require any form of weighting in nodes or edges. Though, it can
+be used in combination with other ranking algorithms through the use of MAM or
+MAA. 
+
+An example of this could be running PRWP with a score attribute on a
+network, then HITS on the same network. The next step would be to combine the
+two scores from PRWP and HITS with MAA. Though, the idea of achieving novel
+information on network biomarkers for prostate cancer through this workflow is
+pure speculation.
 
 \chapter{Comparison to other biomarker identification methods}
 To compare the ranking of biomarker clusters versus ranking of single biomarker
@@ -85,7 +114,7 @@ nodes, % continue here when you know the answer
 
 \chapter{Creation of Neo4J database} % Insert appendix links to the scripts!
 \section{Data preparation}
-I created a Neo4J database and used a slightly modified CytoScape app to
+We created a Neo4J database and used a slightly modified CytoScape app to
 communicate with it. Input to the database is a modified version of data. The
 data started as a PPI file from the StringDB. The file had a size of 3,9GB and
 consisted of interactions between two proteins. Each line had two Ensembl
@@ -97,8 +126,8 @@ item_id_a	item_id_b	mode	action	a_is_acting	score
 9606.ENSP00000000233	9606.ENSP00000000233	binding		0	800
 \end{verbatim}
 
-I strip this file in order to get a file with just the ENSP IDs. One line per
-ID.
+Then we strip this file in order to get a file with just the ENSP IDs. One line
+per ID.
 
 \begin{verbatim}
 ENSP00000000233
@@ -106,24 +135,23 @@ ENSP00000005340
 \end{verbatim}
 
 Next up is the conversion from protein IDs to gene IDs coupled with Entrez ID.
-This information I got from UniProt through the stripped ENSP IDs. The file with
-the data is formatted like this:
+This information we got from UniProt through the stripped ENSP IDs. The file
+with the data is formatted like this:
 
 \begin{verbatim}
 Entry	EnsembleID	    Gene names
 P84085	ENSP00000000233	ARF5
 \end{verbatim}
 
-I match the \textit{EnsembleID} from UniProt, which is a ENSP ID, to the
+Then match the \textit{EnsembleID} from UniProt, which is a ENSP ID, to the
 \textit{item\_id\_a} and \textit{item\_id\_b} data from StringDB (without the
 9606.  prefix). Then combine the Entrez id, which is the \textit{Entry} from
 UniProt with \textit{Gene names} with a square (\textit{\#}) between them as
 a separator to make it easier to split them when creating Cypher and GraphML
 import queries for Neo4J. This combination makes up a single gene, and each line
-in the file I write this information to consist of two genes and a type of
+in the file we write this information to consist of two genes and a type of
 binding between them. The type of binding is provided by the StringDB file
 mentioned first in this section. % label and refer instead of mentioning it!
-
 
 \section{Neo4J setup and data import}
 
@@ -165,9 +193,10 @@ easy to install and supports import with \textit{CSV}, \textit{Geoff} and
 \textit{GraphML} filetypes. A GraphML import took under 1 minute on my old and
 underperforming laptop with 4GB memory, 2GHz CPU and a 128GB SSD \cite{laptop}.
 In comparison, the Cypher import took several hours, with the same amount of
-data. I did not test importing with CSV, because CytoScape does not support
-exporting data to a CSV file. On the other hand, CytoScape has great support
-exporting data to a GraphML file.
+data. Testing related to Neo4J was not done with CSV-files, because CytoScape
+does not support exporting data of a whole network to a CSV file, only partial
+information. On the other hand, CytoScape has great support for exporting data
+of a whole network to a GraphML file.
 
 The Python scripts used to initialize the Neo4J database with data create either
 GraphML or Cypher. Importing any of them result in the same type of data in the
@@ -212,15 +241,4 @@ Ranklust will be run in order to produce a picture of potential biomarkers. This
 picture is the first and simplest step that will be used as a result for an
 analysis. The analysis in this thesis will focus on validating the cluster
 ranking scores as ways of indicating potential biomarkers. 
-
-In order to validate the scores, I will need to know the state of the patient
-that the data to create the network came from. As there is no use to just
-generate results without knowing what they show. They might show connections
-between them, but without some sort of context the results are useless. The
-context needed is not very high, but the results from the ranking should be
-tested for several purposes. For example, is biomarkers from ranking of clusters
-best for disease disposition, screening, diagnostic, prognostic, prediction or
-monitoring cancer. I will aim for screening, diagnostic and most of all
-prognostic usages. As mentioned earlier, the prognostics of prostate cancer
-often results in 50\% of patients receiving treatment that was not needed.
 

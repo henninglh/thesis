@@ -98,11 +98,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {18.1.2}Adding weights}{63}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {18.1.3}Parameter testing}{63}
+\contentsline {section}{\numberline {18.2}Parameter testing}{63}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {18.1.4}Comparison to known biomarkers}{63}
+\contentsline {section}{\numberline {18.3}Comparison to known biomarkers}{63}
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {18.1.5}Identification of possible biomarkers}{63}
+\contentsline {section}{\numberline {18.4}Identification of possible biomarkers}{63}
 \defcounter {refsection}{0}\relax 
 \contentsline {part}{VII\hspace {1em}Analysis}{65}
 \defcounter {refsection}{0}\relax 
