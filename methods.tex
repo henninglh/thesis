@@ -206,18 +206,16 @@ with the forementioned \textit{Entrez ID} as primary key and \textit{Gene name}
 as the displayed name in the Neo4J GUI.
 
 \chapter{CytoScape implementation}
-The secretome values of genes can be expressed by a single integer value,
-though, for compatibility reasons Ranklust will require double values. The
-clustered network can be constructed with an AP, short for Affinity Propagation,
-clustering algorithm \cite{affinity-propagation}. Affinity propagation
-clustering concentrates on the nodes in the network that are binding the rest of
-them together. Using affinity propagation for clustering will produce results
-that represent a grouping of nodes that are coupled by seemingly unimportant
-nodes to most clustering algorithms. But the AP algorithm is good at expressing
-nodes that are not highly connected to many nodes, but rather the nodes that are
-binding other highly connected nodes together. This results in bigger clusters
-that can be a target for methods that cure cancer by severing the interaction
-between biomarker genes.
+The clustered network can be constructed with an AP, short for Affinity
+Propagation, clustering algorithm \cite{affinity-propagation}. Affinity
+propagation clustering concentrates on the nodes in the network that are binding
+the rest of them together. Using affinity propagation for clustering will
+produce results that represent a grouping of nodes that are coupled by seemingly
+unimportant nodes to most clustering algorithms. But the AP algorithm is good at
+expressing nodes that are not highly connected to many nodes, but rather the
+nodes that are binding other highly connected nodes together. This results in
+bigger clusters that can be a target for methods that cure cancer by severing
+the interaction between biomarker genes.
 
 It is also discussed how AP performs versus Markov clustering \cite{ap-vs-mcl}.
 And since Markov algorithm performs better on protein interaction, it will also
@@ -241,4 +239,3 @@ Ranklust will be run in order to produce a picture of potential biomarkers. This
 picture is the first and simplest step that will be used as a result for an
 analysis. The analysis in this thesis will focus on validating the cluster
 ranking scores as ways of indicating potential biomarkers. 
-
