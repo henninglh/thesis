@@ -40,9 +40,9 @@ clusters on. The attribute is required to be a number of some sort, but that is
 the only constraint.
 
 It goes through all of the nodes in each cluster and sums up the number-
-attribute the user chose. Each cluster is then ranked based on the accumulated
-sum and ranked descending, with the highest ranking cluster as the most likely
-prostate cancer biomarker.
+attribute the user chose. Each cluster is then ranked based on the average sum
+in each node and ranked descending, with the highest ranking cluster as the most
+likely prostate cancer biomarker.
 
 \subsection{Multiple Attribute Additive Method (MAA)}
 Multiple attribute additive method is the next step. This opens up the
@@ -76,23 +76,24 @@ ranking \cite{sw-rwr}, proved to be effective at prioritizing biomarker
 candidates. PageRank is a Random Walks based algorithm. PageRank was previously
 used by Google to rank webpages \cite{pagerank}. Personalized PageRank is a
 modified version of PageRank, where nodes and edges can be assigned a score
-prior to the PageRank's traversal of the network. 
+prior to the PageRank's traversal of the network.
 
 The difference between MAA and MAM compared to PRWP is how the network is
 scored. MAA and MAM calculates the score for each cluster by summing up the
-attributesin edges and nodes. PRWP scores the current network, regardless of the
-clustering attribute. This enables the user to analyze the network as-is before
-clustering and let the clustering just stand for how the scores are grouped. The
-second option the user has is to let the clustering algorithm create a new
-network based on the clusters, and then rank the network. The last option gives
-the clustering algorithm a bigger impact on the score. Though, this is only true
-for PageRank related algorithms in Ranklust like PR, PRWP and HITS. Because they
-rely on an alpha variable controlling the probability of a reset in the
-traversal. This "traversal reset" is automatically instantiated if the algorithm
-hits a node with no outgoing edges. As the clustering algorithms might change
-the edges in the network, the outcome of performing ranking on a cluster-created
-network, or a network with only a cluster attribute to identify the clusters,
-can be potentially vastly different. % Insert pictures!
+attributes in edges and nodes. PRWP scores the current network regardless of
+the clustering attribute. This enables the user to analyze the network as-is
+before clustering and let the clustering just stand for how the scores are
+grouped. The second option the user has is to let the clustering algorithm
+create a new network based on the clusters, and then rank the network. This last
+option gives the clustering algorithm a bigger impact on the score. Though, this
+is only true for PageRank related algorithms in Ranklust like PR, PRWP and HITS.
+Because they rely on an alpha variable controlling the probability of a reset in
+the traversal of the network. This "traversal reset" is automatically
+triggered if the algorithm hits a node with no outgoing edges. As the clustering
+algorithms might change the edges in the network, the outcome of performing
+ranking on a cluster-created network, or a network with only a cluster attribute
+to identify the clusters, can be potentially vastly different.
+% Insert pictures!
 
 \subsection{Hyperlink-Induced Topic Search}
 Hyperlink-Induced Topic Search, HITS, is an algorithm that is similar to
