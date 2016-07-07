@@ -7,111 +7,133 @@ a great deal of edges and can be seen as clusters that we should not alter. On
 the other hand, using clustering algorithms to make clusters out of
 PPI-networks gives us the more control over the clusters. How big they should
 be, how many of them we want, should we cluster on a certain attribute, or even
-several? If we cluster the network, we have chosen to go with the \textit{MCL}
-clustering algorithm in \textit{clusterMaker2}. We prototyped Ranklust with
-\textit{Affinity Propagation}(AP), but a paper that performed a comparison
-between MCL and AP concluded with MCL having the best performance in many
-aspects when it came to PPI networks \cite{ap-vs-mcl}.
-
-A drawback with clustering in CytoScape is that it directly alters the network.
-However, MCL in clusterMaker2 does not create new edges between nodes. It is
-keeping the ones that it qualifies as worthy to be in the cluster it is
-currently creating. So it may disconnect, or delete, edges between nodes to
-separate them in the clustering. This may not be feasible when ranking the
-clusters afterwards, so the user should be able to choose between using
-clusterMaker2's clustering algorithms, or just have clusters that already exists
-through simple PPI connections between nodes.
+several? If we cluster the network, we have chosen to go with the
+\textit{Markov Cluster}(MCL)\cite{mcl} clustering algorithm in
+\textit{clusterMaker2}. We prototyped Ranklust with \textit{Affinity
+Propagation}(AP)\cite{affinity-propagation} because of its ease of use and low
+execution time, but a paper that performed a comparison between MCL and AP
+concluded with MCL having better performance in many aspects when it came to
+cluster unweighted PPI networks \cite{ap-vs-mcl}.
 
 \section{Ranking clusters}
 We have used five algorithms to rank the clusters, MAA, MAM, PR, PRWR and HITS.
-The two first are our own simple methods, used for prototyping, but PR is a
-proven ranking algorithm for PPI-networks in cancer. It is our belief that the
-PRWR results have the highest likeliness of giving successfull results, should
-ranking of clusters unveil new information on network biomarkers for prostate
-cancer.
+The first two are simple algorithms that through addition or multiplication
+calculates a cluster average score. The three others utilize network ranking
+algorithms from the Java JUNG\cite{jung} library.
 
-Every algorithm implemented in Ranklust for ranking clusters except one takes
-node and/or edge scores as input for calculating the scores for each node.
-
-\subsection{Single Attribute Additive Method (SAA)}
-Single attribute additive method is the simplest of the four algorithms. It
-gives the user the option to choose a single node attribute to score the
-clusters on. The attribute is required to be a number of some sort, but that is
-the only constraint.
-
-It goes through all of the nodes in each cluster and sums up the number-
-attribute the user chose. Each cluster is then ranked based on the average sum
-in each node and ranked descending, with the highest ranking cluster as the most
-likely prostate cancer biomarker.
+Every algorithm implemented in Ranklust for ranking clusters except HITS takes
+node and/or edge scores as input for calculating the scores for each cluster.
 
 \subsection{Multiple Attribute Additive Method (MAA)}
-Multiple attribute additive method is the next step. This opens up the
-opportunity for the user to use an unlimited number of number-attributes on both
-nodes and edges. The part after that is exactly the same as in the SAA
-algorithm. It goes through all of the nodes in each cluster and sums up the
-attributes for each cluster.
+Multiple attribute additive method is the first algorithm implemented.  The user
+has the option of choosing an unlimited amount of attributes from nodes and
+edges.
+
+It goes through all of the nodes in each cluster and sums up the number-
+attributes the user chose. Each cluster is then ranked based on the average sum
+in each cluster and ranked descending, with the highest ranking cluster as the
+most likely prostate cancer biomarker cluster.
 
 There is a question as to how to rank the edges in the cluster. We chose to rank
 each edge as it is listed to the user in CytoScape. So if it is listed only once
 time in the edge table, it will only be scored additively once. This decision
 was based on simplicity. To not represent the edge as something the user did not
-define it as, or is unable to understand.
+define it as, or is unable to understand. Some clustering algorithms might
+assign the same node or edge to several clusters, though this is not the case
+with the algorithms we use in this thesis. Support for this is only implemented
+by MAA and MAM, as they were implemented before a final decision on which
+clustering algorithms should be used. If MAA/MAM discovers this special case of
+several scores for a single node or edge, it will assign it the highest value.
+The reason for leaving this feature in Ranklust is to have an example on how it
+can be done, should it be a problem in the future.
 
 \subsection{Multiple Attribute Multiplication Method (MAM)}
 Multiple attribute multiplication method is to some degree redundant,
 considering what exists from before in Ranklust. The only difference from MAA is
-the scale the scores will be in. MAM adds the scores from each node and edge in
-the cluster through multiplication, MAA does it with addition. 
+the scale the scores will be in. MAA adds the scores from each node and edge in
+the cluster through addition, MAM does it with multiplication.
 
-Another detail to the MAM is that it will ensure that the scores either increase
-or stay the same, it will never decrease. So when values that are below one is
-combined in MAM, it will gain a plus one score. In other words, 0.23 times % format!
-0.5 will result in 1.23 times 1.5. The same is true for situations where only
-one of the numbers is below one. 0.23 times 1.5 becomes 1.23 times 1.5. Zero
-scores will get ignored.
+A problem that occurs with multiplication is calculating scores for clusters
+that contain nodes with a score between 0 and 1, since the score would decrease
+to such a degree that it would be difficult to work with when normalizing the
+scores. The solution we have chosen for this is to make a new score from the
+old score, and add 1.0 to it. This way, when the existing average score in the
+cluster is multiplied with the new score, it will always increase, unless the
+old value was 0.0, then it will stay the same. In the case of values above 1,
+they will also be given an increase by 1.0 in order to keep it consistent if the
+scores vary between 0 to \textit{n}. % TODO: discussion -> could be normalized
 
-\subsection{Personalized PageRank}
-A Random Walks algorithm which used priors, called seed-weighted random walks
-ranking \cite{sw-rwr}, proved to be effective at prioritizing biomarker
-candidates. PageRank is a Random Walks based algorithm. PageRank was previously
-used by Google to rank webpages \cite{pagerank}. Personalized PageRank is a
-modified version of PageRank, where nodes and edges can be assigned a score
-prior to the PageRank's traversal of the network.
+\subsection{PageRank (PR) and Personalized PageRank (PRWP)}
+A Random Walks\cite{random-walks2} algorithm which used priors, called
+seed-weighted random walks ranking \cite{sw-rwr}, proved to be effective at
+prioritizing biomarker candidates. PageRank (PR) is an algorithm based on the
+Random Walks principle, and it is contained inside the Java library
+\textit{JUNG}\cite{jung}.  PR was previously used by Google to rank webpages
+\cite{pagerank}.  Personalized PageRank (PRWP) is a modified version of PR,
+where nodes and edges can be assigned a score prior to the PR's traversal of the
+network. PR can have values assigned to the edges, but it does not require any
+scores in order to rank clusters, which PRWP does. Personalized PageRank is
+abbreviated PRWP because of the Java classname it has in the Java JUNG library
+- \textit{PageRankWithPriors}.
 
 The difference between MAA and MAM compared to PRWP is how the network is
 scored. MAA and MAM calculates the score for each cluster by summing up the
-attributes in edges and nodes. PRWP scores the current network regardless of
-the clustering attribute. This enables the user to analyze the network as-is
-before clustering and let the clustering just stand for how the scores are
-grouped. The second option the user has is to let the clustering algorithm
-create a new network based on the clusters, and then rank the network. This last
-option gives the clustering algorithm a bigger impact on the score. Though, this
-is only true for PageRank related algorithms in Ranklust like PR, PRWP and HITS.
-Because they rely on an alpha variable controlling the probability of a reset in
-the traversal of the network. This "traversal reset" is automatically
-triggered if the algorithm hits a node with no outgoing edges. As the clustering
-algorithms might change the edges in the network, the outcome of performing
-ranking on a cluster-created network, or a network with only a cluster attribute
-to identify the clusters, can be potentially vastly different.
-% Insert pictures!
+attributes in edges and nodes according to the cluster attribute. PRWP scores
+the current network regardless of the clustering attribute. 
+
+MCL gives the option of creating a clustered network, which opens up the
+possibility of working with two types of the same network, non-clustered and
+clustered. They both have the clustering attribute in the network, edge and node
+table, so that the ranking algorithms are able to score the clusters.  PRWP
+scores the currently selected network in CytoScape, resulting in the option of
+scoring the non-clustered network or clustered network. The last option gives
+the clustering algorithm a bigger impact on the score. 
+
+Implementation wise, there is also a difference in how the scores are stored in
+the network after the algorithm is finished executing. All the scores are stored
+in the nodes. To give information to the user about the scores the edges
+received, each edge will display the total score for the cluster it is a member
+of, just like the nodes.
 
 \subsection{Hyperlink-Induced Topic Search}
-Hyperlink-Induced Topic Search, HITS, is an algorithm that is similar to
-PageRank and was developed around the same time \cite{hits}\cite{hits-origin}.
-HITS will not be used to calculate cluster scores and ranks, due to the fact
-that it does not require any form of weighting in nodes or edges. Though, it can
-be used in combination with other ranking algorithms through the use of MAM or
-MAA. 
+Hyperlink-Induced Topic Search, HITS, an algorithm that is similar to PageRank,
+was developed around the same time \cite{hits}\cite{hits-origin} and is also
+contained within the Java JUNG library. HITS will not be used to calculate
+cluster scores and ranks, due to the fact that it does not require any form of
+weighting in nodes or edges. Though, it can be used in combination with other
+ranking algorithms through the use of MAM or MAA. 
 
-An example of this could be running PRWP with a score attribute on a
-network, then HITS on the same network. The next step would be to combine the
-two scores from PRWP and HITS with MAA. Though, the idea of achieving novel
-information on network biomarkers for prostate cancer through this workflow is
-pure speculation.
+An example of this could be running PRWP with a score attribute, then HITS on
+the same network. The next step would be to combine the two scores from PRWP and
+HITS with MAA. Though, the idea of achieving novel information on network
+biomarkers for prostate cancer through this workflow is pure speculation, and we
+have chosen to use each ranking algorithm separately, in order to limit the
+amount of datasets to analyze.
 
-\chapter{Comparison to other biomarker identification methods}
-To compare the ranking of biomarker clusters versus ranking of single biomarker
-nodes, % continue here when you know the answer
+\subsection{PR, PRWP and HITS}
+Because PR, PRWP and HITS rely on an alpha variable controlling the probability
+of a reset in the traversal of the network. This "traversal reset" is
+automatically triggered if the algorithm hits a node with no outgoing edges. As
+the clustering algorithms might change the edges in the network, the outcome of
+performing ranking on a cluster-created network, or a network with only
+a cluster attribute to identify the clusters, can be potentially vastly
+different. The alpha value parameter will be set to 0.775. This is because the
+results from running the similar algorithm "seed-weighted random walks ranking"
+was achieved with an alpha value of 0.7 \cite{sw-rwr}. There is a report of
+Google having used a value of 0.85 \cite{pr-parameters} as the alpha value, so
+the average of these two should provide for a alpha value to start with.
+
+Another parameter for PR, PRWP and HITS is the iteration parameter. For each
+iteration of these algorithms, they assign a value to each node. Performing
+multiple iterations contribute to stabilize these values. In the previously
+mentioned report from Google \cite{pr-parameters}, a \textit{n x n} matrix where
+\textit{n} was about 25 billion, required about 50 - 100 iterations in order to
+stabilize the node values. Iterations needed to stabilize increase with the size
+of the network, therefore the iteration value to start with will be 100, should
+it not take too long to calculate. It should be way more than needed, because
+the size of the network used to test with contains about 1500 nodes and 1500
+edges.
+
 
 \chapter{Creation of Neo4J database} % Insert appendix links to the scripts!
 \section{Data preparation}
@@ -191,7 +213,7 @@ importing the whole gene data from StringDB and UniProt combined takes a long
 time in Cypher, even if the language is the native language to Neo4J. The
 alternative we used was \textit{neo4j-shell-tools} \cite{neo4j-tools}. It is
 easy to install and supports import with \textit{CSV}, \textit{Geoff} and
-\textit{GraphML} filetypes. A GraphML import took under 1 minute on my old and
+\textit{GraphML} filetypes. A GraphML import took under 1 minute on an old and
 underperforming laptop with 4GB memory, 2GHz CPU and a 128GB SSD \cite{laptop}.
 In comparison, the Cypher import took several hours, with the same amount of
 data. Testing related to Neo4J was not done with CSV-files, because CytoScape
@@ -199,24 +221,26 @@ does not support exporting data of a whole network to a CSV file, only partial
 information. On the other hand, CytoScape has great support for exporting data
 of a whole network to a GraphML file.
 
-The Python scripts used to initialize the Neo4J database with data create either
+The Python scripts initialized the Neo4J database with data created with either
 GraphML or Cypher. Importing any of them result in the same type of data in the
 database, but because of the heavily increased speed using GraphML over Cypher,
 we used GraphML exclusively to initialize the database. The nodes are created
 with the forementioned \textit{Entrez ID} as primary key and \textit{Gene name}
 as the displayed name in the Neo4J GUI.
 
-\chapter{CytoScape implementation}
-The clustered network can be constructed with an AP, short for Affinity
-Propagation, clustering algorithm \cite{affinity-propagation}. Affinity
-propagation clustering concentrates on the nodes in the network that are binding
-the rest of them together. Using affinity propagation for clustering will
-produce results that represent a grouping of nodes that are coupled by seemingly
-unimportant nodes to most clustering algorithms. But the AP algorithm is good at
-expressing nodes that are not highly connected to many nodes, but rather the
-nodes that are binding other highly connected nodes together. This results in
-bigger clusters that can be a target for methods that cure cancer by severing
-the interaction between biomarker genes.
+\chapter{Ranklust implementation}
+The clustering algorithms used to produce the clusters to rank will be AP and
+MCL.
+
+The clustered network can be constructed with AP, a clustering algorithm
+\cite{affinity-propagation}. AP clustering concentrates on the nodes in the
+network that are binding the rest of them together. Using affinity propagation
+for clustering will produce results that represent a grouping of nodes that are
+coupled by seemingly unimportant nodes to most clustering algorithms. But the AP
+algorithm is good at expressing nodes that are not highly connected to many
+nodes, but rather the nodes that are binding other highly connected nodes
+together. This results in bigger clusters that can be a target for methods that
+cure cancer by severing the interaction between biomarker genes.
 
 It is also discussed how AP performs versus Markov clustering \cite{ap-vs-mcl}.
 And since Markov algorithm performs better on protein interaction, it will also
@@ -240,3 +264,5 @@ Ranklust will be run in order to produce a picture of potential biomarkers. This
 picture is the first and simplest step that will be used as a result for an
 analysis. The analysis in this thesis will focus on validating the cluster
 ranking scores as ways of indicating potential biomarkers. 
+
+\chapter{Analysis of results}
