@@ -69,11 +69,12 @@ seed-weighted random walks ranking \cite{sw-rwr}, proved to be effective at
 prioritizing biomarker candidates. PageRank (PR) is an algorithm based on the
 Random Walks principle, and it is contained inside the Java library
 \textit{JUNG}\cite{jung}.  PR was previously used by Google to rank webpages
-\cite{pagerank}.  Personalized PageRank (PRWP) is a modified version of PR,
-where nodes and edges can be assigned a score prior to the PR's traversal of the
-network. PR can have values assigned to the edges, but it does not require any
-scores in order to rank clusters, which PRWP does. Personalized PageRank is
-abbreviated PRWP because of the Java classname it has in the Java JUNG library
+\cite{pagerank}.  Personalized PageRank (PRWP)\cite{pr-bio} is a modified
+version of PR, where nodes and edges can be assigned a score prior to the PR's
+traversal of the network. PR can have values assigned to the edges, but it does
+not require any scores in order to rank clusters, which PRWP does. Personalized
+PageRank is abbreviated PRWP because of the Java classname it has in the Java
+JUNG library
 - \textit{PageRankWithPriors}.
 
 The difference between MAA and MAM compared to PRWP is how the network is
@@ -264,5 +265,17 @@ Ranklust will be run in order to produce a picture of potential biomarkers. This
 picture is the first and simplest step that will be used as a result for an
 analysis. The analysis in this thesis will focus on validating the cluster
 ranking scores as ways of indicating potential biomarkers. 
+
+\chapter{Interpreting Ranklust results}
+This was done solely by Python scripting, from formatting the data retrieved
+from databases in order to construct networks in CytoScape, to cleaning the
+results exported from Ranklust, and analyzing the cleaned data.
+
+\section{Network creation}
+The network was created with protein interaction data from iRefWeb
+\cite{irefweb}. INSERT SEARCH CRITERIA PICTURE! % TODO: CONTINUE!
+
+% change this from MITAB to MITAB-MINI!!!
+It was downloaded in the MITAB format 
 
 \chapter{Analysis of results}
