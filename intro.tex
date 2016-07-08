@@ -1,55 +1,27 @@
 \part{Introduction}
 \label{pa:intro}
 To this day we still struggle with cancer. Even with all our modern equipment
-and knowledge we have still not been able to tame this horrible disease. 
-
-% Cite "modeling genomic regularity networks with big data"
-And even if we have all of this new equipment, most molecular biologists does
-not have the experience nor the competence to use the newfound equipment, or
-interpret the results. This is where bioinformaticians come in. 
-
-% Rewrite this and use sources! It should explain incidence, pure and simple.
-Incidence is the increase in the rate of new occurrences. So if we were to
-analyze the amount of new HIV incidents over 10 years and we start with 20
-incidents, then after 5 years we get 20 new incidents and then after 10 years,
-we get 30 new incidents. We now have a total of 75 new incidents since the start
-(25 + 20 + 30).  Because we do not know when the 20 first incidents in the first
-5 years happened, we assume they happened after 2,5 years (halfway to 5 years).
-So we will get 20 * 2,5 and end up with 50 possible new cases. Do the same with
-the next 5 years and the next 30 new occurrences! The only exception to the
-previous calculation is that we know they happened somewhere between 5 and 10
-years, so we go halfway, to 7,5 ((5+10)/2 = 7,5) and do the same calculation:
-7,5 * 30 = 225. Then combine them, 225 + 50 = 275. We ignore the first change,
-since they are what we started with. Let us also define the sample size of the
-population to be 225. We then know that 150 people did not get HIV during the
-10-year period. So if we were to add these 150 people over the 10 years that did
-not receive HIV, we get 150 * 10 = 1500. We add the increase of HIV, which is
-275 and get 275 + 1500 = 1775. 
-
-My thesis is about making a tool, named Ranklust, which gives cancer researchers
-an easier way of identifying network biomarkers in cancer. 
-
-\chapter{Pathway and network analysis of cancer genomes}
-In the cases of pancreatic, lung, breast, brain and overian cancer, the somatic
-distribution of SNP's has a few altered genes that occur with a frequency higher
-than 10\% and many other genes that are mutated occur with a frequency of 5\% or
-lower\cite{pathway-network}. On the other hand, prostate cancer have relatively
-few SNPs and CNAs, so that kind of cancer is more likely to be driven by
-something else, namely DNA methylation. DNA methylation is when a methyl group
-(CH3) is added\cite{dna-methyl} to the DNA strand. CONTINUE HERE!!!
+and knowledge we have still not been able to tame this horrible disease. This
+thesis is about implementing and using a tool named Ranklust. It is not a
+standalone tool, but rather a contribution to a CytoScape plugin named
+clusterMaker2\cite{cm2}\cite{cm2-github}. The goal of this tool is to rank
+clusters created from Protein-Protein Interaction (PPI) networks in CytoScape.
+The ranks will be based on different node and edge attributes in the network.
+It will also indicate which clusters can be seen as cluster biomarkers, and
+which genes could be considered to be single gene candidate biomarkers.
 
 \chapter{Motivation}
 Biomarkers are at the centre of this thesis. They are what Ranklust should be
-able to detect and rank in order to identify network biomarkers, and not just
-single molecules of them. A biomarker is a "biological measure of a biological
-state" \cite{biomarker1}. Among other things, it can be represented by the
-levels of a specific protein in our blood, a specific gene, or a combination the
-two.
+able to detect and rank in order to identify network cluster biomarkers, and not
+just single molecules of them. A biomarker is a "biological measure of a
+biological state" \cite{biomarker1}. Among other things, it can be represented
+by the levels of a specific protein in our blood, a specific gene, or a
+combination the two.
 
 Biomarkers can be used for different purposes. They can be used to measure the
 effect of cancer drug treatment. That the drug does what it is supposed to do.
 It can be used to predict disease development or the current stage of the
-disease.  Here is a list of what biomarkers currently are being used for:
+disease. Here is a list of what biomarkers currently are being used for:
 \\\\
 \textbf{Usages for biomarkers:} \cite{beyondpsa}
 \begin{itemize}
@@ -206,23 +178,8 @@ even if a patient has prostate cancer, it may not be harmful, promoting the case
 of not taking any action against it at all. So there is need for a new
 biomarker, or at least a better way to diagnose and predict the right treatment.
 
-\chapter{Next-generation sequencing}
-Today, rapid analyzing of genes and proteins are made available through
-Next-Generation Sequencing (NGS)\cite{ngs1}.
-% Find a better source for this!
-Networks offers us an informatics, algorithmic, visual and mathematical tool to
-study this bigger picture. This project will integrate the opportunity networks
-offer to discover new biomarkers in cancer.  Through acquiring more data, faster
-than before, there now exists databases with much information that is easy to
-access. This makes room for building huge networks of proteins and genes,
-allowing for more extensively and thorough assays to be done. For example, what
-if something that is classified as a prostate cancer biomarker only is viable
-when proteins that has not been classified as a biomarker, also is present?
-Together they could represent a more appropriate \emph{network biomarker}. The
-amount of data that can be analyzed also opens up for another more personalized
-approach to each cancer patient. Finding patient-specific biomarkers could make
-a huge impact on the quality of treatment \cite{personalized}.
-\chapter{Next generation of biomarkers}
+\chapter{Next-generation sequencing and networks as a tool in cancer research}
+\section{Existing biomarkers}
 The PSA biomarker is over 20 years old \cite{psa-age}. Through those years, it
 has been discovered other and better biomarkers for prostate cancer than PSA.
 Among those, PCA3, which is detectable through urine samples from patients. It
@@ -236,16 +193,47 @@ cancer. It is important to point out that even if these biomarkers are not the
 best at indicating if a patient has cancer or not, these biomarkers are good at
 indicating progression and recurrence of prostate cancer.
 
-But all of this is based on single genes or proteins. What if we looked at whole
-networks as biomarkers?
+In the cases of pancreatic, lung, breast, brain and overian cancer, the somatic
+distribution of single-nucleotide polymorphisms (SNP) has a few altered genes
+that occur with a frequency higher than 10\%, and many other genes that are
+mutated occur with a frequency of 5\% or lower\cite{pathway-network}. On the
+other hand, prostate cancer has relatively few SNPs and copy-number alterations
+(CNA), so that kind of cancer is more likely to be driven by another somatic
+variation, namely DNA methylation. Cancer driver genes can be detected by
+positive-selection signals in the mutation pattern of genes in tumors, but there
+is a drawback with this method. Genes that are less frequently mutated within
+tumor samples might not be identified by a statistical analysis, even if they
+might be functionally important. An alternative method is to use prior knowledge
+of cellular mechanisms, and add this prior knowledge as attributes to genes
+represented as nodes in a network. Then we can use graph algorithms to gain
+novel information about cancer driver genes. Genes that is not listed as cancer
+driver genes can then be assigned a status "guilt-by-association" if they have a
+network-relationship with proven cancer driver genes.
 
-\chapter{Networks as a tool in cancer research}
+But all of this is based on single genes or proteins. What if we looked at whole
+networks as biomarkers? In this case, we will look at clusters of networks.
+
+\section{Next-generation sequencing}
+Today, rapid analysis of genes and proteins are made available through
+Next-Generation Sequencing (NGS)\cite{ngs1}. Networks offers us an informatic,
+algorithmic, visual and mathematical tool to study this bigger picture. This
+project will integrate the opportunity networks offer to discover new biomarkers
+in cancer. Through acquiring more data, faster than before, there now exists
+databases with much information that is easy to access. This makes room for
+building huge networks of proteins and genes, allowing for more extensively and
+thorough assays to be done. For example, what if something that is classified as
+a prostate cancer biomarker only is viable when proteins that has not been
+classified as a biomarker, also is present?  Together they could represent a
+more appropriate \emph{network cluster biomarker}. The amount of data that can
+be analyzed also opens up for another more personalized approach to each cancer
+patient. Finding patient-specific biomarkers could make a huge impact on the
+quality of treatment \cite{personalized}.  
+
+\section{Networks as a tool in cancer research}
 Viewing the cell as a network of proteins and genes presents us with several
-assumptions to make. Firstly, there is no physical connection between the
-proteins and genes, which represents the nodes in the network. So a way of
-defining edges between nodes has to be established. It exists several ways of
-doing this, but there has yet to be discovered a silver bullet of defining the
-edges. % cite?
+assumptions to make. A way of defining edges between nodes has to be
+established. It exists several ways of doing this, but it depends on the
+context.
 
 Bayesian probability networks are one way of defining edges
 \cite{bayesiannetworks}. It is based on the probability that if a node A exists,
@@ -253,84 +241,60 @@ then node B exists. That way it is possible to create networks based on the
 assumption that if node A exists, then node B is 80\% likely to exist. Maybe
 node C and D have a 100\% chance of existing if node B exists.  These
 percentages represents how strong the edges between the nodes are, and makes it
-able to construct a directed acyclic graph, DAG for short. It is important to
-note that a true bayesian network can not be achieved through random
-observations. Rather should some constant value(s) be introduced to be able to
-really measure the effect of the other variables.
+able to construct a directed acyclic graph (DAG). It is important to note that a
+true bayesian network can not be achieved through random observations. Rather
+should some constant value(s) be introduced to be able to really measure the
+effect of the other variables.
 
 The way of defining edges in a network also determines what kind of information
 that is possible to get from it. The different bio-databases has different ways
 of calculating edges. Should the database alone define the edges? If the
 database supply weights in the edges and/or nodes, should it be used, changed or
 ignored? The final decision of how and in what way the edges should be defined
-has yet to come. 
+in this thesis has yet to come. 
 
-They have studied 50 cancer types that have been cataloged by the International
-Cancer Genome Consortium (IGCC). They found that only a few well-studied driver
-genes are frequently mutated, in contrast to many infrequently mutated genes
-that may also contribute to tumor biology.
-
-There is only a few altered genes that have a mutation frequency higher than
-10\%, and a shitload of genes that have a mutation frequency of 5\% and lower.
-Prostate cancer is a type of cancer that has relatively few Single Nucleotide
-Polymorphisms (SNPs) and Copy-Number Alterations (CNAs). This indicates that
-prostate cancer is probably driven by some other type of somatic variation. The
-way driver genes are found is by identifying positive-selection signals.
-
-With this approach the genes that are less frequently mutated, but are
-functionally important genes, will not be detected by statistical analysis.
-Another way detecting driver genes is by grouping the genetic alterations we can
-find through knowledge about cellular mechanisms. This way will provide
-information about the affected oncogenic pathways.
-
-% Pathways and networks
-%% Difference between pathways and networks
+\subsection{Pathways and networks} % malplaced???
 Pathways are small networks of well studied processes where many areas are well
 documented. Networks on the other hand are bigger and less explored, but when
 properly analyzed, it might provide new information unknown to pathway systems.
 
-%% Pathways and networks vs. individual genes
 Analyzing pathways and networks have an advantage over individual genes. They
 may reveal information that comes from molecular events that covers multiple
-genes or pathways. Aggregating this data increases the chances of detecting
-driver genes through statistical analysis (source 15). Also, information
-gathered through pathways and networks may be enriched through genomic,
-transcriptomic and proteomic data and create a more unified view of the tumor
-biology.
-
+genes or pathways. Aggregating this data can increase the chance of detecting
+driver genes through statistical analysis. Also, information gathered through
+pathways and networks may be enriched through genomic, transcriptomic and
+proteomic data and create a more unified view of the tumor biology.
 
 \chapter{Network clustering: Toward network based biomarker discovery}
 Networks is the pre-processing of single gene prioritization that is necessary
 in order to come to the next step, clustering of the network. Clustering is
 about making a hierarchical view of a network to be able to look at the bigger
-picture of the cell. The reason to group a network into clusters and rank them
+picture. The reason to group a network into clusters and rank them
 is that the edges we create represents different connections. They can represent
 function, probability of existence, interactions or contents of the cell
-\cite{siri}. The function of the cell is what Ranklust is after. There is
-several algorithms to create clusters, and all need to be heavily researched in
-order to find the best suited one. The major differences on how these algorithms
-work is centered around how they handle vertices and edges. For example how the
-cluster is expanded, what density level it is aiming for, how robust the
-algorithm is towards incomplete networks. It is feasible if the cluster-making
-algorithm is easily, or even already implemented as an app in Cytoscape.
-ClusterMaker2 is such an app and will be considered \cite{cm2}. But there is
-faster cluster-creating algorithms than those implemented in ClusterMaker2,
-namely the SPICi \cite{spici} algorithm. So a possible solution for Ranklust
-could be to implement the SPICi algorithm into the ClusterMaker2 app, in order
-to reuse most of the code that represents the GUI, single gene prioritization
-and network creation. In addition to the cluster-creating algorithms, there is a
-need for cluster-ranking algorithms. They should be ranked in the order of being
-a biomarker for cancer.
-
-% Find a way to prove that, by severing the interaction bond between
-% genes/proteines, you can stop cancer biomarkers from "communicating
-
-The secretome of certain genes can be interpreted as biomarkers.
-CONTINUE HERE!
+\cite{siri}. There is several algorithms to create clusters, and all need to be
+researched in order to find the best suited one. The major differences on how
+these algorithms work is centered around how they handle nodes and edges. For
+example how the cluster is expanded, what density level it is aiming for, how
+robust the algorithm is towards incomplete networks. It is feasible if the
+cluster-making algorithm is easily, or even already implemented as an app in
+CytoScape. ClusterMaker2 is such an app and will be considered \cite{cm2}. But
+there is faster cluster-creating algorithms than those implemented in
+ClusterMaker2, an example is the SPICi \cite{spici} algorithm. So a possible
+solution for Ranklust could be to implement the SPICi algorithm into the
+ClusterMaker2 app, in order to reuse most of the code that represents the GUI,
+single gene prioritization and network creation. In addition to the
+cluster-creating algorithms, there is a need for cluster-ranking algorithms.
+They should be ranked in the order of being a cluster biomarker, more specificly
+described, a cluster biomarker for prostate cancer. The idea of clustering is to
+identify relationships between cancer driver genes and genes not related to
+cancer that reside within the same cluster. Since a cancer driver gene and a
+gene that has not been proved to be a cancer driver gene has a relation, the
+latter might play a role in cancer. These genes will be identified as candidate
+biomarkeres for prostate cancer. This was mentioned earlier as the
+"guilt-by-association"-principle.
 
 \chapter{Cytoscape: An implementation to rank clusters}
-% Rename the Cytoscape section to Software/Architecture/Development General
-% description of development
 Cytoscape is the open-source software platform the Ranklust app will be
 developed on. Its main purpose is to visualize molecular interaction networks
 and biological pathways.  It is easy to integrate \textbf{\textit{Apps}} and
@@ -338,57 +302,48 @@ even combine multiple apps to solve new problems, given that the source code of
 the apps is available or that it exists an easy way of piping results from one
 app to another. 
 
-The goal of Ranklust is to cluster the networks we get from single gene prioritization and rank them in order to 
-identify network biomarkers. Apps taking care of making the networks already exists, but there still has to be made a 
-decision about whether or not they could be modified in order to better support the clustering.
+The goal of Ranklust is to rank the clusters in the network. Apps taking care of
+making the networks and creating clusters already exists, but there still has to
+be made a decision about whether or not they could be modified in order to
+better support the ranking of the clusters.
 
-% Cytoscape
-Cytoscape is based on the Java programming language, which is a little bit
-untraditional for a software platform used to develop bioinformatics tools. 
-% cite needed!!!
 The reason to choose Java above Python, Perl or other popular programming
-languages is simply because I am more versed in Java programming than any other
-language. Java is known for being this big bloated enterprise programming
-language, and Python as the fast and easy mockup tool to develop good programs
-fast. Python also has big biological computation libraries like \emph{Biopython}
-\cite{biopython}, that makes it easy to build your own standalone apps. Though
-when used in a bigger environment as Cytoscape, Java shines, having sturdy
-packaging and modelling standards. The Cytoscape community is big, alive and has
-standards for how the architecture of apps should look like. The community
-promotes this through the use of the \emph{OSGi} standard \cite{cytoscape-osgi}.
+languages in bioinformatics is simply because I am more versed in Java
+programming than any other language. Java is known for being this big bloated
+enterprise programming language, and Python as the fast and easy mockup tool to
+develop good programs fast. Python also has big biological computation libraries
+like \emph{Biopython} \cite{biopython} and sklearn\cite{sklearn}, that makes it
+easy to build your own standalone apps. Though when used in a bigger environment
+as CytoScape, Java shines, having sturdy packaging and modelling standards. The
+CytoScape community is big, alive and has standards for how the architecture of
+apps should look like. The community promotes this through the use of the
+\emph{OSGi} standard \cite{cytoscape-osgi}.
 
 % OSGi and design patterns
-Developing OSGi software should promote modularization \cite{modularization} %
-unreliable source?  of the code and increase the probability of the app being
-launched as an official Cytoscape app; in addition to provide other developers
-with the possibility of reusing my modules in their own apps. Also, it seems
-like Java 9 is aimed at making it easier to modularize apps along the lines of
-the OSGi standard, so it might be easier to refactor an application in the
-future from Java 8 to Java 9 when the architecture already is in place. There
-exists several design patterns that could prove to be useful in the development
-of Ranklust. Another strategy to follow may not be a direct design pattern
-\cite{designpattern}, but more of a collection of them, is the clean code
-principles by Robert C. Martin \cite{cleancode}. More thorough examination of
-these strategies will follow.
-% find a better cleancode reference. Free edition of online book maybe?
-% Or summary of clean code's abstract/introduction?
+Developing OSGi software promotes modularization \cite{modularization} of the
+code and increase the probability of the app being launched as an official
+Cytoscape app; in addition to provide other developers with the possibility of
+reusing my modules in their own apps. Also, it seems like Java 9 is aimed at
+making it easier to modularize apps along the lines of the OSGi standard, so it
+might be easier to refactor an application in the future from Java 8 to Java 9
+when the architecture already is in place. There exists several design patterns
+that could prove to be useful in the development of Ranklust. Another strategy
+to follow may not be a direct design pattern \cite{designpattern}, but more of a
+collection of them, and it is the clean code principles by Robert C. Martin
+\cite{cleancode}. Going against the coding principles promoted by the CytoScape
+app community and exclude the use of OSGi modules will not be done, but third
+party Java libraries that is not OSGi-ready might be used.
 
 % Prototype section
-Prototyping of different parts of the app will be done in Python and the Galaxy
-environment \cite{galaxy}. Python is an easy language to prototype with, and
-Galaxy is an easy environment to test small scripts in. Galaxy also has great
-logging of previous experiments combined with settings, so recreating
-simulations and comparing results is easy to do and reliable. However, in my
+Prototyping some of the different parts of the app will be done in Python. Python is an
+easy language to prototype with and the tests and analysis of how well the
+cluster ranking algorithms perform, will be done in Python. However, in my
 experience, Java comes up to par with Python in development speed once all of
-the boilerplate code is written and a good deployment tool is used. Therefore
-the Cytoscape platform is used for the final deployment of Ranklust.
-
-% Maven section?? Other devtools? Cy3 Performance Reporter to measure the performance of SPICi inside clusterMaker2?
-
-\chapter{Methods}
+the boilerplate code is written and a good deployment tool is used. Therefore,
+the CytoScape platform is used for the final deployment of Ranklust. 
 
 \chapter{Databases}
-Using databases helps with several things. CONTINUE!!!
+Using databases helps with several aspects. CONTINUE!!!
 
 Which databases to use has to be considered. The reason to use databases is
 because they have information about how protein and genes form a network based
@@ -420,18 +375,18 @@ Oslo that I have access to does not have enough memory to import the database as
 a single commit in Cypher. Splitting up the dump to several commits does not
 work without quirks. It conquers the memory problem, but the way the
 relationships are created from the Neo4J dump requires the import process to be
-done in a single commit. A way to fix this is either to not use Cypher queries
+done in a single commit. A way to fix this is either not to use Cypher queries
 as a way of importing the data, but instead use GraphML. Another way is to
-refactor the cypher dump so that the creation of relationships does not need to
+refactor the Cypher dump so that the creation of relationships does not need to
 be done in a single commit. I will use both ways, because not being able to use
 the Cypher queries because of too little memory will most likely be a problem
 for several people and not just me. Using GraphML is good for exporting data
 from CytoScape and from the database, but interaction between the two of them
-while performing the algorithms is not feasible at the time. This last drawback
+while performing the algorithms is not feasible at the time. The last drawback
 is where Cypher queries are good, because it exists plugins that aid in using
 data from the database directly in CytoScape. So initializing a database for
 testing could easily be done with GraphML, and then use Cypher queries to
-perform the computations on the data.
+instruct a database to perform computations on the data.
 
 Creating a script to refactor the Cypher queries does not only help in regards
 of using the data with CytoScape, but also for everyone using a Neo4J Cypher
@@ -458,6 +413,3 @@ comparison, with a Cypher dump of 4500 lines, it takes about 20 seconds before
 the query engine gets a stack overflow (explain stack overflow?). With GraphML,
 an XML file with 250000 lines takes under 1 second to import and it gets
 relationships right without any form of refactoring.
-
-\chapter{Clustering algorithms}
-
