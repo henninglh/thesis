@@ -36,17 +36,8 @@ removing ranking algorithms registers and unregisters the algorithms to the
 \textit{App} menu in CytoScape, making them accessible for the user through the
 GUI.
 
-\paragraph{Registering the ranking algorithms classes}
-\inputminted[linenos,fontsize=\scriptsize,firstline=65,lastline=93]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/CyActivator.java}
-
-\paragraph{Registering the ranking panel create and destroy classes}
-\inputminted[linenos,fontsize=\scriptsize,firstline=173,lastline=180]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/CyActivator.java}
-
 The \textit{RankFactory} class mentioned is a java public interface for each of
 the ranking cluster algorithms, HITS, PR, PRWP, MAA and MAM. 
-
-% related to paragraph over
-\inputminted[linenos,fontsize=\scriptsize,firstline=3,lastline=10]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/api/RankFactory.java}
 
 A class applying the task factory design pattern is meant to deliver an object
 of the class it is related to\cite{factory-design}, and it can return different
@@ -57,21 +48,11 @@ class, which binds information the user can input to the GUI to variables,
 allowing the algorithm to gain access to parameter information about the
 algorithms before they run.
 
-% Register algorithms task factories
-\inputminted[linenos,fontsize=\scriptsize,firstline=144,lastline=149]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/CyActivator.java}
-
 With these factories, the underlying algorithm returned can be changed based on
-parameters
+parameters.
 
-% Register algorithms in GUI
-\inputminted[linenos,fontsize=\scriptsize,firstline=186,lastline=207]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/ClusterManagerImpl.java}
-
-% Register GUI panels in GUI
-\inputminted[linenos,fontsize=\scriptsize,firstline=260,lastline=282]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/ClusterManagerImpl.java}
 \section{Algorithm}
-
 % Rank interface
-\inputminted[linenos,fontsize=\scriptsize,firstline=260,lastline=282]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/api/Rank.java}
 \section{GUI}
 \subsection{Algorithm menus}
 Much of these menus
@@ -94,7 +75,6 @@ selected nodes will also change in the network view, when the user selects a
 cluster in the ranking panel, providing visual feedback to the user, in order to
 make it easier for the user to see where the selected nodes/clusters resides in
 the network.
-\inputminted[linenos,fontsize=\scriptsize,firstline=260,lastline=282]{java}{../ranklust/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/ui/RankingPanel.java}
 
 When tasking clusterMaker2 with showing the ranking panel, the color of the
 nodes will also change. This is to visualize the rank of each cluster in the
