@@ -1,6 +1,6 @@
 \part{Implementation}
 \label{pa:implementation}
-\chapter{CytoScape}
+\chapter{Cytoscape}
 The pull request\cite{git-pull-request} made from the Ranklust
 contribution of this thesis has been accepted\cite{ranklust-accepted}, adding
 3750 lines of code and deleting 1051. The changes was distributed across 50
@@ -16,7 +16,7 @@ request was hardcoded with directed edges. Choosing between directed and
 undirected edges should be up to the users of clusterMaker2 and is on the
 TODO-list of futures to implement.
 
-CytoScape has a cookbook\cite{cytoscape-cookbook} listing a combination of best
+Cytoscape has a cookbook\cite{cytoscape-cookbook} listing a combination of best
 practices and tips on how to start developing an app, add menues, panels,
 algorithms, color schemes etc.. Instead of following all of these examples, we
 have read through the existing code in clusterMaker2\cite{cm2-github} and tried
@@ -33,7 +33,7 @@ already existing clusterMaker2 \textit{CyActivator}. This is done in the last
 line of the coming code example: Here we describe the name of java methods in
 the \textit{clusterManager} class with strings. These two methods for adding and
 removing ranking algorithms registers and unregisters the algorithms to the
-\textit{App} menu in CytoScape, making them accessible for the user through the
+\textit{App} menu in Cytoscape, making them accessible for the user through the
 GUI.
 
 The \textit{RankFactory} class mentioned is a java public interface used for each of
@@ -64,7 +64,7 @@ The panel supports multiple selection of clusters through the \textit{Control}
 key on the keyboard, much like its existing behaviour on Windows when selecting
 multiple directories or files in the \textit{File Explorer}. Selecting the
 clusters in the panel will also select them in the network view, enabling the
-user to use other CytoScape utilities on the nodes/clusters selected, for
+user to use other Cytoscape utilities on the nodes/clusters selected, for
 example create a new network based on only the selected nodes. The color of the
 selected nodes will also change in the network view, when the user selects a
 cluster in the ranking panel, providing visual feedback to the user, in order to
@@ -107,7 +107,7 @@ experience trouble having these colors represent the cluster ranks.
         was exited
 \end{enumerate}
 This was the behaviour before Ranklust contributions was added to clusterMaker2,
-so it might be clusterMaker2 or it might be CytoScape itself. Most likely, the
+so it might be clusterMaker2 or it might be Cytoscape itself. Most likely, the
 way clusterMaker2 algorithms is started through its \textit{TaskFactory}'s needs
 to be changed, but this is just a hunch and not based on any analysis.
 

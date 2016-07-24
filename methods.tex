@@ -35,7 +35,7 @@ in each cluster and ranked descending, with the highest ranking cluster as the
 most likely prostate cancer biomarker cluster.
 
 There is a question as to how to rank the edges in the cluster. We chose to rank
-each edge as it is listed to the user in CytoScape. So if it is listed only once
+each edge as it is listed to the user in Cytoscape. So if it is listed only once
 time in the edge table, it will only be scored additively once. This decision
 was based on simplicity. To not represent the edge as something the user did not
 define it as, or is unable to understand. Some clustering algorithms might
@@ -86,7 +86,7 @@ MCL gives the option of creating a clustered network, which opens up the
 possibility of working with two types of the same network, non-clustered and
 clustered. They both have the clustering attribute in the network, edge and node
 table, so that the ranking algorithms are able to score the clusters.  PRWP
-scores the currently selected network in CytoScape, resulting in the option of
+scores the currently selected network in Cytoscape, resulting in the option of
 scoring the non-clustered network or clustered network. The last option gives
 the clustering algorithm a bigger impact on the score. 
 
@@ -138,7 +138,7 @@ edges.
 
 \chapter{Creation of Neo4J database} % Insert appendix links to the scripts!
 \section{Data preparation}
-We created a Neo4J database and used a slightly modified CytoScape app to
+We created a Neo4J database and used a slightly modified Cytoscape app to
 communicate with it. Input to the database is a modified version of data. The
 data started as a PPI file from the StringDB. The file had a size of 3,9GB and
 consisted of interactions between two proteins. Each line had two Ensembl
@@ -199,7 +199,7 @@ NB! That path is relative to the location the neo4j database is run from.
 
 Turning authentication on/off is also smart for testing purposes. Communicating
 with a Neo4J database instance that demands authentication also requires the
-usage of the modified CytoScape app \textit{CyNeo4J}. This is because the app
+usage of the modified Cytoscape app \textit{CyNeo4J}. This is because the app
 does support everything we need except from authenticating with a database. For
 the database, this is just having a boolean value \textit{true}/\textit{false}.
 
@@ -217,9 +217,9 @@ easy to install and supports import with \textit{CSV}, \textit{Geoff} and
 \textit{GraphML} filetypes. A GraphML import took under 1 minute on an old and
 underperforming laptop with 4GB memory, 2GHz CPU and a 128GB SSD \cite{laptop}.
 In comparison, the Cypher import took several hours, with the same amount of
-data. Testing related to Neo4J was not done with CSV-files, because CytoScape
+data. Testing related to Neo4J was not done with CSV-files, because Cytoscape
 does not support exporting data of a whole network to a CSV file, only partial
-information. On the other hand, CytoScape has great support for exporting data
+information. On the other hand, Cytoscape has great support for exporting data
 of a whole network to a GraphML file.
 
 The Python scripts initialized the Neo4J database with data created with either
@@ -268,7 +268,7 @@ ranking scores as ways of indicating potential biomarkers.
 
 \chapter{Interpreting Ranklust results}
 This was done solely by Python scripting, from formatting the data retrieved
-from databases in order to construct networks in CytoScape, to cleaning the
+from databases in order to construct networks in Cytoscape, to cleaning the
 results exported from Ranklust, and analyzing the cleaned data.
 
 \section{Network creation}

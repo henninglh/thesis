@@ -5,9 +5,9 @@
 To this day we still struggle with cancer. Even with all our modern equipment
 and knowledge we have still not been able to tame this horrible disease. This
 thesis is about implementing and using a tool named Ranklust. It is not a
-standalone tool, but rather a contribution to a CytoScape plugin named
+standalone tool, but rather a contribution to a Cytoscape plugin named
 clusterMaker2\cite{cm2}\cite{cm2-github}. The goal of this tool is to rank
-clusters created from Protein-Protein Interaction (PPI) networks in CytoScape.
+clusters created from Protein-Protein Interaction (PPI) networks in Cytoscape.
 The ranks will be based on different node and edge attributes in the network.
 The resulting ranks will also indicate which clusters can be seen as cluster
 biomarkers, and which genes could be considered to be single gene candidate
@@ -275,7 +275,7 @@ these algorithms work is centered around how they handle nodes and edges. For
 example how the cluster is expanded, what density level it is aiming for, how
 robust the algorithm is towards incomplete networks. It is feasible if the
 cluster-making algorithm is easily, or even already implemented as an app in
-CytoScape. ClusterMaker2 is such an app and will be considered \cite{cm2}. But
+Cytoscape. ClusterMaker2 is such an app and will be considered \cite{cm2}. But
 there is faster cluster-creating algorithms than those implemented in
 ClusterMaker2, an example is the SPICi \cite{spici} algorithm. So a possible
 solution for Ranklust could be to implement the SPICi algorithm into the
@@ -311,8 +311,8 @@ enterprise programming language, and Python as the fast and easy mockup tool to
 develop good programs fast. Python also has big biological computation libraries
 like \emph{Biopython} \cite{biopython} and sklearn\cite{sklearn}, that makes it
 easy to build your own standalone apps. Though when used in a bigger environment
-as CytoScape, Java shines, having sturdy packaging and modelling standards. The
-CytoScape community is big, alive and has standards for how the architecture of
+as Cytoscape, Java shines, having sturdy packaging and modelling standards. The
+Cytoscape community is big, alive and has standards for how the architecture of
 apps should look like. The community promotes this through the use of the
 \emph{OSGi} standard \cite{cytoscape-osgi}.
 
@@ -327,7 +327,7 @@ when the architecture already is in place. There exists several design patterns
 that could prove to be useful in the development of Ranklust. Another strategy
 to follow may not be a direct design pattern \cite{designpattern}, but more of a
 collection of them, and it is the clean code principles by Robert C. Martin
-\cite{cleancode}. Going against the coding principles promoted by the CytoScape
+\cite{cleancode}. Going against the coding principles promoted by the Cytoscape
 app community and exclude the use of OSGi modules will not be done, but third
 party Java libraries that is not OSGi-ready might be used.
 
@@ -337,7 +337,7 @@ easy language to prototype with and the tests and analysis of how well the
 cluster ranking algorithms perform, will be done in Python. However, in my
 experience, Java comes up to par with Python in development speed once all of
 the boilerplate code is written and a good deployment tool is used. Therefore,
-the CytoScape platform is used for the final deployment of Ranklust. 
+the Cytoscape platform is used for the final deployment of Ranklust. 
 
 \chapter{Databases}
 Using databases helps with several aspects. CONTINUE!!!
@@ -378,15 +378,15 @@ refactor the Cypher dump so that the creation of relationships does not need to
 be done in a single commit. I will use both ways, because not being able to use
 the Cypher queries because of too little memory will most likely be a problem
 for several people and not just me. Using GraphML is good for exporting data
-from CytoScape and from the database, but interaction between the two of them
+from Cytoscape and from the database, but interaction between the two of them
 while performing the algorithms is not feasible at the time. The last drawback
 is where Cypher queries are good, because it exists plugins that aid in using
-data from the database directly in CytoScape. So initializing a database for
+data from the database directly in Cytoscape. So initializing a database for
 testing could easily be done with GraphML, and then use Cypher queries to
 instruct a database to perform computations on the data.
 
 Creating a script to refactor the Cypher queries does not only help in regards
-of using the data with CytoScape, but also for everyone using a Neo4J Cypher
+of using the data with Cytoscape, but also for everyone using a Neo4J Cypher
 dump to create a database and does not have much memory. A problem that might
 come up is performance. Because the current way of creating relationships use
 node labels in Neo4J and it takes only a single line to create a relationship

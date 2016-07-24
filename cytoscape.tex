@@ -1,10 +1,10 @@
-\part{CytoScape} % Make this a subsection in "The project" part
+\part{Cytoscape} % Make this a subsection in "The project" part
 \label{pa:cytoscape}
-The structure of the code in CytoScape follows the already established structure
+The structure of the code in Cytoscape follows the already established structure
 in the ClusterMaker2 plugin. This is to make it easy to maintain for the other
 contributors of ClusterMaker2. At the same time, the code is modularized enough
 to make it easy to extract the code, in order to make a separate plugin. The
-motivation for having a separate plugin to rank clusters in CytoScape gets
+motivation for having a separate plugin to rank clusters in Cytoscape gets
 bigger if ranking clusters provides useful information, in regards of
 discovering cancer.
 
@@ -15,7 +15,7 @@ algorithms should be possible without using the GUI. So all of the logic in the
 algorithms should be excluded from the GUI. If it is not excluded from the GUI,
 testing the algorithms would require menu interaction and automatization of
 testing goes out the window. Every test should be able to just run in the
-terminal without launching CytoScape.
+terminal without launching Cytoscape.
 
 The "Factory" design pattern % reference
 is used in a original way in ClusterMaker2, and for the ranking cluster
@@ -108,9 +108,9 @@ So both the creation of objects goes down, and the retrieval of attribute
 information is as low as it is possible to get, when we choose to represent the
 time by Big-O notation. The only drawback with this implementation is that there
 is no current type of wrapper around the row and column system. So the retrieval
-of information is not done the most intuitive way. But this is the way CytoScape
+of information is not done the most intuitive way. But this is the way Cytoscape
 works as a whole, so changing the way this works is either done through changing
-the CytoScape source code, or implementing a wrapper as a standalone function
+the Cytoscape source code, or implementing a wrapper as a standalone function
 inside clusterMaker2 or as a standalone plugin.
 
 \section{Single value ranklust}
@@ -144,17 +144,17 @@ results.
 \section{How to get the clusters}
 As of now, the SimpleRanking algorithm for ranking the clusters has to have
 access to the cluster results inside the clusterMaker2 source code. The
-alternative is to work directly on the CytoScape tables containing the same
-information. The drawback working on the CytoScape tables is the need for going
+alternative is to work directly on the Cytoscape tables containing the same
+information. The drawback working on the Cytoscape tables is the need for going
 through every single node in the table in order to add it to a cluster, which is
 something the source code in clusterMaker2 can serve with a single
 \textit{getter} method. The drawback using the clusterMaker2 code and not the
-CytoScape tables is that the getter method to clusterMaker2 demands knowledge in
+Cytoscape tables is that the getter method to clusterMaker2 demands knowledge in
 the SimpleRanking algorithm of the cluster algorithm that was used. Coupling
 these two object classes together is not necessary, because of the two mentioned
 ways of completing this, and the getter method used is actually implemented with
 the intention of creating a REST API \cite{rest-api} for applications outside
-CytoScape. A third way could be to implement a way for all of the clustering
+Cytoscape. A third way could be to implement a way for all of the clustering
 algorithms to save their results as a \textit{List<NodeCluster>} list. Once
 again this just moves the problem a bit around and we will end up with a good
 amount of duplication code to the REST API method of getting the clusters. Then
@@ -167,7 +167,7 @@ Creating the list of node clusters every time a ranking algorithm should run is
 maybe not such a bad idea. Atleast when we consider that having every clustering
 algorithm saving its results could result in massive memory constraints. Every
 node in the node cluster list should only be a java object reference to a node
-in the CytoScape table. A Java object reference consists of 8 bytes
+in the Cytoscape table. A Java object reference consists of 8 bytes
 \cite{java-reference-size}. So we will end up having 8 bytes for every node in
 the list to a single cluster. Also, to organize it properly, a list of the
 clusters also has to wrap round all of the clusters, adding another 8 bytes per
@@ -185,7 +185,7 @@ is just per clustering algorithm.
 In order to work with attributes in the edges, you would think that an
 additional datastructure like a simple java class like \textbf{Map} or a class
 which inherits attributes from the Java \textbf{Set}-class\cite{java-set} would
-be preferrable. However, this is not necessary, as CytoScape provides both the
+be preferrable. However, this is not necessary, as Cytoscape provides both the
 source and target node in an edge, together with methods to get the primary key
 from both of them. This allows us to index the node table and get the cluster
 information in O(1) time.
