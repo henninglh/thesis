@@ -1,4 +1,4 @@
-\documentclass[a4paper,UKenglish]{report}
+\documentclass[a4paper,UKenglish]{ifimaster}
 \usepackage[utf8]{inputenc}
 \usepackage[UKenglish]{duomasterforside}
 \usepackage[T1]{fontenc, url}
@@ -18,6 +18,8 @@
 \duoforside[program={Programming and Networks},
     dept={Department of Informatics},long]
 
+\frontmatter{}
+
 \setlength{\parskip}{12pt}
 \setlength{\parindent}{12pt}
 
@@ -28,6 +30,8 @@ This is where the abstract goes...
 \listoffigures{}
 \listoftables{}
 
+\mainmatter{}
+
 \include{intro}
 \include{images}
 \include{project}
@@ -37,5 +41,6 @@ This is where the abstract goes...
 \include{results}
 \include{discussion}
 \include{conclusion}
+\backmatter{}
 \printbibliography
 \end{document}
