@@ -1,0 +1,96 @@
+\part{Implementation}
+\label{pa:implementation}
+\chapter{CytoScape}
+The pull request\cite{git-pull-request} made from the Ranklust
+contribution of this thesis has been accepted\cite{ranklust-accepted}, adding
+3750 lines of code and deleting 1051. The changes was distributed across 50
+files. The type of files edited ranges from the Maven POM-settings file and
+.gitignore to plain Java source code files. Further changes will be made, as the
+work on the Ranklust contribution will not end when this thesis is delivered.
+One of the most recent changes to the contribution is that the
+\textit{PageRankWithPriors} algorithm used to analyze the networks in this
+thesis assumes undirected edges because of the
+\textit{UndirectedSparseMultigraph} graph used, while for normal use directed
+edges is believed by us to be the most sought after choice. Therefore, the pull
+request was hardcoded with directed edges. Choosing between directed and
+undirected edges should be up to the users of clusterMaker2 and is on the
+TODO-list of futures to implement.
+
+CytoScape has a cookbook\cite{cytoscape-cookbook} listing a combination of best
+practices and tips on how to start developing an app, add menues, panels,
+algorithms, color schemes etc.. Instead of following all of these examples, we
+have read through the existing code in clusterMaker2\cite{cm2-github} and tried
+to structure the code of the contributions in Ranklust to match the structure
+already implementet in clusterMaker2. Meaning that for each algorithm
+implemented, they will all have a corresponding \textit{Factory} class and a
+\textit{Context class}. For the panel that was implemented, it has a pure panel
+class with Java Swing\cite{java-swing} settings, a panel task class, create
+panel task class and destroy panel task class.
+
+\section{App registration and java class connections}
+First step of registration is to register a \textit{service listener} to the
+already existing clusterMaker2 \textit{CyActivator}. This is done in the last
+line of the coming code example: Here we describe the name of java methods in
+the \textit{clusterManager} class with strings. These two methods for adding and
+removing ranking algorithms registers and unregisters the algorithms to the
+\textit{App} menu in CytoScape, making them accessible for the user through the
+GUI.
+
+\paragraph{Registering the ranking algorithms classes}
+\inputminted[linenos,fontsize=\scriptsize,firstline=65,lastline=93]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/CyActivator.java}
+
+\paragraph{Registering the ranking panel create and destroy classes}
+\inputminted[linenos,fontsize=\scriptsize,firstline=173,lastline=180]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/CyActivator.java}
+
+The \textit{RankFactory} class mentioned is a java public interface for each of
+the ranking cluster algorithms, HITS, PR, PRWP, MAA and MAM. 
+
+% related to paragraph over
+\inputminted[linenos,fontsize=\scriptsize,firstline=3,lastline=10]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/api/RankFactory.java}
+
+A class applying the task factory design pattern is meant to deliver an object
+of the class it is related to\cite{factory-design}, and it can return different
+types of a class that has the same java superclass\cite{java-superclass}. In
+this case, each class implementing the \textit{RankFactory} will only have a
+single class to return. The RankFactory class also creates a \textit{Context}
+class, which binds information the user can input to the GUI to variables,
+allowing the algorithm to gain access to parameter information about the
+algorithms before they run.
+
+% Register algorithms task factories
+\inputminted[linenos,fontsize=\scriptsize,firstline=144,lastline=149]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/CyActivator.java}
+
+With these factories, the underlying algorithm returned can be changed based on
+parameters
+
+% Register algorithms in GUI
+\inputminted[linenos,fontsize=\scriptsize,firstline=186,lastline=207]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/ClusterManagerImpl.java}
+
+% Register GUI panels in GUI
+\inputminted[linenos,fontsize=\scriptsize,firstline=260,lastline=282]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/ClusterManagerImpl.java}
+\section{Algorithm}
+
+% Rank interface
+\inputminted[linenos,fontsize=\scriptsize,firstline=260,lastline=282]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/api/Rank.java}
+\section{GUI}
+\subsection{Algorithm menus}
+\subsection{Ranking panel}
+The code for the \textit{RankingPanel} is a copy from the existing
+\textit{ResultsPanel} in clusterMaker2. The results panel has some extra
+information that is removed in the ranking panel. The ranking panel only
+displays the clustering algorithm used, ranking algorithm used and the network
+it is used on, together with the score of each cluster sorted descendingly,
+having the highest ranked cluster at the top. The ranking panel will display in
+the same place as the results panel, to the right of the network view.
+
+The panel supports multiple selection of clusters through the \textit{Control}
+key on the keyboard, much like its existing behaviour on Windows when selecting
+multiple directories or files in the \textit{File Explorer}. Selecting the
+clusters in the panel will also select them in the network view, enabling the
+user to use other CytoScape utilities on the nodes/clusters selected, for
+example create a new network based on only the selected nodes. The color of the
+selected nodes will also change in the network view, when the user selects a
+cluster in the ranking panel, providing visual feedback to the user, in order to
+make it easier for the user to see where the selected nodes/clusters resides in
+the network.
+\inputminted[linenos,fontsize=\scriptsize,firstline=260,lastline=282]{java}{../ranklust-app/src/main/java/edu/ucsf/rbvi/clusterMaker2/internal/ui/RankingPanel.java}
