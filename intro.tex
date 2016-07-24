@@ -1,7 +1,7 @@
-\part{Introduction}
+\part{}
 \label{pa:intro}
-
-\chapter{Motivation}
+\chapter{Introduction}
+\section{Oversight}
 To this day we still struggle with cancer. Even with all our modern equipment
 and knowledge we have still not been able to tame this horrible disease. This
 thesis is about implementing and using a tool named Ranklust. It is not a
@@ -11,10 +11,12 @@ clusters created from Protein-Protein Interaction (PPI) networks in Cytoscape.
 The ranks will be based on different node and edge attributes in the network.
 The resulting ranks will also indicate which clusters can be seen as cluster
 biomarkers, and which genes could be considered to be single gene candidate
-biomarkers. A biomarker is a "biological measure of a biological state"
+biomarkers. 
+
+\section{Biomarkers}
+A biomarker is a "biological measure of a biological state"
 \cite{biomarker1}. Among other things, it can be represented by the levels of
 a specific protein in our blood, a specific gene, or a combination the two.
-
 Biomarkers can be used for different purposes. They can be used to measure the
 effect of cancer drug treatment. That the drug does what it is supposed to do.
 It can be used to predict disease development or the current stage of the
@@ -66,90 +68,71 @@ disease. Here is a list of what biomarkers currently are being used for:
 The National Institutes of Health Biomarkers Definitions Working Group has
 defined biomarkers as "a characteristic that is objectively measured and
 evaluated as an indicator of normal biological processes, pathogenic process, or
-pharmacologic responses to a therapeutic intervention.". The World Health
-Organization (WHO) has created a guideline for defining biomarkers: "almost any
-measurement reflecting an interaction between a biological system and a
-potential hazard, which may be chemical, physical or biological. The measured
-response may be functional and physiological, biochemical at the cellular level,
-or a molecular interaction". So a biomarker can be anything from the pulse of
-the heart or blood pressure. In this thesis, I will see if we can get better and
-more information from ranking gene and protein clusters based on biomarker
-information. The result could in the best case be a new biomarker in itself, and
-can be a step in the direction of hierarchical biomarkers (biomarkers creating
-new biomarkers).
+pharmacologic responses to a therapeutic
+intervention."\cite{biomarker2,biomarker3}. The World Health Organization (WHO)
+has created a guideline for defining biomarkers: "almost any measurement
+reflecting an interaction between a biological system and a potential hazard,
+which may be chemical, physical or biological. The measured response may be
+functional and physiological, biochemical at the cellular level, or a molecular
+interaction". So a biomarker can be anything from the pulse of the heart or
+blood pressure. In this thesis, I will see if we can get better and more
+information from ranking gene clusters based on biomarker information. The
+result could in the best case be a new biomarker in itself, and can be a step in
+the direction of hierarchical biomarkers (biomarkers creating new biomarkers).
 
-Biomarkers versus Clinical Endpoints Some of the important characteristics of
-biomarkers is that they are objective and quantifiable as biological processes.
-They are used as a state indicator of the biological object that is under
-scrutiny. When the biological object is a human being screned for cancer,
-biomarkers may help.
+\subsection{Biomarkers and Clinical Endpoints} 
+Some of the important characteristics of biomarkers is that they are objective
+and quantifiable as biological processes\cite{biomarker3}. They are used as
+a state indicator of the biological object that is under scrutiny. When the
+biological object is a human being screened for cancer, biomarkers may help.
 
 Biomarkers can be an indicator of how far cancer has progressed in the human
-body. But the human subject may feel no difference at all. It can also be the
-opposite, that the human subject feels huge differences during several weeks
-that the cancer might have developed at a grand scale, but the biomarkers show
-no objective change. This proves that the human subject's experience and sense
-of state that it is in does not necessarily have to correlate.
+body, even though the human subject may feel no difference at all. It can also
+be the opposite, that the human subject feels huge differences during several
+weeks that the cancer might have developed at a grand scale, but the biomarkers
+show no objective change. This proves that the human subject's experience and
+sense of state that it is in does not necessarily have to correlate.
 
-Clinical endpoints is the opposite. They describe how the subjects feel or
-describe how they function. It is not as objective as biomarkers and it demands
-more resources to gather the information, as the subjects has to be interviewed
-in some form, rather than interpreting pure data. But one thing has to be noted;
-patients does not seek treatment for cancer due to their biomarkers being "off
-the charts". They seek treatment because they \textit{feel} that they do not
-feel ok or do not function sufficiently. So biomarkers are not by any means far
-superior to clinical endpoints in all aspects.
+Clinical endpoints is the opposite\cite{biomarker3}. They describe how the
+subjects feel or describe how they function. It is not as objective as
+biomarkers and it demands more resources to gather the information, as the
+subjects has to be interviewed in some form, rather than interpreting pure data.
+But one thing has to be noted; patients does not seek treatment for cancer due
+to their biomarkers being "off the charts". They seek treatment because they
+feel that they do not feel ok or do not function sufficiently. So biomarkers are
+not by any means far superior to clinical endpoints in all aspects.
 
 Biomarkers can also be ruled out as a reliable predictor when population
-differences are too big. As with clinical endpoints, people describe their
-feelings differently and might hold information back. As pointed out before,
-people's feelings are subjective, and different ways of interpreting their own
-body's state might skew statistical results with erronous feedback. Erronous
-feedback in this case can be examplified as two persons who are at the exact
-same state of cancer, with the same prerequisites, but they report how they feel
-differently. One person might be ignoring certain pains or lose hair after
-radiation treatment, but not the other. This can be mitigated to some degree
-with careful and accurate screening of patients admitted to treatment, but a
-totally unified group in terms of how they describe pain and other attributes
-that are interesting might be seen as borderline impossible. We are after all
-humans and very much fallible.
+differences are too big\cite{biomarker3}. As with clinical endpoints, people
+describe their feelings differently and might hold information back. As pointed
+out before, people's feelings are subjective, and different ways of interpreting
+their own body's state might skew statistical results with erronous feedback.
+Erronous feedback in this case can be examplified as two persons who are at the
+exact same state of cancer, with the same prerequisites, but they report how
+they feel differently. One person might be ignoring certain pains or lose hair
+after radiation treatment, but not the other. This can be mitigated to some
+degree with careful and accurate screening of patients admitted to treatment,
+but a totally unified group in terms of how they describe pain and other
+attributes that are interesting might be seen as borderline impossible. We are
+after all humans and very much fallible.
 
-%% CITE GLOBAL CANCER START ---
-In 1990, cancer was the third leading cause of death. By 2013, it has taken
-second place and the amount of deaths related to cancer is considered to be
-doubled by 2030. For men in particular, the highest incidents of cancer came
-from prostate cancer, with a count of 1.4 million incidents. For women, breast
-cancer tops the statistics at 1.8 million incidents. For both sexes, tracheal,
-bronchus and lung cancer tops the list at 1.6 \textbf{deaths}, not incidents.
+\subsection{Prostate cancer statistics}
+Statistics show that "In 2013, there were 1.4 million incident cases of prostate
+cancer and 293 000 deaths"\cite{cancerburden2}. Taking population into
+concideration together with the increasing incidence rates, we have had
+a "3-fold increase in prostate cancer cases since 1990"\cite{cancerburden2}. 
+\begin{figure}[ht]
+    \caption{Cancers Ranked by Number of Incident Cases in Both Sexes, Globally,
+    by Development Status, and in the 50 Most Populous Countries, 2013}
+    \includegraphics{cancer_incidents}
+\end{figure}
+\begin{figure}[ht]
+    \caption{Cancers Ranked by Number of Deaths in Both Sexes, Globally, by
+    Development Status, and in the 50 Most Populous Countries, 2013}
+    \includegraphics{cancer_deaths}
+\end{figure}
 
-The increasing number of cancer-related incidents is a big threat in countries
-that are not adequate equipped to deal with complex and expensive cancer
-treatments.
-
-With a stable population growth and age structure, we would have seen a 13\%
-decrease in incident cases between 1990 and 2013. Instead, incident cases has
-increased by 67\%
-
-Incidence cases for women has risen slowly whereas for men, it has decreased.
-
-Breast cancer is the most lethal cancer for women. Only 1\% of breast cancer
-cases occur in men. Between 1990 and 2013, incidence cases of breast cancer has
-increased by 99\%. Taking into account a stable population and age structure, it
-falls to about 26\%, which still is a significant increase in incidents.
-
-Prostate cancer incident cases increased by 217\% in period 1990 to 2013.
-Increased life expectancy is expected to contribute somewhere between 20\% and
-43\% to the increase in this occasion.
-
-217\% on a global scale, 167\% in developed countries and 367\% in developing
-countries. Age alone cannot explain the HUGE increase in developing countries.
-But it may show a bigger need for prostate screening in low-/middle-income
-countries.
-
-Even though developed countries has 70\% higher ASIR, the ASDR is only 20\%
-higher in developed countries, showing that the cancer is detected, patients in
-developed countries has a higher chance of survival (not very surprising...).
-
+\subsection{Specific biomarkers}
 An example of a single molecule biomarker is the prostate specific antigen
 (PSA). This is a protein produced by the prostate gland in male humans. The
 identification of cancer with PSA is simple, the higher the level of PSA,
@@ -166,9 +149,7 @@ though higher levels of PSA shows higher chance of having prostate cancer,
 prostate cancer is not the only reason to have elevated levels of PSA
 \cite{cancerfacts}. Namely inflammation and enlargement of the prostate. Though,
 a man with both of these cases may or may not develop prostate cancer.
-%% CITE GLOBAL CANCER END ---
 
-% Conclusion about PSA
 So the conclusion for the PSA biomarker is that it is not reliable enough and
 are causing faulty treatment of prostate cancer that may not even exist. Because
 even if a patient has prostate cancer, it may not be harmful, promoting the case
@@ -250,7 +231,7 @@ database supply weights in the edges and/or nodes, should it be used, changed or
 ignored? The final decision of how and in what way the edges should be defined
 in this thesis has yet to come. 
 
-\subsection{Pathways and networks} % malplaced???
+\subsection{Pathways and networks} % malplaced??? TODO: SOURCE
 Pathways are small networks of well studied processes where many areas are well
 documented. Networks on the other hand are bigger and less explored, but when
 properly analyzed, it might provide new information unknown to pathway systems.
@@ -291,7 +272,8 @@ latter might play a role in cancer. These genes will be identified as candidate
 biomarkeres for prostate cancer. This was mentioned earlier as the
 "guilt-by-association"-principle.
 
-\chapter{Cytoscape: An implementation to rank clusters}
+\chapter{Ranklust: An implementation to rank clusters}
+\section{Cytoscape}
 Cytoscape is the open-source software platform the Ranklust app will be
 developed on. Its main purpose is to visualize molecular interaction networks
 and biological pathways.  It is easy to integrate \textbf{\textit{Apps}} and
@@ -300,48 +282,48 @@ the apps is available or that it exists an easy way of piping results from one
 app to another. 
 
 The goal of Ranklust is to rank the clusters in the network. Apps taking care of
-making the networks and creating clusters already exists, but there still has to
-be made a decision about whether or not they could be modified in order to
-better support the ranking of the clusters.
+making the networks and creating clusters already exists, so Ranklust will only
+concentrate on the part that ranks the clusters and visualizes the results to
+the user of Cytoscape.
 
+\section{Programming language}
 The reason to choose Java above Python, Perl or other popular programming
-languages in bioinformatics is simply because I am more versed in Java
-programming than any other language. Java is known for being this big bloated
-enterprise programming language, and Python as the fast and easy mockup tool to
-develop good programs fast. Python also has big biological computation libraries
-like \emph{Biopython} \cite{biopython} and sklearn\cite{sklearn}, that makes it
-easy to build your own standalone apps. Though when used in a bigger environment
-as Cytoscape, Java shines, having sturdy packaging and modelling standards. The
-Cytoscape community is big, alive and has standards for how the architecture of
-apps should look like. The community promotes this through the use of the
-\emph{OSGi} standard \cite{cytoscape-osgi}.
+languages in bioinformatics is simply because of development experience. Java
+8 is known for being this big bloated enterprise programming language, and
+Python as the fast and easy mockup tool to develop good programs fast. Python
+also has big biological computation libraries like \emph{Biopython}
+\cite{biopython} and sklearn\cite{sklearn}, that makes it easy to build your own
+standalone apps.  Though when used in a bigger environment as Cytoscape, Java
+shines, having sturdy packaging and modelling standards. The Cytoscape community
+is big, alive and has standards for how the architecture of apps should look
+like. The community promotes this through the use of the \emph{OSGi} standard
+\cite{cytoscape-osgi}.
 
-% OSGi and design patterns
+Formatting and cleaning the data that Ranklust will provide and export out of
+Cytoscape is done in Python 2.7\cite{python}. As mentioned over, it has many
+small libraries that can help with the bioinformatics part, and the scripts
+needed to format the data will rarely exceed over 100 lines of code.
+Third-party libraries like pandas\cite{pandas} and numpy\cite{numpy} will
+support the formatting and cleaning of data.
+
+\section{OSGi and design patterns}
 Developing OSGi software promotes modularization \cite{modularization} of the
 code and increase the probability of the app being launched as an official
 Cytoscape app; in addition to provide other developers with the possibility of
 reusing my modules in their own apps. Also, it seems like Java 9 is aimed at
-making it easier to modularize apps along the lines of the OSGi standard, so it
-might be easier to refactor an application in the future from Java 8 to Java 9
-when the architecture already is in place. There exists several design patterns
-that could prove to be useful in the development of Ranklust. Another strategy
-to follow may not be a direct design pattern \cite{designpattern}, but more of a
-collection of them, and it is the clean code principles by Robert C. Martin
-\cite{cleancode}. Going against the coding principles promoted by the Cytoscape
-app community and exclude the use of OSGi modules will not be done, but third
-party Java libraries that is not OSGi-ready might be used.
-
-% Prototype section
-Prototyping some of the different parts of the app will be done in Python. Python is an
-easy language to prototype with and the tests and analysis of how well the
-cluster ranking algorithms perform, will be done in Python. However, in my
-experience, Java comes up to par with Python in development speed once all of
-the boilerplate code is written and a good deployment tool is used. Therefore,
-the Cytoscape platform is used for the final deployment of Ranklust. 
+making it easier to modularize apps along the lines of the OSGi
+standard\cite{jigsaw}, so it might be easier to refactor an application in the
+future from Java 8 to Java 9 when the architecture already is in place. There
+exists several design patterns that could prove to be useful in the development
+of Ranklust. Another strategy to follow may not be a direct design pattern
+\cite{designpattern}, but more of a collection of them, and it is the clean
+code principles by Robert C. Martin \cite{cleancode}. Going against the coding
+principles promoted by the Cytoscape app community and exclude the use of OSGi
+modules will not be done, but third party Java libraries that is not OSGi-ready
+will be used, namely the JUNG library\cite{jung}.
 
 \chapter{Databases}
-Using databases helps with several aspects. CONTINUE!!!
-
+\section{Databases for network information}
 Which databases to use has to be considered. The reason to use databases is
 because they have information about how protein and genes form a network based
 on how they interact with each other. The initial database candidates in
@@ -349,41 +331,40 @@ Ranklust are iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}.
 These databases all have in common that it exists Cytoscape apps made to use
 these databases. STRING however, does not have any repository available through
 the Cytoscape app store, so interacting with the database through a new app in
-Cytoscape without making new plugins may be difficult.  On the other hand, both
+Cytoscape without making new plugins may be difficult. On the other hand, both
 iRefIndex and GeneMania have their repositories easily available to the public
 together with decent documentation. However, the difference between them is what
 they contain information about. iRefIndex contains data about protein-protein
 interaction (PPI), while GeneMania contains data about genes.
-% Check this next one out! Link from source!
-Since proteins come from genes, GeneMania can also give us some information
-about proteins. Differences between the two databases will be discussed in
-greater depth at a later stage.  The open-source plugins in Cytoscape to
-communicate with the databases are iRefScape \cite{iridb} for iRefIndex and
-GeneMANIA \cite{gmdb} for GeneMania.
 
-% Neo4J Dump problem
-A problem with the Neo4J database is the dump it creates. The dump creates a
-single Cypher (source: cypher) commit for the whole database. This way, if
-anything goes wrong while importing the data, it will get rolled back. It
-hinders faulty data and relationship between several parts of the data to be
-imported into the database. The problem with a single commit to import the data
-is the required memory. My personal computer and the computers at University of
-Oslo that I have access to does not have enough memory to import the database as
-a single commit in Cypher. Splitting up the dump to several commits does not
-work without quirks. It conquers the memory problem, but the way the
-relationships are created from the Neo4J dump requires the import process to be
-done in a single commit. A way to fix this is either not to use Cypher queries
-as a way of importing the data, but instead use GraphML. Another way is to
-refactor the Cypher dump so that the creation of relationships does not need to
-be done in a single commit. I will use both ways, because not being able to use
-the Cypher queries because of too little memory will most likely be a problem
-for several people and not just me. Using GraphML is good for exporting data
-from Cytoscape and from the database, but interaction between the two of them
-while performing the algorithms is not feasible at the time. The last drawback
-is where Cypher queries are good, because it exists plugins that aid in using
-data from the database directly in Cytoscape. So initializing a database for
-testing could easily be done with GraphML, and then use Cypher queries to
-instruct a database to perform computations on the data.
+Since proteins come from genes, GeneMania can also give us some information
+about proteins. The open-source plugins in Cytoscape to communicate with the
+databases are iRefScape \cite{iridb} for iRefIndex and GeneMANIA \cite{gmdb}
+for GeneMania.
+
+\section{Neo4J}
+A problem we had with the Neo4J\cite{neo4j} database is the dump it creates.
+The dump creates a single Cypher\cite{cypher} commit for the whole database.
+This way, if anything goes wrong while importing the data, it will get rolled
+back. It hinders faulty data and relationship between several parts of the data
+to be imported into the database. The problem with a single commit to import
+the data is the required memory. My personal computer and the computers at
+University of Oslo that I have access to does not have enough memory to import
+the database as a single commit in Cypher. Splitting up the dump to several
+commits does not work without quirks. It conquers the memory problem, but the
+way the relationships are created from the Neo4J dump requires the import
+process to be done in a single commit. A way to fix this is either not to use
+Cypher queries as a way of importing the data, but instead use GraphML. Another
+way is to refactor the Cypher dump so that the creation of relationships does
+not need to be done in a single commit. I will use both ways, because not being
+able to use the Cypher queries because of too little memory will most likely be
+a problem for several people and not just me. Using GraphML is good for
+exporting data from Cytoscape and from the database, but interaction between
+the two of them while performing the algorithms is not feasible at the time.
+The last drawback is where Cypher queries are good, because it exists plugins
+that aid in using data from the database directly in Cytoscape. So initializing
+a database for testing could easily be done with GraphML, and then use Cypher
+queries to instruct a database to perform computations on the data.
 
 Creating a script to refactor the Cypher queries does not only help in regards
 of using the data with Cytoscape, but also for everyone using a Neo4J Cypher
