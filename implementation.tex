@@ -36,20 +36,15 @@ removing ranking algorithms registers and unregisters the algorithms to the
 \textit{App} menu in CytoScape, making them accessible for the user through the
 GUI.
 
-The \textit{RankFactory} class mentioned is a java public interface for each of
-the ranking cluster algorithms, HITS, PR, PRWP, MAA and MAM. 
-
-A class applying the task factory design pattern is meant to deliver an object
-of the class it is related to\cite{factory-design}, and it can return different
-types of a class that has the same java superclass\cite{java-superclass}. In
-this case, each class implementing the \textit{RankFactory} will only have a
-single class to return. The RankFactory class also creates a \textit{Context}
-class, which binds information the user can input to the GUI to variables,
-allowing the algorithm to gain access to parameter information about the
-algorithms before they run.
-
-With these factories, the underlying algorithm returned can be changed based on
-parameters.
+The \textit{RankFactory} class mentioned is a java public interface used for each of
+the ranking cluster algorithms, HITS, PR, PRWP, MAA and MAM. A class applying
+the task factory design pattern is meant to deliver an object of the class it is
+related to\cite{factory-design}, and it can return different types of a class
+that has the same java superclass\cite{java-superclass}. In this case, each
+class implementing the \textit{RankFactory} will only have a single class to
+return. The RankFactory class also creates a \textit{Context} class, which binds
+information the user can input to the GUI to variables, allowing the algorithm
+to gain access to parameter information about the algorithms before they run.
 
 \section{Algorithm}
 % Rank interface
