@@ -77,7 +77,7 @@ PageRank is abbreviated PRWP because of the Java classname it has in the Java
 JUNG library
 - \textit{PageRankWithPriors}.
 
-The difference between MAA and MAM compared to PRWP is how the network is
+The difference between MAA and MAM compared to PR and PRWP is how the network is
 scored. MAA and MAM calculates the score for each cluster by summing up the
 attributes in edges and nodes according to the cluster attribute. PRWP scores
 the current network regardless of the clustering attribute. 
@@ -88,7 +88,13 @@ clustered. They both have the clustering attribute in the network, edge and node
 table, so that the ranking algorithms are able to score the clusters.  PRWP
 scores the currently selected network in Cytoscape, resulting in the option of
 scoring the non-clustered network or clustered network. The last option gives
-the clustering algorithm a bigger impact on the score. 
+the clustering algorithm a bigger impact on the score, because the clustered
+network has perturbated edges between nodes that is not in the same cluster. MCL
+in Cytoscape can show the "inter-cluster" connecting edges, which is the egdes
+that was perturbed during clustering. This last option is a combination of the
+two others. It will be visually close to the clustered network, but algorithms
+that run on the network with inter-cluster edges will have the same result as
+the network only containing the cluster attribute.
 
 Implementation wise, there is also a difference in how the scores are stored in
 the network after the algorithm is finished executing. All the scores are stored

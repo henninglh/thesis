@@ -1,86 +1,5 @@
 \part{Results}
 \label{pa:results}
-\chapter{Neo4J}
-Neo4J was chosen as the database I used to interact with the data from
-\textit{Cytoscape}.
-
-% Neo4J refactor script
-I ended up with implementing a python script to refactor the Neo4J database
-dump. When run with the command:
-\begin{verbatim}
-time python relations_refactoring.py movember.cql refactored_movember.cql
-\end{verbatim}
-The inputs here are time, which benchmarks the time and CPU power used by the
-program, python which runs the script, the name of the script, inputfile that we
-want to refactor and the name of the file, which the refactored output resides
-in.  The runtime resulted in:
-\begin{verbatim}
-python relations_refactoring.py movember.cql refactored_movember.cql
-0,04s user 0,00s system 42% cpu 0,092 total
-\end{verbatim}
-The size of the refactored file was 4500 lines, where about half of them were
-queries that created relationships between two nodes. The size of the database
-that was dumped was 2,11 megabytes according to the Neo4J browser interface.
-Also, the program used 500 megabytes of memory when run on my personal computer
-with Python 3.4. The queries that created the nodes was bundled into several
-commits, which ended up being approximately 500 queries per commit. The
-relationship queries was singled out and can be seen as a single commit for each
-relationship created between two nodes. This can be improved further, but at the
-time it was not necessary, as a runtime below 1 second does not introduce any
-difficulties or problems at the time.
-
-\section{Data communication}
-Data communication between the Neo4J database server and the Cytoscape instance
-is done through the CyNeo4J app to Cytoscape \cite{cyneo4j}. CyNeo4J is a
-Cytoscape app that was developed during the Google Summer Code 2014 arrangement.
-It supports connecting to a Neo4J instance, as well as syncing data up and down
-from and to the database server. One thing it did not support was authentication
-on Neo4J servers. Not having authentication is a serious problem, so I
-implemented a simple way of getting access to the database server by providing a
-possibility to insert username and password at the same time the user has to
-provide a URL to the Neo4J database server instance. Implementation-wise, this
-only required an extra header to be included in each http request going to the
-password protected Neo4J database server instance. Every request used the static
-\textbf{Request} class to Get/Post/Put HTTP requests to the Neo4J database
-server instance. The refactor looked something along these lines in all of the
-files.
-
-Before:
-\begin{verbatim}
-Request req = Request.Post(url)
-        .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
-\end{verbatim}
-
-After:
-\begin{verbatim}
-Request req = Request.Post(url)
-        .addHeader("Authorization", auth64EncodedInfo)
-        .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
-\end{verbatim}
-
-Synchronization time between Neo4J and Cytoscape through the CyNeo4J app is a
-huge timesink. As of now, the time it takes to populate an empty Cytoscape
-network with the gene information from STRING is about 2 hours. This could be
-shortened by exporting the Neo4J data with GraphML and into Cytoscape. Because
-after the initial data is inside Cytoscape, updates to the Neo4J instance goes
-much faster.
-
-The CyNeo4J also uses a legacy HTTP library to get information from the Neo4J
-database \cite{legacy-neo4j}. It is possible that the performance increases with
-the new library \cite{transactional-neo4j}. The new library supports creating
-transactions, which implicit gives support for rollbacks in case something goes
-wrong with the query.
-
-A future improvement to the CyNeo4J app could be to change the communication
-between Neo4J and Cytoscape to be done in GraphML and not Cypher. This is
-because through this whole process of importing and exporting data from and to
-Neo4J, GraphML has shown itself to be a superior format over Cypher. Though, to
-this day, direct queries to a running Neo4J instance has to be done in Cypher,
-and is not possible in GraphML. So until the Cypher query language gets faster,
-a convertion method using GraphML as way of exchange data between Cytoscape and
-Neo4J, could be a candidate for a much better solution than the current one,
-which is 100\% Cypher query based.
-
 \chapter{Graph analysis}
 PPI network from irefweb.
 downloaded with these settings: %picture from irefweb
@@ -90,6 +9,21 @@ uniprot said
 \section{Creating a network}
 \subsection{Creating connections}
 \subsection{Adding weights}
+\section{Ranking results}
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| l | c | c | c | c |}
+        \hline
+        \textbf{Inflation} & \textbf{Average Clusters} & \textbf{Maximum cluster
+    size} & \textbf{Minimum cluster size} & \textbf{Modularity} \\
+        \hline
+        1.8 & 4k & 1,2k & 2 & 0.307 \\
+        2.0 & 4k & 1,2k & 2 & 0.307 \\
+        2.5 & 4k & 1,2k & 2 & 0.307 \\
+        3.0 & 4k & 1,2k & 2 & 0.307 \\
+        \hline
+    \end{tabular}
+\end{table}
 \section{Parameter testing}
 \section{Comparison to known biomarkers}
 \section{Identification of possible biomarkers}
