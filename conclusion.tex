@@ -1,6 +1,15 @@
 \part{Conclusion}
 \label{pa:conclusion}
 \chapter{Future work}
+\section{Minor features}
+A compiled list of all considered features and tweaks in the Ranklust
+contribution to clusterMaker2
+
+\begin{itemize}
+    \item User can specify what direction the ranking algorithm should consider
+        for the graph
+\end{itemize}
+
 \section{Ranking through Neo4J}
 ClusterMaker2 does every calculation within Cytoscape. There exists another way
 of doing large and complex calculations, especially when it comes to algorithms
@@ -29,17 +38,17 @@ server instance. The refactor looked something along these lines in all of the
 files.
 
 Before:
-\begin{verbatim}
+\begin{lstlisting}[frame=single,language=Java]
 Request req = Request.Post(url)
         .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
-\end{verbatim}
+\end{lstlisting}
 
 After:
-\begin{verbatim}
+\begin{lstlisting}[frame=single,language=Java]
 Request req = Request.Post(url)
         .addHeader("Authorization", auth64EncodedInfo)
         .bodyString(call.getPayload(), ContentType.APPLICATION_JSON);
-\end{verbatim}
+\end{lstlisting}
 
 Synchronization time between Neo4J and Cytoscape through the CyNeo4J app is a
 huge timesink. As of now, the time it takes to populate an empty Cytoscape

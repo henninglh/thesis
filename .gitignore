@@ -4,9 +4,9 @@
 *.bib.blg
 *.log
 *.lof
+*.lol
 *.lot
 *.run.xml
 *.toc
 *.bcf
 *.bbl
-_minted-thesis/

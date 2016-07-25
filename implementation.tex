@@ -3,8 +3,8 @@
 \chapter{Cytoscape}
 \section{Intro}
 The \textit{clusterMaker2} documentation for implementing new parts that is not
-directly connected with clustering algorithms is non-existing (cite
-documentation!). So I will make a "walk through" of how to do it and how I did it.
+directly connected with clustering algorithms is non-existing. This part
+explains the details about how it was done.
 
 Cytoscape has a cookbook\cite{cytoscape-cookbook} listing a combination of best
 practices and tips on how to start developing an app, add menues, panels,
@@ -22,19 +22,22 @@ The POM-file has to be updated because libraries connected to the pdf exporting
 functionality is outdated. Updating the libraries, imports and the usage of
 these libraries in the source code is enough to make the whole project compile.
 Also, in order to get the third-party libraries to JUNG\cite{jung} into the
-project, the three packages that is being used has to be added to the POM file,
-and the classes they contain has to be exposed in the OSGi module. Exposing the
-OSGi classes could have been avoided if JUNG had OSGi modules in maven
-repositories, but there is only 2 out of 3 OSGi ready modules that was needed in
-this project. These were the changes needed:
+project, the three packages that is being used has to be added to the POM file
+and the classes they contain has to be exposed in the OSGi
+module\cite{osgi-felix}. Exposing the JUNG classes inside the clusterMaker2 OSGi
+bundle could have been avoided if JUNG had OSGi modules in maven repositories,
+but there is only 2 out of 3 OSGi ready modules that was needed in this project.
+These were the changes needed:
 
-\paragraph{Exporting the OSGi classes}
-\begin{verbatim}
+Changed which packages was exported through the OSGi module.
+
+\begin{lstlisting}[language=XML, caption={POM-file OSGi changes}]
 <Export-Package>!${bundle.namespace}.*,*;-split-package:=merge-first</Export-Package>
-\end{verbatim}
+\end{lstlisting}
 
-\paragraph{Importing the JUNG dependencies}
-\begin{verbatim}
+Added these dependencies
+
+\begin{lstlisting}[language=XML, caption={POM-file JUNG changes}]
 <dependency>
     <groupId>net.sf.jung</groupId>
     <artifactId>jung-graph-impl</artifactId>
@@ -50,7 +53,7 @@ this project. These were the changes needed:
     <artifactId>jung-api</artifactId>
     <version>2.1</version>
 </dependency>
-\end{verbatim}
+\end{lstlisting}
 
 As seen here, the 3 modules needed is jung-api, jung-graph-impl and
 jung-algorithms. Only the first 2 was OSGi ready. An alternative could have been
@@ -205,6 +208,74 @@ implementing a wrapper as a standalone function inside clusterMaker2 or as
 a standalone plugin. In Ranklust, an extension to the existing
 \textit{NodeCluster} class was used to keep scoring information about nodes in
 clusters.
+
+\section{Changes in existing classes}
+\subsection{NodeCluster}
+\begin{verbatim}
+/**
+ * In it's simplist form, a Cluster is a group of nodes that represents the
+ * nodes that are grouped together as the result of a clustering algorithm
+ * of some sort.  A more complicated form of a cluster could include clusters
+ * as part of the list, which complicates this class a little....
+ */
+\end{verbatim}
+
+This comment is in the NodeCluster class. In the Ranklust implementation,
+several attributes and methods has been added to this class. Saving the
+temporary state of the scores to the clusters could have been done in the node
+and edge-tables in Cytoscape, but it was faster both implementation- and
+performance-wise to extend the NodeCluster class. Also, a criteria for extending
+this class was that the existing API of this class should not change, in order
+to avoid unneccessary changes for other classes in clusterMaker2, that is not
+a part of the Ranklust contribution. 
+
+Additions to NodeCluster contains variables representing cluster \textit{score},
+\textit{rank} and a \textit{HashMap} from a cluster-node's SUID to its score.
+The map and rank variables is part of a previous implementation and can be
+removed. Adding node scores to the cluster and normalizing it afterwards.
+
+\textbf{Common responsibilities introduced in Ranklust}
+
+\begin{itemize}
+    \item Adding node scores to the cluster (ranking algorithm related)
+    \item Normalizing cluster scores for a list of clusters (static method)
+    \item Calculating min/max/avg scores for a list of clusters (static method)
+    \item Ranking a list of clusters by their score and set their rank
+        accordingly (ranking panel related)
+\end{itemize}
+
+\subsection{GraphicsExportPanel}
+Minor changes were done to GraphicsExportPanel when a new class for handling PDF
+documents was introduced. This was a result from the need to change the maven
+dependency to use the "com.itext"\cite{itext} repository location instead of
+a location from "com.lowagie" because the library was relocated
+\cite{lowagie-to-itext}.
+
+\section{New classes}
+\subsection{ClusterUtils}
+\textit{ClusterUtils} is a new class implemented in the Ranklust contribution.
+To some degree it has a common responsibility with the \textit{ModelUtils} class
+from clusterMaker2. The difference being that ClusterUtils is focused on
+inserting scores in tables related to cluster ranks. It also normalizes scores
+not directly related to a NodeCluster, but rather a group of \textit{CyNodes},
+that has mapped their SUID in Cytoscape to a score received from a ranking
+algorithm.
+
+\textbf{Common responsibilities introduced in Ranklust}
+
+\begin{itemize}
+    \item Getting cluster attribute based on CyNetwork
+    \item Getting ranking attribute based on CyNetwork
+    \item Ranking clusters firstly by score, secondly by cluster number
+        (assuming a small cluster number is a bigger cluster)
+    \item Fetching ranking results based on CyNetwork (ranking panel utility)
+    \item Fetching clusters based on CyNetwork (ranking algorithm utility)
+    \item Add score to a NodeCluster based on specified attribute column and
+        CyRow to get it from
+    \item Insert cluster scores into the default node- and edge-tables
+    \item A simplified way of creating columns based on a specific column name,
+        attribute class, table to create column in and immutability status
+\end{itemize}
 
 \section{Handling nodes and edges}
 Recipe for working the nodes and edges: The steps are almost equal for
