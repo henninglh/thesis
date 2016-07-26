@@ -296,7 +296,9 @@ direction they have. Are they undirected, directed, or unidirected. In the
 current version of Ranklust, \textit{PageRankWithPriors} assumes undirected,
 \textit{PageRank} and \textit{HITS} assumes directed. \textit{MAA} adds the
 score from the edge to the cluster and \textit{MAM} multiplies the highest score
-found as an edge attribute with the current cluster score. 
+found as an edge attribute with the current cluster score. MAM and MAA assumes
+the score is directed corresponding with source and target nodes in the edge
+table of Cytoscape.
 
 \begin{enumerate}
     \item Add score to the cluster
