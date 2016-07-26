@@ -1,7 +1,19 @@
 \part{Conclusion}
 \label{pa:conclusion}
 \chapter{Future work}
-\section{Minor features}
+\section{General improvements}
+We have used an undirected network, which is not the preferred type to use with
+PageRank, but it works. An idea could be to use KEGG pathways\cite{kegg}, which
+has the option of downloading directed networks of several types.
+STRING\cite{str} also has some directed network information, together with
+weights. Because of STRINGs size, utilizing a Neo4J database to perform the
+ranking algorithms could be a better option than directly in Cytoscape.
+
+In the future, maybe a database with complete protein complexes could exclude
+the need for clustering, and provide different ways of ranking them based on
+query criterias.
+
+\section{Minor features to complement Ranklust/clusterMaker2}
 A compiled list of all considered features and tweaks in the Ranklust
 contribution to clusterMaker2
 
@@ -34,8 +46,8 @@ provide a URL to the Neo4J database server instance. Implementation-wise, this
 only required an extra header to be included in each http request going to the
 password protected Neo4J database server instance. Every request used the static
 \textbf{Request} class to Get/Post/Put HTTP requests to the Neo4J database
-server instance. The refactor looked something along these lines in all of the
-files.
+server instance. Except for creating the Auth64 encoded information, the
+refactor looked something along these lines in all of the files.
 
 Before:
 \begin{lstlisting}[frame=single,language=Java]

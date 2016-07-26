@@ -5,15 +5,17 @@
 To cluster or not to cluster is the question here. PPI networks already have
 a great deal of edges and can be seen as clusters that we should not alter. On
 the other hand, using clustering algorithms to make clusters out of
-PPI-networks gives us the more control over the clusters. How big they should
-be, how many of them we want, should we cluster on a certain attribute, or even
-several? If we cluster the network, we have chosen to go with the
-\textit{Markov Cluster}(MCL)\cite{mcl} clustering algorithm in
-\textit{clusterMaker2}. We prototyped Ranklust with \textit{Affinity
+PPI-networks gives us the more control over the clusters and has the potential
+to identify protein complexes\cite{ap-vs-mcl}. How big they should be, how many
+of them we want, should we cluster on a certain attribute, or even several? We
+have chosen to go with the \textit{Markov Cluster}(MCL)\cite{mcl} clustering
+algorithm in \textit{clusterMaker2}, without any limitations to the amount of
+clusters. We prototyped Ranklust with \textit{Affinity
 Propagation}(AP)\cite{affinity-propagation} because of its ease of use and low
-execution time, but a paper that performed a comparison between MCL and AP
-concluded with MCL having better performance in many aspects when it came to
-cluster unweighted PPI networks \cite{ap-vs-mcl}.
+execution time, but it has been proven through a comparison between MCL and AP,
+that concluded with MCL having better performance in many aspects when it came
+to cluster unweighted (binary interactions) PPI networks\cite{ap-vs-mcl}. These
+aspects being noise tolerance and more robust behaviour.
 
 \section{Ranking clusters}
 We have used five algorithms to rank the clusters, MAA, MAM, PR, PRWR and HITS.

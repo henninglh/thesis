@@ -18,12 +18,12 @@ class with Java Swing\cite{java-swing} settings, a panel task class, create
 panel task class and destroy panel task class. % Make UML!
 
 \section{Design}
-\begin{figure}[ht]
+\begin{figure}[H]
     \caption{Ranklust ranking algorithm relations}
     \label{fig:rank-alg}
     \includegraphics[width=\textwidth]{ranklust-algorithm}
 \end{figure}
-\begin{figure}[ht]
+\begin{figure}[H]
     \caption{Ranklust ranking panel relations}
     \label{fig:rank-panel}
     \includegraphics[width=\textwidth]{ranklust-panel}
@@ -148,7 +148,7 @@ clusters is \textit{\#F99 rgb\(255,153,153\)}. The drawback with this color
 combination is with people that has color blindness to the degree where they see
 only greyscales. The colors low to high will go from grey to light grey to dark
 gray, which does not seem logical. The color style might change if users
-experience trouble having these colors represent the cluster ranks. 
+experience trouble having these colors representing the cluster ranks. 
 
 \section{State of today}
 The pull request\cite{git-pull-request} made from the Ranklust
@@ -258,7 +258,7 @@ removed. Adding node scores to the cluster and normalizing it afterwards.
 
 \subsection{GraphicsExportPanel}
 Minor changes were done to GraphicsExportPanel when a new class for handling PDF
-documents was introduced. This was a result from the need to change the maven
+documents was introduced. This was the result from the need to change the maven
 dependency to use the "com.itext"\cite{itext} repository location instead of
 a location from "com.lowagie" because the library was relocated
 \cite{lowagie-to-itext}.
@@ -266,12 +266,12 @@ a location from "com.lowagie" because the library was relocated
 \section{New classes}
 \subsection{ClusterUtils}
 \textit{ClusterUtils} is a new class implemented in the Ranklust contribution.
-To some degree it has a common responsibility with the \textit{ModelUtils} class
-from clusterMaker2. The difference being that ClusterUtils is focused on
-inserting scores in tables related to cluster ranks. It also normalizes scores
-not directly related to a NodeCluster, but rather a group of \textit{CyNodes},
-that has mapped their SUID in Cytoscape to a score received from a ranking
-algorithm.
+It is used by every cluster ranking algorithm implemented in Ranklust. To some
+degree it has a common responsibility with the \textit{ModelUtils} class from
+clusterMaker2. The difference being that ClusterUtils is focused on inserting
+scores in tables related to cluster ranks. It also normalizes scores not
+directly related to a NodeCluster, but rather a group of \textit{CyNodes}, that
+has mapped their SUID in Cytoscape to a score received from a ranking algorithm.
 
 \textbf{Common responsibilities introduced in Ranklust}
 
