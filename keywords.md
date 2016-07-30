@@ -4,6 +4,7 @@ Keywords to write about
 ## Data related
 - DisGeNet
 - iRefWeb
+- Cosmic
 - Jensen
 - HGNC
 - Dragon Database
@@ -15,6 +16,9 @@ Keywords to write about
 - Iterations
     - PageRankWithPriors
     - MCL
+- PageRank assigning edge weights in undirected network
+    - Will overwrite edge weight!
+- Re-evaluate what happened in CV distribution!
 
 ## Comparisons
 - MAA vs. PageRankWithPriors
