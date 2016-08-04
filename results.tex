@@ -3,10 +3,14 @@
 \chapter{Graph analysis}
 PPI network from irefweb.
 downloaded with these settings: %picture from irefweb
-irefweb said 27887 connections % Correct this!
+irefweb said 109276 connections 
+after hgnc it was 43706
+after clustering it was 13183 % not used
 only uniprot and refseq
 uniprot said
 \section{Creating a network}
+Converting from proteins to genes through HGNC data resulten in a 60\% data
+network edge perturbation. From 100k ish links to 40k ish.
 \subsection{Creating connections}
 \subsection{Adding weights}
 \section{Ranking results}
@@ -48,53 +52,106 @@ Talking about MCL results (Table \ref{tab:mcl-inflation})
 \end{figure}
 
 \section{Jensen comparison}
+%\begin{figure}
+%    \label{fig:txt-irefweb-prwp}
+%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_iRefWeb_network_PRWP}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:txt-irefweb-maa}
+%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_iRefWeb_network_MAA}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:know-irefweb-prwp}
+%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_iRefWeb_network_PRWP}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:know-irefweb-maa}
+%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_iRefWeb_network_MAA}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:exp-irefweb-prwp}
+%    \includegraphics[width=15cm]{Distribution_of_p-value_from_experimental_genes_in_iRefWeb_network_PRWP}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:exp-irefweb-maa}
+%    \includegraphics[width=15cm]{Distribution_of_experimental_genes_in_iRefWeb_network_MAA}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:txt-cosmic-prwp}
+%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_COSMIC_cancer_network_PRWP}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:txt-cosmic-maa}
+%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_COSMIC_cancer_network_MAA}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:know-cosmic-prwp}
+%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_COSMIC_cancer_network_PRWP}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:know-cosmic-maa}
+%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_COSMIC_cancer_network_MAA}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:exp-cosmic-prwp}
+%    \includegraphics[width=15cm]{Distribution_of_p-value_in_experimental_genes_in_COSMIC_cancer_network_PRWP}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:exp-cosmic-maa}
+%    \includegraphics[width=15cm]{Distribution_of_experimental_genes_in_COSMIC_cancer_network_MAA}
+%\end{figure}
+
+% new figures
+% prwp
 \begin{figure}
-    \label{fig:txt-irefweb-prwp}
-    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_iRefWeb_network_PRWP}
+    \label{fig:txt-iref-prwp}
+    \includegraphics[width=15cm]{prwp_textmined_split}
 \end{figure}
 \begin{figure}
-    \label{fig:txt-irefweb-maa}
-    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_iRefWeb_network_MAA}
+    \label{fig:know-iref-prwp}
+    \includegraphics[width=15cm]{prwp_knowledge_split}
 \end{figure}
 \begin{figure}
-    \label{fig:know-irefweb-prwp}
-    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_iRefWeb_network_PRWP}
-\end{figure}
-\begin{figure}
-    \label{fig:know-irefweb-maa}
-    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_iRefWeb_network_MAA}
-\end{figure}
-\begin{figure}
-    \label{fig:exp-irefweb-prwp}
-    \includegraphics[width=15cm]{Distribution_of_p-value_from_experimental_genes_in_iRefWeb_network_PRWP}
-\end{figure}
-\begin{figure}
-    \label{fig:exp-irefweb-maa}
-    \includegraphics[width=15cm]{Distribution_of_experimental_genes_in_iRefWeb_network_MAA}
+    \label{fig:exp-iref-prwp}
+    \includegraphics[width=15cm]{prwp_experimental_split}
 \end{figure}
 \begin{figure}
     \label{fig:txt-cosmic-prwp}
-    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_COSMIC_cancer_network_PRWP}
-\end{figure}
-\begin{figure}
-    \label{fig:txt-cosmic-maa}
-    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_COSMIC_cancer_network_MAA}
+    \includegraphics[width=15cm]{prwp_txt_split_cosmic}
 \end{figure}
 \begin{figure}
     \label{fig:know-cosmic-prwp}
-    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_COSMIC_cancer_network_PRWP}
-\end{figure}
-\begin{figure}
-    \label{fig:know-cosmic-maa}
-    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_COSMIC_cancer_network_MAA}
+    \includegraphics[width=15cm]{prwp_know_split_cosmic}
 \end{figure}
 \begin{figure}
     \label{fig:exp-cosmic-prwp}
-    \includegraphics[width=15cm]{Distribution_of_p-value_in_experimental_genes_in_COSMIC_cancer_network_PRWP}
+    \includegraphics[width=15cm]{prwp_exp_split_cosmic}
+\end{figure}
+
+% maa
+\begin{figure}
+    \label{fig:txt-iref-maa}
+    \includegraphics[width=15cm]{maa_textmined_split}
+\end{figure}
+\begin{figure}
+    \label{fig:know-iref-maa}
+    \includegraphics[width=15cm]{maa_knowledge_split}
+\end{figure}
+\begin{figure}
+    \label{fig:exp-iref-maa}
+    \includegraphics[width=15cm]{maa_experimental_split}
+\end{figure}
+\begin{figure}
+    \label{fig:txt-cosmic-maa}
+    \includegraphics[width=15cm]{maa_txt_split_cosmic}
+\end{figure}
+\begin{figure}
+    \label{fig:know-cosmic-maa}
+    \includegraphics[width=15cm]{maa_know_split_cosmic}
 \end{figure}
 \begin{figure}
     \label{fig:exp-cosmic-maa}
-    \includegraphics[width=15cm]{Distribution_of_experimental_genes_in_COSMIC_cancer_network_MAA}
+    \includegraphics[width=15cm]{maa_exp_split_cosmic}
 \end{figure}
 
 \section{Comparison to known biomarkers}

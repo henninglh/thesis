@@ -19,6 +19,18 @@ GeneRank\cite{netrank,generank}. Not all of these PageRank variants are intended
 to be used with PPI networks, but they can in many cases be modified to fit this
 specific purpose.
 
+In Ranklust, the average score in the nodes becomes the cluster score. PageRank
+was used to combine prior knowledge of cancer genes and network structure to
+identify cancer candidate genes and clusters. Taking the structure of the
+network in higher consideration and maybe consider the distance between the
+nodes to have an effect on the result could be a contribution to the PageRank
+algorithm. Also, going the other way and increase the significance of the prior
+scores added to the nodes in the network could help to get a better segregated
+result of which clusters are related to cancer and not. For example, PRWP used
+an alpha value of 0.3 because of earlier experiments in ranking biological
+networks with PageRank had good results with it. What if the alpha value was set
+to 0.8 and give the prior scores in the node a higher degree of bias?
+
 \section{Minor features to complement Ranklust/clusterMaker2}
 A compiled list of all considered features and tweaks in the Ranklust
 contribution to clusterMaker2

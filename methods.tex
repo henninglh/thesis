@@ -1,7 +1,23 @@
 \part{Methods and implementation}
 \label{pa:methods}
 
-\chapter{Ranklust}
+\chapter{Cytoscape}
+\section{Intro}
+The \textit{clusterMaker2} documentation for implementing new parts that is not
+directly connected with clustering algorithms is non-existing. This part
+explains the details about how it was done.
+
+Cytoscape has a cookbook\cite{cytoscape-cookbook} listing a combination of best
+practices and tips on how to start developing an app, add menues, panels,
+algorithms, color schemes etc.. Instead of following all of these examples, we
+have read through the existing code in clusterMaker2\cite{cm2-github} and tried
+to structure the code of the contributions in Ranklust to match the structure
+already implementet in clusterMaker2. Meaning that for each algorithm
+implemented, they will all have a corresponding \textit{Factory} class and a
+\textit{Context class}. For the panel that was implemented, it has a pure panel
+class with Java Swing\cite{java-swing} settings, a panel task class, create
+panel task class and destroy panel task class. % Make UML!
+
 \section{Workflow and usage}
 The way researchers will work with Ranklust is pretty simple. Step 1 and 2 will
 only be required the first time the researcher want to use this app to solve
@@ -66,23 +82,6 @@ be gathered empirically through clinical research.
     \includegraphics[width=15cm]{12-rank-selection}
 \end{figure}
 
-\chapter{Cytoscape}
-\section{Intro}
-The \textit{clusterMaker2} documentation for implementing new parts that is not
-directly connected with clustering algorithms is non-existing. This part
-explains the details about how it was done.
-
-Cytoscape has a cookbook\cite{cytoscape-cookbook} listing a combination of best
-practices and tips on how to start developing an app, add menues, panels,
-algorithms, color schemes etc.. Instead of following all of these examples, we
-have read through the existing code in clusterMaker2\cite{cm2-github} and tried
-to structure the code of the contributions in Ranklust to match the structure
-already implementet in clusterMaker2. Meaning that for each algorithm
-implemented, they will all have a corresponding \textit{Factory} class and a
-\textit{Context class}. For the panel that was implemented, it has a pure panel
-class with Java Swing\cite{java-swing} settings, a panel task class, create
-panel task class and destroy panel task class. % Make UML!
-
 \section{Design}
 \begin{figure}[H]
     \caption{Ranklust ranking algorithm relations}
@@ -146,7 +145,7 @@ best.
 
 \section{App registration and java class connections}
 First step of registration is to register a \textit{service listener} to the
-already existing clusterMaker2 \textit{CyActivator}. Here we describe the name
+already existing clusterMaker2 \textit{CyActivator}. Here I describe the name
 of java methods in the \textit{clusterManager} class with strings. These two
 methods for adding and removing ranking algorithms registers and unregisters the
 algorithms to the \textit{App} menu in Cytoscape, making them accessible for the
@@ -254,53 +253,15 @@ has been run and the colors of each node has changed several times. This is
 probably related to the previous color style for the nodes and it will be fixed
 in the future.
 
-\chapter{Clustering} %% TODO: redundant
-The clustering algorithms used to produce the clusters to rank will be AP and
-MCL.
-
-The clustered network can be constructed with AP, a clustering algorithm
-\cite{affinity-propagation}. AP clustering concentrates on the nodes in the
-network that are binding the rest of them together. Using affinity propagation
-for clustering will produce results that represent a grouping of nodes that are
-coupled by seemingly unimportant nodes to most clustering algorithms. But the AP
-algorithm is good at expressing nodes that are not highly connected to many
-nodes, but rather the nodes that are binding other highly connected nodes
-together. This results in bigger clusters that can be a target for methods that
-cure cancer by severing the interaction between biomarker genes.
-
-It is also discussed how AP performs versus Markov clustering \cite{ap-vs-mcl}.
-And since Markov algorithm performs better on protein interaction, it will also
-be used to cluster the networks. An analysis between the rankings that come from
-the Markov and AP clusterings will be performed, which hopefully will give
-concrete results as to the pro's and con's of each algorithm. Some questions
-should be raised as the analysis is done. For example, is both of the algorithms
-good, but have different uses, even if they are not directly involved with the
-ranking done after the clustering?  Are either AP or Markov useless for
-a particular type of ranking afterwards?
-
-The information provided through the whole process from what type of nodes
-(protein or gene), interaction between the nodes and what kind of biomarker we
-want to identify are all factors that will have a great impact on how all of
-this should be combined. The order of operations on the network will also effect
-the result. For example, AP clustering may create a few big clusters and many
-small ones. At this stage, the results will consist of the biggest clusters
-constructed from AP clustering that has focus on pure connection between nodes
-and not their attributes. At this point, the cluster ranking algorithm of
-Ranklust will be run in order to produce a picture of potential biomarkers. This
-picture is the first and simplest step that will be used as a result for an
-analysis. The analysis in this thesis will focus on validating the cluster
-ranking scores as ways of indicating potential biomarkers. 
-
-\section{Clustering} %% TODO: redundant
-To cluster or not to cluster is the question here. PPI networks already have
-a great deal of edges and can be seen as clusters that we should not alter. On
-the other hand, using clustering algorithms to make clusters out of
-PPI-networks gives us the more control over the clusters and has the potential
-to identify protein complexes\cite{ap-vs-mcl}. How big they should be, how many
-of them we want, should we cluster on a certain attribute, or even several? We
-have chosen to go with the \textit{Markov Cluster}(MCL)\cite{mcl} clustering
-algorithm in \textit{clusterMaker2}, without any limitations to the amount of
-clusters. We prototyped Ranklust with \textit{Affinity
+\section{Clustering}
+PPI networks already have a great deal of edges, and can be seen as clusters
+that I should not alter. On the other hand, using clustering algorithms to make
+clusters out of PPI-networks gives us the more control over the clusters and has
+the potential to identify protein complexes\cite{ap-vs-mcl}. How big they should
+be, how many of them I want, should I cluster on a certain attribute, or even
+several? I have chosen to go with the \textit{Markov Cluster}(MCL)\cite{mcl}
+clustering algorithm in \textit{clusterMaker2}, without any limitations to the
+amount of clusters. We prototyped Ranklust with \textit{Affinity
 Propagation}(AP)\cite{affinity-propagation} because of its ease of use and low
 execution time, but it has been proven through a comparison between MCL and AP,
 that concluded with MCL having better performance in many aspects when it came
@@ -332,7 +293,7 @@ time in the edge table, it will only be scored additively once. This decision
 was based on simplicity. To not represent the edge as something the user did not
 define it as, or is unable to understand. Some clustering algorithms might
 assign the same node or edge to several clusters, though this is not the case
-with the algorithms we use in this thesis. Support for this is only implemented
+with the algorithms I use in this thesis. Support for this is only implemented
 by MAA and MAM, as they were implemented before a final decision on which
 clustering algorithms should be used. If MAA/MAM discovers this special case of
 several scores for a single node or edge, it will assign it the highest value.
@@ -348,7 +309,7 @@ the cluster through addition, MAM does it with multiplication.
 A problem that occurs with multiplication is calculating scores for clusters
 that contain nodes with a score between 0 and 1, since the score would decrease
 to such a degree that it would be difficult to work with when normalizing the
-scores. The solution we have chosen for this is to make a new score from the
+scores. The solution I have chosen for this is to make a new score from the
 old score, and add 1.0 to it. This way, when the existing average score in the
 cluster is multiplied with the new score, it will always increase, unless the
 old value was 0.0, then it will stay the same. In the case of values above 1,
@@ -457,7 +418,7 @@ The result is both a lookup, insertion and deletion time of O(1). These times is
 as low as the Big-O notation goes in terms of speed related to the size of
 a collection inside a data structure. So both the creation of objects goes
 down, and the retrieval of attribute information is as low as it is possible to
-get, when we choose to represent the time by Big-O notation. The only drawback
+get, when I choose to represent the time by Big-O notation. The only drawback
 with this implementation is that there is no current type of wrapper around the
 row and column system. So the retrieval of information is not done the most
 intuitive way. But this is the way Cytoscape works as a whole, so changing the
@@ -554,12 +515,11 @@ table of Cytoscape.
     \item Create single node score from cluster
 \end{enumerate}
 
-\chapter{Interpreting Ranklust results}
-This was done solely by Python scripting, from formatting the data retrieved
-from databases in order to construct networks in Cytoscape, to cleaning the
-results exported from Ranklust, and analyzing the cleaned data.
 
-\section{Network creation}
+\chapter{Data pre- and post-work}
+\section{Before using Ranklust}
+\subsection{Network creation}
+%iRefWeb network
 The network was created with protein interaction data from iRefWeb
 \cite{irefweb}. 
 
@@ -571,5 +531,84 @@ The network was created with protein interaction data from iRefWeb
 \end{figure}
 
 % change this from MITAB to MITAB-MINI!!!
-It was downloaded in the MITAB format 
+It was downloaded in the MITAB-MINI format. A python script cleaned up the file,
+leaving only the aliases for the source and target proteins. This result was
+matched up against genes from HGNC. The HGNC data represents genes, and their
+protein product. This way, the network would consist of genes instead of
+proteins. This conversion was done in order to compare the end results from
+ranking the clusters with genes that has connections to prostate cancer.
+A criteria for the interactions retrieved from iRefWeb when converted from
+proteins to genes was that both the source and target protein had to have
+a match in the HGNC data, to not create any combinations of gene to protein or
+protein to gene interactions. Duplicate interactions was not taken care of and
+they did not occur in the network file either.
+% Results: ended up with 60% perturbation on interactions
+
+% COSMIC network
+A network with only prostate cancer related genes from COSMIC % source!
+was constructed with interaction information from the iRefWeb network. This
+network was much smaller. %better formulation!
+The COSMIC network was created and ranked to see how ranking a network with only
+prostate cancer relevant genes would result in when data from jensen was used to
+compare it to a much larger and generalized network. Filtering the genes from
+COSMIC was done the same way as filtering the scores for the genes; using only
+the COSMIC genes that contained genes from both ends, source and target gene, of an interaction in the
+network.
+
+\subsection{Score creation}
+The golden standard for scoring that I used was created by data from DisGenet %SOURCE
+and Dragon. %SOURCE
+
+The DisGen data came with decimal scores from 0 to 1 and contained data about
+several diseases, not only prostate cancer. Therefore, the disgen data had to be
+filtered for prostate cancer relevant scores. However, the data from Dragon did
+not have any scores and was just a list with genes relevant to prostate cancer.
+To combine the two lists, the dragon scores had to be converted to match the
+disgen scores. The method for converting the scores was to let the disgen scores
+be left as they were and try to add scores to the genes from the dragon data
+list. An average was created from the maximum and minimum value from the disgen
+scores. Then some sort of "sane" max value was created by adding the average to
+a quarter of the value of the average value subtracted from the maximum value.
+This created a final value between the average and maximum value that all of the
+Dragon genes received. The dragon genes receives on average a higher score than
+the disgenet genes because of the way the lists are constructed. Dragon has no
+score, therefore they signalize a proof of relevance to prostate cancer, while
+disgenet has a score for how relevant the gene may be.
+
+Finally, this golden standard of scores was filtered by removing any genes that
+did not occur in the network. Because of the cross-validation performed after
+the ranking of the clusters, the scores could not contain any genes not in the
+network in order to not remove genes from the files with scores that would not
+occur in the network. This would have resulted in a cross-validation where
+a 100\% match never could happen.
+
+\subsection{Creating scores for cross-validation}
+A form of cross-validatino was performed to assess how the ranking algorithms
+performed alone and compared to each other. A random 10\% of the genes used for
+scoring was removed. Though, the amount of genes removed was not totally
+random. There was set a rule that every cluster that contained genes with
+a score from the golden standard, had to end up with keeping atleast 1 of those
+genes. So in a cluster of 4, where 2 of them were scored in the golden standard,
+that cluster could only lose 1 of those scored genes when the 10\% was removed.
+Had this rule not been applied to the cross-validation, there would not be
+a guarantee that 100\% of the removed genes would be found as candidate genes.
+For MAA ranking, it would be impossible, and for PRWP it would be possible, but
+much less likely to find them. This is due to the simple fact that clusters that
+go from having weighted nodes (genes), to having no weighted genes, should not
+be ranked very high. The point of having weights is to rely on prior information
+about cancer relation in genes and find cancer candidate gene clusters by
+applying reason for "guilt-by-association" to the genes that are not weighted.
+
+\section{After running Ranklust}
+\subsection{Exporting the data}
+The data from performing Ranklust on the networks was exported as node tables
+through Cytoscape. These tables contains information about each node, but not
+any information about the edges. The scores added to the networks to rank them
+did not involve any edge information, and for both of the algorithms used, MAA
+and PRWP, the scores calculated is stored in the cluster, so there was no use at
+this point to use the edges to find the cancer candidate genes.
+
+Interpreting these results was done solely by Python scripting, from formatting
+the data retrieved from databases in order to construct networks in Cytoscape,
+to cleaning the results exported from Ranklust, and analyzing the cleaned data. 
 
