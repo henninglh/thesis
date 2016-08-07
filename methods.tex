@@ -517,6 +517,10 @@ table of Cytoscape.
 
 
 \chapter{Data pre- and post-work}
+Interpreting these results was done solely by Python scripting, from formatting
+the data retrieved from databases in order to construct networks in Cytoscape,
+to cleaning the results exported from Ranklust, and analyzing the cleaned data. 
+
 \section{Before using Ranklust}
 \subsection{Network creation}
 %iRefWeb network
@@ -607,8 +611,4 @@ any information about the edges. The scores added to the networks to rank them
 did not involve any edge information, and for both of the algorithms used, MAA
 and PRWP, the scores calculated is stored in the cluster, so there was no use at
 this point to use the edges to find the cancer candidate genes.
-
-Interpreting these results was done solely by Python scripting, from formatting
-the data retrieved from databases in order to construct networks in Cytoscape,
-to cleaning the results exported from Ranklust, and analyzing the cleaned data. 
 
