@@ -523,7 +523,6 @@ to cleaning the results exported from Ranklust, and analyzing the cleaned data.
 
 \section{Before using Ranklust}
 \subsection{Network creation}
-%iRefWeb network
 The network was created with protein interaction data from iRefWeb
 \cite{irefweb}. 
 
@@ -534,7 +533,7 @@ The network was created with protein interaction data from iRefWeb
     \includegraphics[width=15cm]{mitab_lite_109276}
 \end{figure}
 
-% change this from MITAB to MITAB-MINI!!!
+\subsubsection{iRefWeb}
 It was downloaded in the MITAB-MINI format. A python script cleaned up the file,
 leaving only the aliases for the source and target proteins. This result was
 matched up against genes from HGNC. The HGNC data represents genes, and their
@@ -546,22 +545,21 @@ proteins to genes was that both the source and target protein had to have
 a match in the HGNC data, to not create any combinations of gene to protein or
 protein to gene interactions. Duplicate interactions was not taken care of and
 they did not occur in the network file either.
-% Results: ended up with 60% perturbation on interactions
 
-% COSMIC network
-A network with only prostate cancer related genes from COSMIC % source!
-was constructed with interaction information from the iRefWeb network. This
-network was much smaller. %better formulation!
-The COSMIC network was created and ranked to see how ranking a network with only
-prostate cancer relevant genes would result in when data from jensen was used to
-compare it to a much larger and generalized network. Filtering the genes from
-COSMIC was done the same way as filtering the scores for the genes; using only
-the COSMIC genes that contained genes from both ends, source and target gene, of an interaction in the
-network.
+\subsubsection{COSMIC}
+A network with only prostate cancer related genes from
+COSMIC\cite{cosmic-download} was constructed with interaction information from
+the iRefWeb network. This network was much smaller in terms of both nodes and
+edges (interactions). The COSMIC network was created and ranked to see how
+ranking a network with only cancer relevant genes would result in when data from
+jensen was used to compare it to a much larger and generalized network.
+Filtering the genes from COSMIC was done the same way as filtering the scores
+for the genes; using only the COSMIC genes that contained genes from both ends,
+source and target gene, of an interaction in the network.
 
 \subsection{Score creation}
-The golden standard for scoring that I used was created by data from DisGenet %SOURCE
-and Dragon. %SOURCE
+The golden standard for scoring that I used was created by data from
+DisGenet\cite{disgenet} and Dragon\cite{dragon}.
 
 The DisGen data came with decimal scores from 0 to 1 and contained data about
 several diseases, not only prostate cancer. Therefore, the disgen data had to be
@@ -574,7 +572,7 @@ list. An average was created from the maximum and minimum value from the disgen
 scores. Then some sort of "sane" max value was created by adding the average to
 a quarter of the value of the average value subtracted from the maximum value.
 This created a final value between the average and maximum value that all of the
-Dragon genes received. The dragon genes receives on average a higher score than
+dragon genes received. The dragon genes receives on average a higher score than
 the disgenet genes because of the way the lists are constructed. Dragon has no
 score, therefore they signalize a proof of relevance to prostate cancer, while
 disgenet has a score for how relevant the gene may be.
@@ -587,28 +585,131 @@ occur in the network. This would have resulted in a cross-validation where
 a 100\% match never could happen.
 
 \subsection{Creating scores for cross-validation}
-A form of cross-validatino was performed to assess how the ranking algorithms
-performed alone and compared to each other. A random 10\% of the genes used for
-scoring was removed. Though, the amount of genes removed was not totally
-random. There was set a rule that every cluster that contained genes with
-a score from the golden standard, had to end up with keeping atleast 1 of those
-genes. So in a cluster of 4, where 2 of them were scored in the golden standard,
-that cluster could only lose 1 of those scored genes when the 10\% was removed.
-Had this rule not been applied to the cross-validation, there would not be
-a guarantee that 100\% of the removed genes would be found as candidate genes.
-For MAA ranking, it would be impossible, and for PRWP it would be possible, but
-much less likely to find them. This is due to the simple fact that clusters that
-go from having weighted nodes (genes), to having no weighted genes, should not
-be ranked very high. The point of having weights is to rely on prior information
-about cancer relation in genes and find cancer candidate gene clusters by
-applying reason for "guilt-by-association" to the genes that are not weighted.
+A form of cross-validation was performed to assess how the ranking algorithms
+performed alone and compared to each other. Creating the cross-validation scored
+data sets required information about the clusters. Running MCL clustering on the
+network and then export the node table in Cytoscape created the cluster basis
+needed. From these clusters, it was possible to identify which clusters
+contained scores that could be removed during cross-validation. A random 10\%
+of the genes used for scoring was removed. Though, the amount of genes removed
+was not totally random. There was set a rule that every cluster that contained
+genes with a score from the golden standard, had to end up with keeping atleast
+1 of those genes. So in a cluster of 4, where 2 of them were scored in the
+golden standard, that cluster could only lose 1 of those scored genes when the
+10\% was removed. Had this rule not been applied to the cross-validation, there
+would not be a guarantee that 100\% of the removed genes would be found as
+candidate genes. For MAA ranking, it would be impossible, and for PRWP it would
+be possible, but much less likely to find them. This is due to the simple fact
+that clusters that go from having weighted nodes (genes), to having no weighted
+genes, should not be ranked very high. The point of having weights is to rely on
+prior information about cancer relation in genes and find cancer candidate gene
+clusters by applying reason for "guilt-by-association" to the genes that are not
+weighted.
+
+Executing a cross-validation on the iRefWeb with PRWP and MAA rankings had two
+purposes. The first being to prove the fact that every gene that had its prior
+score removed by the cross-validation, should be found in the results of the
+cluster ranking and identified as candidate biomarkers. 
+
+The second purpose was to analyze the distribution of the genes with prior
+scores removed by the cross-validation in terms of how they placed in the
+cluster ranking. The analysis of this distribution was done by dividing the
+amount of genes removed by cross-validation in a cluster by the total amount of
+genes i the same cluster. This operation was repeated for every cluster in the
+ranking, resulting in a distribution of the average amount of genes removed by
+cross-validation, that was detected by Ranklust together with post-processing of
+data, as cancer candidate biomarkers. A distinct descending distribution from
+high to low ranked clusters will indicate that most of the genes, with a prior
+score of their relevance to prostate cancer, was ranked in a way that achieved
+the goal of Ranklust; ranking clusters in biological network according to
+network structure and prior knowledge of relevance to diseases.
 
 \section{After running Ranklust}
 \subsection{Exporting the data}
 The data from performing Ranklust on the networks was exported as node tables
 through Cytoscape. These tables contains information about each node, but not
-any information about the edges. The scores added to the networks to rank them
-did not involve any edge information, and for both of the algorithms used, MAA
-and PRWP, the scores calculated is stored in the cluster, so there was no use at
-this point to use the edges to find the cancer candidate genes.
+any information about the edges. The scores added to the networks did not
+involve any edge information, and for both of the algorithms used, MAA and PRWP,
+the calculated scores are stored in the cluster, so there was no use at this
+point to use the information in the edge table to find the cancer candidate
+genes.
 
+\subsection{Cleaning the data}
+Cleaning the data was done in Python with its table manipulation library,
+Pandas\cite{pandas}. The cleaning removed unnecessary data from the node table
+files from exported from Cytoscape. The data still represents the same before
+and after the cleaning, the difference is that the cleaned version is has tab
+separated data, for better visual interpretation and it has less columns.
+
+\textbf{Before cleaning:}
+\begin{verbatim}
+"SUID","__mclCluster","name","PRWP","PRWP_single","score","selected","shared name"
+"72","25","FAM160B1","0.04478373407949736","7.818032875772688E-4",,"false","FAM160B1"
+"73","6","APOPT1","0.04119274479140687","9.848244844960219E-4",,"false","APOPT1"
+"74","6","FAM84A","0.04119274479140687","9.848244844960219E-4",,"false","FAM84A"
+\end{verbatim}
+
+\textbf{After cleaning:}
+\begin{verbatim}
+__mclCluster	name	PRWP	score	PRWP_single
+1136.0	CDC25C	1.0	0.272714418721	0.225926983193
+1136.0	LZTS1	1.0	0.122995792115	0.197642927074
+690.0	CREB3L4	0.918902810704	0.272714418721	0.189744545774
+690.0	SCX	0.918902810704	0.0	0.102170140032
+\end{verbatim}
+
+\begin{itemize}
+    \item \_\_mclCluster
+        \begin{itemize}
+            \item Which cluster the gene/node in this row belongs to
+        \end{itemize}
+    \item name
+        \begin{itemize}
+            \item The HGNC representation of this gene/node
+        \end{itemize}
+    \item PRWP 
+        \begin{itemize}
+            \item The score of the cluster to this gene/node belongs to
+        \end{itemize}
+    \item score 
+        \begin{itemize}
+            \item The prior score assigned to this gene/node
+        \end{itemize}
+    \item PRWP\_single
+        \begin{itemize}
+            \item The PageRank score assigned to this gene/node (not a column in MAA)
+        \end{itemize}
+\end{itemize}
+
+\subsection{Recreate the clusters}
+The cleaned data was then aggregated into clusters represented in text format.
+
+\textbf{Combined clusters:}
+\begin{verbatim}
+clusters	score	genes
+1136	1.0	LZTS1:0.122995792115,CDC25C:0.272714418721
+690	0.918902810704	SOX9:0.272714418721,SCX:0.0,CREB3L4:0.272714418721
+1004	0.758524309337	MMP14:0.272714418721,MMP13:0.12
+\end{verbatim}
+
+Here, the \textit{clusters}-column are the unique identifier, and not the
+\textit{HGNC} identifier or the \textit{SUID}from the previous data. The score
+column does not represent the same data as before, but rather the same as the
+PRWP column displayed in the cleaning examples, the total score of the cluster.
+The genes column is double separated. The column itself is tab separated from
+the other columns, the genes in it is separated with commas and the prior scores
+belonging to each gene is delimited by a colon. This column represents all of
+the genes in the cluster and aids in distinguishing the already proven
+biomarkers for cancer, and the ones that is not.
+
+\subsection{Cross-validation comparison}
+Both PRWP and MAA had 10 cross-validated results each. Each individual result
+from both of the algorithms was compared with the non-cross-validated result
+created by each of the algorithms. This procedure is done to identify the
+candidate biomarkers.
+
+\subsection{Comparing with other testdata}
+
+\section{Plot creation}
+\subsection{Cross-validatinon}
+\subsection{Other testdata}
