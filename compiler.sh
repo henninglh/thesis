@@ -1,2 +1,2 @@
 #!/bin/bash
-pdflatex --shell-escape thesis && biber thesis && pdflatex -shell-escape thesis && pdflatex -shell-escape thesis.tex
+pdflatex --shell-escape thesis && makeglossaries thesis && biber thesis && pdflatex -shell-escape thesis && pdflatex -shell-escape thesis.tex

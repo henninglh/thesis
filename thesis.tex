@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc, url}
 \usepackage{graphicx,babel,csquotes,textcomp,varioref,float}
 \usepackage[backend=biber,style=numeric-comp,sorting=nyt,maxbibnames=20,maxcitenames=20]{biblatex}
+\usepackage[toc]{glossaries}
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{parskip}
@@ -22,6 +23,42 @@
     stringstyle=\color{red},
     commentstyle=\color{olive},
     keepspaces=true
+}
+
+\makeglossaries
+\newglossaryentry{golden}
+{
+    name=golden standard,
+    description={The prior scoring standard evolved from the DisGeNet and Dragon
+    Database of Genes associated with Prostate Cancer}
+}
+\newglossaryentry{maa}
+{
+    name=MAA,
+    description={The Multiple Attribute Additive method described to score
+    clusters}
+}
+\newglossaryentry{mam}
+{
+    name=MAM,
+    description={The Multiple Attribute Multiplicative method described to score
+    clusters}
+}
+\newglossaryentry{pr}
+{
+    name=PR,
+    description={The PageRank method described to score clusters}
+}
+\newglossaryentry{prwp}
+{
+    name=PRWP,
+    description={The PageRank With Priors method described to score clusters}
+}
+\newglossaryentry{hits}
+{
+    name=HITS,
+    description={The Hyperlink-Induced Topic Search method described to score
+    clusters}
 }
 
 \title{Ranklust}
@@ -60,5 +97,6 @@ candidate biomarkers, through ranking clusters in Protein-Protein Networks
 \include{appendix}
 
 \backmatter{}
+\printglossaries
 \printbibliography
 \end{document}
