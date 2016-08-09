@@ -23,11 +23,40 @@ panel task class and destroy panel task class.
 % TODO: Describe the installation process of compiling with maven and putting it
 % in CytoscapeConfiguration/3/apps/installed/clusterMaker2-1.0.0.jar
 
+At the moment, clusterMaker2 does not officially contain Ranklust. So in order
+to use Ranklust, the user are required to compile the Java source code or
+download the updated JAR-file\cite{jar}(URL:
+https://github.com/henninglh/ranklust-app/ranklust-1.0.0.jar) . To build this
+whole project I have used Maven as a build tool\cite{maven}. To compile the
+project into an executable JAR-file Cytoscape can use, \gls{maven} has to be
+instructed to skip all tests, because the current tests has compilation errors.
+\textbf{Skipping tests with maven:}
+\begin{verbatim}
+mvn clean install -Dmaven.test.skip
+\end{verbatim}
+
+The JAR-file that is being produced after the line over is executed in
+a terminal or through the build tool of an \gls{ide}. This file has to be put in
+the configuration folder of Cytoscape. The location of the configuration folder
+can vary across operative systems and Cytoscape versions, but the Cytoscape
+version 3.4.0 follows this path:
+\begin{verbatim}
+<user home folder>/CytoscapeConfiguration/3/apps/installed/<put the jar here>
+\end{verbatim}
+
+After this step is done, the user can start up Cytoscape and should be able to
+Ranklust.
+
+%The last time it
+%was built was right after test units had been added to the clusterMaker2
+%project. These test units prevented the whole project from compiling and
+%required a refactor of the project structure and launch options. The test structure went from 
+
 \subsection{Researcher workflow}
-The way researchers will work with Ranklust is pretty simple. Step 1 and 2 will
-only be required the first time the researcher want to use this app to solve
-his/her problem. The rest has to be done every time, unless a previous session
-of Cytoscape is loaded with more developed results.
+The way researchers can use Ranklust is pretty simple. Step 1 and
+2 will only be required the first time the researcher want to use this app to
+  solve his/her problem. The rest has to be done every time, unless a previous
+  session of Cytoscape is loaded with more developed results.
 
 \begin{enumerate}
     \item Install Cytoscape
