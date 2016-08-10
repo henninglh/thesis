@@ -1,7 +1,8 @@
-\part{Conclusion}
-\label{pa:conclusion}
-\chapter{Future work}
-\section{General improvements}
+\part{Discussion and conclusion}
+\label{pa:disconc}
+\chapter{Discussion}
+\section{Future work}
+\subsection{General improvements}
 We have used an undirected network, which is not the preferred type to use with
 PageRank, but it works. An idea could be to use KEGG pathways\cite{kegg}, which
 has the option of downloading directed networks of several types.
@@ -31,7 +32,7 @@ an alpha value of 0.3 because of earlier experiments in ranking biological
 networks with PageRank had good results with it. What if the alpha value was set
 to 0.8 and give the prior scores in the node a higher degree of bias?
 
-\section{Minor features to complement Ranklust/clusterMaker2}
+\subsection{Minor features to complement Ranklust/clusterMaker2}
 A compiled list of all considered features and tweaks in the Ranklust
 contribution to clusterMaker2
 
@@ -40,7 +41,7 @@ contribution to clusterMaker2
         for the graph
 \end{itemize}
 
-\section{Ranking through Neo4J}
+\subsection{Ranking through Neo4J}
 ClusterMaker2 does every calculation within Cytoscape. There exists another way
 of doing large and complex calculations, especially when it comes to algorithms
 that focus on edge information in the network. CyNeo4j\cite{cyneo4j} is
@@ -99,3 +100,5 @@ because through this whole process of importing and exporting data from and to
 Neo4J, GraphML has shown itself to be a superior format over Cypher. Though, to
 this day, direct queries to a running Neo4J instance has to be done in Cypher,
 and is not possible in GraphML.
+
+\chapter{Conclusion}
