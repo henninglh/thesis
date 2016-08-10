@@ -1,6 +1,30 @@
 \part{Discussion and conclusion}
-\label{pa:disconc}
+\label{pa:conclusion}
 \chapter{Discussion}
+\section{Network handling}
+If the whole network could receive a change in a single aspect that would make
+for a better network to rank clusters in, it would be the direction of the
+edges. The ranking algorithms used can all come to useful results with
+undirected edges, but directed edges take better advantage of how \gls{pr},
+\gls{prwp}, \gls{hits} are meant to be used.
+
+\subsection{Clustering}
+The clusters could to a greater degree have been filtered more strictly. The
+average cluster size was around 8.8 nodes, the biggest cluster consisted if over
+900 nodes, and the smallest ones were 2.0 nodes in size. Removing the smaller
+clusters with only 2 genes has been done by other researchers because of the low
+likeliness of a protein complex with only 2 genes to have a significant impact
+on disease status. The biggest cluster might also be removed due to its large
+size when compared to the average. Such a large cluster has a good chance of not
+being realisticly compartmentalized into a protein complex, and can skew the
+results in either the direction of false positives or false negatives.
+
+\subsection{Ranking}
+Ranking the cluster-created network could have been done instead of or
+complimentary to the network which only received cluster attributes as a sign
+of clustering, and had no perturbation of the edges as a result of clustering.
+The most optimal situation would be to have 
+
 \section{Future work}
 \subsection{General improvements}
 We have used an undirected network, which is not the preferred type to use with

@@ -59,7 +59,7 @@ The second purpose was to analyze the distribution of the genes with prior
 scores removed by the cross-validation in terms of how they placed in the
 cluster ranking. The analysis of this distribution was done by dividing the
 amount of genes removed by cross-validation in a cluster by the total amount of
-genes i the same cluster. This operation was repeated for every cluster in the
+genes in the same cluster. This operation was repeated for every cluster in the
 ranking, resulting in a distribution of the average amount of genes removed by
 cross-validation, that was detected by Ranklust together with post-processing of
 data, as cancer candidate biomarkers. A distinct descending distribution from
@@ -87,6 +87,16 @@ the cluster, the more candidate cancer genes the cluster had.
 This plot is developed from the 10 random cross-validatioon runs ranked with
 MAA.  The results from this cross-validation shows that the higher the rank of
 the cluster, the more candidate cancer genes the cluster had.
+
+\subsection{PRWP versus MAA}
+The values in \gls{prwp} have a tighter coupling, in other words, the distance
+the coordinates have in the scatter plot deviate less from the fit than the ones
+in the \gls{maa} plot. The difference is not huge as the coefficient of
+determination indicates, 0.336 in \gls{prwp} against 0.332 in \gls{maa}. Both
+ranking algorithms achieves a descending distribution of cross-validated genes
+from the topmost to the lowest ranked cluster. But when comparing the
+cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
+ahead by a margin in \gls{rsquared} value.
 
 \section{Benchmarks}
 % prwp
