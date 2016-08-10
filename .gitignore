@@ -9,3 +9,7 @@
 *.toc
 *.bcf
 *.bbl
+*.glg
+*.glo
+*.gls
+*.ist
