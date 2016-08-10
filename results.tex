@@ -114,44 +114,101 @@ cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
 ahead by a margin in \gls{rsquared} value.
 
 \section{Benchmarks}
+In all of the upcoming plots of benchmarks, blue will represent prostate cancer
+biomarkers from the \gls{golden} and orange represent prostate candidate cancer
+biomarkers. The benchmarks are all based on prostate cancer data queried from
+the \gls{jensen} database\cite{jensen}. The database has a hierarchy based
+definition of diseases, so filtering the data on an insensitive-case "prostate
+cancer"-query with the UNIX grep tool\cite{grep} retrieved all of the genes used
+for the benchmark.
 
-% prwp
+The average z-values in the clusters are split among 2 categories as mentioned
+above. The z-values of the prostate candidate cancer genes in a cluster is
+calculated from the average of all of them. The same procedure was done for the
+z-values of the prostate cancer genes.
+
 \subsection{Text mined and scored with z-values}
+These next z-value scored plots represents text mined gene results from the
+\gls{jensen} database.
+
 \begin{figure}[H]
     \label{fig:txt-iref-prwp}
     \includegraphics[width=15cm]{prwp_textmined_split}
     \caption{Average distribution of z-scores in clusters ranked by PRWP.}
 \end{figure}
+For \gls{prwp}, the prostate cancer candidate genes is descending in z-values
+from the topmost ranked cluster to the lowest, which is contributing to
+showing \gls{prwp}s suitability for ranking clusters as candidate biomarkers. 
+
+The prostate candidate cancer biomarkers are ascending in z-value from the
+topmost to the lowest ranked cluster. High z-values would contribute to the fact
+that ranklust has found actual prostate candidate cancer biomarkers. However,
+a low z-values does not contradict it. The only fact to deduce from low z-values
+is that they have not been examinated to the degree that they are not mentioned
+in papers related to prostate cancer.
+
 \begin{figure}[H]
     \label{fig:txt-iref-maa}
     \includegraphics[width=15cm]{maa_textmined_split}
     \caption{Average distribution of z-scores in clusters ranked by MAA.}
 \end{figure}
+For \gls{maa}, the prostate cancer genes have the same distinct descension in
+z-values from the topmost to the lowest cluster ranks. The difference from
+\gls{prwp} to \gls{maa} being that \gls{maa} has a more distinct ascending
+linear regresstion fit for the z-values in the prostate candidate cancer genes.
+
+This demonstrates the main difference between \gls{prwp} and \gls{maa}.
+\gls{prwp} takes network structure into comparison as well as the prior scores.
+\gls{maa} focuses purely on the prior scores, and so the network structure of
+protein complexes are being completely ignored.
 
 \subsection{Knowledge curated distribution of genes}
+This data had no score except for a confidence score in the \gls{jensen}
+database. Due to the low grade of distinctiveness between the different genes in
+the database, the average amount of genes in a cluster would receive a knowledge
+score based on if the gene occurs in the knowledge curated part of the
+\gls{jensen} database or not. So the knowledge curated data is only based on
+occurence, and not a specific value, in contrast to the text mined and
+experimentally mined genes in the database.
+
+Another trait the knowledge curated data posssesses is the amount entries in the
+\gls{jensen} database that has. Text mined data can be seen as the
+high-throughput technology of retrieving relevant data from papers, while the
+knowledge curated data is manually curated by researchers. This is why the
+amount of entries for knowledge curated data is so low when compared to text
+mined data.
+
 \begin{figure}[H]
     \label{fig:know-iref-prwp}
     \includegraphics[width=15cm]{prwp_knowledge_split}
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by PRWP.}
 \end{figure}
+-- PRWP knowledge curated data discussion --
+
 \begin{figure}[H]
     \label{fig:know-iref-maa}
     \includegraphics[width=15cm]{maa_knowledge_split}
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by MAA.}
 \end{figure}
+-- MAA knowledge curated data discussion --
+
 \subsection{Experimental mined genes distribution of p-values in genes}
 \begin{figure}[H]
     \label{fig:exp-iref-prwp}
     \includegraphics[width=15cm]{prwp_experimental_split}
     \caption{Average distribution of p-values in clusters ranked by PRWP.}
 \end{figure}
+-- PRWP experimentally mined data discussion --
+
 \begin{figure}[H]
     \label{fig:exp-iref-maa}
     \includegraphics[width=15cm]{maa_experimental_split}
     \caption{Average distribution of p-values in clusters ranked by MAA.}
 \end{figure}
+-- MAA experimentally mined data discussion --
+
 
 \section{Comparison to known biomarkers}
 -- Tests from Movember data etc. --
