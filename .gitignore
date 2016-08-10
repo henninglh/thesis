@@ -13,3 +13,6 @@
 *.glo
 *.gls
 *.ist
+ifi-*.pdf
+Doc/*
+lib/*

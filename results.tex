@@ -69,29 +69,44 @@ the goal of Ranklust; ranking clusters in biological network according to
 network structure and prior knowledge of relevance to diseases.
 
 \subsection{Cross-validation in PRWP}
-\begin{figure}[H]
+\hspace*{-1cm}\begin{figure}[H]
     \label{fig:irefweb-prwp}
-    \includegraphics[scale=0.4]{cv_dist_total_filtered_prwp}
+    \includegraphics[scale=0.6]{cv_dist_total_filtered_prwp}
     \caption{Cross-validation distribution in clusters (PRWP)}
 \end{figure}
-This plot is developed from the 10 random cross-validation runs ranked with
-PRWP. The results from this cross-validation shows that the higher the rank of
-the cluster, the more candidate cancer genes the cluster had.
+This plot \ref{fig:irefweb-prwp} is developed from the 10 random
+cross-validation runs ranked with PRWP. The results from this cross-validation
+shows that the higher the rank of the cluster, the more candidate cancer genes
+the cluster had.
 
 \subsection{Cross-validation in MAA}
-\begin{figure}[H]
+\hspace*{-1cm}\begin{figure}[H]
     \label{fig:irefweb-maa}
-    \includegraphics[scale=0.4]{cv_dist_total_filtered_maa}
+    \includegraphics[scale=0.6]{cv_dist_total_filtered_maa}
     \caption{Cross-validation distribution in clusters (MAA)}
 \end{figure}
-This plot is developed from the 10 random cross-validatioon runs ranked with
-MAA.  The results from this cross-validation shows that the higher the rank of
-the cluster, the more candidate cancer genes the cluster had.
+This plot \ref{fig:irefweb-maa} is developed from the 10 random
+cross-validatioon runs ranked with MAA. The results from this cross-validation
+shows that the higher the rank of the cluster, the more candidate cancer genes
+the cluster had.
 
 \subsection{PRWP versus MAA}
+There is clearly a trend in both \gls{prwp} and \gls{maa}. The difference
+between them being mainly the amount of clusters found and the coupling of
+values around the linear regression fit. It is important to point out that this
+is just a result over the distribution of candidate cancer genes at certain
+ranks. Where the clusters resides in the rankings may be very different between
+the \gls{prwp}} and \gls{maa}.
+
+The fact that both of the ranking algorithms managed to get a descending amount
+of prostate candidate cancer genes in the clusters, which was cross-validated
+from the same \gls{golden} priors, indicates that a certain similarity of what
+was mentioned in the previous paragraph. The similarity implicated here is how
+different the ranking of the clusters are between \gls{prwp} and \gls{maa}.
+
 The values in \gls{prwp} have a tighter coupling, in other words, the distance
 the coordinates have in the scatter plot deviate less from the fit than the ones
-in the \gls{maa} plot. The difference is not huge as the coefficient of
+in the \gls{maa} plot. The difference is not huge, as the coefficient of
 determination indicates, 0.336 in \gls{prwp} against 0.332 in \gls{maa}. Both
 ranking algorithms achieves a descending distribution of cross-validated genes
 from the topmost to the lowest ranked cluster. But when comparing the
@@ -99,70 +114,47 @@ cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
 ahead by a margin in \gls{rsquared} value.
 
 \section{Benchmarks}
+
 % prwp
-\subsection{Ranked with PRWP}
-\begin{figure}
+\subsection{Text mined and scored with z-values}
+\begin{figure}[H]
     \label{fig:txt-iref-prwp}
     \includegraphics[width=15cm]{prwp_textmined_split}
     \caption{Average distribution of z-scores in clusters ranked by PRWP.}
 \end{figure}
-\begin{figure}
+\begin{figure}[H]
+    \label{fig:txt-iref-maa}
+    \includegraphics[width=15cm]{maa_textmined_split}
+    \caption{Average distribution of z-scores in clusters ranked by MAA.}
+\end{figure}
+
+\subsection{Knowledge curated distribution of genes}
+\begin{figure}[H]
     \label{fig:know-iref-prwp}
     \includegraphics[width=15cm]{prwp_knowledge_split}
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by PRWP.}
 \end{figure}
-\begin{figure}
-    \label{fig:exp-iref-prwp}
-    \includegraphics[width=15cm]{prwp_experimental_split}
-    \caption{Average distribution of p-values in clusters ranked by PRWP.}
-\end{figure}
-%\begin{figure}
-%    \label{fig:txt-cosmic-prwp}
-%    \includegraphics[width=15cm]{prwp_txt_split_cosmic}
-%    \caption{Average distribution of z-scores in clusters ranked by MAA.}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:know-cosmic-prwp}
-%    \includegraphics[width=15cm]{prwp_know_split_cosmic}
-%    \caption{Average distribution of curated knowledge mined genes in clusters
-%    ranked by MAA.}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:exp-cosmic-prwp}
-%    \includegraphics[width=15cm]{prwp_exp_split_cosmic}
-%    \caption{Average distribution of p-values in clusters ranked by MAA.}
-%\end{figure}
-\subsection{Ranked with MAA}
-% maa
-\begin{figure}
-    \label{fig:txt-iref-maa}
-    \includegraphics[width=15cm]{maa_textmined_split}
-    \caption{Average distribution of z-scores in clusters ranked by MAA.}
-\end{figure}
-\begin{figure}
+\begin{figure}[H]
     \label{fig:know-iref-maa}
     \includegraphics[width=15cm]{maa_knowledge_split}
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by MAA.}
 \end{figure}
-\begin{figure}
+\subsection{Experimental mined genes distribution of p-values in genes}
+\begin{figure}[H]
+    \label{fig:exp-iref-prwp}
+    \includegraphics[width=15cm]{prwp_experimental_split}
+    \caption{Average distribution of p-values in clusters ranked by PRWP.}
+\end{figure}
+\begin{figure}[H]
     \label{fig:exp-iref-maa}
     \includegraphics[width=15cm]{maa_experimental_split}
     \caption{Average distribution of p-values in clusters ranked by MAA.}
 \end{figure}
-%\begin{figure}
-%    \label{fig:txt-cosmic-maa}
-%    \includegraphics[width=15cm]{maa_txt_split_cosmic}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:know-cosmic-maa}
-%    \includegraphics[width=15cm]{maa_know_split_cosmic}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:exp-cosmic-maa}
-%    \includegraphics[width=15cm]{maa_exp_split_cosmic}
-%\end{figure}
 
 \section{Comparison to known biomarkers}
-\section{Identification of possible biomarkers}
+-- Tests from Movember data etc. --
+
+\section{Identification of possible cluster biomarkers}
+-- Final list with cluster biomarkers --
