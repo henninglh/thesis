@@ -14,27 +14,42 @@ network edge perturbation. From 100k ish links to 40k ish.
 \subsection{Creating connections}
 \subsection{Adding weights}
 \section{Ranking results}
-Talking about MCL results (Table \ref{tab:mcl-inflation})
-\begin{table}
+Talking about \gls{mcl} results
+\begin{table}[H]
     \centering
     \begin{tabular}{| l | c | c | c | c | c | c |}
         \hline
-        \textbf{Inflation} & \textbf{Clusters} & \textbf{Avg.
-    cluster size} & \textbf{Max. cluster size} & \textbf{Min. cluster
-    size} & \textbf{Modularity} & \textbf{Edges}\\
+        \textbf{Inflation} & \textbf{Clusters} & \textbf{Avg.  cluster size} &
+        \textbf{Max. cluster size} & \textbf{Min. cluster size} &
+        \textbf{Modularity} \\
         \hline
         1.6 & 1068 & 8.88 & 968 & 2 & 0.367 \\
-        1.8 & 1400 & 6.60 & 660 & 2 & 0.307 & INSERT \\
-        2.0 & 1599 & 5.68 & 405 & 2 & 0.269 & INSERT \\
-        2.5 & 2053 & 4.20 & 179 & 2 & 0.223 & INSERT \\
-        3.0 & 2210 & 3.75 & 122 & 2 & 0.199 & 6744 \\
+        1.8 & 1400 & 6.60 & 660 & 2 & 0.307 \\
+        2.0 & 1599 & 5.68 & 405 & 2 & 0.269 \\
+        2.5 & 2053 & 4.20 & 179 & 2 & 0.223 \\
+        3.0 & 2210 & 3.75 & 122 & 2 & 0.199 \\
         \hline
     \end{tabular}
     \caption{MCL clustering parameter and statistic results}
     \label{tab:mcl-inflation}
 \end{table}
-\section{Parameter testing}
-\section{Cross validation}
+The modularity of the clustered networks gives an indicator of how well the
+process of creating the clusters went. Modularity is given as a score from 0 to
+1. A score closer to 1 is more preferrable, as this indicates that the clusters
+created have a good degree of separation to the other clusters in the network.
+The preferred score to end up with would be around 0.8, but in this network
+there has been a good amount of perturbation through the protein-to-gene
+process. Modularity is not the only indicator of how well a network was
+clustered, hence the choice of not setting the inflation value in \gls{mcl} to
+1.6, but rather 1.8. When a lower inflation value is set, \gls{mcl} does not
+separate edges between nodes as vigorously and as a direct cause, inflation will
+go up. Taking the other attributes in the table \ref{tab:mcl-inflation} into
+consideration, 1.8 seemed like the best inflation value. An inflation value of
+1.8 has also been proved to be good for large high-throughput constructed
+protein-protein networks with a large amount of alterations\cite{mcl-inflation}.
+%% Move this part to methods?
+
+\section{Cross-validation}
 Executing a cross-validation on the iRefWeb with PRWP and MAA rankings had two
 purposes. The first being to prove the fact that every gene that had its prior
 score removed by the cross-validation, should be found in the results of the
@@ -53,74 +68,25 @@ score of their relevance to prostate cancer, was ranked in a way that achieved
 the goal of Ranklust; ranking clusters in biological network according to
 network structure and prior knowledge of relevance to diseases.
 
-\begin{figure}
+\subsection{Cross-validation in PRWP}
+\begin{figure}[H]
+    \caption{Cross-validationg ene distribution in clusters (PRWP)}
     \label{fig:irefweb-prwp}
     \includegraphics[width=15cm]{Distribution_of_iRefWeb_network_PRWP}
 \end{figure}
-\begin{figure}
+The results from this cross validation shows that the higher the rank of the
+cluster, the more candidate cancer genes it had.
+
+\subsection{Cross-validation in MAA}
+\begin{figure}[H]
+    \caption{Cross-validationg ene distribution in clusters (MAA)}
     \label{fig:irefweb-maa}
     \includegraphics[width=15cm]{Distribution_of_iRefWeb_network_MAA}
 \end{figure}
-\begin{figure}
-    \label{fig:cosmic-prwp}
-    \includegraphics[width=15cm]{Distribution_of_COSMIC_cancer_network_PRWP}
-\end{figure}
-\begin{figure}
-    \label{fig:cosmic-maa}
-    \includegraphics[width=15cm]{Distribution_of_COSMIC_cancer_network_MAA}
-\end{figure}
+The results from this cross validation shows that the higher the rank of the
+cluster, the more candidate cancer genes it had.
 
 \section{Jensen comparison}
-%\begin{figure}
-%    \label{fig:txt-irefweb-prwp}
-%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_iRefWeb_network_PRWP}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:txt-irefweb-maa}
-%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_iRefWeb_network_MAA}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:know-irefweb-prwp}
-%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_iRefWeb_network_PRWP}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:know-irefweb-maa}
-%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_iRefWeb_network_MAA}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:exp-irefweb-prwp}
-%    \includegraphics[width=15cm]{Distribution_of_p-value_from_experimental_genes_in_iRefWeb_network_PRWP}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:exp-irefweb-maa}
-%    \includegraphics[width=15cm]{Distribution_of_experimental_genes_in_iRefWeb_network_MAA}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:txt-cosmic-prwp}
-%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_COSMIC_cancer_network_PRWP}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:txt-cosmic-maa}
-%    \includegraphics[width=15cm]{Distribution_of_textmined_genes_in_COSMIC_cancer_network_MAA}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:know-cosmic-prwp}
-%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_COSMIC_cancer_network_PRWP}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:know-cosmic-maa}
-%    \includegraphics[width=15cm]{Distribution_of_knowledge_mined_genes_in_COSMIC_cancer_network_MAA}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:exp-cosmic-prwp}
-%    \includegraphics[width=15cm]{Distribution_of_p-value_in_experimental_genes_in_COSMIC_cancer_network_PRWP}
-%\end{figure}
-%\begin{figure}
-%    \label{fig:exp-cosmic-maa}
-%    \includegraphics[width=15cm]{Distribution_of_experimental_genes_in_COSMIC_cancer_network_MAA}
-%\end{figure}
-
-% new figures
 % prwp
 \begin{figure}
     \label{fig:txt-iref-prwp}

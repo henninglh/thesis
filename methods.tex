@@ -1,6 +1,5 @@
 \part{Methods and implementation}
 \label{pa:methods}
-
 \chapter{Cytoscape}
 \section{Intro}
 The \textit{clusterMaker2} documentation for implementing new parts that is not
@@ -20,13 +19,10 @@ panel task class and destroy panel task class.
 
 \section{Workflow and usage}
 \subsection{Installation}
-% TODO: Describe the installation process of compiling with maven and putting it
-% in CytoscapeConfiguration/3/apps/installed/clusterMaker2-1.0.0.jar
-
 At the moment, clusterMaker2 does not officially contain Ranklust. So in order
 to use Ranklust, the user are required to compile the Java source code or
 download the updated JAR-file\cite{jar}(URL:
-https://github.com/henninglh/ranklust-app/ranklust-1.0.0.jar) . To build this
+https://github.com/henninglh/ranklust-app/ranklust-1.0.0.jar). To build this
 whole project I have used Maven as a build tool\cite{maven}. To compile the
 project into an executable JAR-file Cytoscape can use, \gls{maven} has to be
 instructed to skip all tests, because the current tests has compilation errors.
@@ -47,16 +43,11 @@ version 3.4.0 follows this path:
 After this step is done, the user can start up Cytoscape and should be able to
 Ranklust.
 
-%The last time it
-%was built was right after test units had been added to the clusterMaker2
-%project. These test units prevented the whole project from compiling and
-%required a refactor of the project structure and launch options. The test structure went from 
-
 \subsection{Researcher workflow}
-The way researchers can use Ranklust is pretty simple. Step 1 and
-2 will only be required the first time the researcher want to use this app to
-  solve his/her problem. The rest has to be done every time, unless a previous
-  session of Cytoscape is loaded with more developed results.
+The way researchers can use Ranklust is pretty simple. Step 1 and 2 will only be
+required the first time the researcher want to use this app to solve his/her
+problem. The rest has to be done every time, unless a previous session of
+Cytoscape is loaded with more developed results.
 
 \begin{enumerate}
     \item Install Cytoscape
@@ -79,7 +70,7 @@ will be a new indicator, a biomarker, and information about what it means has to
 be gathered empirically through clinical research.
 
 \section{Workflow image examples}
-First off is the general workflow
+First off is the general workflow:
 \begin{figure}[H]
     \includegraphics[scale=0.6]{ranklust_workflow}
 \end{figure}
@@ -158,7 +149,7 @@ to when clustering and ranking algorithms has been tasked to start.
     \includegraphics[width=15cm]{10-show-results}
 \end{figure}
 
-Here is the results panel displayin the ranked clusters from top to bottom,
+Here is the results panel displaying the ranked clusters from top to bottom,
 descending scores. The title for each results panel is formatted as in the
 example.
 \begin{verbatim}
@@ -252,24 +243,20 @@ user through the GUI. Registering a new service listener is a way of keeping the
 Ranklust part out of clusterMaker2. Also, creating a standalone plugin at
 a later stage will be easier if Ranklust is properly compartmentalized.
 
-% insert code example (lstlistings)
-
 The \textit{RankFactory} class is a java public interface used for each of the
-ranking cluster algorithms, \gls{hits}, \gls{pr}, \gls{prwp}, \gls{maa} and \gls{mam}. A class applying the
-task factory design pattern is meant to deliver an object of the class it is
-related to\cite{factory-design}, and it can return different types of a class
-that has the same java superclass\cite{java-superclass}. In this case, each
-class implementing the \textit{RankFactory} will only have a single class to
-return. The RankFactory class also creates a \textit{Context} class, which binds
-information the user can input to the GUI to variables, allowing the algorithm
-to gain access to parameter information about the algorithms before they run.
+ranking cluster algorithms, \gls{hits}, \gls{pr}, \gls{prwp}, \gls{maa} and
+\gls{mam}. A class applying the task factory design pattern is meant to deliver
+an object of the class it is related to\cite{factory-design}, and it can return
+different types of a class that has the same java
+superclass\cite{java-superclass}. In this case, each class implementing the
+\textit{RankFactory} will only have a single class to return. The RankFactory
+class also creates a \textit{Context} class, which binds information the user
+can input to the GUI to variables, allowing the algorithm to gain access to
+parameter information about the algorithms before they run.
 
 \section{Algorithm}
 % Rank interface
-\section{GUI}
-\subsection{Algorithm menus}
-Much of these menus
-\subsection{Ranking panel}
+\section{Ranking panel GUI}
 The code for the \textit{RankingPanel} is a copy from the existing
 \textit{ResultsPanel} in clusterMaker2. The results panel has some extra
 information that is removed in the ranking panel. The ranking panel only
@@ -306,8 +293,8 @@ be met. A style satisfying these criteria will follow, having the hex value of
 te color\cite{color-blindness3}, followed by the RGB value that was calculated
 using a site that converts from hex to RGB values\cite{color-blindness2}.
 \textit{\#ADD rgb\(170,221,221\)} for a blueish and cold color representing low
-score. \textit{\#FEC rgb\(255,248,204\)} represents off-brown color that is a step
-warmer than the blueish. The warmest color representing the highest scored
+score. \textit{\#FEC rgb\(255,248,204\)} represents off-brown color that is a
+step warmer than the blueish. The warmest color representing the highest scored
 clusters is \textit{\#F99 rgb\(255,153,153\)}. The drawback with this color
 combination is with people that has color blindness to the degree where they see
 only greyscales. The colors low to high will go from grey to light grey to dark
@@ -324,11 +311,11 @@ work on the Ranklust contribution will not end when this thesis is delivered.
 One of the most recent changes to the contribution is that the
 \textit{PageRankWithPriors} algorithm used to analyze the networks in this
 thesis assumes undirected edges because of the
-\textit{UndirectedSparseMultigraph} graph used, while for normal use, directed
-edges is believed by us to be the most sought after choice. Therefore, the pull
-request was hardcoded with directed edges. Choosing between directed and
-undirected edges should be up to the users of clusterMaker2 and is on the
-TODO-list of futures to implement.
+\textit{UndirectedSparseMultigraph} graph used. For normal use, directed edges
+is believed to be the most sought after choice. Therefore, the pull request was
+hardcoded with directed edges. Choosing between directed and undirected edges
+should in the end be up to the users of clusterMaker2 and is on the TODO-list of
+futures to implement.
 
 \section{Known bugs}
 \subsection{Menu bugs}
@@ -337,10 +324,11 @@ TODO-list of futures to implement.
     \item Open the clusterMaker2 clustering algorithm menu
     \item Select a clustering algorithm
     \item Exit the menu for the algorithm without running it
-    \item Repeat step 1-2 and it results in running the previous algorithm that
-        was exited
+    \item Repeat step 1-2 for the same algorithm and it results in running the
+        previous algorithm that was exited without displaying the parameter
+        prompt
 \end{enumerate}
-This was the behaviour before Ranklust contributions was added to clusterMaker2,
+This was the behaviour before Ranklust was added to clusterMaker2,
 so it might be clusterMaker2 or it might be Cytoscape itself. Most likely, the
 way clusterMaker2 algorithms is started through its \textit{TaskFactory}'s needs
 to be changed, but this is just a hunch and not based on any analysis.
@@ -360,21 +348,23 @@ the potential to identify protein complexes\cite{ap-vs-mcl}. How big they should
 be, how many of them I want, should I cluster on a certain attribute, or even
 several? I have chosen to go with the \textit{Markov Cluster}(MCL)\cite{mcl}
 clustering algorithm in \textit{clusterMaker2}, without any limitations to the
-amount of clusters. We prototyped Ranklust with \textit{Affinity
-Propagation}(AP)\cite{affinity-propagation} because of its ease of use and low
-execution time, but it has been proven through a comparison between MCL and AP,
-that concluded with MCL having better performance in many aspects when it came
-to cluster unweighted (binary interactions) PPI networks\cite{ap-vs-mcl}. These
-aspects being noise tolerance and more robust behaviour.
+amount of clusters or weighting of the nodes. I prototyped Ranklust with
+\textit{Affinity Propagation}(AP)\cite{affinity-propagation} because of its ease
+of use and low execution time, but through a comparison between MCL and AP, it
+was concluded with MCL having better performance in many aspects when it came to
+cluster unweighted PPI networks\cite{ap-vs-mcl} with binary interactions. These
+aspects being noise tolerance and more robust behaviour, which will contribute
+greatly to cluster the iRefWeb network.
 
 \section{Ranking clusters}
-We have used five algorithms to rank the clusters, \gls{maa}, \gls{mam}, \gls{pr}, PRWR and \gls{hits}.
-The first two are simple algorithms that through addition or multiplication
-calculates a cluster average score. The three others utilize network ranking
-algorithms from the Java JUNG\cite{jung} library.
+I have used five algorithms to rank the clusters, \gls{maa}, \gls{mam},
+\gls{pr}, PRWR and \gls{hits}. The first two are simple algorithms that through
+addition or multiplication calculates a cluster's average score. The three
+others utilize network ranking algorithms from the Java JUNG\cite{jung} library.
 
-Every algorithm implemented in Ranklust for ranking clusters except \gls{hits} takes
-node and/or edge scores as input for calculating the scores for each cluster.
+Every algorithm implemented in Ranklust for ranking clusters except \gls{hits}
+takes node and/or edge scores as input for calculating the scores for each
+cluster.
 
 \subsection{Multiple Attribute Additive Method (MAA)}
 Multiple attribute additive method is the first algorithm implemented.  The user
@@ -393,51 +383,57 @@ was based on simplicity. To not represent the edge as something the user did not
 define it as, or is unable to understand. Some clustering algorithms might
 assign the same node or edge to several clusters, though this is not the case
 with the algorithms I use in this thesis. Support for this is only implemented
-by \gls{maa} and \gls{mam}, as they were implemented before a final decision on which
-clustering algorithms should be used. If \gls{maa}/\gls{mam} discovers this special case of
-several scores for a single node or edge, it will assign it the highest value.
-The reason for leaving this feature in Ranklust is to have an example on how it
-can be done, should it be a problem in the future.
+by \gls{maa} and \gls{mam}, as they were implemented before a final decision on
+which clustering algorithms should be used. If \gls{maa}/\gls{mam} discovers
+this special case of several scores for a single node or edge, it will assign it
+the highest value.  The reason for leaving this feature in Ranklust is to have
+an example on how it can be done, should it be a problem in the future.
 
-\subsection{Multiple Attribute Multiplication Method (MAM)}
-Multiple attribute multiplication method is to some degree redundant,
-considering what exists from before in Ranklust. The only difference from \gls{maa} is
-the scale the scores will be in. \gls{maa} adds the scores from each node and edge in
-the cluster through addition, \gls{mam} does it with multiplication.
+\subsection{Multiple Attribute Multiplication Method (MAM)} Multiple attribute
+multiplication method is to some degree redundant, considering what exists from
+before in Ranklust. The only difference from \gls{maa} is the scale the scores
+will be in. \gls{maa} adds the scores from each node and edge in the cluster
+through addition, \gls{mam} does it with multiplication.
 
 A problem that occurs with multiplication is calculating scores for clusters
 that contain nodes with a score between 0 and 1, since the score would decrease
 to such a degree that it would be difficult to work with when normalizing the
-scores. The solution I have chosen for this is to make a new score from the
-old score, and add 1.0 to it. This way, when the existing average score in the
-cluster is multiplied with the new score, it will always increase, unless the
-old value was 0.0, then it will stay the same. In the case of values above 1,
-they will also be given an increase by 1.0 in order to keep it consistent if the
-scores vary between 0 to \textit{n}. % TODO: discussion -> could be normalized
+scores. The solution I have chosen for this problem is to make a new score from
+the score that is to be added to the cluster average, and add 1.0 to it. This
+way, when the existing average score in the cluster is multiplied with the new
+score, it will always increase, unless the old value was 0.0, or both the old
+and the new value was 1.0. In the case of values above 1, they will also be
+given an increase by 1.0 in order to keep it consistent if the scores vary
+between 0 to \textit{n}. Normalizing every value before running the algorithm
+contributes to keep all of the values between 0 and 1, and in that way prevent
+scaling problems when adding 1.0 to a score over 1.0. The whole reason to add
+1.0 was to counteract the problem with the score decreasing when it should be
+increasing.
 
-\subsection{PageRank (PR) and Personalized PageRank (PRWP)}
+\subsection{PageRank (PR) and Personalized PageRank (PRWP)} 
 A Random Walks\cite{random-walks2} algorithm which used priors, called
 seed-weighted random walks ranking \cite{sw-rwr}, proved to be effective at
-prioritizing biomarker candidates. PageRank (\gls{pr}) is an algorithm based on the
-Random Walks principle, and it is contained inside the Java library
-\textit{JUNG}\cite{jung}.  \gls{pr} was previously used by Google to rank webpages
-\cite{pagerank}.  Personalized PageRank (\gls{prwp})\cite{pr-bio} is a modified
-version of \gls{pr}, where nodes and edges can be assigned a score prior to the \gls{pr}'s
-traversal of the network. \gls{pr} can have values assigned to the edges, but it does
-not require any scores in order to rank clusters, which \gls{prwp} does. Personalized
-PageRank is abbreviated \gls{prwp} because of the Java classname it has in the Java
-JUNG library
+prioritizing biomarker candidates. PageRank (\gls{pr}) is an algorithm based on
+the Random Walks principle, and it is contained inside the Java library
+\textit{JUNG}\cite{jung}. PageRank was previously used by Google to rank
+webpages \cite{pagerank}. Personalized PageRank (\gls{prwp})\cite{pr-bio} is a
+modified version of \gls{pr}, where nodes and edges can be assigned a score
+prior to the \gls{pr}'s traversal of the network. \gls{pr} can have values
+assigned to the edges, but it does not require any scores in order to rank
+clusters, which \gls{prwp} does. Personalized PageRank is abbreviated \gls{prwp}
+because of the Java classname it has in the Java JUNG library
 - \textit{PageRankWithPriors}.
 
-The difference between \gls{maa} and \gls{mam} compared to \gls{pr} and \gls{prwp} is how the network is
-scored. \gls{maa} and \gls{mam} calculates the score for each cluster by summing up the
-attributes in edges and nodes according to the cluster attribute. \gls{prwp} scores
-the current network regardless of the clustering attribute. 
+The difference between \gls{maa} and \gls{mam} compared to \gls{pr} and
+\gls{prwp} is how the network is scored. \gls{maa} and \gls{mam} calculates the
+score for each cluster by summing up the attributes in edges and nodes according
+to the cluster attribute. \gls{prwp} scores the current network regardless of
+the clustering attribute. 
 
 MCL gives the option of creating a clustered network, which opens up the
 possibility of working with two types of the same network, non-clustered and
 clustered. They both have the clustering attribute in the network, edge and node
-table, so that the ranking algorithms are able to score the clusters.  \gls{prwp}
+table, so that the ranking algorithms are able to score the clusters. \gls{prwp}
 scores the currently selected network in Cytoscape, resulting in the option of
 scoring the non-clustered network or clustered network. The last option gives
 the clustering algorithm a bigger impact on the score, because the clustered
@@ -452,62 +448,66 @@ Implementation wise, there is also a difference in how the scores are stored in
 the network after the algorithm is finished executing. All the scores are stored
 in the nodes. To give information to the user about the scores the edges
 received, each edge will display the total score for the cluster it is a member
-of, just like the nodes.
+of, just like the nodes. Only \gls{prwp} and \gls{pr} will also display the
+single node score.
 
 \subsection{Hyperlink-Induced Topic Search}
-Hyperlink-Induced Topic Search, \gls{hits}, an algorithm that is similar to PageRank,
-was developed around the same time \cite{hits}\cite{hits-origin} and is also
-contained within the Java JUNG library. \gls{hits} will not be used to calculate
-cluster scores and ranks, due to the fact that it does not require any form of
-weighting in nodes or edges. Though, it can be used in combination with other
-ranking algorithms through the use of \gls{mam} or \gls{maa}. 
+Hyperlink-Induced Topic Search, \gls{hits}, an algorithm that is similar to
+PageRank, was developed around the same time \cite{hits}\cite{hits-origin} and
+is also contained within the Java JUNG library. \gls{hits} will not be used to
+calculate cluster scores and ranks, due to the fact that it does not require any
+form of weighting in nodes or edges. Though, it can be used in combination with
+other ranking algorithms through the use of \gls{mam} or \gls{maa}. 
 
-An example of this could be running \gls{prwp} with a score attribute, then \gls{hits} on
-the same network. The next step would be to combine the two scores from \gls{prwp} and
-\gls{hits} with \gls{maa}. Though, the idea of achieving novel information on network
-biomarkers for prostate cancer through this workflow is pure speculation, and we
-have chosen to use each ranking algorithm separately, in order to limit the
-amount of datasets to analyze.
+An example of this could be running \gls{prwp} with a score attribute, then
+\gls{hits} on the same network. The next step would be to combine the two scores
+from \gls{prwp} and \gls{hits} with \gls{maa}. Though, the idea of achieving
+novel information on network biomarkers for prostate cancer through this
+workflow is pure speculation, and we have chosen to use each ranking algorithm
+separately, in order to limit the amount of datasets to analyze.
 
 \subsection{PR, PRWP and HITS}
-Because \gls{pr}, \gls{prwp} and \gls{hits} rely on an alpha variable controlling the probability
-of a reset in the traversal of the network. This "traversal reset" is
-automatically triggered if the algorithm hits a node with no outgoing edges. As
-the clustering algorithms might change the edges in the network, the outcome of
-performing ranking on a cluster-created network, or a network with only
-a cluster attribute to identify the clusters, can be potentially vastly
-different. The alpha value parameter will be set to 0.775. This is because the
-results from running the similar algorithm "seed-weighted random walks ranking"
-was achieved with an alpha value of 0.7 \cite{sw-rwr}. There is a report of
-Google having used a value of 0.85 \cite{pr-parameters} as the alpha value, so
-the average of these two should provide for a alpha value to start with.
+Because \gls{pr}, \gls{prwp} and \gls{hits} rely on an alpha variable
+controlling the probability of a reset in the traversal of the network. This
+"traversal reset" is automatically triggered if the algorithm hits a node with
+no outgoing edges. As the clustering algorithms might change the edges in the
+network, the outcome of performing ranking on a cluster-created network, versus
+a network with only a cluster attribute to identify the clusters, can
+potentially be vastly different. I have decided to not use the cluster-created
+network, and instead use the network with cluster attributes. The perturbation
+of edges in the network and separation of nodes into a more disconnected graph
+might hide interactions in the network that can provide useful information to
+\gls{prwp}. On the other hand, it might produce more noice in the network and
+skew the ranking of the clusters through interactions that are false positives,
+regarding protein complex interactions. 
 
-Another parameter for \gls{pr}, \gls{prwp} and \gls{hits} is the iteration parameter. For each
-iteration of these algorithms, they assign a value to each node. Performing
-multiple iterations contribute to stabilize these values. In the previously
-mentioned report from Google \cite{pr-parameters}, a \textit{n x n} matrix where
-\textit{n} was about 25 billion, required about 50 - 100 iterations in order to
-stabilize the node values. Iterations needed to stabilize increase with the size
-of the network, therefore the iteration value to start with will be 100, should
-it not take too long to calculate. It should be way more than needed, because
-the size of the network used to test with contains about 1500 nodes and 1500
-edges.
-
+The alpha value parameter will be set to 0.3. This specific alpha value has been
+proven to be effective in identifying candidate genes in
+diseases\cite{disease-prwp}. Another parameter for \gls{pr}, \gls{prwp} and
+\gls{hits} is the iteration parameter. For each iteration of these algorithms,
+they assign a value to each node. Performing multiple iterations contribute to
+stabilize these values. In the previously mentioned report from Google
+\cite{pr-parameters}, a \textit{n x n} matrix where \textit{n} was about 25
+billion, required about 50 - 100 iterations in order to stabilize the node
+values. Iterations needed to stabilize increase with the size of the network,
+therefore the iteration value to start with will be 30. It is a little less that
+what Google has specified, but in contrast, the iRefWeb network is 9500 nodes
+big, with approximately 43,000 edges, which is a considerably smaller network
+than "the internet", which Google tried to rank.
 
 \chapter{Programming specifics}
 \section{Tables vs pure OO}
 One thing in particular that deserves to be mentioned is the way networks are
-handled. The \textit{CyNode} objects themselves does not contain much. This is
-because all of the information is saved in the form of plain cells in a
-spreadsheet. This may at first seem like a way to make it easy to show
-information to the user, but it is also a way of working more efficient with
-network data (insert: reference to working with tables on networks is
-efficient). Creating objects with attributes for each node in a huge network
-will increase the amount of overhead by a pretty noticeable amount. Working with
-all of the information in the way of a spreadsheet with rows and columns
-includes a decrease in overhead. A new node is a new row in the node table, so
-in relation to building the network structure, it is not a complex abstraction.
-The difference comes in when the nodes have several attributes. 
+handled. The \textit{CyNode} objects, which represents a single node, does not
+contain much. This is because all of the information is saved in the form of
+plain cells in a spreadsheet. This may at first seem like a way to make it easy
+to show information to the user, but it is also a way of working more efficient
+with network graph data. Creating objects with attributes for each node in a
+huge network will increase the amount of overhead. Working with all of the
+information in the way of a spreadsheet with rows and columns results in a
+decrease in overhead. A new node is a new row in the node table, so in relation
+to building the network structure, it is not a complex abstraction.  The
+difference comes in when the nodes have several attributes. 
 
 In a table or spreadsheet, attributes can be represented as a single column and
 be created once for the whole network, instead of once for each node object
@@ -520,7 +520,7 @@ down, and the retrieval of attribute information is as low as it is possible to
 get, when I choose to represent the time by Big-O notation. The only drawback
 with this implementation is that there is no current type of wrapper around the
 row and column system. So the retrieval of information is not done the most
-intuitive way. But this is the way Cytoscape works as a whole, so changing the
+intuitive way. This is the way Cytoscape works as a whole, so changing the
 way this works can either be done through changing the Cytoscape source code, or
 implementing a wrapper as a standalone function inside clusterMaker2 or as
 a standalone plugin. In Ranklust, an extension to the existing
@@ -529,14 +529,14 @@ clusters.
 
 \section{Changes in existing classes}
 \subsection{NodeCluster}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 /**
  * In it's simplist form, a Cluster is a group of nodes that represents the
  * nodes that are grouped together as the result of a clustering algorithm
  * of some sort.  A more complicated form of a cluster could include clusters
  * as part of the list, which complicates this class a little....
  */
-\end{verbatim}
+\end{Verbatim}
 
 This comment is in the NodeCluster class. In the Ranklust implementation,
 several attributes and methods has been added to this class. Saving the
@@ -545,7 +545,7 @@ and edge-tables in Cytoscape, but it was faster both implementation- and
 performance-wise to extend the NodeCluster class. Also, a criteria for extending
 this class was that the existing API of this class should not change, in order
 to avoid unneccessary changes for other classes in clusterMaker2, that is not
-a part of the Ranklust contribution. 
+a part of Ranklust. 
 
 Additions to NodeCluster contains variables representing cluster \textit{score},
 \textit{rank} and a \textit{HashMap} from a cluster-node's SUID to its score.
@@ -553,7 +553,6 @@ The map and rank variables is part of a previous implementation and can be
 removed. Adding node scores to the cluster and normalizing it afterwards.
 
 \textbf{Common responsibilities introduced in Ranklust}
-
 \begin{itemize}
     \item Adding node scores to the cluster (ranking algorithm related)
     \item Normalizing cluster scores for a list of clusters (static method)
@@ -600,11 +599,18 @@ Recipe for working the nodes and edges: The steps are almost equal for
 calculating both node and edge scores. How the edges are handled depends on what
 direction they have. Are they undirected, directed, or unidirected. In the
 current version of Ranklust, \textit{PageRankWithPriors} assumes undirected,
-\textit{PageRank} and \textit{\gls{hits}} assumes directed. \textit{\gls{maa}} adds the
-score from the edge to the cluster and \textit{\gls{mam}} multiplies the highest score
-found as an edge attribute with the current cluster score. \gls{mam} and \gls{maa} assumes
-the score is directed corresponding with source and target nodes in the edge
-table of Cytoscape.
+\textit{PageRank} and \textit{\gls{hits}} assumes directed. \textit{\gls{maa}}
+adds the score from the edge to the cluster and \textit{\gls{mam}} multiplies
+the highest score found as an edge attribute with the current cluster score.
+\gls{mam} and \gls{maa} assumes the score is directed corresponding with source
+and target nodes in the edge table of Cytoscape. If an edge is a part of
+several clusters, each cluster will add the score of the edge to its average
+cluster score. For PR and PRWP, the score will always reside within nodes and
+not edges at the end of execution. To distribute the scores among the edges, a
+traversal through all of the edges, which is being matched against all of the
+nodes in each cluster is performed. When the traversal for an edge hits a
+cluster with a node that matches either the target or source node in the edge,
+the cluster that has this matched node adds its cluster rank score to the edge.
 
 \begin{enumerate}
     \item Add score to the cluster
@@ -613,7 +619,6 @@ table of Cytoscape.
         cluster score
     \item Create single node score from cluster
 \end{enumerate}
-
 
 \chapter{Data pre- and post-work}
 Interpreting these results was done solely by Python scripting, from formatting
@@ -689,31 +694,31 @@ performed alone and compared to each other. Creating the cross-validation scored
 data sets required information about the clusters. Running MCL clustering on the
 network and then export the node table in Cytoscape created the cluster basis
 needed. From these clusters, it was possible to identify which clusters
-contained scores that could be removed during cross-validation. A random 10\%
-of the genes used for scoring was removed. Though, the amount of genes removed
-was not totally random. There was set a rule that every cluster that contained
-genes with a score from the golden standard, had to end up with keeping atleast
-1 of those genes. So in a cluster of 4, where 2 of them were scored in the
-golden standard, that cluster could only lose 1 of those scored genes when the
-10\% was removed. Had this rule not been applied to the cross-validation, there
-would not be a guarantee that 100\% of the removed genes would be found as
-candidate genes. For \gls{maa} ranking, it would be impossible, and for \gls{pr}WP it would
-be possible, but much less likely to find them. This is due to the simple fact
-that clusters that go from having weighted nodes (genes), to having no weighted
-genes, should not be ranked very high. The point of having weights is to rely on
-prior information about cancer relation in genes and find cancer candidate gene
-clusters by applying reason for "guilt-by-association" to the genes that are not
-weighted.
+contained scores that could be removed during cross-validation. A random 10\% of
+the genes used for scoring was removed. Though, the amount of genes removed was
+not totally random. There was set a rule that every cluster that contained genes
+with a score from the golden standard, had to end up with keeping atleast 1 of
+those genes. So in a cluster of 4, where 2 of them were scored in the golden
+standard, that cluster could only lose 1 of those scored genes when the 10\% was
+removed. Had this rule not been applied to the cross-validation, there would not
+be a guarantee that 100\% of the removed genes would be found as candidate
+genes. For \gls{maa} ranking, it would be impossible, and for \gls{pr}WP it
+would be possible, but much less likely to find them. This is due to the simple
+fact that clusters that go from having weighted nodes (genes), to having no
+weighted genes, should not be ranked very high. The point of having weights is
+to rely on prior information about cancer relation in genes and find cancer
+candidate gene clusters by applying reason for "guilt-by-association" to the
+genes that are not weighted.
 
 \section{After running Ranklust}
 \subsection{Exporting the data}
 The data from performing Ranklust on the networks was exported as node tables
 through Cytoscape. These tables contains information about each node, but not
 any information about the edges. The scores added to the networks did not
-involve any edge information, and for both of the algorithms used, \gls{maa} and \gls{prwp},
-the calculated scores are stored in the cluster, so there was no use at this
-point to use the information in the edge table to find the cancer candidate
-genes.
+involve any edge information, and for both of the algorithms used, \gls{maa} and
+\gls{prwp}, the calculated scores are stored in the cluster, so there was no use
+at this point to use the information in the edge table to find the cancer
+candidate genes.
 
 \subsection{Cleaning the data}
 Cleaning the data was done in Python with its table manipulation library,
@@ -723,12 +728,12 @@ and after the cleaning, the difference is that the cleaned version is has tab
 separated data, for better visual interpretation and it has less columns.
 
 \textbf{Before cleaning:}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 "SUID","__mclCluster","name","PRWP","PRWP_single","score","selected","shared name"
 "72","25","FAM160B1","0.04478373407949736","7.818032875772688E-4",,"false","FAM160B1"
 "73","6","APOPT1","0.04119274479140687","9.848244844960219E-4",,"false","APOPT1"
 "74","6","FAM84A","0.04119274479140687","9.848244844960219E-4",,"false","FAM84A"
-\end{verbatim}
+\end{Verbatim}
 
 \textbf{After cleaning:}
 \begin{verbatim}
@@ -779,17 +784,17 @@ column does not represent the same data as before, but rather the same as the
 PRWP column displayed in the cleaning examples, the total score of the cluster.
 The genes column is double separated. The column itself is tab separated from
 the other columns, the genes in it is separated with commas and the prior scores
-belonging to each gene is delimited by a colon, not the \gls{prwp}/\gls{maa} or any other
-algorithmic related score. This column contains all of the genes in the cluster
-and aids in distinguishing the already proven biomarkers for cancer, and the
-candidates.
+belonging to each gene is delimited by a colon, not the \gls{prwp}/\gls{maa} or
+any other algorithmic related score. This column contains all of the genes in
+the cluster and aids in distinguishing the already proven biomarkers for cancer,
+and the candidates.
 
 \subsection{Cross-validation comparison}
-Both \gls{prwp} and \gls{maa} had 10 cross-validated results each. Each individual result
-from both of the algorithms was compared with the \gls{golden} result created by
-each of the algorithms. This procedure was done to identify the cancer
-biomarkers that existed in the \gls{golden} but ended up being candidate cancer
-biomarkers in the cross-validation.
+Both \gls{prwp} and \gls{maa} had 10 cross-validated results each. Each
+individual result from both of the algorithms was compared with the \gls{golden}
+result created by each of the algorithms. This procedure was done to identify
+the cancer biomarkers that existed in the \gls{golden} but ended up being
+candidate cancer biomarkers in the cross-validation.
 
 \subsection{Comparing with other testdata}
 -- Movember --
