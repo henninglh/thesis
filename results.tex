@@ -3,9 +3,9 @@
 \chapter{Graph analysis}
 PPI network from irefweb.
 downloaded with these settings: %picture from irefweb
-irefweb said 109276 connections 
-after hgnc it was 43706
-after clustering it was 13183 % not used
+irefweb said 109276 interactions 
+after hgnc it was 43706 (perturbation: 60\% from iref)
+after clustering it was 13183 (perturbation: 87,9\% from iref - 69,8\% from hgnc) % not used
 only uniprot and refseq
 uniprot said
 \section{Creating a network}
@@ -18,11 +18,12 @@ Talking about MCL results (Table \ref{tab:mcl-inflation})
 \begin{table}
     \centering
     \begin{tabular}{| l | c | c | c | c | c | c |}
-        \\textbf{Inflation} & \textbf{Number of clusters} & \textbf{Average
-    cluster size} & \textbf{Maximum cluster size} & \textbf{Minimum cluster
+        \hline
+        \textbf{Inflation} & \textbf{Clusters} & \textbf{Avg.
+    cluster size} & \textbf{Max. cluster size} & \textbf{Min. cluster
     size} & \textbf{Modularity} & \textbf{Edges}\\
         \hline
-        1.6 & INSERT & INSERT & INSERT & INSERT & INSERT \\
+        1.6 & 1068 & 8.88 & 968 & 2 & 0.367 \\
         1.8 & 1400 & 6.60 & 660 & 2 & 0.307 & INSERT \\
         2.0 & 1599 & 5.68 & 405 & 2 & 0.269 & INSERT \\
         2.5 & 2053 & 4.20 & 179 & 2 & 0.223 & INSERT \\
@@ -34,6 +35,24 @@ Talking about MCL results (Table \ref{tab:mcl-inflation})
 \end{table}
 \section{Parameter testing}
 \section{Cross validation}
+Executing a cross-validation on the iRefWeb with PRWP and MAA rankings had two
+purposes. The first being to prove the fact that every gene that had its prior
+score removed by the cross-validation, should be found in the results of the
+cluster ranking and identified as candidate biomarkers. 
+
+The second purpose was to analyze the distribution of the genes with prior
+scores removed by the cross-validation in terms of how they placed in the
+cluster ranking. The analysis of this distribution was done by dividing the
+amount of genes removed by cross-validation in a cluster by the total amount of
+genes i the same cluster. This operation was repeated for every cluster in the
+ranking, resulting in a distribution of the average amount of genes removed by
+cross-validation, that was detected by Ranklust together with post-processing of
+data, as cancer candidate biomarkers. A distinct descending distribution from
+high to low ranked clusters would indicate that most of the genes, with a prior
+score of their relevance to prostate cancer, was ranked in a way that achieved
+the goal of Ranklust; ranking clusters in biological network according to
+network structure and prior knowledge of relevance to diseases.
+
 \begin{figure}
     \label{fig:irefweb-prwp}
     \includegraphics[width=15cm]{Distribution_of_iRefWeb_network_PRWP}
