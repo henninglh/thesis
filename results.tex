@@ -70,74 +70,87 @@ network structure and prior knowledge of relevance to diseases.
 
 \subsection{Cross-validation in PRWP}
 \begin{figure}[H]
-    \caption{Cross-validationg ene distribution in clusters (PRWP)}
     \label{fig:irefweb-prwp}
     \includegraphics[width=15cm]{cv_dist_total_filtered_prwp}
+    \caption{Cross-validation distribution in clusters (PRWP)}
 \end{figure}
-The results from this cross validation shows that the higher the rank of the
-cluster, the more candidate cancer genes it had.
+The results from this cross-validation shows that the higher the rank of the
+cluster, the more candidate cancer genes it had. Having more candidate TODO:
 
 \subsection{Cross-validation in MAA}
 \begin{figure}[H]
-    \caption{Cross-validationg ene distribution in clusters (MAA)}
     \label{fig:irefweb-maa}
     \includegraphics[width=15cm]{cv_dist_total_filtered_maa}
+    \caption{Cross-validation distribution in clusters (MAA)}
 \end{figure}
-The results from this cross validation shows that the higher the rank of the
+The results from this cross-validation shows that the higher the rank of the
 cluster, the more candidate cancer genes it had.
 
-\section{Jensen comparison}
+\section{Benchmarks}
 % prwp
+\subsection{Ranked with PRWP}
 \begin{figure}
     \label{fig:txt-iref-prwp}
     \includegraphics[width=15cm]{prwp_textmined_split}
+    \caption{Average distribution of z-scores in clusters ranked by PRWP.}
 \end{figure}
 \begin{figure}
     \label{fig:know-iref-prwp}
     \includegraphics[width=15cm]{prwp_knowledge_split}
+    \caption{Average distribution of curated knowledge mined genes in clusters
+    ranked by PRWP.}
 \end{figure}
 \begin{figure}
     \label{fig:exp-iref-prwp}
     \includegraphics[width=15cm]{prwp_experimental_split}
+    \caption{Average distribution of p-values in clusters ranked by PRWP.}
 \end{figure}
-\begin{figure}
-    \label{fig:txt-cosmic-prwp}
-    \includegraphics[width=15cm]{prwp_txt_split_cosmic}
-\end{figure}
-\begin{figure}
-    \label{fig:know-cosmic-prwp}
-    \includegraphics[width=15cm]{prwp_know_split_cosmic}
-\end{figure}
-\begin{figure}
-    \label{fig:exp-cosmic-prwp}
-    \includegraphics[width=15cm]{prwp_exp_split_cosmic}
-\end{figure}
-
+%\begin{figure}
+%    \label{fig:txt-cosmic-prwp}
+%    \includegraphics[width=15cm]{prwp_txt_split_cosmic}
+%    \caption{Average distribution of z-scores in clusters ranked by MAA.}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:know-cosmic-prwp}
+%    \includegraphics[width=15cm]{prwp_know_split_cosmic}
+%    \caption{Average distribution of curated knowledge mined genes in clusters
+%    ranked by MAA.}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:exp-cosmic-prwp}
+%    \includegraphics[width=15cm]{prwp_exp_split_cosmic}
+%    \caption{Average distribution of p-values in clusters ranked by MAA.}
+%\end{figure}
+\subsection{Ranked with MAA}
 % maa
 \begin{figure}
     \label{fig:txt-iref-maa}
     \includegraphics[width=15cm]{maa_textmined_split}
+    \caption{Average distribution of z-scores in clusters ranked by MAA.}
 \end{figure}
 \begin{figure}
     \label{fig:know-iref-maa}
     \includegraphics[width=15cm]{maa_knowledge_split}
+    \caption{Average distribution of curated knowledge mined genes in clusters
+    ranked by MAA.}
 \end{figure}
 \begin{figure}
     \label{fig:exp-iref-maa}
     \includegraphics[width=15cm]{maa_experimental_split}
+    \caption{Average distribution of p-values in clusters ranked by MAA.}
 \end{figure}
-\begin{figure}
-    \label{fig:txt-cosmic-maa}
-    \includegraphics[width=15cm]{maa_txt_split_cosmic}
-\end{figure}
-\begin{figure}
-    \label{fig:know-cosmic-maa}
-    \includegraphics[width=15cm]{maa_know_split_cosmic}
-\end{figure}
-\begin{figure}
-    \label{fig:exp-cosmic-maa}
-    \includegraphics[width=15cm]{maa_exp_split_cosmic}
-\end{figure}
+%\begin{figure}
+%    \label{fig:txt-cosmic-maa}
+%    \includegraphics[width=15cm]{maa_txt_split_cosmic}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:know-cosmic-maa}
+%    \includegraphics[width=15cm]{maa_know_split_cosmic}
+%\end{figure}
+%\begin{figure}
+%    \label{fig:exp-cosmic-maa}
+%    \includegraphics[width=15cm]{maa_exp_split_cosmic}
+%\end{figure}
 
 \section{Comparison to known biomarkers}
 \section{Identification of possible biomarkers}
