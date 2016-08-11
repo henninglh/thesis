@@ -235,39 +235,45 @@ pathways and networks may be enriched through genomic, transcriptomic and
 proteomic data and create a more unified view of the tumor biology.
 
 \chapter{Network clustering: Toward network based biomarker discovery}
-Networks is the pre-processing of single gene prioritization that is necessary
-in order to come to the next step, clustering of the network. Clustering is
-about making a hierarchical view of a network to be able to look at the bigger
-picture. The reason to group a network into clusters and rank them
+Network clustering is the pre-processing of single gene prioritization that is
+necessary in order to come to the next step, clustering of the network.
+Clustering is about making a hierarchical view of a network to be able to look
+at the bigger picture. The reason to group a network into clusters and rank them
 is that the edges we create represents different connections. They can represent
 function, probability of existence, interactions or contents of the cell
-\cite{siri}. There is several algorithms to create clusters, and all need to be
-researched in order to find the best suited one. The major differences on how
-these algorithms work is centered around how they handle nodes and edges. For
-example how the cluster is expanded, what density level it is aiming for, how
-robust the algorithm is towards incomplete networks. It is feasible if the
-cluster-making algorithm is easily, or even already implemented as an app in
-Cytoscape. ClusterMaker2 is such an app and will be considered \cite{cm2}. But
-there is faster cluster-creating algorithms than those implemented in
-ClusterMaker2, an example is the SPICi \cite{spici} algorithm. So a possible
-solution for Ranklust could be to implement the SPICi algorithm into the
-ClusterMaker2 app, in order to reuse most of the code that represents the GUI,
-single gene prioritization and network creation. In addition to the
-cluster-creating algorithms, there is a need for cluster-ranking algorithms.
-They should be ranked in the order of being a cluster biomarker, more specificly
-described, a cluster biomarker for prostate cancer. The idea of clustering is to
-identify relationships between cancer driver genes and genes not related to
-cancer that reside within the same cluster. Since a cancer driver gene and a
-gene that has not been proved to be a cancer driver gene has a relation, the
-latter might play a role in cancer. These genes will be identified as candidate
-biomarkeres for prostate cancer. This was mentioned earlier as the
+\cite{siri}. Also, abnormalities in a single gene is very rarely the cause of
+disease. More often, there is the interactions between several genes in
+a complex network\cite{disease-ppi}, and their connections that can show us how
+diseases occur and evolve.
+
+There is several algorithms to create clusters, and the most suited one seems to
+be Markov Cluster\cite{mcl,mcl-inflation}. The major differences on how these
+algorithms work is centered around how they handle nodes and edges.  For example
+how the cluster is expanded from a single gene to several, what density level it
+is aiming for, how robust the algorithm is towards incomplete networks. It is
+feasible if the cluster-making algorithm is easily, or even already implemented
+as an app in Cytoscape. ClusterMaker2 is such an app, and it already has
+\gls{mcl} implemented\cite{cm2}. But there is faster cluster-creating algorithms
+than those implemented in ClusterMaker2, and an example is the SPICi
+\cite{spici} algorithm. So a possible solution for Ranklust could be to
+implement the SPICi algorithm into the ClusterMaker2 app, in order to reuse most
+of the code that represents the GUI, single gene prioritization and network
+creation. In addition to the cluster-creating algorithms, there is a need for
+cluster-ranking algorithms.  They should be ranked in the order of being
+a cluster biomarker, more specificly described, a cluster biomarker for prostate
+cancer. The idea of clustering is to identify relationships between cancer
+driver genes inside protein complexes and genes not related to cancer that
+reside within the same cluster. Since a cancer driver gene and a gene that has
+not been proved to be a cancer driver gene has a relation, the latter might play
+a role in cancer. These genes will be identified as candidate biomarkeres for
+prostate cancer. This was mentioned earlier as the
 "guilt-by-association"-principle.
 
-\chapter{Ranklust: An implementation to rank clusters}
+\chapter{Ranklust: An tool to rank clusters}
 \section{Cytoscape}
 Cytoscape is the open-source software platform the Ranklust app will be
 developed on. Its main purpose is to visualize molecular interaction networks
-and biological pathways.  It is easy to integrate \textbf{\textit{Apps}} and
+and biological pathways. It is easy to integrate \textbf{\textit{Apps}} and
 even combine multiple apps to solve new problems, given that the source code of
 the apps is available or that it exists an easy way of piping results from one
 app to another. 
@@ -284,7 +290,7 @@ languages in bioinformatics is simply because of development experience. Java
 Python as the fast and easy mockup tool to develop good programs fast. Python
 also has big biological computation libraries like \emph{Biopython}
 \cite{biopython} and sklearn\cite{sklearn}, that makes it easy to build your own
-standalone apps.  Though when used in a bigger environment as Cytoscape, Java
+standalone apps. Though when used in a bigger environment as Cytoscape, Java
 shines, having sturdy packaging and modelling standards. The Cytoscape community
 is big, alive and has standards for how the architecture of apps should look
 like. The community promotes this through the use of the \emph{OSGi} standard
@@ -318,7 +324,7 @@ will be used, namely the JUNG library\cite{jung}.
 Which databases to use has to be considered. The reason to use databases is
 because they have information about how protein and genes form a network based
 on how they interact with each other. The initial database candidates in
-Ranklust are iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}.
+Ranklust were iRefIndex \cite{iri}, GeneMania \cite{gm} and STRING \cite{str}.
 These databases all have in common that it exists Cytoscape apps made to use
 these databases. STRING however, does not have any repository available through
 the Cytoscape app store, so interacting with the database through a new app in
@@ -326,14 +332,37 @@ Cytoscape without making new plugins may be difficult. On the other hand, both
 iRefIndex and GeneMania have their repositories easily available to the public
 together with decent documentation. However, the difference between them is what
 they contain information about. iRefIndex contains data about protein-protein
-interaction (PPI), while GeneMania contains data about genes.
+interaction (PPI), while GeneMania contains data about genes. Since proteins
+come from genes, GeneMania can also give us some information about proteins. The
+open-source plugins in Cytoscape to communicate with the databases are iRefScape
+\cite{iridb} for iRefIndex and GeneMANIA \cite{gmdb} for GeneMania. The drawback
+with using apps for retrieving data from databases is that they have to be
+updated. The Cytoscape app of iRefIndex\cite{iridb} is not up to date with
+Cytoscape version 3. The most suitable database and how to retrieve query data
+from it ended up being to visit the webpage of iRefWeb, and query a large amount
+of genes through the webpage's interface\cite{irefweb}. iRefWeb is webpage that
+works with the iRefIndex database and it supplies a network of over 100,000
+interactions between proteins.
 
-Since proteins come from genes, GeneMania can also give us some information
-about proteins. The open-source plugins in Cytoscape to communicate with the
-databases are iRefScape \cite{iridb} for iRefIndex and GeneMANIA \cite{gmdb}
-for GeneMania.
+\section{Databases for genes}
+To identify genes, a conversion from proteins to genes had to be performed.
+Since the data from iRefWeb was mined from several databases with a very low
+criteria of quality to get a large network, converting the nodes in the network
+from proteins to genes in order to be able to end up with prostate candidate
+cancer gene cluster biomarkers, HGNC\cite{hgnc-site} was used as the source for
+gene names. HGNC is able to produce large amounts of different aliases matched
+against approved gene symbols and names by cross referencing several databases.
+In this assignment, RefSeq IDs and UniProt IDs was used. This was also partially
+because the protein identifiers from iRefWeb was listed in this exact format.
 
 \section{Neo4J}
+Neo4J was considered as a source of data, and also as a way of maybe ranking the
+clusters in a network. Neo4J is a good database to work with when connections
+between nodes in a network is what will time to calculate. Before the
+final decision of opting for only node scores to score the network, making the
+choice of using Neo4J undesirable, Neo4J was therefore probed for its usages as
+a database together with Ranklust.
+
 A problem we had with the Neo4J\cite{neo4j} database is the dump it creates.
 The dump creates a single Cypher\cite{cypher} commit for the whole database.
 This way, if anything goes wrong while importing the data, it will get rolled
@@ -383,7 +412,3 @@ comparison, with a Cypher dump of 4,500 lines, it takes about 20 seconds before
 the query engine gets a stack overflow error from too little memory (4GB
 memory). With GraphML, an XML file with 250,000 lines takes under 1 second to
 import and it gets relationships right without any form of refactoring.
-
-\section{Other database technologies}
-Other databse technologies like SQL and NoSQL has not been researched in this
-thesis to be used with Cytoscape or graph algorithms regarding 
