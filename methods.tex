@@ -549,24 +549,40 @@ source and target gene, of an interaction in the network.
 
 \subsection{Score creation}
 The golden standard for scoring that I used was created by data from
-DisGenet\cite{disgenet} and Dragon\cite{dragon}. 
-% TODO: explain more about disgenet and dragon.
+DisGeNET\cite{disgenet} and \gls{dragon}\cite{dragon}. 
 
-The DisGen data came with decimal scores from 0 to 1 and contained data about
+DisGeNET is a database that is one of todays largest repositories of information
+between diseases and genes.  It integrates expert-curated data with text mined
+data. DisGeNET provides a score for genes related to a specific disease, in this
+case prostate cancer.  This score is based on "the supporting evidence to
+prioritize gene-disease associations"\cite{disgenet}. It also has a Cytoscape
+plugin, but like iRefScape, it is outdated and can not be used together with
+Cytoscape version 3.4.0. DisGeNET was chosen because of its comprehensive
+collection of prostate cancer gene scores that was used as prior scores in both
+\gls{prwp} and \gls{maa}.
+
+\gls{dragon} is a knowledgebase of genes that is been experimentally verified as
+an implicator in prostate cancer. It offers a bigger variety of information on
+prostate cancer in general, as opposed to DisGeNET, but it does not have scores.
+Therefore, to be used in the \gls{golden}, the genes from \gls{dragon} had to
+receive a constructed score comparable to the scores from DisGeNET.
+
+The DisGeNET data came with decimal scores from 0 to 1 and contained data about
 several diseases, not only prostate cancer. Therefore, the disgen data had to be
-filtered for prostate cancer relevant scores. However, the data from Dragon did
-not have any scores and was just a list with genes relevant to prostate cancer.
-To combine the two lists, the dragon scores had to be converted to match the
-disgen scores. The method for converting the scores was to let the disgen scores
-be left as they were and try to add scores to the genes from the dragon data
-list. An average was created from the maximum and minimum value from the disgen
-scores. Then some sort of "sane" max value was created by adding the average to
-a quarter of the value of the average value subtracted from the maximum value.
-This created a final value between the average and maximum value that all of the
-dragon genes received. The dragon genes receives on average a higher score than
-the disgenet genes because of the way the lists are constructed. Dragon has no
-score, therefore they signalize a proof of relevance to prostate cancer, while
-disgenet has a score for how relevant the gene may be.
+filtered for prostate cancer relevant scores. However, the data from
+\gls{dragon} did not have any scores and was just a list with genes relevant to
+prostate cancer.  To combine the two lists, the \gls{dragon} scores had to be
+converted to match the disgen scores. The method for converting the scores was
+to let the disgen scores be left as they were and try to add scores to the genes
+from the \gls{dragon} data list. An average was created from the maximum and
+minimum value from the disgen scores. Then some sort of "sane" max value was
+created by adding the average to a quarter of the value of the average value
+subtracted from the maximum value.  This created a final value between the
+average and maximum value that all of the \gls{dragon} genes received. The
+\gls{dragon} genes receives on average a higher score than the DisGeNET genes
+because of the way the lists are constructed. \gls{dragon} has no score,
+therefore they signalize a proof of relevance to prostate cancer, while DisGeNET
+has a score for how relevant the gene may be.
 
 Finally, this golden standard of scores was filtered by removing any genes that
 did not occur in the network. Because of the cross-validation performed after

@@ -182,7 +182,10 @@ go up. Taking the other attributes in the table \ref{tab:mcl-inflation} into
 consideration, 1.8 seemed like the best inflation value. An inflation value of
 1.8 has also been proved to be good for large high-throughput constructed
 protein-protein networks with a large amount of alterations\cite{mcl-inflation}.
-%% Move this part to methods?
+
+The amount of iterations used for \gls{mc} ended up being 200. It started out at
+1000, but the results converged somewhere between 170 and 200 iterations, so it
+was decreased form 1000 to 200 to speed up the time used in the \gls{pipeline}. 
 
 \section{Cross-validation}
 Executing a cross-validation on the iRefWeb with PRWP and MAA rankings had two
