@@ -30,7 +30,7 @@ instructed to skip all tests, because the current tests has compilation errors.
 \textbf{Skipping tests with maven:}
 \begin{Verbatim}[fontsize=\scriptsize]
 mvn clean install -Dmaven.test.skip
-\end{verbatim}
+\end{Verbatim}
 
 The JAR-file that is being produced after the line over is executed in
 a terminal or through the build tool of an \gls{ide}. This file has to be put in
@@ -514,13 +514,21 @@ to cleaning the results exported from Ranklust, and analyzing the cleaned data.
 \section{Before using Ranklust}
 \subsection{Network creation}
 The network was created with protein interaction data from iRefWeb
-\cite{irefweb}. 
-
-\begin{figure}[H]
+\cite{irefweb}. The query was constructed with the idea of having as large
+a network possible of human-only interacting proteins, that at a later stage
+could be converted into genes. The tabs that is not expanded was not changed
+from the standard settings when creating such a query, which starts off with all
+of the checkboxes unchecked (\ref{fig:irefweb}). The picture of this query
+states that there was 109003 iterations. However, this number is subject to
+change several minutes after querying iRefWeb. This picture of the query was
+taken before the database search for interaction had finished, which is the
+reason for displaying 273 interactions less than the actual amount used in the
+network that Cytoscape ran the algorithms on.
+\begin{figure}
     \centering
-    \caption{iRefWeb network query}
     \label{fig:irefweb}
     \includegraphics[width=15cm]{mitab_lite_109276}
+    \caption{iRefWeb network query}
 \end{figure}
 
 \subsubsection{iRefWeb}
@@ -568,21 +576,24 @@ Therefore, to be used in the \gls{golden}, the genes from \gls{dragon} had to
 receive a constructed score comparable to the scores from DisGeNET.
 
 The DisGeNET data came with decimal scores from 0 to 1 and contained data about
-several diseases, not only prostate cancer. Therefore, the disgen data had to be
-filtered for prostate cancer relevant scores. However, the data from
-\gls{dragon} did not have any scores and was just a list with genes relevant to
-prostate cancer.  To combine the two lists, the \gls{dragon} scores had to be
-converted to match the disgen scores. The method for converting the scores was
-to let the disgen scores be left as they were and try to add scores to the genes
-from the \gls{dragon} data list. An average was created from the maximum and
-minimum value from the disgen scores. Then some sort of "sane" max value was
-created by adding the average to a quarter of the value of the average value
-subtracted from the maximum value.  This created a final value between the
-average and maximum value that all of the \gls{dragon} genes received. The
-\gls{dragon} genes receives on average a higher score than the DisGeNET genes
-because of the way the lists are constructed. \gls{dragon} has no score,
-therefore they signalize a proof of relevance to prostate cancer, while DisGeNET
-has a score for how relevant the gene may be.
+several diseases, not only prostate cancer, and multiple instances of the same
+gene could have multiple scores for different types of prostate cancer. The
+duplication of gene entries with scores related to prostate cancer resulted in
+a solution where the average of all of the prostate cancer scores created
+a single score for a single gene. However, the data from \gls{dragon} did not
+have any scores and was just a list with genes relevant to prostate cancer.  To
+combine the two lists, the \gls{dragon} scores had to be converted to match the
+DisGeNET scores. The method for converting the scores was to let the DisGeNET
+scores be left as they were and try to add scores to the genes from the
+\gls{dragon} data list. An average was created from the maximum and minimum
+value from the DisGeNET scores. Then some sort of "sane" max value was created
+by adding the average to a quarter of the value of the average value subtracted
+from the maximum value.  This created a final value between the average and
+maximum value that all of the \gls{dragon} genes received. The \gls{dragon}
+genes receives on average a higher score than the DisGeNET genes because of the
+way the lists are constructed. \gls{dragon} has no score, therefore they
+signalize a proof of relevance to prostate cancer, while DisGeNET has a score
+for how relevant the gene may be.
 
 Finally, this golden standard of scores was filtered by removing any genes that
 did not occur in the network. Because of the cross-validation performed after
@@ -639,13 +650,13 @@ separated data, for better visual interpretation and it has less columns.
 \end{Verbatim}
 
 \textbf{After cleaning:}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 __mclCluster	name	PRWP	score	PRWP_single
 1136.0	CDC25C	1.0	0.272714418721	0.225926983193
 1136.0	LZTS1	1.0	0.122995792115	0.197642927074
 690.0	CREB3L4	0.918902810704	0.272714418721	0.189744545774
 690.0	SCX	0.918902810704	0.0	0.102170140032
-\end{verbatim}
+\end{Verbatim}
 
 \begin{itemize}
     \item \_\_mclCluster
@@ -674,12 +685,12 @@ __mclCluster	name	PRWP	score	PRWP_single
 The cleaned data was then aggregated into clusters represented in text format.
 
 \textbf{Combined clusters:}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 clusters	score	genes
 1136	1.0	LZTS1:0.122995792115,CDC25C:0.272714418721
 690	0.918902810704	SOX9:0.272714418721,SCX:0.0,CREB3L4:0.272714418721
 1004	0.758524309337	MMP14:0.272714418721,MMP13:0.12
-\end{verbatim}
+\end{Verbatim}
 
 Here, the \textit{clusters}-column are the unique identifier, and not the
 \textit{HGNC} identifier or the \textit{SUID}from the previous data. The score
@@ -699,8 +710,25 @@ result created by each of the algorithms. This procedure was done to identify
 the cancer biomarkers that existed in the \gls{golden} but ended up being
 candidate cancer biomarkers in the cross-validation.
 
-\subsection{Comparing with other testdata}
--- Movember --
+\subsection{Comparing with test data}
+Matching the cluster ranks against test data is the last step in terms of
+creating results that could reveal candidate network biomarkers for prostate
+cancer. The procedure for matching cluster ranks with test data will consist of
+inserting the test data genes with the cluster ranks. The test data genes will
+be a single column list which contains unique genes proven to be prostate cancer
+biomarkers. Creating a table with an overview of the test genes that match
+the genes inside the ranked clusters, and whether the \gls{golden} classified
+these ranked genes as prostate cancer genes or prostate cancer candidate genes,
+is the final goal of this thesis. Traversing the ranked clusters and ascertain
+which genes from the test data is inside which clusters and if they are
+candidate biomarkers or already existing ones will end up producing the final
+table used to represent the core result in this thesis. From creating and
+scoring a network, cluster it, ranking it, assert its suitability to rank
+clusters and present a final list of network candidate biomarkers for prostate
+cancer.
+
+The test data will come from COSMIC/"mail from
+trevor-genes" and...TODO: insert specific test data sources.
 
 \section{Plot creation}
 The plots was created with an online tool named Plotly\cite{plotly}. Throughout

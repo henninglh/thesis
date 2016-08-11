@@ -96,15 +96,15 @@ to when clustering and ranking algorithms has been tasked to start.
 Here is the results panel displaying the ranked clusters from top to bottom,
 descending scores. The title for each results panel is formatted as in the
 example.
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 [<clustering algorithm>]{<ranking algorithm>}(<network name>)
-\end{verbatim}
+\end{Verbatim}
 So with MCL clustering, \gls{prwp} ranking and the
 "mitab\_lite\_4100\_final.tsv--clustered" network, this is what the title
 becomes:
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 [mcl]{PRWP}(mitab_lite_4100_final.tsv--clustered)
-\end{verbatim}
+\end{Verbatim}
 As seen in the title. The coloring has been discussed earlier.
 \begin{figure}[H]
     \label{fig:}
@@ -131,22 +131,28 @@ results panel menu.
 \end{figure}
 
 \chapter{Graph analysis}
-PPI network from iRefWeb.
-downloaded with these settings: %picture from irefweb
-irefweb said 109276 interactions 
 after hgnc it was 43706 (perturbation: 60\% from iref)
 after clustering it was 13183 (perturbation: 87,9\% from iref - 69,8\% from hgnc) % not used
 
-\section{Creating a network}
+\section{Creating the network}
 Converting from proteins to genes through HGNC data resulten in a 60\% data
 network edge perturbation. From 100k ish links to 40k ish.
 
-\subsection{Creating connections}
-Creating the connections was achieved through the interactions data from
-iRefWeb.
+After querying iRefWeb for the PPI-network with the query displayed earlier
+(\ref{fig:irefweb}) the resulting network consisted of 109276 interactions.
+After filtering the same network through the protein-to-gene mapping constructed
+from HGNC, the final network consisted of 9500 nodes (genes) and 43706 edges
+(interactions). At this point, all of the nodes and edges were undirected and
+unweighted. Converting from proteins to genes ended up with a 60\% perturbation
+of the network in the form of removed edges. Clustering the network resulted in
+a further perturbation of 69.8\% of edge-removal when compared to the
+HGNC-filtered network, 87.9\% when compared to the unfiltered iRefWeb network.
 
-\subsection{Adding weights}
-Adding the weights was done through the golden standard.
+The creation of the \gls{golden} through combining DisGeNET and \gls{dragon}
+resulted in a file with two columns. One representing a gene, the second one
+representing the score of a gene, so a single row would contain a unique gene in
+the list and the score it received.
+
 
 \section{Ranking results}
 Talking about \gls{mcl} results
@@ -178,14 +184,15 @@ process. Modularity is not the only indicator of how well a network was
 clustered, hence the choice of not setting the inflation value in \gls{mcl} to
 1.6, but rather 1.8. When a lower inflation value is set, \gls{mcl} does not
 separate edges between nodes as vigorously and as a direct cause, inflation will
-go up. Taking the other attributes in the table \ref{tab:mcl-inflation} into
+go up. Taking the other attributes in the table (\ref{tab:mcl-inflation}) into
 consideration, 1.8 seemed like the best inflation value. An inflation value of
 1.8 has also been proved to be good for large high-throughput constructed
 protein-protein networks with a large amount of alterations\cite{mcl-inflation}.
 
-The amount of iterations used for \gls{mcl} ended up being 200. It started out at
-1000, but the results converged somewhere between 170 and 200 iterations, so it
-was decreased form 1000 to 200 to speed up the time used in the \gls{pipeline}. 
+The amount of iterations used for \gls{mcl} ended up being 200. It started out
+at 1000, but the results converged somewhere between 170 and 200 iterations, so
+it was decreased form 1000 to 200 to speed up the time used in the
+\gls{pipeline}.
 
 \section{Cross-validation}
 Executing a cross-validation on the iRefWeb with PRWP and MAA rankings had two
@@ -264,7 +271,10 @@ The average z-values in the clusters are split among 2 categories as mentioned
 above. The z-values of the prostate candidate cancer genes in a cluster is
 calculated from the average of all of them. The same procedure was done for the
 z-values of the prostate cancer genes. 
-% TODO: explain more about DISEASE's types
+
+The average knowledge curated genes...
+
+The average p-values in the cluster...
 
 \subsection{Text mined and scored with z-values}
 These next z-value scored plots represents text mined gene results from the
