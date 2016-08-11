@@ -81,7 +81,8 @@ interaction". So a biomarker can be anything from the pulse of the heart or
 blood pressure. In this thesis, I will see if we can get better and more
 information from ranking gene clusters based on biomarker information. The
 result could in the best case be a new biomarker in itself, and can be a step in
-the direction of hierarchical biomarkers (biomarkers creating new biomarkers).
+the direction of hierarchical biomarkers (biomarkers creating new biomarkers) in
+the form of cancer gene clusters.
 
 \subsection{Biomarkers and Clinical Endpoints} 
 Some of the important characteristics of biomarkers is that they are objective
@@ -119,12 +120,6 @@ but a totally unified group in terms of how they describe pain and other
 attributes that are interesting might be seen as borderline impossible. We are
 after all humans and very much fallible.
 
-\subsection{Prostate cancer statistics}
-Statistics show that "In 2013, there were 1.4 million incident cases of prostate
-cancer and 293 000 deaths"\cite{cancerburden2}. Taking population into
-concideration together with the increasing incidence rates, we have had
-a "3-fold increase in prostate cancer cases since 1990"\cite{cancerburden2}. 
-
 \subsection{Specific biomarkers}
 An example of a single molecule biomarker is the prostate specific antigen
 (PSA). This is a protein produced by the prostate gland in male humans. The
@@ -141,7 +136,9 @@ prostate cancer. The low grade of reliability comes from the fact that even
 though higher levels of PSA shows higher chance of having prostate cancer,
 prostate cancer is not the only reason to have elevated levels of PSA
 \cite{cancerfacts}. Namely inflammation and enlargement of the prostate. Though,
-a man with both of these cases may or may not develop prostate cancer.
+a man with both of these cases may or may not develop prostate cancer. Using PSA
+as the only factor for determinating the stage of cancer in screening has caused
+a great number of cases where overtreatment has occured\cite{psa-overtreatment}.
 
 So the conclusion for the PSA biomarker is that it is not reliable enough and
 are causing faulty treatment of prostate cancer that may not even exist. Because
@@ -178,11 +175,11 @@ might be functionally important. An alternative method is to use prior knowledge
 of cellular mechanisms, and add this prior knowledge as attributes to genes
 represented as nodes in a network. Then we can use graph algorithms to gain
 novel information about cancer driver genes. Genes that is not listed as cancer
-driver genes can then be assigned a status "guilt-by-association" if they have a
-network-relationship with proven cancer driver genes.
-
-But all of this is based on single genes or proteins. What if we looked at whole
-networks as biomarkers? In this case, we will look at clusters of networks.
+driver genes can then be assigned a status "guilt-by-association" and tagged as
+a possible candidate cancer biomarker if they have a network-relationship with
+proven cancer driver genes. This way of detecting biomarkers is how Ranklust
+will do it, create clusters, rank the network, and through the score in the
+nodes in the network, give each cluster a score and rank them accordingly.
 
 \section{High-throughput sequencing}
 Today, rapid analysis of genes and proteins are made available through
@@ -198,7 +195,7 @@ has not been classified as a biomarker, also is present?  Together they could
 represent a more appropriate \emph{network cluster biomarker}. The amount of
 data that can be analyzed also opens up for another more personalized approach
 to each cancer patient. Finding patient-specific biomarkers could make a huge
-impact on the quality of treatment \cite{personalized}.  
+impact on the quality of treatment \cite{personalized,personalized2}.  
 
 \section{Networks as a tool in cancer research}
 Viewing the cell as a network of proteins and genes presents us with several
