@@ -26,8 +26,9 @@ https://github.com/henninglh/ranklust-app/ranklust-1.0.0.jar). To build this
 whole project I have used Maven as a build tool\cite{maven}. To compile the
 project into an executable JAR-file Cytoscape can use, \gls{maven} has to be
 instructed to skip all tests, because the current tests has compilation errors.
+
 \textbf{Skipping tests with maven:}
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 mvn clean install -Dmaven.test.skip
 \end{verbatim}
 
@@ -36,9 +37,9 @@ a terminal or through the build tool of an \gls{ide}. This file has to be put in
 the configuration folder of Cytoscape. The location of the configuration folder
 can vary across operative systems and Cytoscape versions, but the Cytoscape
 version 3.4.0 follows this path:
-\begin{verbatim}
+\begin{Verbatim}[fontsize=\scriptsize]
 <user home folder>/CytoscapeConfiguration/3/apps/installed/<put the jar here>
-\end{verbatim}
+\end{Verbatim}
 
 After this step is done, the user can start up Cytoscape and should be able to
 Ranklust.
@@ -68,121 +69,6 @@ decide the state of the patient. State of the patient can be many different
 things and what the rankings will mean to the researcher is not yet final. It
 will be a new indicator, a biomarker, and information about what it means has to
 be gathered empirically through clinical research.
-
-\section{Workflow image examples}
-First off is the general workflow:
-\begin{figure}[H]
-    \includegraphics[scale=0.6]{ranklust_workflow}
-\end{figure}
-
-To go into more detail, here is the startup screen that the user is met with
-after launching Cytoscape. This assumes that clusterMaker2 with the Ranklust
-contribution is already installed into Cytoscape.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{1-startup}
-\end{figure}
-
-This screen is what opens up after opting to import a network and choose a
-network file consisting of a header that represents source and target node
-columns, a\_alias and b\_alias.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{2-import}
-\end{figure}
-
-It is important to tell Cytoscape which column is considered as the source and
-target column, as shown here. In this thesis, genes has been the primary key
-identifier in both source and target column.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{3-nodes}
-\end{figure}
-
-This is how Cytoscape looks after importing the network and it has finished its
-standard style layout algorithm, which happens automatically after clicking "OK"
-in the previous screen - having set everything to the correct settings.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{4-imported-network}
-\end{figure}
-
-If the user wishes to weight nodes for clustering or the ranking of them, it is
-possible to do this with the "Import Columns From Table" function.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{5-import-table}
-\end{figure}
-
-To cluster the network, the user has to access the \textit{Apps} menu at the top
-in the toolbar of Cytoscape. In clusterMaker2 there are three rows belonging
-to the plugin. \textit{clusterMaker}, where the clustering algorithms are
-located. \textit{clusterMaker Ranking}, where the cluster ranking algorithms
-\gls{maa},\gls{mam},\gls{pr},\gls{prwp} and \gls{hits} are. Finally, the
-\textit{clusterMaker Visualizatons}, where different visualizations in
-clusterMaker2 can be queried. This row is also where the visualizaton of the
-ranked clusters option resides.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{6-cluster}
-\end{figure}
-
-This is the view after clusterMaker2 has run the \textit{MCL cluster} method on
-the current network. As seen on the left side menu, a new network has been
-listed. This network only appears if the user sets the "Create new clustered
-network"-option in the clustering parameter dialog that appears after choosing a
-clustering algorithm from the clusterMaker2 menu.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{7-done-cluster}
-\end{figure}
-
-Here the cluster ranking algorithm menu is shown.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{8-choose-ranking}
-\end{figure}
-
-The \gls{prwp} was chosen as the ranking algorithm. Node and edge attributes can
-be combined by the user in any way. 
-\begin{figure}[H]
-    \includegraphics[width=15cm]{9-pagerank}
-\end{figure}
-
-If the user is interested in visualizing the ranks, it is possible to click the
-"Show results from ranking clusters" option in the visualization menu. No menu
-will appear after that, but rather will Cytoscape open a loading dialog similar
-to when clustering and ranking algorithms has been tasked to start.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{10-show-results}
-\end{figure}
-
-Here is the results panel displaying the ranked clusters from top to bottom,
-descending scores. The title for each results panel is formatted as in the
-example.
-\begin{verbatim}
-[<clustering algorithm>]{<ranking algorithm>}(<network name>)
-\end{verbatim}
-So with MCL clustering, \gls{prwp} ranking and the
-"mitab\_lite\_4100\_final.tsv--clustered" network, this is what the title
-becomes:
-\begin{verbatim}
-[mcl]{PRWP}(mitab_lite_4100_final.tsv--clustered)
-\end{verbatim}
-As seen in the title. The coloring has been discussed earlier.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{11-result-colors}
-\end{figure}
-
-Here is an example of how the clusters change color when selected from the
-results panel menu.
-\begin{figure}[H]
-    \includegraphics[width=15cm]{12-rank-selection}
-\end{figure}
-
-\section{Design}
-\begin{figure}[H]
-    \caption{Ranklust ranking algorithm relations}
-    \label{fig:rank-alg}
-    \includegraphics[width=\textwidth]{ranklust-algorithm}
-\end{figure}
-\begin{figure}[H]
-    \caption{Ranklust ranking panel relations}
-    \label{fig:rank-panel}
-    \includegraphics[width=\textwidth]{ranklust-panel}
-\end{figure}
 
 \section{Maven and the POM file}
 The POM-file has to be updated because libraries connected to the pdf exporting
@@ -301,7 +187,7 @@ only greyscales. The colors low to high will go from grey to light grey to dark
 gray, which does not seem logical. The color style might change if users
 experience trouble having these colors representing the cluster ranks. 
 
-\section{State of today}
+\section{Current state of development}
 The pull request\cite{git-pull-request} made from the Ranklust
 contribution of this thesis has been accepted\cite{ranklust-accepted}, adding
 3750 lines of code and deleting 1051. The changes was distributed across 50
@@ -663,7 +549,8 @@ source and target gene, of an interaction in the network.
 
 \subsection{Score creation}
 The golden standard for scoring that I used was created by data from
-DisGenet\cite{disgenet} and Dragon\cite{dragon}.
+DisGenet\cite{disgenet} and Dragon\cite{dragon}. 
+% TODO: explain more about disgenet and dragon.
 
 The DisGen data came with decimal scores from 0 to 1 and contained data about
 several diseases, not only prostate cancer. Therefore, the disgen data had to be

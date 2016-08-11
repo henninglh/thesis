@@ -1,18 +1,153 @@
 \part{Results}
 \label{pa:results}
+\chapter{Ranklust as a tool for researchers}
+\section{The planned workflow in general}
+First off is the general workflow:
+\begin{figure}[H]
+    \label{fig:ranklust-workflow}
+    \includegraphics[scale=0.8]{ranklust_workflow}
+\end{figure}
+
+\section{Detailed walk-through of using Ranklust}
+To go into more detail, here is the startup screen that the user is met with
+after launching Cytoscape. This assumes that clusterMaker2 with the Ranklust
+contribution is already installed into Cytoscape.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{1-startup}
+\end{figure}
+
+This screen is what opens up after opting to import a network and choose a
+network file consisting of a header that represents source and target node
+columns, a\_alias and b\_alias.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{2-import}
+\end{figure}
+
+It is important to tell Cytoscape which column is considered as the source and
+target column, as shown here. In this thesis, genes has been the primary key
+identifier in both source and target column.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{3-nodes}
+\end{figure}
+
+This is how Cytoscape looks after importing the network and it has finished its
+standard style layout algorithm, which happens automatically after clicking "OK"
+in the previous screen - having set everything to the correct settings.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{4-imported-network}
+\end{figure}
+
+If the user wishes to weight nodes for clustering or the ranking of them, it is
+possible to do this with the "Import Columns From Table" function.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{5-import-table}
+\end{figure}
+
+To cluster the network, the user has to access the \textit{Apps} menu at the top
+in the toolbar of Cytoscape. In clusterMaker2 there are three rows belonging
+to the plugin. \textit{clusterMaker}, where the clustering algorithms are
+located. \textit{clusterMaker Ranking}, where the cluster ranking algorithms
+\gls{maa},\gls{mam},\gls{pr},\gls{prwp} and \gls{hits} are. Finally, the
+\textit{clusterMaker Visualizatons}, where different visualizations in
+clusterMaker2 can be queried. This row is also where the visualizaton of the
+ranked clusters option resides.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{6-cluster}
+\end{figure}
+
+This is the view after clusterMaker2 has run the \textit{MCL cluster} method on
+the current network. As seen on the left side menu, a new network has been
+listed. This network only appears if the user sets the "Create new clustered
+network"-option in the clustering parameter dialog that appears after choosing a
+clustering algorithm from the clusterMaker2 menu.
+\begin{figure}[H]
+    \includegraphics[width=15cm]{7-done-cluster}
+    \label{fig:}
+\end{figure}
+
+Here the cluster ranking algorithm menu is shown.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{8-choose-ranking}
+\end{figure}
+
+The \gls{prwp} was chosen as the ranking algorithm. Node and edge attributes can
+be combined by the user in any way. 
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{9-pagerank}
+\end{figure}
+
+If the user is interested in visualizing the ranks, it is possible to click the
+"Show results from ranking clusters" option in the visualization menu. No menu
+will appear after that, but rather will Cytoscape open a loading dialog similar
+to when clustering and ranking algorithms has been tasked to start.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{10-show-results}
+\end{figure}
+
+Here is the results panel displaying the ranked clusters from top to bottom,
+descending scores. The title for each results panel is formatted as in the
+example.
+\begin{verbatim}
+[<clustering algorithm>]{<ranking algorithm>}(<network name>)
+\end{verbatim}
+So with MCL clustering, \gls{prwp} ranking and the
+"mitab\_lite\_4100\_final.tsv--clustered" network, this is what the title
+becomes:
+\begin{verbatim}
+[mcl]{PRWP}(mitab_lite_4100_final.tsv--clustered)
+\end{verbatim}
+As seen in the title. The coloring has been discussed earlier.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{11-result-colors}
+\end{figure}
+
+Here is an example of how the clusters change color when selected from the
+results panel menu.
+\begin{figure}[H]
+    \label{fig:}
+    \includegraphics[width=15cm]{12-rank-selection}
+\end{figure}
+
+\section{Design}
+\begin{figure}[H]
+    \caption{Ranklust ranking algorithm relations}
+    \label{fig:rank-alg}
+    \includegraphics[width=\textwidth]{ranklust-algorithm}
+\end{figure}
+\begin{figure}[H]
+    \caption{Ranklust ranking panel relations}
+    \label{fig:rank-panel}
+    \includegraphics[width=\textwidth]{ranklust-panel}
+\end{figure}
+
 \chapter{Graph analysis}
-PPI network from irefweb.
+PPI network from iRefWeb.
 downloaded with these settings: %picture from irefweb
 irefweb said 109276 interactions 
 after hgnc it was 43706 (perturbation: 60\% from iref)
 after clustering it was 13183 (perturbation: 87,9\% from iref - 69,8\% from hgnc) % not used
-only uniprot and refseq
-uniprot said
+
 \section{Creating a network}
 Converting from proteins to genes through HGNC data resulten in a 60\% data
 network edge perturbation. From 100k ish links to 40k ish.
+
 \subsection{Creating connections}
+Creating the connections was achieved through the interactions data from
+iRefWeb.
+
 \subsection{Adding weights}
+Adding the weights was done through the golden standard.
+
 \section{Ranking results}
 Talking about \gls{mcl} results
 \hspace*{-2cm}\begin{table}[H]
@@ -113,7 +248,7 @@ from the topmost to the lowest ranked cluster. But when comparing the
 cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
 ahead by a margin in \gls{rsquared} value.
 
-\section{Benchmarks}
+\section{Benchmarking Ranklust against biomarker resources}
 In all of the upcoming plots of benchmarks, blue will represent prostate cancer
 biomarkers from the \gls{golden} and orange represent prostate candidate cancer
 biomarkers. The benchmarks are all based on prostate cancer data queried from
@@ -125,7 +260,8 @@ for the benchmark.
 The average z-values in the clusters are split among 2 categories as mentioned
 above. The z-values of the prostate candidate cancer genes in a cluster is
 calculated from the average of all of them. The same procedure was done for the
-z-values of the prostate cancer genes.
+z-values of the prostate cancer genes. 
+% TODO: explain more about DISEASE's types
 
 \subsection{Text mined and scored with z-values}
 These next z-value scored plots represents text mined gene results from the
