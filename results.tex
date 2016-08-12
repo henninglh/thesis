@@ -130,8 +130,8 @@ results panel menu.
     \includegraphics[width=\textwidth]{ranklust-panel}
 \end{figure}
 
-\chapter{Graph analysis}
-\section{Creating the network}
+\chapter{Identifying network biomarkers through graph analysis}
+\section{How the network was created}
 After querying iRefWeb for the PPI-network with the query displayed earlier
 (\ref{fig:irefweb}) the resulting network consisted of 109276 interactions.
 After filtering the same network through the protein-to-gene mapping constructed
@@ -147,7 +147,7 @@ resulted in a file with two columns. One representing a gene, the second one
 representing the score of a gene, so a single row would contain a unique gene in
 the list and the score it received.
 
-\section{Ranking results}
+\section{Which parameters for clustering was used and why}
 Talking about \gls{mcl} results
 \begin{table}[H]
     \centering
@@ -187,71 +187,70 @@ at 1000, but the results converged somewhere between 170 and 200 iterations, so
 it was decreased form 1000 to 200 to speed up the time used in the
 \gls{pipeline}.
 
-\section{Cross-validation}
-Executing a cross-validation on the iRefWeb with PRWP and MAA rankings had two
-purposes. The first being to prove the fact that every gene that had its prior
-score removed by the cross-validation, should be found in the results of the
-cluster ranking and identified as candidate biomarkers. 
-
-The second purpose was to analyze the distribution of the genes with prior
-scores removed by the cross-validation in terms of how they placed in the
-cluster ranking. The analysis of this distribution was done by dividing the
-amount of genes removed by cross-validation in a cluster by the total amount of
-genes in the same cluster. This operation was repeated for every cluster in the
-ranking, resulting in a distribution of the average amount of genes removed by
-cross-validation, that was detected by Ranklust together with post-processing of
-data, as cancer candidate biomarkers. A distinct descending distribution from
-high to low ranked clusters would indicate that most of the genes, with a prior
-score of their relevance to prostate cancer, was ranked in a way that achieved
-the goal of Ranklust; ranking clusters in biological network according to
-network structure and prior knowledge of relevance to diseases.
-
-\subsection{Cross-validation in PRWP}
-\begin{figure}[H]
+\section{Results from cross-validation and what they indicate}
+\begin{sidewaysfigure}
     \includegraphics[scale=0.63]{cv_dist_total_filtered_prwp}
     \label{fig:irefweb-prwp}
-    \caption{Cross-validation distribution in clusters (PRWP)}
-\end{figure}
-This plot \ref{fig:irefweb-prwp} is developed from the 10 random
-cross-validation runs ranked with PRWP. The results from this cross-validation
-shows that the higher the rank of the cluster, the more candidate cancer genes
-the cluster had.
+    \caption{Distribution of average combined genes, which had their scores
+    removed by cross-validation, ranked by PRWP}
+\end{sidewaysfigure}
 
-\subsection{Cross-validation in MAA}
-\begin{figure}[H]
+\begin{sidewaysfigure}
     \includegraphics[scale=0.63]{cv_dist_total_filtered_maa}
     \label{fig:irefweb-maa}
-    \caption{Cross-validation distribution in clusters (MAA)}
-\end{figure}
-This plot \ref{fig:irefweb-maa} is developed from the 10 random
-cross-validatioon runs ranked with MAA. The results from this cross-validation
-shows that the higher the rank of the cluster, the more candidate cancer genes
-the cluster had.
+    \caption{Distribution of average combined genes, which had their scores
+    removed by cross-validation, ranked by MAA}
+\end{sidewaysfigure}
 
-\subsection{PRWP versus MAA}
+The plots in figure \ref{fig:irefweb-prwp} and figure \ref{fig:irefweb-maa} is
+developed from the 10 random cross-validation runs ranked with \gls{prwp} and
+\gls{maa}. The x-axis represents the cluster ranks which is represented as
+a blue dot in the scatter plot. Each rank consists of a single cluster which has
+an arbitrary number of genes above 1. The y-axis represents a result from two
+steps. The first step was to go through each of the
+10 cross-validated results from ranking the iRefWeb network with \gls{prwp} and
+\gls{maa}. In each of the cross-validated results an average was calculated for
+each cluster. The average was calculated from dividing the number of genes, that
+had their prior score removed as a result of the cross-validation, by the total
+number of genes in the cluster. Each cluster would at this point have an average
+representing the average of cross-validated genes in a cluster. The second step
+completes the values for the y-axis in the plot represents the score in
+a cluster when additively combining the averages from each of the 10
+cross-validated results that was found by \gls{prwp}.
+
+The analysis of which clusters contained the largest combined average of genes,
+which had their prior score removed by cross-validation, shows that the topmost
+ranked clusters had the highest combined average. This information indicates
+that ranking clusters with \gls{prwp} and \gls{maa} have a tendency towards
+ranking the larger part of the population of prostate cancer biomarkers at the
+top of the cluster ranks, and the lower at the bottom.
+
+Executing a cross-validation on the iRefWeb with \gls{prwp} and \gls{maa}
+rankings had two purposes. The first being to prove the fact that every gene
+that had its prior score removed by the cross-validation, should be found in the
+results of the cluster ranking and identified as candidate biomarkers. The
+second, to prove that the distribution of the combined average in the clusters
+should correlate to the rank they obtained through Ranklust's use of \gls{prwp}
+and \gls{maa}.
+
+\subsection{Differences between ranking with PRWP and MAA}
 There is clearly a trend in both \gls{prwp} and \gls{maa}. The difference
-between them being mainly the amount of clusters found and the coupling of
+between them being mainly the number of clusters ranked and the coupling of
 values around the linear regression fit. It is important to point out that this
 is just a result over the distribution of candidate cancer genes at certain
 ranks. Where the clusters resides in the rankings may be very different between
 the \gls{prwp} and \gls{maa}.
 
-The fact that both of the ranking algorithms managed to get a descending amount
-of prostate candidate cancer genes in the clusters, which was cross-validated
-from the same \gls{golden} priors, indicates that a certain similarity of what
-was mentioned in the previous paragraph. The similarity implicated here is how
-different the ranking of the clusters are between \gls{prwp} and \gls{maa}.
-
 The values in \gls{prwp} have a tighter coupling, in other words, the distance
 the coordinates have in the scatter plot deviate less from the fit than the ones
 in the \gls{maa} plot. The difference is not huge, as the coefficient of
-determination indicates, 0.336 in \gls{prwp} against 0.332 in \gls{maa}. Both
+determination indicates 0.336 in \gls{prwp} against 0.332 in \gls{maa}. Both
 ranking algorithms achieves a descending distribution of cross-validated genes
-from the topmost to the lowest ranked cluster. But when comparing the
+from the topmost to the lowest ranked cluster. Though, when comparing the
 cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
 ahead by a margin in \gls{rsquared} value.
 
-\section{Benchmarking Ranklust against biomarker resources}
+\section{Benchmarking Ranklust against text mined, curated knowledge and experimental test data}
 In all of the upcoming plots of benchmarks, blue will represent prostate cancer
 biomarkers from the \gls{golden} and orange represent prostate candidate cancer
 biomarkers. The benchmarks are all based on prostate cancer data queried from
@@ -587,4 +586,6 @@ mined data.
         120	& -	& CYB5A	& CYP17A1, CYP3A4, CYP3A5, CYP2E1	& CYP4F2, CYP4A11 \\
         \hline
     \end{tabular}
+    \caption{iRefWeb network ranked with PRWP and lethal prostate cancer tested}
+    \label{tab:prwp-lethal}
 \end{sidewaystable}
