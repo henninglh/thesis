@@ -1,15 +1,8 @@
 \part{Introduction}
 \label{pa:intro}
 \chapter{Background}
-\section{Oversight}
-This thesis is about implementing and using a tool named Ranklust. It is not
-a standalone tool, but rather a contribution to a Cytoscape plugin named
-clusterMaker2\cite{cm2}\cite{cm2-github}. The goal of this tool is to rank
-clusters created from Protein-Protein Interaction (PPI) networks in Cytoscape.
-The ranks will be based on different node and edge attributes in the network.
-The resulting ranks will also indicate which clusters can be seen as cluster
-biomarkers, and which genes inside these clusters that could be considered to be
-single gene candidate biomarkers. 
+\section{Motivation}
+Motivation in general here
 
 \section{Biomarkers}
 A biomarker is a "biological measure of a biological state"
@@ -348,60 +341,60 @@ against approved gene symbols and names by cross referencing several databases.
 In this assignment, RefSeq IDs and UniProt IDs was used. This was also partially
 because the protein identifiers from iRefWeb was listed in this exact format.
 
-\section{Neo4J}
-Neo4J was considered as a source of data, and also as a way of maybe ranking the
-clusters in a network. Neo4J is a good database to work with when connections
-between nodes in a network is what will time to calculate. Before the
-final decision of opting for only node scores to score the network, making the
-choice of using Neo4J undesirable, Neo4J was therefore probed for its usages as
-a database together with Ranklust.
-
-A problem we had with the Neo4J\cite{neo4j} database is the dump it creates.
-The dump creates a single Cypher\cite{cypher} commit for the whole database.
-This way, if anything goes wrong while importing the data, it will get rolled
-back. It hinders faulty data and relationship between several parts of the data
-to be imported into the database. The problem with a single commit to import
-the data is the required memory. The personal computer used in this thesis and
-the computers at University of Oslo that we have access to did not have enough
-memory to import the database as a single commit in Cypher. Splitting up the
-dump to several commits does not work without quirks. It conquers the memory
-problem, but the way the relationships are created from the Neo4J dump requires
-the import process to be done in a single commit. A way to fix this is either
-not to use Cypher queries as a way of importing the data, but instead use
-GraphML\cite{graphml}. Another way is to refactor the Cypher dump so that the
-creation of relationships does not need to be done in a single commit. We will
-use both ways, because not being able to use the Cypher queries because of too
-little memory will most likely be a problem for several people and not just me.
-Using GraphML is good for exporting data from Cytoscape and from the database,
-but interaction between the two of them while performing the algorithms is not
-feasible at the time.  The last drawback is where Cypher queries are good,
-because it exists plugins that aid in using data from the database directly in
-Cytoscape. So initializing a database for testing could easily be done with
-GraphML, and then use Cypher queries to instruct a database to perform
-computations on the data.
-
-Creating a script to refactor the Cypher queries does not only help in regards
-of using the data with Cytoscape, but also for everyone using a Neo4J Cypher
-dump to create a database and does not have much memory. A problem that might
-come up is performance. Because the current way of creating relationships use
-node labels in Neo4J and it takes only a single line to create a relationship
-between two nodes. If we refactor the relationship-part of the Neo4J dump, it
-will increase to a two instruction query. Firstly, two nodes has to be found
-based on their indexed node name, which will relate to the protein/gene name.
-Secondly, we do the same thing that was done before the refactor, we create the
-relationship between the two nodes. The difference between the old and the new
-way of creating the relationship is how the nodes are found. The Neo4J dump
-creates temporary node variables prepended with an underscore and an integer ID.
-These ID's only exist within the commit the nodes are created. So splitting
-creation and relationship-making leaves us with worthless IDs that does not
-refer to any known node. That is when Neo4J tries to be smart and then creates
-new nodes based on the underscore ID and then creates a relationship between
-them. The end result, two new nodes that only contains the undescore IDs. So the
-refactored version aims at matching the underscore IDs in the relationship
-creation to the node creation, and to replace them with the name of the nodes
-instead of the temporary underscore ID. But as mentioned, matching the nodes
-with the name takes up more time and performance might be an issue. For
-comparison, with a Cypher dump of 4,500 lines, it takes about 20 seconds before
-the query engine gets a stack overflow error from too little memory (4GB
-memory). With GraphML, an XML file with 250,000 lines takes under 1 second to
-import and it gets relationships right without any form of refactoring.
+%\section{Neo4J}
+%Neo4J was considered as a source of data, and also as a way of maybe ranking the
+%clusters in a network. Neo4J is a good database to work with when connections
+%between nodes in a network is what will time to calculate. Before the
+%final decision of opting for only node scores to score the network, making the
+%choice of using Neo4J undesirable, Neo4J was therefore probed for its usages as
+%a database together with Ranklust.
+%
+%A problem we had with the Neo4J\cite{neo4j} database is the dump it creates.
+%The dump creates a single Cypher\cite{cypher} commit for the whole database.
+%This way, if anything goes wrong while importing the data, it will get rolled
+%back. It hinders faulty data and relationship between several parts of the data
+%to be imported into the database. The problem with a single commit to import
+%the data is the required memory. The personal computer used in this thesis and
+%the computers at University of Oslo that we have access to did not have enough
+%memory to import the database as a single commit in Cypher. Splitting up the
+%dump to several commits does not work without quirks. It conquers the memory
+%problem, but the way the relationships are created from the Neo4J dump requires
+%the import process to be done in a single commit. A way to fix this is either
+%not to use Cypher queries as a way of importing the data, but instead use
+%GraphML\cite{graphml}. Another way is to refactor the Cypher dump so that the
+%creation of relationships does not need to be done in a single commit. We will
+%use both ways, because not being able to use the Cypher queries because of too
+%little memory will most likely be a problem for several people and not just me.
+%Using GraphML is good for exporting data from Cytoscape and from the database,
+%but interaction between the two of them while performing the algorithms is not
+%feasible at the time.  The last drawback is where Cypher queries are good,
+%because it exists plugins that aid in using data from the database directly in
+%Cytoscape. So initializing a database for testing could easily be done with
+%GraphML, and then use Cypher queries to instruct a database to perform
+%computations on the data.
+%
+%Creating a script to refactor the Cypher queries does not only help in regards
+%of using the data with Cytoscape, but also for everyone using a Neo4J Cypher
+%dump to create a database and does not have much memory. A problem that might
+%come up is performance. Because the current way of creating relationships use
+%node labels in Neo4J and it takes only a single line to create a relationship
+%between two nodes. If we refactor the relationship-part of the Neo4J dump, it
+%will increase to a two instruction query. Firstly, two nodes has to be found
+%based on their indexed node name, which will relate to the protein/gene name.
+%Secondly, we do the same thing that was done before the refactor, we create the
+%relationship between the two nodes. The difference between the old and the new
+%way of creating the relationship is how the nodes are found. The Neo4J dump
+%creates temporary node variables prepended with an underscore and an integer ID.
+%These ID's only exist within the commit the nodes are created. So splitting
+%creation and relationship-making leaves us with worthless IDs that does not
+%refer to any known node. That is when Neo4J tries to be smart and then creates
+%new nodes based on the underscore ID and then creates a relationship between
+%them. The end result, two new nodes that only contains the undescore IDs. So the
+%refactored version aims at matching the underscore IDs in the relationship
+%creation to the node creation, and to replace them with the name of the nodes
+%instead of the temporary underscore ID. But as mentioned, matching the nodes
+%with the name takes up more time and performance might be an issue. For
+%comparison, with a Cypher dump of 4,500 lines, it takes about 20 seconds before
+%the query engine gets a stack overflow error from too little memory (4GB
+%memory). With GraphML, an XML file with 250,000 lines takes under 1 second to
+%import and it gets relationships right without any form of refactoring.
