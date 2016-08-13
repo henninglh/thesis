@@ -602,10 +602,52 @@ From each of these tests, it is displayed the top 10 clusters, which had
 a combined amount of genes in either the "test biomarkers" or the "test
 candidates" column above 0.
 
-As a comment to each plot, the topmost ranked cluster in each table will be
+As a comment to each table, the topmost ranked cluster in each table will be
 analyzed when it comes to each of the genes it contains. The genes will be
 assigned their functional classification according to PANTHERDB and \gls{jensen}
 database\cite{pantherdb,panther,disgenet}.
+
+\section{Top 10 clusters from each ranking algorithm in Ranklust}
+\begin{table}[H]
+    \begin{tabular}{l l l l}
+        \textbf{Cluster rank} & \textbf{Cluster number} & \textbf{Cluster score} & \textbf{Genes} \\
+        \hline
+        1 & 1136	& 1.0	& LZTS1, CDC25C \\
+        2 & 690	& 0.918902810704	& SOX9, SCX, CREB3L4 \\
+        3 & 1004	& 0.758524309337	& MMP14, MMP13 \\
+        4 & 1364	& 0.69307698666	& SSTR2, SSTR3 \\
+        5 & 1227	& 0.689177108028	& MLNR, GHRHR \\
+        6 & 721	& 0.671675886965	& TAGLN, RNF14, TNFAIP3 \\
+        7 & 1110	& 0.666772639835	& ADAMTS5, TIMP3 \\
+        8 & 1359	& 0.636059086342	& GSTA1, GSTA2 \\
+        9 & 527	& 0.585248909289	& KLK14, KLK5, SPINK5, CAMP \\
+        10 & 1143	& 0.576075890388	& LYPLA2, ITGA4 \\
+        \hline
+    \end{tabular}
+    \caption{Top 10 clusters from ranking the iRefWeb network with the golden
+    standard priors and PRWP ranking algorithm}
+    \label{tab:top10-prwp}
+\end{table}
+\begin{table}[H]
+    \begin{tabular}{l l l l}
+        \textbf{Cluster rank} & \textbf{Cluster number} & \textbf{Cluster score} & \textbf{Genes} \\
+        \hline
+        1 & 721	& 1.0	& TAGLN, RNF14, TNFAIP3 \\
+        2 & 1110	& 1.0	& ADAMTS5, TIMP3 \\
+        3 & 1364	& 1.0	& SSTR2, SSTR3 \\
+        4 & 1305	& 0.768245431105	& CDK5R1, LMTK2 \\
+        5 & 1136	& 0.725502913802	& LZTS1, CDC25C \\
+        6 & 1359	& 0.725005246913	& GSTA1, GSTA2 \\
+        7 & 1004	& 0.720010369387	& MMP14, MMP13 \\
+        8 & 680	& 0.666666666667	& PRTN3, F2R, F2RL1 \\
+        9 & 690	& 0.666666666667	& SOX9, SCX, CREB3L4 \\
+        10 & 719	& 0.666666666667	& AGER, RHOA, GMIP \\
+        \hline
+    \end{tabular}
+    \caption{Top 10 clusters from ranking the iRefWeb network with the golden
+    standard priors and MAA ranking algorithm}
+    \label{tab:top10-maa}
+\end{table}
 
 \section{Prostate cancer genes manually curated from the movember group}
 \begin{sidewaystable}
@@ -644,6 +686,7 @@ database\cite{pantherdb,panther,disgenet}.
 \end{sidewaystable}
 
 \textbf{Top ranked cluster ranked with PRWP and tested with Movember data}
+(table: \ref{tab:prwp-movember})
 
 \begin{itemize}
     \item TNFRSF11B
@@ -703,6 +746,7 @@ database\cite{pantherdb,panther,disgenet}.
 \end{sidewaystable}
 
 \textbf{Top ranked cluster ranked with MAA and tested with Movember data}
+(table: \ref{tab:maa-movember})
 
 \begin{itemize}
     \item F2R
@@ -762,6 +806,7 @@ database\cite{pantherdb,panther,disgenet}.
 \end{sidewaystable}
 
 \textbf{Top ranked cluster ranked with PRWP and tested with COSMIC data}
+(table: \ref{tab:prwp-cosmic})
 
 \begin{itemize}
     \item TNFAIP3
@@ -775,7 +820,7 @@ database\cite{pantherdb,panther,disgenet}.
         \begin{itemize}
             \item PantherDB subfamily - Ubiquitin-protein ligase
             \item \gls{jensen} relation - Relation to several diseases, among them
-                specificly prostate cancer (z-score of 3.6)
+                specifically prostate cancer (z-score of 3.6)
         \end{itemize}
     \item TAGLN
         \begin{itemize}
@@ -820,6 +865,7 @@ database\cite{pantherdb,panther,disgenet}.
 \end{sidewaystable}
 
 \textbf{Top ranked cluster ranked with MAA and tested with COSMIC data}
+(table: \ref{tab:maa-cosmic})
 
 \begin{itemize}
     \item TNFAIP3
@@ -881,6 +927,7 @@ possible}
 \end{sidewaystable}
 
 \textbf{Top ranked cluster ranked with PRWP and tested with Lethal prostate cancer data}
+(table: \ref{tab:prwp-lethal})
 
 \begin{itemize}
     \item F2R
@@ -940,6 +987,7 @@ possible}
 \end{sidewaystable}
 
 \textbf{Top ranked cluster ranked with MAA and tested with Lethal prostate cancer data}
+(table: \ref{tab:maa-lethal})
 
 \begin{itemize}
     \item F2R
@@ -962,7 +1010,7 @@ possible}
         \end{itemize}
 \end{itemize}
 
-\section{Final results from testing PRWP and MAA against prostate cancer test data}
+\section{Results from testing PRWP and MAA against several data test sources related to prostate cancer}
 Comparing \gls{prwp} to \gls{maa} clearly shows that \gls{prwp} is better at
 identifying and prioritizing network biomarkers for prostate cancer. This
 conclusion is based on which of the two ranking algorithms that had the highest

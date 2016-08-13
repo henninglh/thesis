@@ -48,11 +48,11 @@ In the future, maybe a database with complete protein complexes could exclude
 the need for clustering and provide different ways of ranking them based on
 query criteria.
 
-Other ranking algorithms than PageRank could also be used. There are numerous
-variations based off of this well known algorithm, for example NetRank and
-GeneRank\cite{netrank,generank}. Not all of these PageRank variants are intended
-to be used with PPI networks, but they can in many cases be modified to fit this
-specific purpose.
+Other ranking algorithms than PageRank could also have been used. There are
+numerous variations based off of this well known algorithm, for example NetRank
+and GeneRank\cite{netrank,generank}. Not all of these PageRank variants are
+intended to be used with PPI networks, but they can in many cases be modified to
+fit this specific purpose.
 
 In Ranklust, the average score in the nodes becomes the cluster score. PageRank
 was used to combine prior knowledge of cancer genes and network structure to
@@ -136,3 +136,9 @@ this day, direct queries to a running Neo4J instance has to be done in Cypher,
 and is not possible in GraphML.
 
 \section{Final results from identifying and prioritizing network biomarkers in prostate cancer}
+In the three unique clusters that had the topmost ranks in the results from
+testing \gls{prwp} and \gls{maa} against several data test sources related to
+prostate cancer, every gene in these clusters was related to cancer, except for
+1, PRTN3. \gls{maa} ranked the cluster that contained PRTN3 higher than clusters
+where all of the genes were related to cancer, when checked in the \gls{jensen}
+database. 
