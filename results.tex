@@ -133,7 +133,7 @@ results panel menu.
 \chapter{Identifying network biomarkers through graph analysis}
 \section{How the network was created}
 After querying iRefWeb for the PPI-network with the query displayed earlier
-(\ref{fig:irefweb}) the resulting network consisted of 109276 interactions.
+(figure \ref{fig:irefweb}) the resulting network consisted of 109276 interactions.
 After filtering the same network through the protein-to-gene mapping constructed
 from HGNC, the final network consisted of 9500 nodes (genes) and 43706 edges
 (interactions). At this point, all of the nodes and edges were undirected and
@@ -177,7 +177,7 @@ process. Modularity is not the only indicator of how well a network was
 clustered, hence the choice of not setting the inflation value in \gls{mcl} to
 1.6, but rather 1.8. When a lower inflation value is set, \gls{mcl} does not
 separate edges between nodes as vigorously and as a direct cause, inflation will
-go up. Taking the other attributes in the table (\ref{tab:mcl-inflation}) into
+go up. Taking the other attributes in the table (table: \ref{tab:mcl-inflation}) into
 consideration, 1.8 seemed like the best inflation value. An inflation value of
 1.8 has also been proved to be good for large high-throughput constructed
 protein-protein networks with a large amount of alterations\cite{mcl-inflation}.
@@ -191,14 +191,14 @@ it was decreased form 1000 to 200 to speed up the time used in the
 \begin{sidewaysfigure}
     \includegraphics[scale=0.63]{cv_dist_total_filtered_prwp}
     \label{fig:irefweb-prwp}
-    \caption{Distribution of average combined genes, which had their scores
+    \caption{Distribution of combined averages of genes, which had their scores
     removed by cross-validation, ranked by PRWP}
 \end{sidewaysfigure}
 
 \begin{sidewaysfigure}
     \includegraphics[scale=0.63]{cv_dist_total_filtered_maa}
     \label{fig:irefweb-maa}
-    \caption{Distribution of average combined genes, which had their scores
+    \caption{Distribution of combined averages of genes, which had their scores
     removed by cross-validation, ranked by MAA}
 \end{sidewaysfigure}
 
@@ -214,9 +214,10 @@ each cluster. The average was calculated from dividing the number of genes, that
 had their prior score removed as a result of the cross-validation, by the total
 number of genes in the cluster. Each cluster would at this point have an average
 representing the average of cross-validated genes in a cluster. The second step
-completes the values for the y-axis in the plot represents the score in
+completes the values for the y-axis in the plot and represents the score in
 a cluster when additively combining the averages from each of the 10
-cross-validated results that was found by \gls{prwp}.
+cross-validated results that was found by \gls{prwp} and \gls{maa}. To filter
+out the uninteresting results, all zero values on the y-axis was removed.
 
 The analysis of which clusters contained the largest combined average of genes,
 which had their prior score removed by cross-validation, shows that the topmost
@@ -251,81 +252,93 @@ cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
 ahead by a margin in \gls{rsquared} value.
 
 \section{Benchmarking Ranklust against text mined, curated knowledge and experimental test data}
-In all of the upcoming plots of benchmarks, blue will represent prostate cancer
-biomarkers from the \gls{golden} and orange represent prostate candidate cancer
-biomarkers. The benchmarks are all based on prostate cancer data queried from
-the \gls{jensen} database\cite{jensen}. The database has a hierarchy based
-definition of diseases, so filtering the data on an insensitive-case "prostate
-cancer"-query with the UNIX grep tool\cite{grep} retrieved all of the genes used
-for the benchmark.
+\subsection{Retrieving the test data from the DISEASE database}
+Benchmarking Ranklust is done against three resources of data from a single
+database called DISEASE\cite{jensen}. This database can be queried for diseases
+or genes. The query in this database was limited to searching for a single
+disease or gene name. No API was found to access the database directly, so to
+retrieve the gene names related to prostate cancer, whole files was downloaded.
+There were three files, one for each type of research put into retrieving the
+data: text mined, manually curated knowledge and experimental data. Each of
+these files was filled with genes and their relation to different diseases, so
+they had to be filtered to only contain genes with information about prostate
+cancer. This was done by only using genes that contained "prostate cancer" in
+the column indicating which disease the specific gene was related to.
 
-The average z-values in the clusters are split among 2 categories as mentioned
-above. The z-values of the prostate candidate cancer genes in a cluster is
-calculated from the average of all of them. The same procedure was done for the
-z-values of the prostate cancer genes. 
+The plots representing values in clusters from each of these three files have
+split each cluster in two parts, blue and orange. The blue dots in the scatter
+plot represents the genes in a cluster that has prior scores. The orange dots in
+the scatter plot represent genes in the same cluster as the blue ones in terms
+of which rank they are in based on the x-axis, but they do not have prior
+scores. The blue dots are also mentioned as prostate cancer genes and orange
+dots as prostate candidate cancer genes, because they have no score, but they
+are in some cases related to other prostate cancer genes to such a degree that
+they are susceptible to be candidate cancer biomarkers for prostate cancer. As
+with the cross-validation plots, the zero values in the plots have been removed.
 
-The average knowledge curated genes...
-
-The average p-values in the cluster...
-
-\subsection{Text mined and scored with z-values}
-These next z-value scored plots represents text mined gene results from the
-\gls{jensen} database.
-
+\subsection{Z-scores for text mined genes in clusters}
 \begin{sidewaysfigure}
     \label{fig:txt-iref-prwp}
     \includegraphics[scale=0.63]{prwp_txt_split}
-    \caption{Average distribution of z-scores in clusters ranked by PRWP.}
+    \caption{Average z-score in a cluster ranked by PRWP}
 \end{sidewaysfigure}
-For \gls{prwp}, the prostate cancer candidate genes is descending in z-values
-from the topmost ranked cluster to the lowest, which is contributing to
-showing \gls{prwp}s suitability for ranking clusters as candidate biomarkers. 
-
-The prostate candidate cancer biomarkers are ascending in z-value from the
-topmost to the lowest ranked cluster. High z-values would contribute to the fact
-that ranklust has found actual prostate candidate cancer biomarkers. However,
-a low z-values does not contradict it. The only fact to deduce from low z-values
-is that they have not been examinated to the degree that they are not mentioned
-in papers related to prostate cancer.
-
 \begin{sidewaysfigure}
     \label{fig:txt-iref-maa}
     \includegraphics[scale=0.63]{maa_txt_split}
-    \caption{Average distribution of z-scores in clusters ranked by MAA.}
+    \caption{Average z-score in a cluster ranked by MAA}
 \end{sidewaysfigure}
-For \gls{maa}, the prostate cancer genes have the same distinct descension in
-z-values from the topmost to the lowest cluster ranks. The difference from
-\gls{prwp} to \gls{maa} being that \gls{maa} has a more distinct ascending
-linear regresstion fit for the z-values in the prostate candidate cancer genes.
 
+The text mined scores are represented by a z-score. The z-score to a gene in the
+text mined data from the DISEASE database is a developed from a co-occurence
+score, which increased when a gene and a disease was mentioned together, but
+also decreased when they were mentioned with multiple other genes or diseases.
+This co-occurence score was later converted to z-scores to be more robust to
+changes to the size of the text corpus in the DISEASE database\cite{jensen}.
+This results in the average z-score to a cluster, which is based on the average
+z-score of each gene in a cluster, to be a benchmark as to how high the cluster
+should be ranked in terms of being a relevant network biomarker for prostate
+cancer.
+
+Since the plots have split each cluster into two parts, the cluster part of
+genes with priors and the ones without priors, the expected outcome, should the
+ranking algorithms perform as expected, would be to have the blue dots
+descending and the orange dots ascending, when looking at a linear regression
+fit going from the topmost ranked cluster to the lowest.
+
+\subsubsection{PRWP benchmarked with text mined genes}
+For \gls{prwp} (figure: \ref{fig:txt-iref-prwp}), the prostate cancer candidate genes is
+descending in z-values from the topmost ranked cluster to the lowest, which is
+contributing to showing \gls{prwp}'s suitability for ranking clusters as
+candidate biomarkers. 
+
+The prostate candidate cancer biomarkers are ascending in z-value from the
+topmost to the lowest ranked cluster. High z-values could contribute to the fact
+that ranklust has found actual prostate candidate cancer biomarkers. However,
+a low z-values does not contradict it. The only fact to deduce from low z-values
+is that they have not been examinated to the degree that they are not mentioned
+as a single gene related to prostate cancer in scientific papers.
+
+\subsubsection{MAA benchmarked with text mined genes}
+For \gls{maa} (figure: \ref{fig:txt-iref-maa}), the prostate cancer genes have the same
+distinct descension in z-values from the topmost to the lowest cluster ranks.
+The difference from \gls{prwp} to \gls{maa} being that \gls{maa} has a more
+distinct ascending linear regresstion fit for the z-values in the prostate
+candidate cancer genes.
+
+\subsubsection{Conclusion of benchmarking through text mined genes}
 This demonstrates the main difference between \gls{prwp} and \gls{maa}.
-\gls{prwp} takes network structure into comparison as well as the prior scores.
-\gls{maa} focuses purely on the prior scores, and so the network structure of
-protein complexes are being completely ignored.
+\gls{prwp} takes network structure into comparison as well as the prior scores,
+so it will rank genes without priors higher than \gls{maa}. \gls{maa} focuses
+purely on the prior scores, and so the network structure of protein complexes
+are being completely ignored.
 
-\subsection{Knowledge curated distribution of genes}
-This data had no score except for a confidence score in the \gls{jensen}
-database. Due to the low grade of distinctiveness between the different genes in
-the database, the average amount of genes in a cluster would receive a knowledge
-score based on if the gene occurs in the knowledge curated part of the
-\gls{jensen} database or not. So the knowledge curated data is only based on
-occurence, and not a specific value, in contrast to the text mined and
-experimentally mined genes in the database.
-
-Another trait the knowledge curated data posssesses is the amount entries in the
-\gls{jensen} database that has. Text mined data can be seen as the
-high-throughput technology of retrieving relevant data from papers, while the
-knowledge curated data is manually curated by researchers. This is why the
-amount of entries for knowledge curated data is so low when compared to text
-mined data.
-
+\subsection{Manually knowledge curated genes in a cluster}
 \begin{sidewaysfigure}
     \label{fig:know-iref-prwp}
     \includegraphics[scale=0.63]{prwp_know_split}
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by PRWP.}
 \end{sidewaysfigure}
--- PRWP knowledge curated data discussion --
 
 \begin{sidewaysfigure}
     \label{fig:know-iref-maa}
@@ -333,26 +346,131 @@ mined data.
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by MAA.}
 \end{sidewaysfigure}
--- MAA knowledge curated data discussion --
 
-\subsection{Experimental mined genes distribution of p-values in genes}
+This data had no score except for a confidence score in the \gls{jensen}
+database. Every gene in the manually knowledge curated file had a confidence
+score of 5 stars, due to being manually curated by researchers\cite{jensen}.
+Therefore, the average number of genes in a cluster would receive a knowledge
+score based on if the gene occurs in the knowledge curated part of the
+\gls{jensen} database or not. So the knowledge curated data is only based on
+occurence, and not a specific value, in contrast to the text mined and
+experimentally mined genes in the database. The clusters are split two-ways, in
+a similar way that the benchmark with the text mined genes was, blue for genes
+in the cluster which have priors and orange for the genes that do not have prior
+scores.
+
+Another trait the knowledge curated data posssesses is the amount entries in the
+\gls{jensen} database that has. Text mined data can be seen as the
+high-throughput technology of retrieving relevant data from papers, while the
+knowledge curated data is manually curated knowledge by researchers. This is why
+the amount of entries for knowledge curated data is so sparse when compared to
+text mined data.
+
+For the manually knowledge curated genes to indicate valuable rankings of the
+clusters, the genes with prior scores should have a descending trend from the
+topmost ranked cluster to the lowest. If the genes without prior scores, have
+a clear ascending trend from the topmost to the lowest ranked cluster, it would
+have been a direct contradiction to the fact that the ranking algorithms should
+be able to rank genes without prior scores in a reasonable way if they are
+related to genes with priors. A higher frequency of manually knowledge curated
+genes would increase the validity of these thrends, should they occur,
+especially if they are subtle.
+
+\subsubsection{PRWP benchmarked by manually knowledge curated genes}
+For \gls{prwp} (figure: \ref{fig:know-iref-prwp}), the genes with prior scores in
+a cluster have a clear descending trend from the topmost to the lowest ranked
+cluster. This builds up under the validitiy of \gls{prwp} being able to rank
+prior scored genes correctly. The genes without prior scores in a cluster does
+ascend to a low degree and the \gls{rsquared} for the fit that has this
+ascending trend is not deemed as a good fit for the scores, at a \gls{rsquared}
+value of only 0.002.
+
+\subsubsection{MAA benchmarked by manually knowledge curated genes}
+For \gls{maa} (figure: \ref{fig:know-iref-maa}), the genes with prior scores in a
+cluster have the same trend as in \gls{prwp}. For the genes without prior scores
+in a cluster, the trend also is the same as in \gls{prwp}, but to a higher
+degree. The fit for the ascending average in manually knowledge curated genes in
+a cluster, for the genes in the cluster without prior scores is an
+\gls{rsquared} value of 0.33, which is considerably higher than the ascending
+value for \gls{prwp}.
+
+\subsubsection{Conclusion of benchmarking through manually knowledge curated genes}
+Benchmarking \gls{maa} with manually knowledge curated gene test data has
+uncovered its weakness of ranking prostate candidate cancer genes correctly.
+\gls{prwp} had the same trend, but the fit was not very accurate and the trend
+was negligible. Though, with such a small sample size of manually knowledge
+curated genes when compared to text mined genes, \gls{maa} is excluded as
+a viable ranking algorithm for prioritizing network biomarkers in prostate
+cancer.
+
+\subsection{Experimental genes distribution of p-values in genes}
 \begin{sidewaysfigure}
     \label{fig:exp-iref-prwp}
     \includegraphics[scale=0.63]{prwp_exp_split}
     \caption{Average distribution of p-values in clusters ranked by PRWP.}
 \end{sidewaysfigure}
--- PRWP experimentally mined data discussion --
-
 \begin{sidewaysfigure}
     \label{fig:exp-iref-maa}
     \includegraphics[scale=0.63]{maa_exp_split}
     \caption{Average distribution of p-values in clusters ranked by MAA.}
 \end{sidewaysfigure}
--- MAA experimentally mined data discussion --
 
+All of the experimental genes are from experiments and are a result from
+genome-wide association studies (GWAS). Each gene in this test data are scored
+after p-values from "the most statistically significant SNP within the
+block."\cite{distild} in experiments related to prostate cancer. The
+\gls{jensen} database has experimental data from both the Catalogue of Somatic
+Mutations in Cancer (COSMIC) and DistiLD, but for prostate cancer, only
+experimental data from DistiLD was available.
+
+The score for each cluster is calculated from the average p-value from each gene
+in the cluster. In contrast to the previous plots, the trend required to
+validate \gls{prwp} and \gls{maa} as cluster ranking algorithms for prioritizing
+network biomarkers in prostate cancer, is an ascending trend in both genes with
+and without prior scores, when ranking clusters from the topmost to the lowest
+cluster. An ascending score for the genes with prior scores proves that the
+highly ranked clusters have low p-values, which is proof of a low chance of the
+null hypothesis being true. Here, the null hypothesis would be that a gene has
+no relevance to prostate cancer. The \gls{golden} is based on \gls{dragon} and
+DisGeNET scores. The DisGeNET scores are developed as a score based on the
+supporting evidence for the context of a gene and a disease being
+true\cite{disgenet}. Based on this fact, it is feasible if \gls{prwp} and
+\gls{maa} would demonstrate the previously defined trend.
+
+The experimental data has one of the same feats as the manually knowledge
+curated data, it is very sparse. As with the previous plots, the genes with
+prior scores in a cluster are colored blue, and the ones without prior scores as
+orange.
+
+\subsubsection{PRWP benchmarked by experimentally mined genes}
+For \gls{prwp} (figure: \ref{fig:exp-iref-prwp}), there is a trend for descending
+p-values for the genes with prior scores in a cluster and an ascending p-value
+trend for the genes without prior scores in a cluster. For the genes without
+prior scores, this is a feasible result in order to validate Ranklust as a tool
+for prioritizing network biomarkers. For the genes with prior scores, there is
+a single cluster that seems to be the cause of the descending trend but the
+\gls{rsquared} value for the fit of the linear regression is not high. 
+
+\subsubsection{MAA benchmarked by experimentally mined genes}
+For \gls{maa} (figure: \ref{fig:exp-iref-maa}), the trends are the same as with
+\gls{prwp}, but the trends are more noticeable. For the genes with prior scores,
+the descending p-value trend towards the lower ranked clusters are steeper than
+the one in the plot for \gls{prwp}, but the \gls{rsquared} score is very low and
+the as it is in the \gls{prwp} plot, it seems to be a single cluster that is
+responsible for the descending trend in p-values.
+
+\subsubsection{Conclusion of benchmarking through experimentally mined genes}
+As with the manually knowledge curated genes, the experimental genes have
+a small sampling size. Also, the trends that would discredit Ranklust's ability
+to prioritize network biomarkers is not backed up by very high values of
+confidence in terms of \gls{rsquared} values in the linear regression fits. In
+this specific case of benchmarking Ranklust, it is a high probability that the
+cause of the trend is an outlier in the plot.
 
 \section{Comparison to known biomarkers}
--- Tests from Movember data etc. --
+-- MOVEMBER --
+-- COSMIC --
+-- LETHAL --
 
 \section{Identification of possible cluster biomarkers}
 -- Final list with cluster biomarkers --

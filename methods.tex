@@ -243,8 +243,10 @@ aspects being noise tolerance and more robust behaviour, which will contribute
 greatly to cluster the iRefWeb network.
 
 \section{Ranking clusters}
-I have used five algorithms to rank the clusters, \gls{maa}, \gls{mam},
-\gls{pr}, PRWR and \gls{hits}. The first two are simple algorithms that through
+I have used five algorithms to rank the clusters, Multiple Attribute Additive
+Method (\gls{maa}), Multiple Attribute Multiplication Method (\gls{mam}),
+PageRank (\gls{pr}), PageRank with Priors (\gls{prwp} and Hyperlink-Induced
+Topic Search (\gls{hits}). The first two are simple algorithms that through
 addition or multiplication calculates a cluster's average score. The three
 others utilize network ranking algorithms from the Java JUNG\cite{jung} library.
 
@@ -296,17 +298,17 @@ scaling problems when adding 1.0 to a score over 1.0. The whole reason to add
 1.0 was to counteract the problem with the score decreasing when it should be
 increasing.
 
-\subsection{PageRank (PR) and Personalized PageRank (PRWP)} 
+\subsection{PageRank (PR) and PageRank with Priors (PRWP)} 
 A Random Walks\cite{random-walks2} algorithm which used priors, called
 seed-weighted random walks ranking \cite{sw-rwr}, proved to be effective at
 prioritizing biomarker candidates. PageRank (\gls{pr}) is an algorithm based on
 the Random Walks principle, and it is contained inside the Java library
 \textit{JUNG}\cite{jung}. PageRank was previously used by Google to rank
-webpages \cite{pagerank}. Personalized PageRank (\gls{prwp})\cite{pr-bio} is a
+webpages \cite{pagerank}. PageRank with Priors (\gls{prwp})\cite{pr-bio} is a
 modified version of \gls{pr}, where nodes and edges can be assigned a score
 prior to the \gls{pr}'s traversal of the network. \gls{pr} can have values
 assigned to the edges, but it does not require any scores in order to rank
-clusters, which \gls{prwp} does. Personalized PageRank is abbreviated \gls{prwp}
+clusters, which \gls{prwp} does. PageRank with Priors is abbreviated \gls{prwp}
 because of the Java classname it has in the Java JUNG library
 - \textit{PageRankWithPriors}.
 
@@ -337,7 +339,7 @@ received, each edge will display the total score for the cluster it is a member
 of, just like the nodes. Only \gls{prwp} and \gls{pr} will also display the
 single node score.
 
-\subsection{Hyperlink-Induced Topic Search}
+\subsection{Hyperlink-Induced Topic Search (HITS)}
 Hyperlink-Induced Topic Search, \gls{hits}, an algorithm that is similar to
 PageRank, was developed around the same time \cite{hits}\cite{hits-origin} and
 is also contained within the Java JUNG library. \gls{hits} will not be used to
