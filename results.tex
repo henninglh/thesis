@@ -11,7 +11,7 @@ First off is the general workflow:
 \section{Detailed walk-through of using Ranklust}
 To go into more detail, here is the startup screen that the user is met with
 after launching Cytoscape. This assumes that clusterMaker2 with the Ranklust
-contribution is already installed into Cytoscape.
+contribution is already installed in Cytoscape.
 \begin{figure}
     \label{fig:startup}
     \includegraphics[width=15cm]{1-startup}
@@ -19,15 +19,20 @@ contribution is already installed into Cytoscape.
 
 This screen is what opens up after opting to import a network and choose a
 network file consisting of a header that represents source and target node
-columns, a\_alias and b\_alias.
+columns, a\_alias and b\_alias. The names for the columns does not have to be
+exactly a\_alias and b\_alias, but there should be some header information
+indicating a source and target gene/node. Having no header in the data imported
+into cytoscape is not a problem, but it requires the user to explicitly specify
+this in the "Advanced Options" menu and check off the "Use first line as column
+names" option.
 \begin{figure}[H]
     \label{fig:import}
     \includegraphics[width=15cm]{2-import}
 \end{figure}
 
 It is important to tell Cytoscape which column is considered as the source and
-target column, as shown here. In this thesis, genes has been the primary key
-identifier in both source and target column.
+target column, as shown here. In this thesis, approved gene symbols from HGNC
+has been the primary key identifier in both source and target column.
 \begin{figure}[H]
     \label{fig:nodes}
     \includegraphics[width=15cm]{3-nodes}
@@ -42,7 +47,11 @@ in the previous screen - having set everything to the correct settings.
 \end{figure}
 
 If the user wishes to weight nodes for clustering or the ranking of them, it is
-possible to do this with the "Import Columns From Table" function.
+possible to do this with the "Import Columns From Table" function. Adding prior
+scores to the iRefWeb network that was created, the file representing the table
+to import scores from had two columns, "geneName", which representet the gene
+symbol and was the primary key for matching the score with the right row in the
+Cytoscape tables, and "score", which contained scores between 0 and 1.
 \begin{figure}[H]
     \label{fig:import-table}
     \includegraphics[width=15cm]{5-import-table}
@@ -50,12 +59,12 @@ possible to do this with the "Import Columns From Table" function.
 
 To cluster the network, the user has to access the \textit{Apps} menu at the top
 in the toolbar of Cytoscape. In clusterMaker2 there are three rows belonging
-to the plugin. \textit{clusterMaker}, where the clustering algorithms are
-located. \textit{clusterMaker Ranking}, where the cluster ranking algorithms
-\gls{maa},\gls{mam},\gls{pr},\gls{prwp} and \gls{hits} are. Finally, the
-\textit{clusterMaker Visualizatons}, where different visualizations in
-clusterMaker2 can be queried. This row is also where the visualizaton of the
-ranked clusters option resides.
+to the plugin. \textit{clusterMaker} row, where the clustering algorithms are
+located. \textit{clusterMaker Ranking} row, where Ranklust's cluster ranking
+algorithms \gls{maa},\gls{mam},\gls{pr},\gls{prwp} and \gls{hits} are. Finally,
+the \textit{clusterMaker Visualizatons} row, where different visualizations in
+clusterMaker2 can be queried. This row is also where option to visualize
+Ranklust's ranked clusters resides.
 \begin{figure}[H]
     \label{fig:cluster}
     \includegraphics[width=15cm]{6-cluster}
@@ -77,17 +86,23 @@ Here the cluster ranking algorithm menu is shown.
     \includegraphics[width=15cm]{8-choose-ranking}
 \end{figure}
 
-The \gls{prwp} was chosen as the ranking algorithm. Node and edge attributes can
-be combined by the user in any way.
+The "Create rank from the PageRankWithPriors algorithm" (\gls{prwp}) was chosen
+as the ranking algorithm. Node and edge attributes can be combined by the user
+in through simple selection. Selecting no attributes will cause \gls{prwp} to
+not calculate scores at all. If the user does not want to use attributes to rank
+the clusters, but still use PageRank, the "Create rank from the PageRank
+algorithm" (\gls{pr}) algorithm should be used.
 \begin{figure}[H]
     \label{fig:pagerank}
     \includegraphics[width=15cm]{9-pagerank}
 \end{figure}
 
 If the user is interested in visualizing the ranks, it is possible to click the
-"Show results from ranking clusters" option in the visualization menu. No menu
-will appear after that, but rather will Cytoscape open a loading dialog similar
-to when clustering and ranking algorithms has been tasked to start.
+"Show results from ranking clusters" option in the visualization menu of
+clustermaker2. No menu will appear after that, but rather will Cytoscape open
+a loading dialog similar to when clustering and ranking algorithms has been
+tasked to start. After the loading dialog is finished, the results panel for the
+ranked clusters will be shown.
 \begin{figure}[H]
     \label{fig:show-results}
     \includegraphics[width=15cm]{10-show-results}
@@ -111,24 +126,56 @@ As seen in the title. The coloring has been discussed earlier.
     \includegraphics[width=15cm]{11-result-colors}
 \end{figure}
 
-Here is an example of how the clusters change color when selected from the
-results panel menu.
+Here is an example of how the clusters change color when the same cluster is
+selected from the results panel menu.
 \begin{figure}[H]
     \label{fig:rank-selection}
     \includegraphics[width=15cm]{12-rank-selection}
 \end{figure}
 
 \section{Design}
+The class relations in Ranklust's ranking algorithms and ranking results panel
+are described below in simple UML diagrams. The goal of this design was to have
+an implementation of the ranking algorithms and the panel as close to the
+existing clustering algorithms and results panel. 
+
 \begin{figure}[H]
-    \caption{Ranklust ranking algorithm relations}
-    \label{fig:rank-alg}
     \includegraphics[width=\textwidth]{ranklust-algorithm}
+    \label{fig:rank-alg}
+    \caption{Ranklust ranking algorithm relations}
 \end{figure}
+
+The ranking algorithm relations (Figure: \ref{fig:rank-alg}) shows how the
+classes are connected together and what they offer. The context is not
+self-explanatory, but it has responsibility for the GUI component that
+represents each specific ranking algorithm. Each algorithm in Ranklust has its
+own instance of the following classes:
+
+\begin{itemize}
+    \item AlgorithmTaskFactory
+    \item Context
+    \item Algorithm
+\end{itemize}
+
+The rest of the classes are are not unique to any of the ranking algorithms.
+
 \begin{figure}[H]
-    \caption{Ranklust ranking panel relations}
-    \label{fig:rank-panel}
     \includegraphics[width=\textwidth]{ranklust-panel}
+    \label{fig:rank-panel}
+    \caption{Ranklust ranking panel relations}
 \end{figure}
+
+The ranking panel relatinos (Figure: \ref{fig:rank-panel}) shows how the classes
+are connected to the ranking panel. The "Create" and "Destroy" task factories
+exists to be able to destroy all of the panels ranking clusters, or to create
+a new one. They are two separate classes to appear in the Cytoscape menu as two
+separate options. Both of these two classes returns a RankingPanelTask object,
+where the arguments sent to its class constructor defines whether if the task
+should create or destroy a panel. An advantage to have two separate classes
+responsible for creating or destroying a panel is the ability to make them
+unavailable. For example, it is not possible for the user to select the "Destroy
+All Cluster Results Panels" in the "clusterMaker Visualizations" menu, if no
+ranking results panels exists.
 
 \chapter{Identifying network biomarkers through graph analysis}
 \section{How the network was created}
@@ -251,8 +298,8 @@ from the topmost to the lowest ranked cluster. Though, when comparing the
 cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
 ahead by a margin in \gls{rsquared} value.
 
-\section{Benchmarking Ranklust against text mined, curated knowledge and experimental test data}
-\subsection{Retrieving the test data from the DISEASE database}
+\chapter{Benchmarking Ranklust against text mined, curated knowledge and experimental test data}
+\section{Retrieving the test data from the DISEASE database}
 Benchmarking Ranklust is done against three resources of data from a single
 database called DISEASE\cite{jensen}. This database can be queried for diseases
 or genes. The query in this database was limited to searching for a single
@@ -276,7 +323,7 @@ are in some cases related to other prostate cancer genes to such a degree that
 they are susceptible to be candidate cancer biomarkers for prostate cancer. As
 with the cross-validation plots, the zero values in the plots have been removed.
 
-\subsection{Z-scores for text mined genes in clusters}
+\section{Z-scores for text mined genes in clusters}
 \begin{sidewaysfigure}
     \label{fig:txt-iref-prwp}
     \includegraphics[scale=0.63]{prwp_txt_split}
@@ -305,7 +352,7 @@ ranking algorithms perform as expected, would be to have the blue dots
 descending and the orange dots ascending, when looking at a linear regression
 fit going from the topmost ranked cluster to the lowest.
 
-\subsubsection{PRWP benchmarked with text mined genes}
+\subsection{PRWP benchmarked with text mined genes}
 For \gls{prwp} (figure: \ref{fig:txt-iref-prwp}), the prostate cancer candidate genes is
 descending in z-values from the topmost ranked cluster to the lowest, which is
 contributing to showing \gls{prwp}'s suitability for ranking clusters as
@@ -318,21 +365,21 @@ a low z-values does not contradict it. The only fact to deduce from low z-values
 is that they have not been examinated to the degree that they are not mentioned
 as a single gene related to prostate cancer in scientific papers.
 
-\subsubsection{MAA benchmarked with text mined genes}
+\subsection{MAA benchmarked with text mined genes}
 For \gls{maa} (figure: \ref{fig:txt-iref-maa}), the prostate cancer genes have the same
 distinct descension in z-values from the topmost to the lowest cluster ranks.
 The difference from \gls{prwp} to \gls{maa} being that \gls{maa} has a more
 distinct ascending linear regresstion fit for the z-values in the prostate
 candidate cancer genes.
 
-\subsubsection{Conclusion of benchmarking through text mined genes}
+\subsection{Conclusion of benchmarking through text mined genes}
 This demonstrates the main difference between \gls{prwp} and \gls{maa}.
 \gls{prwp} takes network structure into comparison as well as the prior scores,
 so it will rank genes without priors higher than \gls{maa}. \gls{maa} focuses
 purely on the prior scores, and so the network structure of protein complexes
 are being completely ignored.
 
-\subsection{Manually knowledge curated genes in a cluster}
+\section{Manually knowledge curated genes in a cluster}
 \begin{sidewaysfigure}
     \label{fig:know-iref-prwp}
     \includegraphics[scale=0.63]{prwp_know_split}
@@ -376,7 +423,7 @@ related to genes with priors. A higher frequency of manually knowledge curated
 genes would increase the validity of these thrends, should they occur,
 especially if they are subtle.
 
-\subsubsection{PRWP benchmarked by manually knowledge curated genes}
+\subsection{PRWP benchmarked by manually knowledge curated genes}
 For \gls{prwp} (figure: \ref{fig:know-iref-prwp}), the genes with prior scores in
 a cluster have a clear descending trend from the topmost to the lowest ranked
 cluster. This builds up under the validitiy of \gls{prwp} being able to rank
@@ -385,7 +432,7 @@ ascend to a low degree and the \gls{rsquared} for the fit that has this
 ascending trend is not deemed as a good fit for the scores, at a \gls{rsquared}
 value of only 0.002.
 
-\subsubsection{MAA benchmarked by manually knowledge curated genes}
+\subsection{MAA benchmarked by manually knowledge curated genes}
 For \gls{maa} (figure: \ref{fig:know-iref-maa}), the genes with prior scores in a
 cluster have the same trend as in \gls{prwp}. For the genes without prior scores
 in a cluster, the trend also is the same as in \gls{prwp}, but to a higher
@@ -394,7 +441,7 @@ a cluster, for the genes in the cluster without prior scores is an
 \gls{rsquared} value of 0.33, which is considerably higher than the ascending
 value for \gls{prwp}.
 
-\subsubsection{Conclusion of benchmarking through manually knowledge curated genes}
+\subsection{Conclusion of benchmarking through manually knowledge curated genes}
 Benchmarking \gls{maa} with manually knowledge curated gene test data has
 uncovered its weakness of ranking prostate candidate cancer genes correctly.
 \gls{prwp} had the same trend, but the fit was not very accurate and the trend
@@ -403,7 +450,7 @@ curated genes when compared to text mined genes, \gls{maa} is excluded as
 a viable ranking algorithm for prioritizing network biomarkers in prostate
 cancer.
 
-\subsection{Experimental genes distribution of p-values in genes}
+\section{Experimental genes distribution of p-values in genes}
 \begin{sidewaysfigure}
     \label{fig:exp-iref-prwp}
     \includegraphics[scale=0.63]{prwp_exp_split}
@@ -442,7 +489,7 @@ curated data, it is very sparse. As with the previous plots, the genes with
 prior scores in a cluster are colored blue, and the ones without prior scores as
 orange.
 
-\subsubsection{PRWP benchmarked by experimentally mined genes}
+\subsection{PRWP benchmarked by experimentally mined genes}
 For \gls{prwp} (figure: \ref{fig:exp-iref-prwp}), there is a trend for descending
 p-values for the genes with prior scores in a cluster and an ascending p-value
 trend for the genes without prior scores in a cluster. For the genes without
@@ -451,7 +498,7 @@ for prioritizing network biomarkers. For the genes with prior scores, there is
 a single cluster that seems to be the cause of the descending trend but the
 \gls{rsquared} value for the fit of the linear regression is not high.
 
-\subsubsection{MAA benchmarked by experimentally mined genes}
+\subsection{MAA benchmarked by experimentally mined genes}
 For \gls{maa} (figure: \ref{fig:exp-iref-maa}), the trends are the same as with
 \gls{prwp}, but the trends are more noticeable. For the genes with prior scores,
 the descending p-value trend towards the lower ranked clusters are steeper than
@@ -459,7 +506,7 @@ the one in the plot for \gls{prwp}, but the \gls{rsquared} score is very low and
 the as it is in the \gls{prwp} plot, it seems to be a single cluster that is
 responsible for the descending trend in p-values.
 
-\subsubsection{Conclusion of benchmarking through experimentally mined genes}
+\subsection{Conclusion of benchmarking through experimentally mined genes}
 As with the manually knowledge curated genes, the experimental genes have
 a small sampling size. Also, the trends that would discredit Ranklust's ability
 to prioritize network biomarkers is not backed up by very high values of
@@ -467,7 +514,7 @@ confidence in terms of \gls{rsquared} values in the linear regression fits. In
 this specific case of benchmarking Ranklust, it is a high probability that the
 cause of the trend is an outlier in the plot.
 
-\section{Comparison of PRWP and MAA to prostate cancer relevant genes}
+\chapter{Comparison of PRWP and MAA to prostate cancer relevant genes}
 Using \gls{prwp} and \gls{maa}, 6 final lists of prioritized network biomarkers
 for prostate cancer will be presented. These 6 lists will be the result of
 3 \gls{prwp} and 3 \gls{maa} ranked clusters from the whole iRefWeb filtered
@@ -475,12 +522,12 @@ network with gene names and the scored with the full \gls{golden}. Each of the
 3 ranking results from both algorithms will use the same three sets of data,
 namely movember, cosmica and lethal.
 
-\subsection{Using Ranklust to rank the clusters of a network}
+\section{Using Ranklust to rank the clusters of a network}
 The exact workflow of using Ranklust to create the ranks that the test data is
 compared to is exactly as explained earlier in both the methods chapter and the
 workflow part of this results chapter.
 
-\subsubsection{Step 1 - create the network and fill it with prior scores}
+\subsection{Step 1 - create the network and fill it with prior scores}
 The network was downloaded from iRefWeb. This network consisted of protein
 interactions to create an unweighted and undirected PPI network. These proteins
 was then filtered with their corresponding gene names taken from HGNC. Most of
@@ -491,19 +538,19 @@ The \gls{golden} was created as explained earlier, with prostate cancer data
 from DisGeNET and \gls{dragon}. The network was uploaded into Cytoscape and
 populated with the prior scores. 
 
-\subsubsection{Step 2 - Clustering the network}
+\subsection{Step 2 - Clustering the network}
 The Markov Cluster algorithm, MCL, was used to cluster the iRefWeb network with
 an inflation parameter of 1.8 and 200 iterations. This process took about 15
 hours on the High-Performance Computing (HPC) instance Invitro at the University
 of Oslo. It used a total of 64 cores, which averaged at a 90-95\% load for the
 majority of the time the cluster algorithm ran.
 
-\subsubsection{Step 3 - Ranking the clusters of the network}
+\subsection{Step 3 - Ranking the clusters of the network}
 \gls{prwp} and \gls{maa} was ran on the network, choosing only the priors in the
 nodes given by the \gls{golden}. The alpha value for \gls{prwp} was set to 0.3
 together with 30 max iterations.
 
-\subsubsection{Step 4 - Exporting cluster ranks from Cytoscape and comparison with test data}
+\subsection{Step 4 - Exporting cluster ranks from Cytoscape and comparison with test data}
 The node table with the results from \gls{prwp} and \gls{maa} was exported to
 csv files, cleaned up with python scripts so it would form clusters containing
 information about which genes was in which clusters, the rank of the cluster and
@@ -534,7 +581,7 @@ From each of these tests, it is displayed the top 10 clusters, which had
 a combined amount of genes in either the "test biomarkers" or the "test
 candidates" column above 0.
 
-\subsection{Prostate cancer genes manually curated from the movember group}
+\section{Prostate cancer genes manually curated from the movember group}
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
@@ -605,7 +652,7 @@ candidates" column above 0.
     \label{tab:maa-movember}
 \end{sidewaystable}
 
-\subsection{Curated prostate cancer genes from the COSMIC database}
+\section{Curated prostate cancer genes from the COSMIC database}
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
@@ -640,7 +687,6 @@ candidates" column above 0.
     genes from the COSMIC data set out of 580 possible}
     \label{tab:prwp-cosmic}
 \end{sidewaystable}
-prwp-cosmic: 423 out of 580
 
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
@@ -678,7 +724,7 @@ prwp-cosmic: 423 out of 580
 \end{sidewaystable}
 maa-cosmic: 277 out of 580
 
-\subsection{Proven prostate cancer genes that resulted in lethal outcome for the patient}
+\section{Proven prostate cancer genes that resulted in lethal outcome for the patient}
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
@@ -714,7 +760,6 @@ maa-cosmic: 277 out of 580
 possible}
     \label{tab:prwp-lethal}
 \end{sidewaystable}
-prwp-lethal: 99 out of 157
 
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
@@ -751,4 +796,33 @@ prwp-lethal: 99 out of 157
 possible}
     \label{tab:maa-lethal}
 \end{sidewaystable}
-maa-lethal: 66 out of 157
+
+\section{Final results from testing PRWP and MAA against prostate cancer test data}
+Comparing \gls{prwp} to \gls{maa} clearly shows that \gls{prwp} is better at
+identifying and prioritizing network biomarkers for prostate cancer. This
+conclusion is based on which of the two ranking algorithms that had the highest
+percentage of genes in the cluster ranks that was found in the test gene sets.
+The main difference between \gls{prwp} and \gls{maa} is, as mentioned earlier,
+that \gls{prwp} takes network structure into consideration when ranking nodes in
+the network, and as a result, manages to give meaningful scores to a greater
+number of clusters than \gls{maa}.
+
+\begin{table}[H]
+    \begin{tabular}{c l c c c}
+        & \textbf{Data set} & \textbf{Hits} & \textbf{Possible hits}
+                           & \textbf{Percentage} \\
+        \hline
+        \multirow{3}{*}{\rotatebox{90}{PRWP}}
+        & Movember & 254 & 271 & 93.7 \\
+        & COSMIC & 423 & 580 & 72.3 \\
+        & Lethal & 99 & 157 & 63.1 \\
+        \hline
+        \multirow{3}{*}{\rotatebox{90}{MAA}}
+        & Movember & 172 & 271 & 64.5 \\
+        & COSMIC & 277 & 580 & 47.8 \\
+        & Lethal & 66 & 157 & 43.0 \\
+        \hline
+    \end{tabular}
+    \label{tab:final}
+    \caption{Test data hits for PRWP and HITS}
+\end{table}
