@@ -10,39 +10,43 @@ undirected edges, but directed edges take better advantage of how \gls{pr},
 
 \subsection{Clustering}
 The clusters could to a greater degree have been filtered more strictly. The
-average cluster size was around 8.8 nodes, the biggest cluster consisted if over
-900 nodes, and the smallest ones were 2.0 nodes in size. Removing the smaller
-clusters with only 2 genes has been done by other researchers because of the low
-likeliness of a protein complex with only 2 genes to have a significant impact
-on disease status. The biggest cluster might also be removed due to its large
-size when compared to the average. Such a large cluster has a good chance of not
-being realisticly compartmentalized into a protein complex, and can skew the
-results in either the direction of false positives or false negatives.
+average cluster size was around 8.8 nodes (Table \ref{tab:mcl-inflation}), the
+biggest cluster consisted if over 900 nodes, and the smallest ones were 2.0 
+nodes in size. Removing the smaller clusters with only 2 genes has been done by
+other researchers because of the low likeliness of a protein complex with only
+2 genes to have a significant impact on disease status. The biggest cluster
+might also be removed due to its large size when compared to the average. Such
+a large cluster has a good chance of not being realistically compartmentalized
+into a protein complex, and can skew the results in either the direction of
+false positives or false negatives.
 
 \subsection{Ranking}
 Ranking the cluster-created network could have been done instead of or
 complimentary to the network which only received cluster attributes as a sign
 of clustering, and had no perturbation of the edges as a result of clustering.
 
-Adjusting the alpha parameter to higher values as 0.8 instead of 0.3 would also
+Adjusting the alpha parameter of \gls{prwp} to higher values as 0.8 instead of 0.3 would also
 give interesting information. Had the cross-validation with \gls{prwp} 
 been done with 0.8, and resulted in a linear regression fit
-\ref{fig:irefweb-prwp} that would have had a less degree of descension of
-candidate cancer genes throughout the cluster ranks, it would be proof of the
-network structure having a bigger effect on the rankings than the priors scores.
+(Figure \ref{fig:irefweb-prwp}) that would have had a less descending trend of
+candidate cancer genes throughout the cluster ranks, it would be significant
+proof of the network structure having a bigger effect on the rankings than the
+priors scores.
 
+\chapter{Conclusion}
 \section{Future work}
 \subsection{General improvements}
-We have used an undirected network, which is not the preferred type to use with
+I have used an undirected network, which is not the preferred type to use with
 PageRank, but it works. An idea could be to use KEGG pathways\cite{kegg}, which
 has the option of downloading directed networks of several types.
 STRING\cite{str} also has some directed network information, together with
 weights. Because of STRINGs size, utilizing a Neo4J database to perform the
-ranking algorithms could be a better option than directly in Cytoscape.
+ranking algorithms could be a better option than directly having Cytoscape do
+all of the heavy computations.
 
 In the future, maybe a database with complete protein complexes could exclude
-the need for clustering, and provide different ways of ranking them based on
-query criterias.
+the need for clustering and provide different ways of ranking them based on
+query criteria.
 
 Other ranking algorithms than PageRank could also be used. There are numerous
 variations based off of this well known algorithm, for example NetRank and
@@ -52,7 +56,7 @@ specific purpose.
 
 In Ranklust, the average score in the nodes becomes the cluster score. PageRank
 was used to combine prior knowledge of cancer genes and network structure to
-identify cancer candidate genes and clusters. Taking the structure of the
+prioritize network biomarers in prostate cancer. Taking the structure of the
 network in higher consideration and maybe consider the distance between the
 nodes to have an effect on the result could be a contribution to the PageRank
 algorithm. Also, going the other way and increase the significance of the prior
@@ -131,4 +135,4 @@ Neo4J, GraphML has shown itself to be a superior format over Cypher. Though, to
 this day, direct queries to a running Neo4J instance has to be done in Cypher,
 and is not possible in GraphML.
 
-\chapter{Conclusion}
+\section{Final results from identifying and prioritizing network biomarkers in prostate cancer}

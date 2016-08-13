@@ -165,7 +165,7 @@ The rest of the classes are are not unique to any of the ranking algorithms.
     \caption{Ranklust ranking panel relations}
 \end{figure}
 
-The ranking panel relatinos (Figure: \ref{fig:rank-panel}) shows how the classes
+The ranking panel relations (Figure: \ref{fig:rank-panel}) shows how the classes
 are connected to the ranking panel. The "Create" and "Destroy" task factories
 exists to be able to destroy all of the panels ranking clusters, or to create
 a new one. They are two separate classes to appear in the Cytoscape menu as two
@@ -177,7 +177,7 @@ unavailable. For example, it is not possible for the user to select the "Destroy
 All Cluster Results Panels" in the "clusterMaker Visualizations" menu, if no
 ranking results panels exists.
 
-\chapter{Identifying network biomarkers through graph analysis}
+\chapter{Prioritizing network biomarkers in prostate cancer through graph analysis}
 \section{How the network was created}
 After querying iRefWeb for the PPI-network with the query displayed earlier
 (figure \ref{fig:irefweb}) the resulting network consisted of 109276 interactions.
@@ -216,7 +216,7 @@ Talking about \gls{mcl} results
 \end{table}
 The modularity of the clustered networks gives an indicator of how well the
 process of creating the clusters went. Modularity is given as a score from 0 to
-1. A score closer to 1 is more preferrable, as this indicates that the clusters
+1. A score closer to 1 is more preferable, as this indicates that the clusters
 created have a good degree of separation to the other clusters in the network.
 The preferred score to end up with would be around 0.8, but in this network
 there has been a good amount of perturbation through the protein-to-gene
@@ -336,10 +336,10 @@ with the cross-validation plots, the zero values in the plots have been removed.
 \end{sidewaysfigure}
 
 The text mined scores are represented by a z-score. The z-score to a gene in the
-text mined data from the DISEASE database is a developed from a co-occurence
+text mined data from the DISEASE database is a developed from a co-occurrence
 score, which increased when a gene and a disease was mentioned together, but
 also decreased when they were mentioned with multiple other genes or diseases.
-This co-occurence score was later converted to z-scores to be more robust to
+This co-occurrence score was later converted to z-scores to be more robust to
 changes to the size of the text corpus in the DISEASE database\cite{jensen}.
 This results in the average z-score to a cluster, which is based on the average
 z-score of each gene in a cluster, to be a benchmark as to how high the cluster
@@ -369,7 +369,7 @@ as a single gene related to prostate cancer in scientific papers.
 For \gls{maa} (figure: \ref{fig:txt-iref-maa}), the prostate cancer genes have the same
 distinct descension in z-values from the topmost to the lowest cluster ranks.
 The difference from \gls{prwp} to \gls{maa} being that \gls{maa} has a more
-distinct ascending linear regresstion fit for the z-values in the prostate
+distinct ascending linear regression fit for the z-values in the prostate
 candidate cancer genes.
 
 \subsection{Conclusion of benchmarking through text mined genes}
@@ -400,13 +400,13 @@ score of 5 stars, due to being manually curated by researchers\cite{jensen}.
 Therefore, the average number of genes in a cluster would receive a knowledge
 score based on if the gene occurs in the knowledge curated part of the
 \gls{jensen} database or not. So the knowledge curated data is only based on
-occurence, and not a specific value, in contrast to the text mined and
+occurrence, and not a specific value, in contrast to the text mined and
 experimentally mined genes in the database. The clusters are split two-ways, in
 a similar way that the benchmark with the text mined genes was, blue for genes
 in the cluster which have priors and orange for the genes that do not have prior
 scores.
 
-Another trait the knowledge curated data posssesses is the amount entries in the
+Another trait the knowledge curated data possesses is the amount entries in the
 \gls{jensen} database that has. Text mined data can be seen as the
 high-throughput technology of retrieving relevant data from papers, while the
 knowledge curated data is manually curated knowledge by researchers. This is why
@@ -420,7 +420,7 @@ a clear ascending trend from the topmost to the lowest ranked cluster, it would
 have been a direct contradiction to the fact that the ranking algorithms should
 be able to rank genes without prior scores in a reasonable way if they are
 related to genes with priors. A higher frequency of manually knowledge curated
-genes would increase the validity of these thrends, should they occur,
+genes would increase the validity of these trends, should they occur,
 especially if they are subtle.
 
 \subsection{PRWP benchmarked by manually knowledge curated genes}
@@ -581,6 +581,11 @@ From each of these tests, it is displayed the top 10 clusters, which had
 a combined amount of genes in either the "test biomarkers" or the "test
 candidates" column above 0.
 
+As a comment to each plot, the topmost ranked cluster in each table will be
+analyzed when it comes to each of the genes it contains. The genes will be
+assigned their functional classification according to PANTHERDB and \gls{jensen}
+database\cite{pantherdb,panther,disgenet}.
+
 \section{Prostate cancer genes manually curated from the movember group}
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
@@ -617,6 +622,30 @@ candidates" column above 0.
     \label{tab:prwp-movember}
 \end{sidewaystable}
 
+\textbf{Top ranked cluster ranked with PRWP and tested with Movember data}
+
+\begin{itemize}
+    \item TNFRSF11B
+        \begin{itemize}
+            \item PantherDB subfamily - Tumor necrosis factor receptor
+                superfamily, member 11b
+            \item \gls{jensen} relation - Relation to several diseases, among
+                them cancer (z-score of 4.2)
+        \end{itemize}
+    \item THBS1
+        \begin{itemize}
+            \item PantherDB subfamily - Thrombospondin-1
+            \item \gls{jensen} relation - Relation to several diseases, among
+                them cancer (z-score of 5.0)
+        \end{itemize}
+    \item VEGFA
+        \begin{itemize}
+            \item PantherDB subfamily - Vascular endothelial growth factor A
+            \item \gls{jensen} relation - Relation to several diseases, among
+                them cancer (z-score of 7.5)
+        \end{itemize}
+\end{itemize}
+
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
@@ -651,6 +680,29 @@ candidates" column above 0.
     test genes from movember data set out of 271 possible}
     \label{tab:maa-movember}
 \end{sidewaystable}
+
+\textbf{Top ranked cluster ranked with MAA and tested with Movember data}
+
+\begin{itemize}
+    \item F2R
+        \begin{itemize}
+            \item PantherDB subfamily - Proteinase-activated receptor 1
+            \item \gls{jensen} relation -  Relation to several diseases, among
+                them cancer (z-score of 3.3)
+        \end{itemize}
+    \item F2RL1
+        \begin{itemize}
+            \item PantherDB subfamily - Proteinase-activated receptor 2
+            \item \gls{jensen} relation - Relation to several diseases, among
+                them cancer (z-score of 2.4)
+        \end{itemize}
+    \item PRTN3
+        \begin{itemize}
+            \item PantherDB subfamily - Myeloblastin
+            \item \gls{jensen} relation - Relation to several diseases, cancer
+                is not among them
+        \end{itemize}
+\end{itemize}
 
 \section{Curated prostate cancer genes from the COSMIC database}
 \begin{sidewaystable}
@@ -688,6 +740,29 @@ candidates" column above 0.
     \label{tab:prwp-cosmic}
 \end{sidewaystable}
 
+\textbf{Top ranked cluster ranked with PRWP and tested with COSMIC data}
+
+\begin{itemize}
+    \item TNFAIP3
+        \begin{itemize}
+            \item PantherDB subfamily - Tumor necrosis factor alpha-induced
+                protein 3
+            \item \gls{jensen} relation - Relation to several diseases, among them
+                cancer (z-score of 3.3)
+        \end{itemize}
+    \item RNF14
+        \begin{itemize}
+            \item PantherDB subfamily - Ubiquitin-protein ligase
+            \item \gls{jensen} relation - Relation to several diseases, among them
+                specificly prostate cancer (z-score of 3.6)
+        \end{itemize}
+    \item TAGLN
+        \begin{itemize}
+            \item PantherDB subfamily - Transgelin
+            \item \gls{jensen} relation - Relation to several diseases, among them
+                cancer (z-score of 4.2)
+        \end{itemize}
+\end{itemize}
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
@@ -722,7 +797,30 @@ candidates" column above 0.
     genes from the COSMIC data set out of 580 possible}
     \label{tab:maa-cosmic}
 \end{sidewaystable}
-maa-cosmic: 277 out of 580
+
+\textbf{Top ranked cluster ranked with MAA and tested with COSMIC data}
+
+\begin{itemize}
+    \item TNFAIP3
+        \begin{itemize}
+            \item PantherDB subfamily - Tumor necrosis factor alpha-induced
+                protein 3
+            \item \gls{jensen} relation - Relation to several diseases, among them
+                cancer (z-score of 3.3)
+        \end{itemize}
+    \item RNF14
+        \begin{itemize}
+            \item PantherDB subfamily - Ubiquitin-protein ligase
+            \item \gls{jensen} relation - Relation to several diseases, among them
+                specificly prostate cancer (z-score of 3.6)
+        \end{itemize}
+    \item TAGLN
+        \begin{itemize}
+            \item PantherDB subfamily - Transgelin
+            \item \gls{jensen} relation - Relation to several diseases, among them
+                cancer (z-score of 4.2)
+        \end{itemize}
+\end{itemize}
 
 \section{Proven prostate cancer genes that resulted in lethal outcome for the patient}
 \begin{sidewaystable}
@@ -761,6 +859,29 @@ possible}
     \label{tab:prwp-lethal}
 \end{sidewaystable}
 
+\textbf{Top ranked cluster ranked with PRWP and tested with Lethal prostate cancer data}
+
+\begin{itemize}
+    \item F2R
+        \begin{itemize}
+            \item PantherDB subfamily - Proteinase-activated receptor 1
+            \item \gls{jensen} relation -  Relation to several diseases, among
+                them cancer (z-score of 3.3)
+        \end{itemize}
+    \item F2RL1
+        \begin{itemize}
+            \item PantherDB subfamily - Proteinase-activated receptor 2
+            \item \gls{jensen} relation - Relation to several diseases, among
+                them cancer (z-score of 2.4)
+        \end{itemize}
+    \item PRTN3
+        \begin{itemize}
+            \item PantherDB subfamily - Myeloblastin
+            \item \gls{jensen} relation - Relation to several diseases, cancer
+                is not among them
+        \end{itemize}
+\end{itemize}
+
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
@@ -797,6 +918,29 @@ possible}
     \label{tab:maa-lethal}
 \end{sidewaystable}
 
+\textbf{Top ranked cluster ranked with MAA and tested with Lethal prostate cancer data}
+
+\begin{itemize}
+    \item F2R
+        \begin{itemize}
+            \item PantherDB subfamily - Proteinase-activated receptor 1
+            \item \gls{jensen} relation -  Relation to several diseases, among
+                them cancer (z-score of 3.3)
+        \end{itemize}
+    \item F2RL1
+        \begin{itemize}
+            \item PantherDB subfamily - Proteinase-activated receptor 2
+            \item \gls{jensen} relation - Relation to several diseases, among
+                them cancer (z-score of 2.4)
+        \end{itemize}
+    \item PRTN3
+        \begin{itemize}
+            \item PantherDB subfamily - Myeloblastin
+            \item \gls{jensen} relation - Relation to several diseases, cancer
+                is not among them
+        \end{itemize}
+\end{itemize}
+
 \section{Final results from testing PRWP and MAA against prostate cancer test data}
 Comparing \gls{prwp} to \gls{maa} clearly shows that \gls{prwp} is better at
 identifying and prioritizing network biomarkers for prostate cancer. This
@@ -826,3 +970,22 @@ number of clusters than \gls{maa}.
     \label{tab:final}
     \caption{Test data hits for PRWP and HITS}
 \end{table}
+
+Also, the are two of the topmost ranked clusters that occur in several of the
+test data sets across ranking algorithms. 
+
+These first cluster consist of the following genes: F2R, F2RL1 and PRTN3. This
+cluster was the topmost ranked cluster by both \gls{prwp} and \gls{maa}, that
+contained genes from the Lethal prostate cancer data set. \gls{maa} also had it
+listed as the topmost ranked cluster, that contained genes from the Movember
+data set.
+
+These second cluster consist of the following genes: TNFAIP3, RNF14 and TAGLN.
+This cluster was the topmost ranked cluster by both \gls{prwp} and \gls{maa},
+that contained genes from the COSMIC test data set.
+
+The cluster that contained F2R, F2RL1 and PRTN3 was the topmost ranked cluster
+in 3 out of the 6 cases with test data. The cluster that contained TNFAIP3,
+RNF14 and TAGLN occured 2 out of 6 times with the test data. The last topmost
+ranked cluster appeared in the Movember data set and was ranked by \gls{prwp}.
+It contained the genes TNFRSF11B, THBS1 and VEGFA.
