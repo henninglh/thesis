@@ -2,48 +2,53 @@
 \label{pa:results}
 \chapter{Ranklust as a tool for researchers}
 \section{The planned workflow in general}
-First off is the general workflow:
+First off is the general workflow: (\ref{fig:ranklust-workflow})
 \begin{figure}
-    \label{fig:ranklust-workflow}
     \includegraphics[scale=0.8]{ranklust_workflow}
+    \caption{General workflow of using Ranklust to rank clusters}
+    \label{fig:ranklust-workflow}
 \end{figure}
 
 \section{Detailed walk-through of using Ranklust}
-To go into more detail, here is the startup screen that the user is met with
-after launching Cytoscape. This assumes that clusterMaker2 with the Ranklust
-contribution is already installed in Cytoscape.
-\begin{figure}
-    \label{fig:startup}
+To go into more detail, here is the startup screen (\ref{fig:startup}) that the
+user is met with after launching Cytoscape. This assumes that clusterMaker2 with
+the Ranklust contribution is already installed in Cytoscape.
+\begin{figure}[H]
     \includegraphics[width=15cm]{1-startup}
+    \caption{Startup screen greeting the user at Cytoscape startup}
+    \label{fig:startup}
 \end{figure}
 
-This screen is what opens up after opting to import a network and choose a
-network file consisting of a header that represents source and target node
-columns, a\_alias and b\_alias. The names for the columns does not have to be
-exactly a\_alias and b\_alias, but there should be some header information
-indicating a source and target gene/node. Having no header in the data imported
-into cytoscape is not a problem, but it requires the user to explicitly specify
-this in the "Advanced Options" menu and check off the "Use first line as column
-names" option.
+This screen (\ref{fig:import}) is what opens up after opting to import a network
+and choose a network file consisting of a header that represents source and
+target node columns, a\_alias and b\_alias. The names for the columns does not
+have to be exactly a\_alias and b\_alias, but there should be some header
+information indicating a source and target gene/node. Having no header in the
+data imported into cytoscape is not a problem, but it requires the user to
+explicitly specify this in the "Advanced Options" menu and check off the "Use
+first line as column names" option.
 \begin{figure}[H]
-    \label{fig:import}
     \includegraphics[width=15cm]{2-import}
+    \caption{Importing a network into Cytoscape}
+    \label{fig:import}
 \end{figure}
 
 It is important to tell Cytoscape which column is considered as the source and
 target column, as shown here. In this thesis, approved gene symbols from HGNC
 has been the primary key identifier in both source and target column.
 \begin{figure}[H]
-    \label{fig:nodes}
     \includegraphics[width=15cm]{3-nodes}
+    \caption{Choosing source and target nodes of the interections in the network}
+    \label{fig:nodes}
 \end{figure}
 
 This is how Cytoscape looks after importing the network and it has finished its
 standard style layout algorithm, which happens automatically after clicking "OK"
 in the previous screen - having set everything to the correct settings.
 \begin{figure}[H]
-    \label{fig:imported-network}
     \includegraphics[width=15cm]{4-imported-network}
+    \caption{Cytoscape view after network import has finished}
+    \label{fig:imported-network}
 \end{figure}
 
 If the user wishes to weight nodes for clustering or the ranking of them, it is
@@ -53,8 +58,9 @@ to import scores from had two columns, "geneName", which representet the gene
 symbol and was the primary key for matching the score with the right row in the
 Cytoscape tables, and "score", which contained scores between 0 and 1.
 \begin{figure}[H]
-    \label{fig:import-table}
     \includegraphics[width=15cm]{5-import-table}
+    \caption{Adding prior scores to the network}
+    \label{fig:import-table}
 \end{figure}
 
 To cluster the network, the user has to access the \textit{Apps} menu at the top
@@ -66,8 +72,9 @@ the \textit{clusterMaker Visualizatons} row, where different visualizations in
 clusterMaker2 can be queried. This row is also where option to visualize
 Ranklust's ranked clusters resides.
 \begin{figure}[H]
-    \label{fig:cluster}
     \includegraphics[width=15cm]{6-cluster}
+    \caption{Choosing the MCL cluster algorithm in clusterMaker2}
+    \label{fig:cluster}
 \end{figure}
 
 This is the view after clusterMaker2 has run the \textit{MCL cluster} method on
@@ -77,13 +84,17 @@ network"-option in the clustering parameter dialog that appears after choosing a
 clustering algorithm from the clusterMaker2 menu.
 \begin{figure}[H]
     \includegraphics[width=15cm]{7-done-cluster}
+    \caption{Network view of the clustered network created by MCL - note the
+    added column in the Node Table}
     \label{fig:done-cluster}
 \end{figure}
 
 Here the cluster ranking algorithm menu is shown.
 \begin{figure}[H]
-    \label{fig:choose-ranking}
     \includegraphics[width=15cm]{8-choose-ranking}
+    \caption{Choosing the PageRankWithPriors (PRWP) ranking algorithm to rank
+    the clusters in the network}
+    \label{fig:choose-ranking}
 \end{figure}
 
 The "Create rank from the PageRankWithPriors algorithm" (\gls{prwp}) was chosen
@@ -93,8 +104,9 @@ not calculate scores at all. If the user does not want to use attributes to rank
 the clusters, but still use PageRank, the "Create rank from the PageRank
 algorithm" (\gls{pr}) algorithm should be used.
 \begin{figure}[H]
-    \label{fig:pagerank}
     \includegraphics[width=15cm]{9-pagerank}
+    \caption{Setting the PRWP parameters before executing the algorithm}
+    \label{fig:pagerank}
 \end{figure}
 
 If the user is interested in visualizing the ranks, it is possible to click the
@@ -104,8 +116,10 @@ a loading dialog similar to when clustering and ranking algorithms has been
 tasked to start. After the loading dialog is finished, the results panel for the
 ranked clusters will be shown.
 \begin{figure}[H]
-    \label{fig:show-results}
     \includegraphics[width=15cm]{10-show-results}
+    \caption{Choosing to visualize the results after the PRWP algorithm has
+    finished}
+    \label{fig:show-results}
 \end{figure}
 
 Here is the results panel displaying the ranked clusters from top to bottom,
@@ -122,15 +136,20 @@ becomes:
 \end{Verbatim}
 As seen in the title. The coloring has been discussed earlier.
 \begin{figure}[H]
-    \label{fig:result-colors}
     \includegraphics[width=15cm]{11-result-colors}
+    \caption{The visualization of the ranked clusters are finished, both colored
+        nodes in the network and the results panel on the right side is
+    displayed to the user}
+    \label{fig:result-colors}
 \end{figure}
 
 Here is an example of how the clusters change color when the same cluster is
 selected from the results panel menu.
 \begin{figure}[H]
-    \label{fig:rank-selection}
     \includegraphics[width=15cm]{12-rank-selection}
+    \caption{Change the color of the nodes in a cluster when the cluster is
+    selected from the results panel}
+    \label{fig:rank-selection}
 \end{figure}
 
 \section{Design}
@@ -141,8 +160,9 @@ existing clustering algorithms and results panel.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{ranklust-algorithm}
+    \caption{UML diagram for Ranklust's class relations for the ranking
+    algorithms}
     \label{fig:rank-alg}
-    \caption{Ranklust ranking algorithm relations}
 \end{figure}
 
 The ranking algorithm relations (Figure: \ref{fig:rank-alg}) shows how the
@@ -161,8 +181,9 @@ The rest of the classes are are not unique to any of the ranking algorithms.
 
 \begin{figure}[H]
     \includegraphics[width=\textwidth]{ranklust-panel}
+    \caption{UML diagram for Ranklust's class relations for the ranking results
+    panel}
     \label{fig:rank-panel}
-    \caption{Ranklust ranking panel relations}
 \end{figure}
 
 The ranking panel relations (Figure: \ref{fig:rank-panel}) shows how the classes
@@ -237,15 +258,15 @@ it was decreased form 1000 to 200 to speed up the time used in the
 \section{Results from cross-validation and what they indicate}
 \begin{sidewaysfigure}
     \includegraphics[scale=0.63]{cv_dist_total_filtered_prwp}
-    \label{fig:irefweb-prwp}
     \caption{Distribution of combined averages of genes, which had their scores
+    \label{fig:irefweb-prwp}
     removed by cross-validation, ranked by PRWP}
 \end{sidewaysfigure}
 
 \begin{sidewaysfigure}
     \includegraphics[scale=0.63]{cv_dist_total_filtered_maa}
-    \label{fig:irefweb-maa}
     \caption{Distribution of combined averages of genes, which had their scores
+    \label{fig:irefweb-maa}
     removed by cross-validation, ranked by MAA}
 \end{sidewaysfigure}
 
@@ -325,14 +346,14 @@ with the cross-validation plots, the zero values in the plots have been removed.
 
 \section{Z-scores for text mined genes in clusters}
 \begin{sidewaysfigure}
-    \label{fig:txt-iref-prwp}
     \includegraphics[scale=0.63]{prwp_txt_split}
     \caption{Average z-score in a cluster ranked by PRWP}
+    \label{fig:txt-iref-prwp}
 \end{sidewaysfigure}
 \begin{sidewaysfigure}
-    \label{fig:txt-iref-maa}
     \includegraphics[scale=0.63]{maa_txt_split}
     \caption{Average z-score in a cluster ranked by MAA}
+    \label{fig:txt-iref-maa}
 \end{sidewaysfigure}
 
 The text mined scores are represented by a z-score. The z-score to a gene in the
@@ -381,17 +402,17 @@ are being completely ignored.
 
 \section{Manually knowledge curated genes in a cluster}
 \begin{sidewaysfigure}
-    \label{fig:know-iref-prwp}
     \includegraphics[scale=0.63]{prwp_know_split}
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by PRWP.}
+    \label{fig:know-iref-prwp}
 \end{sidewaysfigure}
 
 \begin{sidewaysfigure}
-    \label{fig:know-iref-maa}
     \includegraphics[scale=0.63]{maa_know_split}
     \caption{Average distribution of curated knowledge mined genes in clusters
     ranked by MAA.}
+    \label{fig:know-iref-maa}
 \end{sidewaysfigure}
 
 This data had no score except for a confidence score in the \gls{jensen}
@@ -452,14 +473,14 @@ cancer.
 
 \section{Experimental genes distribution of p-values in genes}
 \begin{sidewaysfigure}
-    \label{fig:exp-iref-prwp}
     \includegraphics[scale=0.63]{prwp_exp_split}
     \caption{Average distribution of p-values in clusters ranked by PRWP.}
+    \label{fig:exp-iref-prwp}
 \end{sidewaysfigure}
 \begin{sidewaysfigure}
-    \label{fig:exp-iref-maa}
     \includegraphics[scale=0.63]{maa_exp_split}
     \caption{Average distribution of p-values in clusters ranked by MAA.}
+    \label{fig:exp-iref-maa}
 \end{sidewaysfigure}
 
 All of the experimental genes are from experiments and are a result from
@@ -967,8 +988,8 @@ number of clusters than \gls{maa}.
         & Lethal & 66 & 157 & 43.0 \\
         \hline
     \end{tabular}
-    \label{tab:final}
     \caption{Test data hits for PRWP and HITS}
+    \label{tab:final}
 \end{table}
 
 Also, the are two of the topmost ranked clusters that occur in several of the
