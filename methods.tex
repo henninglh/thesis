@@ -787,3 +787,25 @@ ordered from best to worst scored cluster, left to right, with ascending values
 representing the ranks. The Y-axis represented in all cases an average. This
 average was always calculated by dividing the sum of a specific value for each
 gene, by the total number of genes in the cluster.
+
+\section{Location of source code, data and scripts used in this assignment}
+\begin{Verbatim}[fontsize=\scriptsize]
+https://github.com/henninglh/ranklust-app
+https://github.com/henninglh/data
+https://github.com/henninglh/CyNeo4J
+\end{Verbatim}
+
+The first entry points to the source code of Ranklust. It contains the whole
+clusterMaker2 source code combined with the Ranklust contribution, and can be
+downloaded and compiled with the Java build tool Maven \cite{maven}.
+
+The second entry is where all the data, that has been used at any point in the course
+of this assignment, resides. It contains both the raw data and scripts to create
+the data that was used to create the network, prior scores, benchmarks and test
+data. Note: there exists scripts in this repository that was used at some point,
+but their results did not make it into the thesis.
+
+The third and last entry is where the changes to the CyNeo4j\cite{cyneo4j} app
+for Cytoscape resides. It is complete with the changes mentioned in the future
+work section of the Conclusion chapter. The changes enables the user to
+connect to Neo4j servers that require authentication.
