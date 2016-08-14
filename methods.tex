@@ -22,7 +22,7 @@ panel task class and destroy panel task class.
 At the moment, clusterMaker2 does not officially contain Ranklust. So in order
 to use Ranklust, the user are required to compile the Java source code or
 download the updated JAR-file\cite{jar}(URL: \url{
-https://github.com/henninglh/ranklust-app/ranklust-1.0.0.jar)}. To build this
+https://github.com/henninglh/ranklust-app/ranklust-1.0.0.jar}). To build this
 whole project I have used Maven as a build tool\cite{maven}. To compile the
 project into an executable JAR-file Cytoscape can use, \gls{maven} has to be
 instructed to skip all tests, because the current tests has compilation errors.
@@ -140,9 +140,34 @@ class also creates a \textit{Context} class, which binds information the user
 can input to the GUI to variables, allowing the algorithm to gain access to
 parameter information about the algorithms before they run.
 
-\section{Algorithm}
-% Rank interface
-\section{Ranking panel GUI}
+\section{Algorithms for ranking clusters}
+Each ranking algorithm has atleast three classes, like the clustering
+algorithms. A context class responsible for handling GUI elements visible to the
+user and to convey the parameters and attributes the user sets. A TaskFactory
+class responsible for registering the algorithm with the CyActivator class and
+to encapsule the class executing the ranking algorithm in a TaskIterator class.
+The TaskIterator class is required for every task that is to be executed in
+Ranklust. This is to have control over the sequence that tasks was added to in
+the Cytoscape environment. The third required class is the algorithm class
+itself. It has to contain certain methods in order to compile, but the most
+important one is the run() method, which is the method that is called in order
+to initialize the execution of this class, and as a result of that, the
+algorithm itself.
+
+For every ranking algorithm in Ranklust there is some steps that every ranking
+algorithm has in common:
+\begin{enumerate}
+    \item Initialize progress bars displayed to the user
+    \item Retrieve the clusters through the ClusterUtils.fetchClusters() method
+    \item Initialize other variables needed
+    \item Retrieve node and edge attributes from the Context class
+    \item Insert nodes and edges into a graph (only for PR, PRWP and HITS)
+    \item Execute graph algorithm in JUNG (only for PR, PRWP and HITS)
+    \item Collect and summarize values, create average cluster values and
+        normalize the values
+\end{enumerate}
+
+\section{The results panel from ranking clusters}
 The code for the \textit{RankingPanel} is a copy from the existing
 \textit{ResultsPanel} in clusterMaker2. The results panel has some extra
 information that is removed in the ranking panel. The ranking panel only
