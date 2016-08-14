@@ -33,6 +33,66 @@ candidate cancer genes throughout the cluster ranks, it would be significant
 proof of the network structure having a bigger effect on the rankings than the
 priors scores.
 
+\section{Cross-validation between PRWP and MAA}
+There is clearly a trend in both \gls{prwp} and \gls{maa} (figures:
+\ref{fig:irefweb-prwp} and \ref{fig:irefweb-maa}). The difference between them
+being mainly the number of clusters ranked and the coupling of values around the
+linear regression fit. It is important to point out that this is just a result
+over the distribution of candidate cancer genes at certain ranks. Where the
+clusters are positioned in the rankings may be very different between the
+\gls{prwp} and \gls{maa}.
+
+The values in \gls{prwp} have a tighter coupling, in other words, the distance
+the coordinates have in the scatter plot deviate less from the fit than the ones
+in the \gls{maa} plot. The difference is not huge, as the coefficient of
+determination indicates 0.336 in \gls{prwp} against 0.332 in \gls{maa}. Both
+ranking algorithms achieves a descending distribution of cross-validated genes
+from the topmost to the lowest ranked cluster. Though, when comparing the
+cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
+ahead by a margin in \gls{rsquared} value.
+
+\section{Benchmarking through text mined genes from the DISEASE database}
+This demonstrates the main difference between \gls{prwp} and \gls{maa} (figures:
+\ref{fig:txt-iref-prwp} and \ref{fig:txt-iref-maa}).  \gls{prwp} takes network
+structure into comparison as well as the prior scores, so it will rank genes
+without priors higher than in \gls{maa}. \gls{maa} focuses purely on the prior
+scores, and so the network structure of protein complexes are being completely
+ignored.
+
+\section{Benchmarking through manually knowledge curated genes from the DISEASE database}
+Benchmarking \gls{maa} with manually knowledge curated gene test data has
+uncovered its weakness of ranking prostate candidate cancer genes correctly
+(figures: \ref{fig:know-iref-prwp} and \ref{fig:know-iref-maa}).
+\gls{prwp} had the same trend, but the fit was not very accurate and the trend
+was negligible. Though, with such a small sample size of manually knowledge
+curated genes when compared to text mined genes, \gls{maa} is not necessarily
+excluded as a viable ranking algorithm for prioritizing network biomarkers in
+prostate cancer.
+
+\section{Benchmarking through genes from experiments from the DISEASE database}
+As with the manually knowledge curated genes, the experimental genes have
+a small sampling size (figures: \ref{fig:exp-iref-prwp} and
+\ref{fig:exp-iref-maa}). Also, the trends that would discredit Ranklust's
+ability to prioritize network biomarkers is not backed up by very high values of
+confidence in terms of \gls{rsquared} values in the linear regression fits. In
+this specific case of benchmarking Ranklust, it is of a high probability that
+the cause of the trend is a single outlier in the plot.
+
+\section{Testing the ranks of PRWP and MAA with prostate cancer relevant genes}
+Both \gls{prwp} and \gls{maa} have demonstrated both the ability of identifying
+and prioritizing network biomarkers for prostate cancer according to text mined,
+manually knowledge curated and experimental data. Also, when tested against data
+from the movember project, the COSMIC database and proven lethal prostate cancer
+genes, they managed to prioritize network biomarker genes for prostate cancer
+(tables: \ref{tab:prwp-movember}, \ref{tab:maa-movember}, \ref{tab:prwp-cosmic},
+\ref{tab:maa-cosmic}, \ref{tab:prwp-lethal} and \ref{tab:maa-lethal}).
+
+\gls{prwp} has demonstrated throughout the benchmarks and tests to score
+marginally to significantly better than \gls{maa} in all of the tests and
+benchmarks. \gls{prwp} also managed to score a greater amount of clusters
+compared to \gls{maa} (see captions in tables
+\ref{tab:top10-prwp},\ref{tab:top10-maa}).
+
 \chapter{Conclusion}
 \section{Future work}
 \subsection{General improvements}
@@ -86,7 +146,7 @@ what ranking algorithm should be used, Neo4J was an alternative. It resulted in
 a git fork\cite{git-fork} of the CyNeo4J repository and simple user/password
 authentication was added.
 
-\subsection{Data communication}
+\subsubsection{Data communication}
 Data communication between the Neo4J database server and the Cytoscape instance
 is done through the CyNeo4J app to Cytoscape \cite{cyneo4j}. CyNeo4J is a
 Cytoscape app that was developed during the Google Summer Code 2014 arrangement.
@@ -129,11 +189,14 @@ transactions, which implicit gives support for rollbacks in case something goes
 wrong with the query.
 
 A future improvement to the CyNeo4J app could be to change the communication
-between Neo4J and Cytoscape to be done in GraphML and not Cypher. This is
-because through this whole process of importing and exporting data from and to
-Neo4J, GraphML has shown itself to be a superior format over Cypher. Though, to
-this day, direct queries to a running Neo4J instance has to be done in Cypher,
-and is not possible in GraphML.
+between Neo4J and Cytoscape to be done in GraphML and not Cypher. No convertion
+needs to be done in order to have Cytoscape understand this format since it
+already supports importing networks in this format. Through testing CyNeo4j as
+an alternative to use together with Ranklust, it was also discovered that
+GraphML is not only easy to use with Cytoscape, but it required substantially
+less memory and time while importing GraphML data into a Neo4j database
+instance. Though, to this day (2016-08-14), direct queries to a running Neo4J
+instance does not support GraphML.
 
 \section{Final results from identifying and prioritizing network biomarkers in prostate cancer}
 In the three unique clusters that had the topmost ranks in the results from
@@ -141,4 +204,11 @@ testing \gls{prwp} and \gls{maa} against several data test sources related to
 prostate cancer, every gene in these clusters was related to cancer, except for
 1, PRTN3. \gls{maa} ranked the cluster that contained PRTN3 higher than clusters
 where all of the genes were related to cancer, when checked in the \gls{jensen}
-database. 
+database. Comparing \gls{prwp} to \gls{maa} clearly shows that \gls{prwp} is
+better at identifying and prioritizing network biomarkers for prostate cancer
+(table \ref{tab:final}). This conclusion is based on which of the two ranking
+algorithms that had the highest percentage of genes in the cluster ranks that
+was found in the test gene sets. The main difference between \gls{prwp} and
+\gls{maa} is, as mentioned earlier, that \gls{prwp} takes network structure into
+consideration when ranking nodes in the network, and as a result, manages to
+give meaningful scores to a greater number of clusters than \gls{maa}.

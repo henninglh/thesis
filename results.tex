@@ -302,24 +302,7 @@ second, to prove that the distribution of the combined average in the clusters
 should correlate to the rank they obtained through Ranklust's use of \gls{prwp}
 and \gls{maa}.
 
-\subsection{Differences between ranking with PRWP and MAA}
-There is clearly a trend in both \gls{prwp} and \gls{maa}. The difference
-between them being mainly the number of clusters ranked and the coupling of
-values around the linear regression fit. It is important to point out that this
-is just a result over the distribution of candidate cancer genes at certain
-ranks. Where the clusters resides in the rankings may be very different between
-the \gls{prwp} and \gls{maa}.
-
-The values in \gls{prwp} have a tighter coupling, in other words, the distance
-the coordinates have in the scatter plot deviate less from the fit than the ones
-in the \gls{maa} plot. The difference is not huge, as the coefficient of
-determination indicates 0.336 in \gls{prwp} against 0.332 in \gls{maa}. Both
-ranking algorithms achieves a descending distribution of cross-validated genes
-from the topmost to the lowest ranked cluster. Though, when comparing the
-cross-validation results between \gls{prwp} and \gls{maa}, \gls{prwp} comes out
-ahead by a margin in \gls{rsquared} value.
-
-\chapter{Benchmarking Ranklust against text mined, curated knowledge and experimental test data}
+\chapter{Benchmarking Ranklust against text mined, manually knowledge curated and experimental test data}
 \section{Retrieving the test data from the DISEASE database}
 Benchmarking Ranklust is done against three resources of data from a single
 database called DISEASE\cite{jensen}. This database can be queried for diseases
@@ -393,13 +376,6 @@ The difference from \gls{prwp} to \gls{maa} being that \gls{maa} has a more
 distinct ascending linear regression fit for the z-values in the prostate
 candidate cancer genes.
 
-\subsection{Conclusion of benchmarking through text mined genes}
-This demonstrates the main difference between \gls{prwp} and \gls{maa}.
-\gls{prwp} takes network structure into comparison as well as the prior scores,
-so it will rank genes without priors higher than \gls{maa}. \gls{maa} focuses
-purely on the prior scores, and so the network structure of protein complexes
-are being completely ignored.
-
 \section{Manually knowledge curated genes in a cluster}
 \begin{sidewaysfigure}
     \includegraphics[scale=0.63]{prwp_know_split}
@@ -462,15 +438,6 @@ a cluster, for the genes in the cluster without prior scores is an
 \gls{rsquared} value of 0.33, which is considerably higher than the ascending
 value for \gls{prwp}.
 
-\subsection{Conclusion of benchmarking through manually knowledge curated genes}
-Benchmarking \gls{maa} with manually knowledge curated gene test data has
-uncovered its weakness of ranking prostate candidate cancer genes correctly.
-\gls{prwp} had the same trend, but the fit was not very accurate and the trend
-was negligible. Though, with such a small sample size of manually knowledge
-curated genes when compared to text mined genes, \gls{maa} is excluded as
-a viable ranking algorithm for prioritizing network biomarkers in prostate
-cancer.
-
 \section{Experimental genes distribution of p-values in genes}
 \begin{sidewaysfigure}
     \includegraphics[scale=0.63]{prwp_exp_split}
@@ -526,14 +493,6 @@ the descending p-value trend towards the lower ranked clusters are steeper than
 the one in the plot for \gls{prwp}, but the \gls{rsquared} score is very low and
 the as it is in the \gls{prwp} plot, it seems to be a single cluster that is
 responsible for the descending trend in p-values.
-
-\subsection{Conclusion of benchmarking through experimentally mined genes}
-As with the manually knowledge curated genes, the experimental genes have
-a small sampling size. Also, the trends that would discredit Ranklust's ability
-to prioritize network biomarkers is not backed up by very high values of
-confidence in terms of \gls{rsquared} values in the linear regression fits. In
-this specific case of benchmarking Ranklust, it is a high probability that the
-cause of the trend is an outlier in the plot.
 
 \chapter{Comparison of PRWP and MAA to prostate cancer relevant genes}
 Using \gls{prwp} and \gls{maa}, 6 final lists of prioritized network biomarkers
@@ -625,7 +584,8 @@ database\cite{pantherdb,panther,disgenet}.
         \hline
     \end{tabular}
     \caption{Top 10 clusters from ranking the iRefWeb network with the golden
-    standard priors and PRWP ranking algorithm}
+    standard priors and PRWP ranking algorithm - total amount of ranked
+    clusters: 1340}
     \label{tab:top10-prwp}
 \end{table}
 \begin{table}[H]
@@ -645,7 +605,8 @@ database\cite{pantherdb,panther,disgenet}.
         \hline
     \end{tabular}
     \caption{Top 10 clusters from ranking the iRefWeb network with the golden
-    standard priors and MAA ranking algorithm}
+    standard priors and MAA ranking algorithm - total amount of ranked
+    clusters: 440}
     \label{tab:top10-maa}
 \end{table}
 
@@ -1010,16 +971,7 @@ possible}
         \end{itemize}
 \end{itemize}
 
-\section{Results from testing PRWP and MAA against several data test sources related to prostate cancer}
-Comparing \gls{prwp} to \gls{maa} clearly shows that \gls{prwp} is better at
-identifying and prioritizing network biomarkers for prostate cancer. This
-conclusion is based on which of the two ranking algorithms that had the highest
-percentage of genes in the cluster ranks that was found in the test gene sets.
-The main difference between \gls{prwp} and \gls{maa} is, as mentioned earlier,
-that \gls{prwp} takes network structure into consideration when ranking nodes in
-the network, and as a result, manages to give meaningful scores to a greater
-number of clusters than \gls{maa}.
-
+\section{Results from testing PRWP and MAA against several data test sources with prostate cancer relevant genes}
 \begin{table}[H]
     \begin{tabular}{c l c c c}
         & \textbf{Data set} & \textbf{Hits} & \textbf{Possible hits}
@@ -1040,16 +992,14 @@ number of clusters than \gls{maa}.
     \label{tab:final}
 \end{table}
 
-Also, the are two of the topmost ranked clusters that occur in several of the
-test data sets across ranking algorithms. 
+There are two of the topmost ranked clusters that occur in several of the test
+data sets across ranking algorithms. The first cluster consist of the following
+genes: F2R, F2RL1 and PRTN3. This cluster was the topmost ranked cluster by both
+\gls{prwp} and \gls{maa}, that contained genes from the Lethal prostate cancer
+data set. \gls{maa} also had it listed as the topmost ranked cluster, that
+contained genes from the Movember data set.
 
-These first cluster consist of the following genes: F2R, F2RL1 and PRTN3. This
-cluster was the topmost ranked cluster by both \gls{prwp} and \gls{maa}, that
-contained genes from the Lethal prostate cancer data set. \gls{maa} also had it
-listed as the topmost ranked cluster, that contained genes from the Movember
-data set.
-
-These second cluster consist of the following genes: TNFAIP3, RNF14 and TAGLN.
+The second cluster consist of the following genes: TNFAIP3, RNF14 and TAGLN.
 This cluster was the topmost ranked cluster by both \gls{prwp} and \gls{maa},
 that contained genes from the COSMIC test data set.
 

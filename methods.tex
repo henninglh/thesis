@@ -729,13 +729,16 @@ scoring a network, cluster it, ranking it, assert its suitability to rank
 clusters and present a final list of network candidate biomarkers for prostate
 cancer.
 
-The test data will come from COSMIC/"mail from
-trevor-genes" and...TODO: insert specific test data sources.
+The test data will come from three different sources. Manually expert curated
+genes from the movember group, prostate cancer genes from experiments recorded
+in COSMIC\cite{cosmic-download}, and proven lethal prostate cancer genes from an
+experiment that tried to reduce the amount of over-treatment of prostate cancer
+based on screening from PSA\cite{psa-overtreatment}.
 
 \section{Plot creation}
 The plots was created with an online tool named Plotly\cite{plotly}. Throughout
 the whole process of creating plots, the X-axis represented the cluster ranks,
-ordered from best to worst scored cluster, with ascending values representing
-the ranks. The Y-axis represented in all cases an average. This average was
-always calculated by dividing the value or score under scrutiny, by the size of
-the cluster.
+ordered from best to worst scored cluster, left to right, with ascending values
+representing the ranks. The Y-axis represented in all cases an average. This
+average was always calculated by dividing the sum of a specific value for each
+gene, by the total number of genes in the cluster.

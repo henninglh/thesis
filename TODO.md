@@ -1,5 +1,10 @@
 TODO's
 ======
-- [ ] In the cancer incidents/deaths images, explain what the exponentially
-      expressed letters means
-[http://www.cgl.ucsf.edu/cytoscape/cluster/clusterMaker.shtml](clustermaker explanation)
+- Lethal prostate data
+    - Talk more about this!
+- Movember data
+    - Fix how you mention this!
+- Abstract
+    - Motivation, goal, how-to, conclusion
+- Acknowledgements/Preface
+- Motivational section
