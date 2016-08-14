@@ -1,22 +1,6 @@
 \part{Introduction}
 \label{pa:intro}
-\chapter{Background}
-\section{Motivation}
-Next-generation technologies provide bioinformaticians with data on a scale
-worthy of adding a new label to the biomedicine industry as a whole, namely
-Big Data. With enormous amounts of data comes a great challenge as how to work
-with it. Algorithmic approaches benefit greatly from a bigger size in the amount
-of data to work with and has already shown to take great advantage of the data
-that comes from high-throuput technologies. One of the advantages is
-the potential to identify genes that promote diseases by analyzing biologically
-related networks. Another advantage is the newly gained understanding of the
-topological organization of large-scale molecular networks. Clustering groups
-of these networks into subnetworks depending on their function in the network is
-known as module detection in networks. The goal of this assignment was to
-combine these two newly adapted methods in bioinformatics to develop a tool in
-Cytoscape.
-
-\section{Biomarkers}
+\section{The basic principles of a biomarker}
 A biomarker is a "biological measure of a biological state"
 \cite{biomarker1}. Among other molecular entities, it can be represented by the
 levels of a specific protein in our blood, a specific gene, or a combination the
@@ -145,8 +129,19 @@ even if a patient has prostate cancer, it may not be harmful, promoting the case
 of not taking any action against it at all. So there is need for a new
 biomarker, or at least a better way to diagnose and predict the right treatment.
 
+\section{The goals of this assignment}
+The goals of this assignment is divided into two parts. The first part is
+to develop Ranklust, a contribution to the Cytoscape plugin, clusterMaker2.
+clusterMaker2 have numerous cluster algorithms and Ranklust implements ranking
+algorithms to rank the clusters based on the users specifications. Secondly, to
+assess its ability to prioritize network biomarkers in prostate cancer. The
+second goal will be verified through two separate parts. The first part is to
+benchmark and cross-calidate the ranked clusters. The second is to demonstrate
+its application to rank possible clusters of biomarkers in case studies from
+expert knowledge and high-throughput studies.
+
 \chapter{Networks as a tool for biomarker discovery in cancer research}
-\section{Existing biomarkers}
+\section{The limitations of existing biomarkers in prostate cancer}
 The PSA biomarker is over 20 years old \cite{psa-age}. Through those years, it
 has been discovered other and better biomarkers for prostate cancer than PSA.
 Among those, PCA3, which is detectable through urine samples from patients. It
@@ -267,7 +262,7 @@ a role in cancer. These genes will be identified as candidate biomarkeres for
 prostate cancer. This was mentioned earlier as the
 "guilt-by-association"-principle.
 
-\chapter{Ranklust: An tool to rank clusters}
+\chapter{Ranklust: An tool to rank clusters of biomarkers based on their network properties}
 \section{Cytoscape}
 Cytoscape is the open-source software platform the Ranklust app will be
 developed on. Its main purpose is to visualize molecular interaction networks
@@ -301,22 +296,6 @@ needed to format the data will rarely exceed over 100 lines of code.
 Third-party libraries like pandas\cite{pandas} and numpy\cite{numpy} will
 support the formatting and cleaning of data.
 
-\section{OSGi and design patterns}
-Developing OSGi software promotes modularization \cite{modularization} of the
-code and increase the probability of the app being launched as an official
-Cytoscape app; in addition to provide other developers with the possibility of
-reusing my modules in their own apps. Also, it seems like Java 9 is aimed at
-making it easier to modularize apps along the lines of the OSGi
-standard\cite{jigsaw}, so it might be easier to refactor an application in the
-future from Java 8 to Java 9 when the architecture already is in place. There
-exists several design patterns that could prove to be useful in the development
-of Ranklust. Another strategy to follow may not be a direct design pattern
-\cite{designpattern}, but more of a collection of them, and it is the clean
-code principles by Robert C. Martin \cite{cleancode}. Going against the coding
-principles promoted by the Cytoscape app community and exclude the use of OSGi
-modules will not be done, but third party Java libraries that is not OSGi-ready
-will be used, namely the JUNG library\cite{jung}.
-
 \chapter{Databases}
 \section{Databases for network information}
 Which databases to use has to be considered. The reason to use databases is
@@ -342,7 +321,7 @@ of genes through the webpage's interface\cite{irefweb}. iRefWeb is webpage that
 works with the iRefIndex database and it supplies a network of over 100,000
 interactions between proteins.
 
-\section{Databases for genes}
+\section{Databases for gene information}
 To identify genes, a conversion from proteins to genes had to be performed.
 Since the data from iRefWeb was mined from several databases with a very low
 criteria of quality to get a large network, converting the nodes in the network

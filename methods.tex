@@ -409,6 +409,22 @@ big, with approximately 43,000 edges, which is a considerably smaller network
 than "the internet", which Google tried to rank.
 
 \chapter{Programming specifics}
+\section{OSGi and design patterns}
+Developing OSGi software promotes modularization \cite{modularization} of the
+code and increase the probability of the app being launched as an official
+Cytoscape app; in addition to provide other developers with the possibility of
+reusing my modules in their own apps. Also, it seems like Java 9 is aimed at
+making it easier to modularize apps along the lines of the OSGi
+standard\cite{jigsaw}, so it might be easier to refactor an application in the
+future from Java 8 to Java 9 when the architecture already is in place. There
+exists several design patterns that could prove to be useful in the development
+of Ranklust. Another strategy to follow may not be a direct design pattern
+\cite{designpattern}, but more of a collection of them, and it is the clean
+code principles by Robert C. Martin \cite{cleancode}. Going against the coding
+principles promoted by the Cytoscape app community and exclude the use of OSGi
+modules will not be done, but third party Java libraries that is not OSGi-ready
+will be used, namely the JUNG library\cite{jung}.
+
 \section{Tables vs pure OO}
 One thing in particular that deserves to be mentioned is the way networks are
 handled. The \textit{CyNode} objects, which represents a single node, does not
@@ -533,7 +549,7 @@ the cluster that has this matched node adds its cluster rank score to the edge.
     \item Create single node score from cluster
 \end{enumerate}
 
-\chapter{Data pre- and post-work}
+\chapter{Data preparation pre and post usage of Ranklust}
 Interpreting these results was done solely by Python scripting, from formatting
 the data retrieved from databases in order to construct networks in Cytoscape,
 to cleaning the results exported from Ranklust, and analyzing the cleaned data. 

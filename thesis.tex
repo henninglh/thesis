@@ -108,7 +108,7 @@
 
 \title{Ranklust}
 \subtitle{An extension of the Cytoscape clusterMaker2 plugin and its application
-to find and prioritize network biomarkers in prostate cancer}
+to prioritize network biomarkers in prostate cancer}
 \author{Henning Lund-Hanssen}
 
 \begin{document}
@@ -121,29 +121,39 @@ to find and prioritize network biomarkers in prostate cancer}
 \setlength{\parindent}{12pt}
 
 \chapter*{Abstract}
-Prostate-specific antigen is a prostate cancer biomarker used for screening that
-in a great number of cases has led to overtreatment. The main flaw with this
-biomarker is that mutation or abnormality of a single gene is seldom the single
-cause of a disease. Rather, it is the process of interactions between several
-components in a complex network. Next-generation technologies provide
-bioinformaticians with data on a scale worthy of adding a new label to the
-biomedicine industry as a whole, namely Big Data. With enormous amounts of data
-comes a great challenge as how to work with it. Algorithmic approaches benefit
-greatly from a bigger size in the amount of data to work with and has already
-shown to take great advantage of the data that comes from high-throuput
-technologies. One of the advantages is the potential to identify and prioritize
+Prostate-specific antigen (PSA) is a prostate cancer biomarker used for
+screening that in a great number of cases has led to overtreatment. The main
+flaw with this biomarker is that mutation or abnormality of a single gene is
+seldom the single cause of a disease. Rather, it is the process of interactions
+between several components in a complex network. Next-generation technologies
+provide bioinformaticians with data on a scale worthy of being labeled "Big
+Data". One of the advantages gained is the potential to identify and prioritize
 genes that promote diseases by analyzing biologically related networks. Another
 advantage is the newly gained understanding of the topological organization of
 large-scale molecular networks, which has been achieved through clustering
-networks and creating modules.
+networks, creating subnetworks representing functions. The goal of this
+assignment was to combine these two newly adapted methods in bioinformatics to
+develop a plugin for Cytoscape, a network data integration, analysis and
+visualization tool, in order to prioritize network biomarkers for prostate
+cancer. Through cross-validation, benchmarking against text mined, manually
+knowledge curated and experimental data, Ranklust has demonstrated this ability
+by using the PageRank with Priors algorithm to rank clusters made with the
+Markov Cluster algorithm in a protein-protein interaction network (PPI).
 
-The goal of this assignment was to combine these two
-newly adapted methods in bioinformatics to develop a tool in Cytoscape, in order
-to identify and prioritize network biomarkers for prostate cancer. Through
-cross-validation, benchmarking against text mined, manually knowledge curated
-and experimental data, Ranklust has demonstrated this ability by using the
-PageRank with Priors algorithm to rank clusters made with the Markov Cluster
-algorithm on a protein-protein network (PPI).
+\chapter*{Acknowledgements}
+I would first like to thank my two thesis supervisors. Research Fellow and
+supervisor Trevor Clancy of the Institute for Cancer Research at Oslo University
+Hospital and Group leader and co-supervisor Eivind Hovig of the Institute of
+Cancer Research at the Oslo University Hospital and Professor II of the
+Institute of Informatics at the University of Oslo. You guys have always been
+available when I needed advice, supported me throughout the whole process and
+provided me with invaluable knowledge.
+
+Finally, I must express my very profound gratitude to my family, for their
+unfailing support and continuous encouragement. To my fellow study companions at
+room 3417 Assembler "Assa", Ole-Johan Dahls hus, over the years you guys have
+taught me that procrastination is an art best performed in great company. Thank
+you.
 
 \tableofcontents{}
 \listoffigures{}

@@ -1,13 +1,28 @@
 \part{Results}
 \label{pa:results}
 \chapter{Ranklust as a tool for researchers}
-\section{The planned workflow in general}
-First off is the general workflow: (\ref{fig:ranklust-workflow})
+\section{The general workflow of a Ranklust analysis}
 \begin{figure}[H]
     \includegraphics[scale=0.8]{ranklust_workflow}
     \caption{General workflow of using Ranklust to rank clusters}
     \label{fig:ranklust-workflow}
 \end{figure}
+This workflow (\ref{fig:ranklust-workflow}) represents what planned actions the
+user can take in order to rank and score network clusters. To demonstrate
+Ranklust's ability to prioritize network biomarkers, this workflow was followed
+through the figure:
+
+\begin{enumerate}
+    \item Launched Cytoscape
+    \item Imported undirected PPI network from iRefWeb that had proteins converted to genes
+    \item Cluster with or without weights - without
+    \item Clustered the network with \gls{mcl}, inflation set to 1.8 and iterations to 200
+    \item Rank with or without weights - with
+    \item Imported weights from the \gls{golden} (DisGeNET and \gls{dragon} scores combined)
+    \item Ranked clusters with PageRankWithPriors, alpha set to 0.3 and max interations to 30
+    \item Visualized the cluster ranks
+    \item Exported the node table for further analysis outside of Cytoscape
+\end{enumerate}
 
 \section{Detailed walk-through of using Ranklust}
 To go into more detail, here is the startup screen (\ref{fig:startup}) that the
@@ -35,7 +50,8 @@ first line as column names" option.
 
 It is important to tell Cytoscape which column is considered as the source and
 target column, as shown here. In this thesis, approved gene symbols from HGNC
-has been the primary key identifier in both source and target column.
+has been the primary key identifier in both source and target column
+(\ref{fig:nodes}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{3-nodes}
     \caption{Choosing source and target nodes of the interections in the network}
@@ -44,7 +60,8 @@ has been the primary key identifier in both source and target column.
 
 This is how Cytoscape looks after importing the network and it has finished its
 standard style layout algorithm, which happens automatically after clicking "OK"
-in the previous screen - having set everything to the correct settings.
+in the previous screen - having set everything to the correct settings
+(\ref{fig:imported-network}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{4-imported-network}
     \caption{Cytoscape view after network import has finished}
@@ -56,7 +73,8 @@ possible to do this with the "Import Columns From Table" function. Adding prior
 scores to the iRefWeb network that was created, the file representing the table
 to import scores from had two columns, "geneName", which representet the gene
 symbol and was the primary key for matching the score with the right row in the
-Cytoscape tables, and "score", which contained scores between 0 and 1.
+Cytoscape tables, and "score", which contained scores between 0 and 1
+(\ref{fig:import-table}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{5-import-table}
     \caption{Adding prior scores to the network}
@@ -70,7 +88,7 @@ located. \textit{clusterMaker Ranking} row, where Ranklust's cluster ranking
 algorithms \gls{maa},\gls{mam},\gls{pr},\gls{prwp} and \gls{hits} are. Finally,
 the \textit{clusterMaker Visualizatons} row, where different visualizations in
 clusterMaker2 can be queried. This row is also where option to visualize
-Ranklust's ranked clusters resides.
+Ranklust's ranked clusters resides (\ref{fig:cluster}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{6-cluster}
     \caption{Choosing the MCL cluster algorithm in clusterMaker2}
@@ -81,7 +99,7 @@ This is the view after clusterMaker2 has run the \textit{MCL cluster} method on
 the current network. As seen on the left side menu, a new network has been
 listed. This network only appears if the user sets the "Create new clustered
 network"-option in the clustering parameter dialog that appears after choosing a
-clustering algorithm from the clusterMaker2 menu.
+clustering algorithm from the clusterMaker2 menu (\ref{fig:done-cluster}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{7-done-cluster}
     \caption{Network view of the clustered network created by MCL - note the
@@ -89,7 +107,7 @@ clustering algorithm from the clusterMaker2 menu.
     \label{fig:done-cluster}
 \end{figure}
 
-Here the cluster ranking algorithm menu is shown.
+Here the cluster ranking algorithm menu is shown (\ref{fig:choose-ranking}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{8-choose-ranking}
     \caption{Choosing the PageRankWithPriors (PRWP) ranking algorithm to rank
@@ -102,7 +120,7 @@ as the ranking algorithm. Node and edge attributes can be combined by the user
 in through simple selection. Selecting no attributes will cause \gls{prwp} to
 not calculate scores at all. If the user does not want to use attributes to rank
 the clusters, but still use PageRank, the "Create rank from the PageRank
-algorithm" (\gls{pr}) algorithm should be used.
+algorithm" (\gls{pr}) algorithm should be used (\ref{fig:pagerank}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{9-pagerank}
     \caption{Setting the PRWP parameters before executing the algorithm}
@@ -111,10 +129,10 @@ algorithm" (\gls{pr}) algorithm should be used.
 
 If the user is interested in visualizing the ranks, it is possible to click the
 "Show results from ranking clusters" option in the visualization menu of
-clustermaker2. No menu will appear after that, but rather will Cytoscape open
-a loading dialog similar to when clustering and ranking algorithms has been
-tasked to start. After the loading dialog is finished, the results panel for the
-ranked clusters will be shown.
+clustermaker2 (\ref{fig:show-results}). No menu will appear after that, but
+rather will Cytoscape open a loading dialog similar to when clustering and
+ranking algorithms has been tasked to start. After the loading dialog is
+finished, the results panel for the ranked clusters will be shown.
 \begin{figure}[H]
     \includegraphics[width=15cm]{10-show-results}
     \caption{Choosing to visualize the results after the PRWP algorithm has
@@ -134,7 +152,8 @@ becomes:
 \begin{Verbatim}[fontsize=\scriptsize]
 [mcl]{PRWP}(mitab_lite_4100_final.tsv--clustered)
 \end{Verbatim}
-As seen in the title. The coloring has been discussed earlier.
+As seen in the title (\ref{fig:result-colors}). The coloring has been discussed
+earlier.
 \begin{figure}[H]
     \includegraphics[width=15cm]{11-result-colors}
     \caption{The visualization of the ranked clusters are finished, both colored
@@ -144,7 +163,7 @@ As seen in the title. The coloring has been discussed earlier.
 \end{figure}
 
 Here is an example of how the clusters change color when the same cluster is
-selected from the results panel menu.
+selected from the results panel menu (\ref{fig:rank-selection}).
 \begin{figure}[H]
     \includegraphics[width=15cm]{12-rank-selection}
     \caption{Change the color of the nodes in a cluster when the cluster is
@@ -199,7 +218,7 @@ All Cluster Results Panels" in the "clusterMaker Visualizations" menu, if no
 ranking results panels exists.
 
 \chapter{Prioritizing network biomarkers in prostate cancer through graph analysis}
-\section{How the network was created}
+\section{Network generation for the cross-validation and benchmarking of Ranklust}
 After querying iRefWeb for the PPI-network with the query displayed earlier
 (figure \ref{fig:irefweb}) the resulting network consisted of 109276 interactions.
 After filtering the same network through the protein-to-gene mapping constructed
@@ -216,7 +235,6 @@ representing the score of a gene, so a single row would contain a unique gene in
 the list and the score it received.
 
 \section{Which parameters for clustering was used and why}
-Talking about \gls{mcl} results
 \begin{table}[H]
     \centering
     \begin{tabular}{| l | p{2cm} | p{2cm} | p{2cm} | p{2cm} | p{2cm} | p{2.1cm} |}
@@ -255,7 +273,8 @@ at 1000, but the results converged somewhere between 170 and 200 iterations, so
 it was decreased form 1000 to 200 to speed up the time used in the
 \gls{pipeline}.
 
-\section{Results from cross-validation and what they indicate}
+\section{Cross-validation reveals a trend towards highest rank clusters having
+prostate cancer relevance}
 \begin{sidewaysfigure}
     \includegraphics[scale=0.63]{cv_dist_total_filtered_prwp}
     \caption{Distribution of combined averages of genes, which had their scores
@@ -311,21 +330,25 @@ disease or gene name. No API was found to access the database directly, so to
 retrieve the gene names related to prostate cancer, whole files was downloaded.
 There were three files, one for each type of research put into retrieving the
 data: text mined, manually curated knowledge and experimental data. Each of
-these files was filled with genes and their relation to different diseases, so
+these files was populated with genes and their relation to different diseases, so
 they had to be filtered to only contain genes with information about prostate
 cancer. This was done by only using genes that contained "prostate cancer" in
 the column indicating which disease the specific gene was related to.
 
-The plots representing values in clusters from each of these three files have
-split each cluster in two parts, blue and orange. The blue dots in the scatter
-plot represents the genes in a cluster that has prior scores. The orange dots in
-the scatter plot represent genes in the same cluster as the blue ones in terms
-of which rank they are in based on the x-axis, but they do not have prior
-scores. The blue dots are also mentioned as prostate cancer genes and orange
-dots as prostate candidate cancer genes, because they have no score, but they
-are in some cases related to other prostate cancer genes to such a degree that
-they are susceptible to be candidate cancer biomarkers for prostate cancer. As
-with the cross-validation plots, the zero values in the plots have been removed.
+The figures \ref{fig:txt-iref-prwp}, \ref{fig:txt-iref-maa},
+\ref{fig:know-iref-prwp}, \ref{fig:know-iref-maa}, \ref{fig:exp-iref-prwp} and
+\ref{fig:exp-iref-maa} illustrate plots of the benchmarking of Ranklust against
+the DISEASE database. The plots representing values in clusters from each of
+these three files have split each cluster in two parts, blue and orange. The
+blue dots in the scatter plot represents the genes in a cluster that has prior
+scores. The orange dots in the scatter plot represent genes in the same cluster
+as the blue ones in terms of which rank they are in based on the x-axis, but
+they do not have prior scores. The blue dots are also mentioned as prostate
+cancer genes and orange dots as prostate candidate cancer genes, because they
+have no score, but they are in some cases related to other prostate cancer genes
+to such a degree that they are susceptible to be candidate cancer biomarkers for
+prostate cancer. As with the cross-validation plots, the zero
+values in the plots have been removed.
 
 \section{Z-scores for text mined genes in clusters}
 \begin{sidewaysfigure}

@@ -79,19 +79,33 @@ this specific case of benchmarking Ranklust, it is of a high probability that
 the cause of the trend is a single outlier in the plot.
 
 \section{Testing the ranks of PRWP and MAA with prostate cancer relevant genes}
-Both \gls{prwp} and \gls{maa} have demonstrated both the ability of identifying
-and prioritizing network biomarkers for prostate cancer according to text mined,
-manually knowledge curated and experimental data. Also, when tested against data
-from the movember project, the COSMIC database and proven lethal prostate cancer
-genes, they managed to prioritize network biomarker genes for prostate cancer
-(tables: \ref{tab:prwp-movember}, \ref{tab:maa-movember}, \ref{tab:prwp-cosmic},
+Both \gls{prwp} and \gls{maa} have demonstrated both the ability of prioritizing
+network biomarkers for prostate cancer according to text mined, manually
+knowledge curated and experimental data. Also, when tested against data from the
+movember project, the COSMIC database and proven lethal prostate cancer genes,
+they managed to prioritize network biomarker genes for prostate cancer (tables:
+\ref{tab:prwp-movember}, \ref{tab:maa-movember}, \ref{tab:prwp-cosmic},
 \ref{tab:maa-cosmic}, \ref{tab:prwp-lethal} and \ref{tab:maa-lethal}).
 
 \gls{prwp} has demonstrated throughout the benchmarks and tests to score
 marginally to significantly better than \gls{maa} in all of the tests and
-benchmarks. \gls{prwp} also managed to score a greater amount of clusters
+benchmarks. \gls{prwp} also managed to rank a greater amount of clusters
 compared to \gls{maa} (see captions in tables
 \ref{tab:top10-prwp},\ref{tab:top10-maa}).
+
+A perfect prioritization of these clusters should have contained every gene in
+the test data in the highest ranked clusters. However, this was not likely to be
+the case because the amount of genes from the test data could have had genes
+that did not occur in the network at all. The prioritizations \gls{prwp} and
+\gls{maa} created are the result of a specific PPI network, converted to genes
+and complimented with prior scores related to prostate cancer. In order to
+perfectly assess the prioritization ability of these ranking algorithms against
+each specific set of test data, with the goal of achieving the 100\% percentage
+of genes prioritized above all other irrelevant genes, the network, the
+interactions and the prior scores added would have had to be changed. Future
+work in the area this assignment has focused on could be more specific and
+specialized in what kind of networks, interactions and prior scores that is
+being used, in order to achieve a better prioritization result.
 
 \chapter{Conclusion}
 \section{Future work}
@@ -198,17 +212,17 @@ less memory and time while importing GraphML data into a Neo4j database
 instance. Though, to this day (2016-08-14), direct queries to a running Neo4J
 instance does not support GraphML.
 
-\section{Final results from identifying and prioritizing network biomarkers in prostate cancer}
+\section{Final results from prioritizing network biomarkers in prostate cancer}
 In the three unique clusters that had the topmost ranks in the results from
 testing \gls{prwp} and \gls{maa} against several data test sources related to
 prostate cancer, every gene in these clusters was related to cancer, except for
 1, PRTN3. \gls{maa} ranked the cluster that contained PRTN3 higher than clusters
 where all of the genes were related to cancer, when checked in the \gls{jensen}
-database. Comparing \gls{prwp} to \gls{maa} clearly shows that \gls{prwp} is
-better at identifying and prioritizing network biomarkers for prostate cancer
+database. Comparing \gls{prwp} to \gls{maa} shows that \gls{prwp} is
+better at prioritizing network biomarkers for prostate cancer
 (table \ref{tab:final}). This conclusion is based on which of the two ranking
 algorithms that had the highest percentage of genes in the cluster ranks that
 was found in the test gene sets. The main difference between \gls{prwp} and
 \gls{maa} is, as mentioned earlier, that \gls{prwp} takes network structure into
 consideration when ranking nodes in the network, and as a result, manages to
-give meaningful scores to a greater number of clusters than \gls{maa}.
+prioritize a greater number of clusters than \gls{maa}.
