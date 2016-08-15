@@ -32,13 +32,12 @@ with the first alternative throughout this assignment. Though, it does not
 necessarily indicate that the disconnected graph-version is a poor choice to
 prioritize network biomarkers on.
 
-Adjusting the alpha parameter of \gls{prwp} to higher values as 0.8 instead of 0.3 would also
-give interesting information. Had the cross-validation with \gls{prwp} 
-been done with 0.8, and resulted in a linear regression fit
-(Figure \ref{fig:irefweb-prwp}) that would have had a less descending trend of
-candidate cancer genes throughout the cluster ranks, it would be significant
-proof of the network structure having a bigger effect on the rankings than the
-priors scores.
+Adjusting the alpha parameter of \gls{prwp} to higher values as 0.8 instead of
+0.3 would also give interesting information. Had the cross-validation with
+\gls{prwp} been done with 0.8, and resulted in a linear regression fit (Figure
+\ref{fig:irefweb-prwp}) that would have had a less descending trend of candidate
+cancer genes throughout the cluster ranks, it would be significant proof of the
+network structure having a bigger effect on the rankings than the priors scores.
 
 \subsection{General improvements}
 I have used an undirected network, which is not the preferred type to use with
@@ -154,6 +153,8 @@ contribution to clusterMaker2
 \begin{itemize}
     \item User can specify what direction the ranking algorithm should consider
         for the graph
+    \item User can specify a certain color scheme to better adjust for
+        color blindness
 \end{itemize}
 
 \subsection{Ranking through Neo4J}
@@ -220,20 +221,14 @@ instance. Though, to this day (2016-08-14), direct queries to a running Neo4J
 instance does not support GraphML.
 
 \section{Final results from prioritizing network biomarkers in prostate cancer}
-In the three unique clusters that had the topmost ranks in the results from
-testing \gls{prwp} and \gls{maa} against several data test sources related to
-prostate cancer, every gene in these clusters was related to cancer, except for
-1, PRTN3. \gls{maa} ranked the cluster that contained PRTN3 higher than clusters
-where all of the genes were related to cancer, when checked in the \gls{jensen}
-database. Comparing \gls{prwp} to \gls{maa} shows that \gls{prwp} is
-better at prioritizing network biomarkers for prostate cancer
-(table \ref{tab:final}). This conclusion is based on which of the two ranking
-algorithms that had the best results from the benchmarks and the highest
-percentage of genes in the cluster ranks that was found in the test gene sets.
-The main difference between \gls{prwp} and \gls{maa} is, as mentioned earlier,
-that \gls{prwp} takes network structure into consideration when ranking nodes in
-the network, and as a result, manages to prioritize a greater number of clusters
-than \gls{maa}.
+Comparing \gls{prwp} to \gls{maa} shows that \gls{prwp} is better at
+prioritizing network biomarkers for prostate cancer (table \ref{tab:final}).
+This conclusion is based on which of the two ranking algorithms that had the
+best results from the benchmarks and the highest percentage of genes in the
+cluster ranks that was found in the test gene sets. The main difference between
+\gls{prwp} and \gls{maa} is, as mentioned earlier, that \gls{prwp} takes network
+structure into consideration when ranking nodes in the network, and as a result,
+manages to prioritize a greater number of clusters than \gls{maa}.
 
 In this assignment I have described the development of an app extension to
 Cytoscape which ranks clusters of networks based on their biomarker relevance.
