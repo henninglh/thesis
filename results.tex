@@ -593,6 +593,14 @@ assigned their functional classification according to PANTHERDB and \gls{jensen}
 database\cite{pantherdb,panther,disgenet}.
 
 \section{Top 10 clusters from each ranking algorithm in Ranklust}
+These two tables of top 10 ranked clusters
+(\ref{tab:top10-prwp},\ref{tab:top10-maa}) are not tested or benchmarked. They
+are the direct result of what Ranklust produced as ranked clusters. The network
+is the iRefWeb network and the priors used to score the nodes are from the
+\gls{golden}. The tests identifying which genes is where and in which is produced by
+applying the Movember Prostate Cancer Project data, COSMIC and the lethal
+prostate cancer gene signature data to filter this network.
+
 \begin{table}[H]
     \begin{tabular}{l l l l}
         \textbf{Cluster rank} & \textbf{Cluster number} & \textbf{Cluster score} & \textbf{Genes} \\
@@ -636,7 +644,7 @@ database\cite{pantherdb,panther,disgenet}.
     \label{tab:top10-maa}
 \end{table}
 
-\section{Prostate cancer genes manually curated from the movember group}
+\section{Prostate cancer genes manually curated from the Movember Prostate Cancer Group}
 \begin{sidewaystable}
     \begin{tabular}{|l|l|l|l|l|}
         \hline
